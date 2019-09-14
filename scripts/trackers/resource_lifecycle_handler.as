@@ -1,0 +1,671 @@
+// internal
+#include "tracker.as"
+//#include "snd_helpers.as"
+#include "gamemode_invasion.as"
+// --------------------------------------------
+
+// This tracker manages player and AI
+// lifecycles in CAMPAIGN mode only
+
+// --------------------------------------------
+class ResourceLifecycleHandler : Tracker {
+	GameModeInvasion@ m_metagame;
+
+	protected int m_playerCharacterId;
+	protected array<string> m_playersSpawned;			// stores the unique 'hash' for each active player
+	protected array<uint> m_playerLives = {3,3};		// players 1 and 2 start with 3 lives each
+	protected array<float> m_playerScore = {0.0, 0.0};	// players 1 and 2 start with no XP
+	protected int playerCoins = 3; 						// coins on hand / restart level attempts left
+
+    protected float m_localPlayerCheckTimer;
+    protected float LOCAL_PLAYER_CHECK_TIME = 5.0;
+
+	protected float MIN_SPAWN_X = 530.395; // Left-most X coord within player spawn area (see /maps/snd/objects.svg)
+	protected float MAX_SPAWN_X = 545.197; // Right-most X coord within player spawn area (see /maps/snd/objects.svg)
+	protected float MIN_GOAL_XP = 8.0;
+	protected float MAX_GOAL_XP = 10.0;
+	protected float goalXP = rand(MIN_GOAL_XP, MAX_GOAL_XP);
+	protected float curXP = 0.0;
+
+	protected bool levelComplete;
+
+	// ---------------------------------------------------
+	ResourceLifecycleHandler(GameModeInvasion@ metagame) {
+		@m_metagame = @metagame;
+		levelComplete = false;
+		// enable character_kill tracking for snd game mode (off by default)
+		string trackCharKill = "<command class='set_metagame_event' name='character_kill' enabled='1' />";
+		m_metagame.getComms().send(trackCharKill);
+	}
+
+	/////////////////////////////////
+	// PLAYER CHARACTER LIFECYCLES //
+	/////////////////////////////////
+	protected void handlePlayerConnectEvent(const XmlElement@ event) {
+		// TagName=player_connect_event
+		// TagName=player
+		// color=0.595 0.476 0 1
+		// faction_id=0
+		// ip=123.120.169.132
+		// name=ANOSHI
+		// player_id=2
+		// port=30664
+		// profile_hash=ID<10_numbers>
+		// sid=ID<8_numbers>
+
+		_log("** SND: Processing Player connect request", 1);
+
+		// disallow player spawns while we prepare the playing field...
+		letPlayerSpawn(false);
+
+		const XmlElement@ connector = event.getFirstElementByTagName("player");
+		string connectorHash = connector.getStringAttribute("profile_hash");
+		if (m_playersSpawned.find(connectorHash) < 0) {
+			_log("** SND: known player rejoining", 1);
+			// kill bads near spawn
+			clearSpawnArea();
+		} else if (int(m_playersSpawned.size()) < m_metagame.getUserSettings().m_maxPlayers) {
+			_log("** SND: we still have room in server", 1);
+			m_playersSpawned.insertLast(connectorHash);
+			clearSpawnArea();
+			goalXP += goalXP;
+			approachGoalXP(0.0);
+		}
+	}
+
+	// -----------------------------------------------------------
+    protected void handlePlayerSpawnEvent(const XmlElement@ event) {
+		// TagName=player_spawn
+		// TagName=player
+		// aim_target=0 0 0
+		// character_id=74
+		// color=0.595 0.476 0 1
+		// faction_id=0
+		// ip=117.20.69.32
+		// name=ANOSHI
+		// player_id=2
+		// port=30664
+		// profile_hash=ID<10_numbers>
+		// sid=ID<8_numbers>
+
+		_log("** SND: ResourceLifecycleHandler::handlePlayerSpawnEvent", 1);
+
+		if (curXP < goalXP) {
+			levelComplete = false;
+			_log("** SND: Player spawning on incomplete level.", 1);
+		}
+
+		/* Alpha 0.1.1
+		// when the player spawns, he spawns alone...
+		letPlayerSpawn(false);
+		*/
+
+		// now, work with the spawned player character
+		const XmlElement@ player = event.getFirstElementByTagName("player");
+		if (player !is null) {
+			string playerHash = player.getStringAttribute("profile_hash");
+			int characterId = player.getIntAttribute("character_id");
+			if (m_playersSpawned.find(playerHash) < 0) {
+				_log("** SND: Player hash " + playerHash + " not found in m_playersSpawned array.", 1);
+				if (int(m_playersSpawned.size()) < m_metagame.getUserSettings().m_maxPlayers) {
+					string name = player.getStringAttribute("name");
+					m_playerCharacterId = characterId;
+					m_playersSpawned.insertLast(playerHash);
+					_log("** SND: player " + name + " (" + m_playerCharacterId + ") spawned as player" + int(m_playersSpawned.size()), 1);
+				} else {
+					kickPlayer(player.getIntAttribute("player_id"), "Only " + m_metagame.getUserSettings().m_maxPlayers + " players allowed");
+				}
+				_log("** SND: m_playersSpawned now stores: " + m_playersSpawned[0] + " for player1.", 1);
+			} else {
+				// existing player.
+				_log("** SND: existing player spawned", 1);
+			}
+		} else {
+			_log("** SND: CRITICAL WARNING, player not found in Player Spawn Event");
+		}
+	}
+
+	// -----------------------------------------------------------
+	protected void handlePlayerDieEvent(const XmlElement@ event) {
+		_log("** SND: ResourceLifecycleHandler::handlePlayerDieEvent", 1);
+
+		// skip die event processing if disconnected
+		if (event.getBoolAttribute("combat") == false) return;
+
+		// level already won/lost? bug out
+		if (levelComplete) {
+			_log("** SND: Level already won or lost. Dropping out of method", 1);
+			return;
+		}
+
+		const XmlElement@ deadPlayer = event.getFirstElementByTagName("target");
+		// use profile_hash stored in m_playersSpawned array to id which char died
+		int playerCharId = deadPlayer.getIntAttribute("character_id");
+		string playerHash = deadPlayer.getStringAttribute("profile_hash");
+		int playerNum = m_playersSpawned.find(playerHash); // should return the index or negative if not found
+
+		// lose a life
+		switch (playerNum) {
+			case 0 :
+			case 1 :
+				_log("** SND: Player " + (playerNum + 1) + " lost a life!", 1);
+				if (m_playerLives[playerNum] > 0) {
+					m_playerLives[playerNum] -= 1;
+				}
+				_log("** SND: Player " + (playerNum + 1) + " has " + (playerNum > 0 ? m_playerLives[1] : m_playerLives[0]) + " lives remaining.", 1);
+				break;
+			default :
+				_log("** SND: Can't match profile_hash to a dead player character. No lives lost...");
+				// profile_hash listed in event doesn't exist as an active player. Silently fail to do anything.
+		}
+
+		// check if any player has any lives remaining
+		for (uint i = 0; i < m_playersSpawned.size(); ++ i) {
+			if (m_playerLives[i] <= 0) {
+				_log("** SND: GAME OVER for Player " + (i+1), 1); // can't actually stop one player from respawning. All or nothing
+			}
+		}
+		if ((m_playersSpawned.size() == 1) && (m_playerLives[0] <= 0)) {
+			_log("*** GAME OVER!", 1);
+			processGameOver();
+			return;
+		} else if ((m_playersSpawned.size() == 2) && (m_playerLives[0] <= 0 && m_playerLives[1] <= 0)) {
+			_log("*** GAME OVER!", 1);
+			processGameOver();
+			return;
+		} else {
+			_log("** SND: Saving Game", 1);
+			m_metagame.save();
+			clearSpawnArea();
+		}
+	}
+
+	// --------------------------------------------
+	protected void clearSpawnArea() {
+		// player can't respawn if enemies are within ~70.0 units of the intended base. Need to forcibly remove enemy
+		// units from player's base area...
+		// We're about to kill a lot of people. Stop character_kill tracking for the moment
+		string trackCharKillOff = "<command class='set_metagame_event' name='character_kill' enabled='0' />";
+		m_metagame.getComms().send(trackCharKillOff);
+		// kill enemies anywhere near player base to allow respawn
+		Vector3 position = stringToVector3("538 0 615"); // TODO use base position instead of dodgy hard-code
+
+		// make an array of Xml Elements that stores affected enemy units
+		array<const XmlElement@> exchEnemies = getCharactersNearPosition(m_metagame, position, 1, 80.0f);
+		int exchEnemiesCount = exchEnemies.size();
+
+		// improve?: apply invisi-vest to characters in the kill zone to make them disappear, then kill them
+		killCharactersNearPosition(m_metagame, position, 1, 80.0f); // kill faction 1 (snd)
+
+		// spawn enemies to replace the exchEnemies
+		_log("** SND: Respawning " + exchEnemiesCount + " replacement enemy units.", 1);
+		string randKey = ''; // random character 'Key' name
+
+		float retX = position.get_opIndex(0);
+		float retY = position.get_opIndex(1);
+		float retZ = position.get_opIndex(2) - 90.0;
+		string randPos = Vector3(retX, retY, retZ).toString(); // spawns all replacements in same place...
+		for (int k = 0; k < exchEnemiesCount; ++k) {
+			switch( rand(0, 5) )
+				{ // 5 types of enemy units, weighted to return more base level soldiers
+				case 0 :
+				case 1 :
+					randKey = "rifleman";
+					break;
+				case 2 :
+				case 3 :
+					randKey = "grenadier";
+					break;
+				case 4 :
+					randKey = "covert_ops";
+					break;
+				case 5 :
+					randKey = "commando";
+					break;
+				default:
+					randKey = "rifleman";
+				}
+			string spawnReps = "<command class='create_instance' faction_id='1' position='" + randPos + "' instance_class='character' instance_key='" + randKey + "' /></command>";
+			m_metagame.getComms().send(spawnReps);
+			_log("** SND: Spawned a character at " + randPos, 1);
+		}
+
+		// Reenable character_kill tracking
+		string trackCharKillOn = "<command class='set_metagame_event' name='character_kill' enabled='1' />";
+		m_metagame.getComms().send(trackCharKillOn);
+
+		// allow player to respawn
+		letPlayerSpawn(true);
+	}
+
+	// --------------------------------------------
+	protected void processGameOver() {
+		_log("** SND: Running processGameOver", 1);
+		if (levelComplete) return;
+		// no more respawning allowed
+		letPlayerSpawn(false);
+
+		sleep(2.0f); // brief pause before delivering the bad news
+
+		// check if players still have some coins/continues? If so, can restart level
+		if (playerCoins > 0) {
+			playerCoins --;
+			m_metagame.getComms().send("<command class='set_match_status' lose='1' faction_id='0' />");
+			m_metagame.getComms().send("<command class='set_match_status' win='1' faction_id='1' />");
+			_log("** SND: USING COIN / CONTINUE. " + playerCoins + " CONTINUES REMAINING!", 1);
+			// prep for restart
+			resetLevelStats();
+		}
+		else { // no coins / continues left, campaign lost / game over
+			_log("** SND: no more coins / continues. GAME OVER", 1);
+			XmlElement c("command");
+			c.setStringAttribute("class", "set_campaign_status");
+			c.setStringAttribute("key", "lose");
+			m_metagame.getComms().send(c);
+			levelComplete = true;
+		}
+	}
+
+	// ----------------------------------------------------
+	protected void resetLevelStats() {
+		// player lives to 3
+		for (uint i = 0; i < m_playersSpawned.size(); ++ i) {
+			m_playerLives[i] = 3;
+		}
+		// reset level complete %
+		curXP = 0.0;
+		approachGoalXP(0.0);
+		// level is not complete
+		levelComplete = false;
+	}
+
+	// ----------------------------------------------------
+	protected void ensureValidLocalPlayer(float time) {
+		if (m_playerCharacterId < 0) {
+			m_localPlayerCheckTimer -= time;
+			_log("** SND: m_local_PlayerCheckTimer: " + m_localPlayerCheckTimer,1);
+			if (m_localPlayerCheckTimer < 0.0) {
+				_log("** SND: tracked player character id " + m_playerCharacterId, 1);
+				const XmlElement@ player = m_metagame.queryLocalPlayer();
+				if (player !is null) {
+					//setupCharacterForTracking
+				} else {
+					_log("WARNING, local player query failed", -1);
+				}
+				m_localPlayerCheckTimer = LOCAL_PLAYER_CHECK_TIME;
+			}
+		}
+	}
+
+	// --------------------------------------------
+	protected void letPlayerSpawn(bool spawnAllowed) {
+		XmlElement c("command");
+		c.setStringAttribute("class", "set_soldier_spawn");
+		c.setIntAttribute("faction_id", 0);
+		c.setBoolAttribute("enabled", spawnAllowed);
+		m_metagame.getComms().send(c);
+	}
+
+	// --------------------------------------------
+	protected void kickPlayer(int playerId, string text = "") {
+		sendPrivateMessage(m_metagame, playerId, text);
+		kickPlayerImpl(playerId);
+	}
+
+	// --------------------------------------------
+	protected void kickPlayerImpl(int playerId) {
+		string command = "<command class='kick_player' player_id='" + playerId + "' />";
+		m_metagame.getComms().send(command);
+	}
+
+	//////////////////////////////
+	// ALL CHARACTER LIFECYCLES //
+	//////////////////////////////
+	protected void handleCharacterKillEvent(const XmlElement@ event) {
+		// When enabled, fires whenever an AI character is killed. Manually enabled via class constructor
+
+		// TagName=character_kill
+		// key= method_hint=blast
+
+		// TagName=killer
+		// block=15 18
+		// dead=0
+		// faction_id=0
+		// id=1
+		// leader=1
+		// name=Player
+		// player_id=0
+		// position=538.973 14.7059 623.567
+		// rp=0
+		// soldier_group_name=default
+		// wounded=0
+		// xp=0 (real/float)
+
+		// TagName=target
+		// block=15 17
+		// dead=0
+		// faction_id=1
+		// id=8
+		// leader=0
+		// name=Enemy
+		// player_id=-1
+		// position=537.541 14.7059 610.689
+		// rp=0
+		// soldier_group_name=rifleman
+		// wounded=0
+		// xp=0 (real/float)
+
+		_log("** SND: ResourceLifecycleHandler::handleCharacterKillEvent", 1);
+
+		// we are manually playing death sounds when an AI unit has been killed.
+		string soundFilename = "die" + rand(1,7) + ".wav";
+		playSound(m_metagame, soundFilename, 0);
+
+		const XmlElement@ killerInfo = event.getFirstElementByTagName("killer");
+		if (killerInfo is null) {
+			_log("** SND: Can't determine killer. Ignoring death", 1);
+			return;
+		}
+		const XmlElement@ targetInfo = event.getFirstElementByTagName("target");
+		if (targetInfo is null) {
+			_log("** SND: Can't determine killed unit. Ignoring death", 1);
+			return;
+		}
+
+		// if a player character has died, don't process any further
+		if (targetInfo.getIntAttribute("player_id") >= 0) {
+			_log("** SND: dead character id is a player character. Handled separately", 1);
+			return;
+		}
+
+		// if faction 0 (player), don't process further
+		if (targetInfo.getIntAttribute("faction_id") == 0) {
+			_log("** SND: dead character id is from friendly faction. Ignoring", 1);
+			return;
+		}
+
+        // _log("** SND: store details of dead character " + charId, 1);
+		int charId = targetInfo.getIntAttribute("id");
+		string charName = targetInfo.getStringAttribute("name");
+
+        string charPos = targetInfo.getStringAttribute("position");
+		Vector3 v3charPos = stringToVector3(charPos);
+
+		string charBlock = targetInfo.getStringAttribute("block");
+		int charFactionId = targetInfo.getIntAttribute("faction_id");
+
+		float charXP = targetInfo.getFloatAttribute("xp");
+		int charRP = targetInfo.getIntAttribute("rp");
+		int charLeader = targetInfo.getIntAttribute("leader");
+		string charGroup = targetInfo.getStringAttribute("soldier_group_name");
+
+		_log("** SND: Character " + charId + " (" + charName + charGroup + "), with " + charXP + " XP, has died.", 1);
+
+		// TODO commando to be carted off the field by medics
+
+		// Run an alive/dead check on Player character(s)
+		int playerCharId = killerInfo.getIntAttribute("id");
+		const XmlElement@ playerCharInfo = getCharacterInfo(m_metagame, playerCharId);
+		int playerCharIsDead = playerCharInfo.getIntAttribute("dead");
+		if (playerCharIsDead == 1) {
+			_log("** SND: Player character is dead. No rewards given");
+			return;
+		}
+		// Player is alive and well. Add enemy's XP to total score for level
+		approachGoalXP(charXP);
+
+		// Increase player's score
+		if (killerInfo.getStringAttribute("name") == "Player ") { // trailing space intentional
+			int playerKiller = killerInfo.getIntAttribute("player_id");
+			_log("** SND: playerKiller ID is: " + playerKiller, 1);
+			float xp = targetInfo.getFloatAttribute("xp");
+			if ((playerKiller >= 0) && (playerKiller < m_metagame.getUserSettings().m_maxPlayers)) {
+				awardXP(playerKiller, xp);
+			}
+		} else { _log("** SND: killer name is " + killerInfo.getStringAttribute("name")); }
+
+		string playerPos = playerCharInfo.getStringAttribute("position");
+        _log("** SND: Player Character id: " + m_playerCharacterId + " is at: " + playerPos);
+		Vector3 v3playerPos = stringToVector3(playerPos);
+
+		// create a new Vector3 as (enemyX, playerY +2, playerZ)
+		float retX = v3charPos.get_opIndex(0);
+		// if enemy X outside player spawn area X...
+		if (retX < MIN_SPAWN_X) {
+			retX = MIN_SPAWN_X + rand(1, 6);
+		} else if (retX > MIN_SPAWN_X) {
+			retX = MAX_SPAWN_X - rand(1, 6);
+		}
+        float retY = v3playerPos.get_opIndex(1) + 2.0;
+        float retZ = v3playerPos.get_opIndex(2);
+        Vector3 dropPos = Vector3(retX, retY, retZ);
+
+		// based on these details, set a probability for a weapon/power-up/etc. to spawn
+		if (charLeader == 1) { // artificially bump XP for greater chance of drop and reward when a squad leader dies
+			charXP += 0.1;
+		}
+		if (rand(1, 100) > 80) {
+			// Group-based drop logic (enemies may drop specific equipment on death)
+			if (charGroup == "rifleman") {
+				return;
+			} else if (charGroup == "commando") {
+				dropPowerUp(dropPos.toString(), "grenade", "player_grenade.projectile"); // drop grenade
+			} else if (charXP > 0.5) {
+				dropPowerUp(dropPos.toString(), "weapon", "player_mg.weapon"); // drop minigun
+			} else if (charXP > 0.3) {
+				dropPowerUp(dropPos.toString(), "weapon", "player_mp.weapon"); // drop machine pistol
+			} else if (charXP > 0.2) {
+				dropPowerUp(dropPos.toString(), "weapon", "player_sg.weapon"); // drop shotgun
+			} // revert to default weapon after X seconds have elapsed...
+			else {
+				_log("** SND: XP too low, Nothing dropped", 1);
+			}
+		}
+	}
+
+	// -----------------------------------------------------------
+	protected void awardXP(int playerKiller, float xp) {
+		if ((playerKiller > m_playersSpawned.size()) || (playerKiller < 0)) {
+			_log("** SND: WARNING!! playerKiller int is " + playerKiller + ". Doesn't look right. Breaking out to prevent logic fault", 1);
+			return;
+		}
+		// match playerKiller's ID to the appropriate player
+		m_playerScore[playerKiller] += xp;
+		_log("** SND: Player " + (playerKiller + 1) + " XP now at " + int(m_playerScore[playerKiller]), 1);
+	}
+
+	///////////////////////
+	// POWERUP LIFECYCLE //
+	///////////////////////
+	protected void dropPowerUp(string position, string instanceClass, string instanceKey) {
+		// between the invisible walls the the player character is locked within (enemyX, playerY+2, playerZ)
+		if (levelComplete) {
+			return;
+		}
+    _log("** SND: dropping a " + instanceKey + " at " + position, 1);
+    string creator = "<command class='create_instance' faction_id='0' position='" + position + "' instance_class='" + instanceClass + "' instance_key='" + instanceKey + "' activated='0' />";
+    m_metagame.getComms().send(creator);
+		_log("** SND: item placed at " + position, 1);
+    // ensure only player weapons are dropped
+	}
+
+	///////////////////
+	// MAP LIFECYCLE //
+	///////////////////
+	protected void approachGoalXP(float xp) {
+		if (levelComplete) {
+			return;
+		}
+		curXP += xp;
+		int levelCompletePercent = int(curXP / goalXP * 100);
+		_log("** SND: current XP is: " + int(curXP) + " of " + int(goalXP), 1);
+		if (levelCompletePercent > 100) { levelCompletePercent = 100; }
+		_log("** SND: Level completion: " + levelCompletePercent + "%", 1);
+
+		// notify text
+		if (levelCompletePercent > 0) {
+			string statusReport = "<command class='notify' text='" + "Level completion: " + levelCompletePercent + "%' />";
+			m_metagame.getComms().send(statusReport);
+		}
+
+		// scoreboard text
+		string levelCompleteText = "";
+		for (int i = 0; i < levelCompletePercent / 3; ++i) {
+			levelCompleteText += "\u0023"; // #
+		}
+		for (int j = levelCompletePercent / 3; j < 33; ++j) {
+			levelCompleteText += "\u002D"; // -
+		}
+		string scoreBoardText = "<command class='update_score_display' id='0' text='ENEMY: " + levelCompleteText + "'></command>";
+		m_metagame.getComms().send(scoreBoardText);
+
+		if (curXP >= goalXP) {
+			_log("** SND: LEVEL COMPLETE!", 1);
+			curXP = 0.0; // ready to start next level
+			m_metagame.getComms().send("<command class='set_match_status' faction_id='1' lose='1' />");
+			m_metagame.getComms().send("<command class='set_match_status' faction_id='0' win='1' />");
+			levelComplete = true;
+		}
+	}
+
+	////////////////////////
+	// VEHICLE LIFECYCLES //
+	////////////////////////
+	protected void handleVehicleDestroyEvent(const XmlElement@ event) {
+		// TagName=vehicle_destroyed_event
+		// character_id=75
+		// faction_id=0
+		// owner_id=0
+		// position=559.322 14.6788 618.121
+		// vehicle_key=env_building_1_1_1.vehicle
+
+		// in this game mode, all vehicles spawn a dummy vehicle (with 0 ttl) when destroyed
+		// this allows us to group large numbers of vehicles into sets, and issue rewards according to the vehicle's difficulty
+
+		// we are only interested in the destruction of 'env_*'(ironment) structures
+        if (!startsWith(event.getStringAttribute("vehicle_key"), "env_")) {
+			return;
+		}
+		_log("** SND: VehicleHandler going to work!", 1);
+		// variablise attributes
+		string vehKey = event.getStringAttribute("vehicle_key");
+		int playerCharId = event.getIntAttribute("character_id");
+		int playerKiller;
+
+		array<const XmlElement@> players = getPlayers(m_metagame);
+		for (uint i = 0; i < players.size(); ++i) {
+			const XmlElement@ player = players[i];
+			int characterId = player.getIntAttribute("character_id");
+			if (characterId == playerCharId) {
+				playerKiller = player.getIntAttribute("player_id");
+				break;
+			}
+		}
+
+		// TODO: might compile!
+    }
+
+	// --------------------------------------------
+	bool hasStarted() const { return true; }
+
+	// --------------------------------------------
+	bool hasEnded() const { return false; }
+
+    // --------------------------------------------
+    void update(float time) {
+        ensureValidLocalPlayer(time);
+    }
+
+	// --------------------------------------------
+	void onRemove() {
+		// clear spawn counting when removing tracker - happens at map change or restart
+		m_playersSpawned.clear();
+	}
+
+	// --------------------------------------------
+	void save(XmlElement@ root) {
+		// called by /scripts/gamemodes/campaign/snd_campaign.as
+		XmlElement@ parent = root;
+
+		XmlElement campaignData("campaignData");
+		saveCampaignData(campaignData); // see protected method, below
+		parent.appendChild(campaignData);
+	}
+
+	// --------------------------------------------
+	protected void saveCampaignData(XmlElement@ campaignData) {
+		// writes <campaignData> section to savegames/campaign[0-999].save/metagame_invasion.xml
+		bool doSave = true;
+		_log("** SND: saving campaignData to metagame_invasion.xml", 1);
+
+		// level-specific info
+		XmlElement level("level");
+		level.setFloatAttribute("progress", curXP);
+
+		// save player hashes and lives
+		if (m_playersSpawned.size() > 0) {
+			XmlElement players("players");
+			players.setIntAttribute("continues", playerCoins);
+			for (uint i = 0; i < m_playersSpawned.size(); ++i) {
+				if (m_playersSpawned[i] == "") {
+					// if any spawned player doesn't have an associated hash, we're not in a position to save data
+					_log("** SND: Player " + i + " has no hash recorded. Skipping save.", 1);
+					doSave = false;
+					continue;
+				} else {
+					string pNum = "player" + (i + 1);
+					XmlElement playerData(pNum);
+					playerData.setStringAttribute("hash", m_playersSpawned[i]);
+					playerData.setIntAttribute("lives", m_playerLives[i]);
+					playerData.setFloatAttribute("score", m_playerScore[i]);
+					players.appendChild(playerData);
+				}
+			}
+			if (doSave) {
+				campaignData.appendChild(level);
+				campaignData.appendChild(players);
+				_log("** SND: Player data saved to metagame_invasion.xml", 1);
+			}
+		} else {
+			_log("** SND: no data in m_playersSpawned. No character info to save.", 1);
+		}
+
+
+		// any more info to add here? Create and populate another XmlElement and append to the campaignData XmlElement
+		// campaignData.appendChild(another_XmlElement);
+		_log("** SND: RLH::saveCampaignData() done", 1);
+	}
+
+	// --------------------------------------------
+	void load(const XmlElement@ root) {
+		_log("** SND: Loading Data", 1);
+		m_playersSpawned.clear();
+		m_playerLives.clear();
+		m_playerScore.clear();
+
+		const XmlElement@ campaignData = root.getFirstElementByTagName("campaignData");
+		if (campaignData !is null) {
+			_log("** SND: loading level data", 1);
+			const XmlElement@ levelData = campaignData.getFirstElementByTagName("level");
+			float levelProgress = levelData.getFloatAttribute("progress");
+			approachGoalXP(levelProgress);
+			_log("** SND: loading player data", 1); // tag elements (one element per saved player)
+			array<const XmlElement@> playerData = campaignData.getElementsByTagName("players");
+			for (uint i = 0; i < playerData.size(); ++ i) {
+				_log("** SND: player" + (i + 1), 1); // load player[1..999] tag elements
+				array<const XmlElement@> curPlayer = playerData[i].getElementsByTagName("player" + (i + 1));
+
+				for (uint j = 0; j < curPlayer.size(); ++j) {
+					const XmlElement@ pData = curPlayer[i];
+					string hash = pData.getStringAttribute("hash");
+					m_playersSpawned.insertLast(hash);
+					int lives = pData.getIntAttribute("lives");
+					m_playerLives.insertLast(lives);
+					float score = pData.getFloatAttribute("score");
+					m_playerScore.insertLast(score);
+					_log("** SND: Score: " + score + ". Lives: " + lives, 1);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Player-specific Vehicles, Radio Calls, and Carry Items -->
+<resources>
+	<!-- faction-specific vehicles (not listed in common.resources) -->
+
+	<!-- faction-specific weapons (not listed in common.resources) -->
+	<!--<weapon key="terrorist_specific.weapon" />-->
+
+	<!-- explicitly enable this faction's carry items (listed as disabled in common.resources) -->
+	<carry_item key="common_blank.carry_item" enabled="1" />
+	<carry_item key="common_impervavest.carry_item" enabled="1" />
+	<carry_item key="counter_terrorist.carry_item" enabled="0" />
+	<carry_item key="terrorist.carry_item" enabled="1" />
+</resources>
