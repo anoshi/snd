@@ -24,7 +24,7 @@ void main(dictionary@ inputData) {
 	settings.m_startServerCommand = """
 	<command class='start_server'
 		server_name='SND'
-		server_port='1238'
+		server_port='1234'
 		comment='PvP'
 		url=''
 		register_in_serverlist='1'
