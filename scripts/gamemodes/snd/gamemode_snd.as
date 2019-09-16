@@ -11,7 +11,7 @@ class UserSettings {
 	float m_timeBetweenSubstages = 30.0;
 
 	// search and destroy mode
-	float m_sndMaxTime = 900.0;
+	float m_sndMaxTime = 600.0;
 	int m_sndMaxScore = 5;
 
 	// koth mode
@@ -76,7 +76,7 @@ class GameModeSND : Metagame {
 
 	// --------------------------------------------
 	protected void setupMapRotator() {
-		@m_mapRotator =  MapRotatorMiniModesAll(this);
+		@m_mapRotator =  MapRotatorSNDAll(this);
 	}
 
 	// --------------------------------------------

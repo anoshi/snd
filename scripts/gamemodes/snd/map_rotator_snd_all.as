@@ -1,12 +1,8 @@
 #include "map_rotator_snd.as"
-
 #include "safe_zone.as"
-
-#include "stage_minimodes.as"
-
+#include "stage_snd.as"
 #include "warmup_substage.as"
-
-#include "koth_substage.as"
+#include "snd_substage.as"
 
 
 // --------------------------------------------
@@ -21,11 +17,6 @@ class MapRotatorSNDAll : MapRotatorSND {
 		setupPlaylist2();
 		setupPlaylist3();
 		setupPlaylist4();
-		setupPlaylist5();
-		setupPlaylist6();
-		setupPlaylist7();
-		setupPlaylist8();
-		setupPlaylist9();
 	}
 
 	// ------------------------------------------------------------------------------------------------
@@ -106,10 +97,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 			// actual substages start here
 			{
 				// the map has declared some additional stuff for the substage, matched with a tag
-				float maxTime = m_metagame.getUserSettings().m_tdmMaxTime;
-				int maxScore = m_metagame.getUserSettings().m_tdmMaxScore;
-				SubStage@ substage = TeamDeathmatchSubStage(stage, maxScore, maxTime);
-
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 
 				substage.m_mapViewOverlayFilename = "map6_overlay_tdm2.png";
 
@@ -140,9 +130,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 			}
 
 			{
-				float maxTime = m_metagame.getUserSettings().m_kothMaxTime;
-				float defenseTime = m_metagame.getUserSettings().m_kothDefenseTime;
-				SubStage@ substage = KothSubStage(stage, "Mosque", defenseTime, maxTime);
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 				substage.m_mapViewOverlayFilename = "map6_overlay_koth1.png";
 
 				Match@ match = Match(m_metagame);
@@ -174,9 +164,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 			}
 
 			{
-				float maxTime = m_metagame.getUserSettings().m_thMaxTime;
-				int maxScore = m_metagame.getUserSettings().m_thMaxScore;
-				SubStage@ substage = TeamTeddyHuntSubStage(stage, maxScore, maxTime, "th1");
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 				substage.m_mapViewOverlayFilename = "map6_overlay_th1.png";
 
 				Match@ match = Match(m_metagame);
@@ -210,9 +200,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 
 			{
 				// the map has declared some additional stuff for the substage, matched with a tag
-				float maxTime = m_metagame.getUserSettings().m_tdmMaxTime;
-				int maxScore = m_metagame.getUserSettings().m_tdmMaxScore;
-				SubStage@ substage = TeamDeathmatchSubStage(stage, maxScore, maxTime);
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 				substage.m_mapViewOverlayFilename = "map6_overlay_tdm3.png";
 
 				Match@ match = Match(m_metagame);
@@ -243,9 +233,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 
       {
 				// the map has declared some additional stuff for the substage, matched with a tag
-				float maxTime = m_metagame.getUserSettings().m_tdmMaxTime;
-				int maxScore = m_metagame.getUserSettings().m_tdmMaxScore;
-				SubStage@ substage = TeamDeathmatchSubStage(stage, maxScore, maxTime);
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 				substage.m_mapViewOverlayFilename = "map6_overlay_tdm1.png";
 
 				Match@ match = Match(m_metagame);
@@ -356,9 +346,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 			// actual substages start here
 			{
 				// the map has declared some additional stuff for the substage, matched with a tag
-				float maxTime = m_metagame.getUserSettings().m_tdmMaxTime;
-				int maxScore = m_metagame.getUserSettings().m_tdmMaxScore;
-				SubStage@ substage = TeamDeathmatchSubStage(stage, maxScore, maxTime);
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 
 				substage.m_mapViewOverlayFilename = "map1_overlay_tdm7.png";
 
@@ -389,9 +379,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 			}
 
 			{
-				float maxTime = m_metagame.getUserSettings().m_kothMaxTime;
-				float defenseTime = m_metagame.getUserSettings().m_kothDefenseTime;
-				SubStage@ substage = KothSubStage(stage, "East farm", defenseTime, maxTime);
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 				substage.m_mapViewOverlayFilename = "map1_overlay_koth3.png";
 
 				Match@ match = Match(m_metagame);
@@ -423,9 +413,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 			}
 
 			{
-				float maxTime = m_metagame.getUserSettings().m_thMaxTime;
-				int maxScore = m_metagame.getUserSettings().m_thMaxScore;
-				SubStage@ substage = TeamTeddyHuntSubStage(stage, maxScore, maxTime, "th4");
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 				substage.m_mapViewOverlayFilename = "map1_overlay_th4.png";
 
 				Match@ match = Match(m_metagame);
@@ -459,9 +449,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 
             {
 				// the map has declared some additional stuff for the substage, matched with a tag
-				float maxTime = m_metagame.getUserSettings().m_tdmMaxTime;
-				int maxScore = m_metagame.getUserSettings().m_tdmMaxScore;
-				SubStage@ substage = TeamDeathmatchSubStage(stage, maxScore, maxTime);
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 
 				substage.m_mapViewOverlayFilename = "map1_overlay_tdm2.png";
 
@@ -492,9 +482,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 			}
 
 			{
-				float maxTime = m_metagame.getUserSettings().m_thMaxTime;
-				int maxScore = m_metagame.getUserSettings().m_thMaxScore;
-				SubStage@ substage = TeamTeddyHuntSubStage(stage, maxScore, maxTime, "th1");
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 				substage.m_mapViewOverlayFilename = "map1_overlay_th1.png";
 
 				Match@ match = Match(m_metagame);
@@ -602,9 +592,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 			// actual substages start here
 			{
 				// the map has declared some additional stuff for the substage, matched with a tag
-				float maxTime = m_metagame.getUserSettings().m_tdmMaxTime;
-				int maxScore = m_metagame.getUserSettings().m_tdmMaxScore;
-				SubStage@ substage = TeamDeathmatchSubStage(stage, maxScore, maxTime);
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 
 
 				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
@@ -636,9 +626,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 			}
 
 			{
-				float maxTime = m_metagame.getUserSettings().m_kothMaxTime;
-				float defenseTime = m_metagame.getUserSettings().m_kothDefenseTime;
-				SubStage@ substage = KothSubStage(stage, "Museum", defenseTime, maxTime);
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 				substage.m_mapViewOverlayFilename = "pvp1_overlay_koth1.png";
 
 				Match@ match = Match(m_metagame);
@@ -670,9 +660,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 			}
 
 			{
-				float maxTime = m_metagame.getUserSettings().m_thMaxTime;
-				int maxScore = m_metagame.getUserSettings().m_thMaxScore;
-				SubStage@ substage = TeamTeddyHuntSubStage(stage, maxScore, maxTime, "th1");
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 				substage.m_mapViewOverlayFilename = "pvp1_overlay_th1.png";
 
 				Match@ match = Match(m_metagame);
@@ -706,9 +696,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 
 			{
 				// the map has declared some additional stuff for the substage, matched with a tag
-				float maxTime = m_metagame.getUserSettings().m_tdmMaxTime;
-				int maxScore = m_metagame.getUserSettings().m_tdmMaxScore;
-				SubStage@ substage = TeamDeathmatchSubStage(stage, maxScore, maxTime);
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 
 
 				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
@@ -822,9 +812,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 			// actual substages start here
 			{
 				// the map has declared some additional stuff for the substage, matched with a tag
-				float maxTime = m_metagame.getUserSettings().m_tdmMaxTime;
-				int maxScore = m_metagame.getUserSettings().m_tdmMaxScore;
-				SubStage@ substage = TeamDeathmatchSubStage(stage, maxScore, maxTime);
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 
 				substage.m_mapViewOverlayFilename = "map1_overlay_tdm3.png";
 
@@ -855,9 +845,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 			}
 
 			{
-				float maxTime = m_metagame.getUserSettings().m_thMaxTime;
-				int maxScore = m_metagame.getUserSettings().m_thMaxScore;
-				SubStage@ substage = TeamTeddyHuntSubStage(stage, maxScore, maxTime, "th3");
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 				substage.m_mapViewOverlayFilename = "map1_overlay_th3.png";
 
 				Match@ match = Match(m_metagame);
@@ -890,9 +880,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 			}
 
 			{
-				float maxTime = m_metagame.getUserSettings().m_thMaxTime;
-				int maxScore = m_metagame.getUserSettings().m_thMaxScore;
-				SubStage@ substage = TeamTeddyHuntSubStage(stage, maxScore, maxTime, "th5");
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 				substage.m_mapViewOverlayFilename = "map1_overlay_th5.png";
 
 				Match@ match = Match(m_metagame);
@@ -926,9 +916,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 
 			{
 				// the map has declared some additional stuff for the substage, matched with a tag
-				float maxTime = m_metagame.getUserSettings().m_tdmMaxTime;
-				int maxScore = m_metagame.getUserSettings().m_tdmMaxScore;
-				SubStage@ substage = TeamDeathmatchSubStage(stage, maxScore, maxTime);
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 
 				substage.m_mapViewOverlayFilename = "map1_overlay_tdm1.png";
 
@@ -959,9 +949,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 			}
 
 			{
-				float maxTime = m_metagame.getUserSettings().m_kothMaxTime;
-				float defenseTime = m_metagame.getUserSettings().m_kothDefenseTime;
-				SubStage@ substage = KothSubStage(stage, "West farm", defenseTime, maxTime);
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 				substage.m_mapViewOverlayFilename = "map1_overlay_koth1.png";
 
 				Match@ match = Match(m_metagame);
@@ -993,9 +983,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 			}
 
 			{
-				float maxTime = m_metagame.getUserSettings().m_thMaxTime;
-				int maxScore = m_metagame.getUserSettings().m_thMaxScore;
-				SubStage@ substage = TeamTeddyHuntSubStage(stage, maxScore, maxTime, "th6");
+				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
+				int maxScore = m_metagame.getUserSettings().m_sndMaxScore;
+				SubStage@ substage = SNDSubStage(stage, maxScore, maxTime, "bombLayer");
 				substage.m_mapViewOverlayFilename = "map1_overlay_th6.png";
 
 				Match@ match = Match(m_metagame);

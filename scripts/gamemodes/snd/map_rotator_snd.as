@@ -8,8 +8,7 @@
 
 // generic trackers
 #include "map_rotator.as"
-
-#include "stage_minimodes.as"
+#include "stage_snd.as"
 
 // --------------------------------------------
 class FactionConfig {
@@ -57,8 +56,8 @@ class MapRotatorSND : MapRotator {
 	protected array<FactionConfig@> getAvailableFactionConfigs() {
 		array<FactionConfig@> availableFactionConfigs;
 
-		availableFactionConfigs.push_back(FactionConfig(-1, "counter_terrorist.xml", "Counter Terrorists", "0.1 0.1 0.4", "counter_terrorist.xml"));
-		availableFactionConfigs.push_back(FactionConfig(-1, "terrorist.xml", "Terrorists", "0.4 0.3 0.1", "terrorist.xml"));
+		availableFactionConfigs.push_back(FactionConfig(-1, "counter_terrorist.xml", "Counter Terrorists", "0.1 0.1 0.4"));
+		availableFactionConfigs.push_back(FactionConfig(-1, "terrorist.xml", "Terrorists", "0.4 0.3 0.1"));
 
 		return availableFactionConfigs;
 	}
@@ -102,9 +101,7 @@ class MapRotatorSND : MapRotator {
 	// --------------------------------------------
 	protected void setupStages() {
 		// override this in derived classes to set up stages and substages for rotation
-
 		// in PvPvE, a stage defines the map + the resources to load and the substages that will take place in that map
-
 		// the substages define the match / round logic and faction settings
 	}
 
@@ -230,56 +227,6 @@ class MapRotatorSND : MapRotator {
 	protected void handleMatchEndEvent(const XmlElement@ event) {
 		// override the default MapRotator behavior;
 		// don't do anything here, it's up to substages
-	}
-
-	// ----------------------------------------------------
-	// debugging tools
-	protected void handleChatEvent(const XmlElement@ event) {
-		// player_id
-		// player_name
-		// message
-		// global
-
-		string message = event.getStringAttribute("message");
-		// for the most part, chat events aren't commands, so check that first
-		if (!startsWith(message, "/")) {
-			return;
-		}
-
-		string sender = event.getStringAttribute("player_name");
-		int senderId = event.getIntAttribute("player_id");
-
-
-		if (!m_metagame.getAdminManger().isAdmin(sender, sender_id)) {
-			return;
-		}
-
-   		if (checkCommand(message, "warp")) {
-			parameters = parseParameters(message, "warp");
-			if (parameters.length() > 0) {
-				int index = parameters[0];
-				m_metagame.getComms().send("say warping to " + index);
-				changeMap(index);
-			}
-		} else if (checkCommand(message, "restart")) {
-			restartMap();
-		} else if (checkCommand(message, "start_tournament")) {
-			parameters = parseParameters(message, "start_tournament");
-			if (parameters.length() > 0) {
-				string name = parameters[0];
-				m_metagame.getComms().send("say starting tournament " + name);
-				m_metagame.startTournament(name);
-				restartMap();
-			}
-		} else if (checkCommand(message, "end_tournament")) {
-			if (m_metagame.isTournamentOngoing()) {
-				m_metagame.getComms().send("say tournament " + m_metagame.getTournamentName() + " ends");
-				m_metagame.endTournament();
-			}
-		} else if (checkCommand(message, "end_substage")) {
-			Stage@ stage = getCurrentStage();
-			stage.getCurrentSubstage().end();
-		}
 	}
 
 	// ----------------------------------------------------
