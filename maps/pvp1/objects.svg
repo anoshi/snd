@@ -8060,9 +8060,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.0000001"
-     inkscape:cx="1046.8925"
-     inkscape:cy="1060.016"
+     inkscape:zoom="4.0000002"
+     inkscape:cx="1032.6183"
+     inkscape:cy="1050.2602"
      inkscape:document-units="px"
      inkscape:current-layer="layer40"
      showgrid="false"
@@ -20802,55 +20802,60 @@ key = radar_truck.vehicle;</desc>
            id="desc8011-6-0-5-9-7-9-3-9-87-5-83">template = roof_tile1;</desc>
       </rect>
     </g>
-    <g
-       inkscape:groupmode="layer"
-       id="layer40"
-       inkscape:label="targetLocations">
-      <rect
-         inkscape:label="#rect10748"
-         y="996.02869"
-         x="1010.3674"
-         height="16.917084"
-         width="17.677338"
-         id="generic_node1-7-90"
-         style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
-        <desc
-           id="desc9795-3-5">tag=bomb_target;</desc>
-      </rect>
-      <rect
-         inkscape:label="#rect10748"
-         y="946.0415"
-         x="891.66132"
-         height="16.917084"
-         width="17.677338"
-         id="generic_node1-7-90-7"
-         style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
-        <desc
-           id="desc9795-3-5-9">tag=bomb_target;</desc>
-      </rect>
-      <rect
-         inkscape:label="#rect10748"
-         y="1025.5415"
-         x="1123.6613"
-         height="16.917084"
-         width="17.677338"
-         id="generic_node1-7-90-3"
-         style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
-        <desc
-           id="desc9795-3-5-8">tag=bomb_target;</desc>
-      </rect>
-      <rect
-         inkscape:label="#rect10748"
-         y="900.39246"
-         x="989.06573"
-         height="16.917084"
-         width="17.677338"
-         id="generic_node1-7-90-0"
-         style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
-        <desc
-           id="desc9795-3-5-2">tag=bomb_target;</desc>
-      </rect>
-    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer43"
+     inkscape:label="layer1.targetLocations" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer40"
+     inkscape:label="targetLocations"
+     style="display:inline">
+    <rect
+       inkscape:label="#rect10748"
+       y="996.02869"
+       x="1010.3674"
+       height="16.917084"
+       width="17.677338"
+       id="generic_node1-7-90"
+       style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
+      <desc
+         id="desc9795-3-5">tag=bomb_target;</desc>
+    </rect>
+    <rect
+       inkscape:label="#rect10748"
+       y="946.0415"
+       x="891.66132"
+       height="16.917084"
+       width="17.677338"
+       id="generic_node1-7-90-7"
+       style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
+      <desc
+         id="desc9795-3-5-9">tag=bomb_target;</desc>
+    </rect>
+    <rect
+       inkscape:label="#rect10748"
+       y="1025.5415"
+       x="1123.6613"
+       height="16.917084"
+       width="17.677338"
+       id="generic_node1-7-90-3"
+       style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
+      <desc
+         id="desc9795-3-5-8">tag=bomb_target;</desc>
+    </rect>
+    <rect
+       inkscape:label="#rect10748"
+       y="900.39246"
+       x="989.06573"
+       height="16.917084"
+       width="17.677338"
+       id="generic_node1-7-90-0"
+       style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
+      <desc
+         id="desc9795-3-5-2">tag=bomb_target;</desc>
+    </rect>
   </g>
   <g
      inkscape:groupmode="layer"
