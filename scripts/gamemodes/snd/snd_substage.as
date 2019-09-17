@@ -7,22 +7,23 @@
 #include "score_tracker.as"
 #include "stage_snd.as"
 
-#include "bomb_item_delivery_informer.as"
+#include "bomb_tracker.as"
 #include "bomb_carry_marker.as"
+#include "target_locations.as"
 //#include "vehicle_spawner.as"
 //#include "vehicle_hint_manager.as"
 //#include "spawner.as"
 
 // --------------------------------------------
 class SNDSubStage : SubStage {
-	//protected VehicleSpawner@ m_vehicleSpawner;
+	protected TargetLocations@ m_targetLocations;
 	protected ScoreTracker@ m_scoreTracker;
-	protected string m_crateLayerName = "";
+	protected string m_targetsLayerName = "";
 
 	protected GameTimer@ m_gameTimer;
 
 	// --------------------------------------------
-	SNDSubStage(Stage@ stage, int maxScore, float maxTime, string crateLayerName, bool makeCrateSpotted = true, array<int> competingFactionIds = array<int>(0, 1), int protectorFactionId = 2) {
+	SNDSubStage(Stage@ stage, float maxTime, string targetsLayerName = "targetLocations", array<int> competingFactionIds = array<int>(0, 1), int protectorFactionId = 2) {
 		super(stage);
 
 		m_name = "snd";
@@ -36,19 +37,13 @@ class SNDSubStage : SubStage {
 		for (uint i = 0; i < competingFactionIds.length(); ++i) {
 			scoreTracking[formatInt(competingFactionIds[i])] = true;
 		}
-		@m_scoreTracker = ScoreTracker(m_metagame, this, maxScore, scoreTracking);
-
+		@m_scoreTracker = ScoreTracker(m_metagame, this, 100, scoreTracking);
 		addTracker(m_scoreTracker);
 
-		m_crateLayerName = crateLayerName;
+		m_targetsLayerName = targetsLayerName;
 
-		//addTracker(VehicleHintManager(m_metagame, "event_crate.vehicle", "teddy bear crate in ", "teddy bear crate destroyed in ", -1 /* global announcements */, "base", makeCrateSpotted));
-
-		// passing in $this as listener, on_item_delivery
-		addTracker(BombItemDeliveryInformer(m_metagame, "teddy.carry_item", "teddy bear", -1 /* global announcements */, this));
-		addTracker(BombCarryMarker(m_metagame, "teddy.carry_item"));
-
-		//addTracker(VehicleProtectorInstaSpawner(m_metagame, m_protectorFactionId, "event_crate.vehicle", 10));
+		addTracker(BombTracker(m_metagame, "bomb.projectile", "BOMB", 0));
+		addTracker(BombCarryMarker(m_metagame, "bomb.projectile"));
 	}
 
 	// --------------------------------------------
@@ -61,9 +56,9 @@ class SNDSubStage : SubStage {
 		{
 			array<Vector3> positions;
 
-			array<const XmlElement@> nodes = getGenericNodes(m_metagame, m_crateLayerName, "th_crate");
+			array<const XmlElement@> nodes = getGenericNodes(m_metagame, m_targetsLayerName, "bomb_target");
 			if (nodes !is null) {
-				_log("teddy hunt crates " + nodes.length());
+				_log("** SND: bomb target locations " + nodes.length());
 				for (uint i = 0; i < nodes.length(); i++) {
 					const XmlElement@ node = nodes[i];
 					Vector3 pos = stringToVector3(node.getStringAttribute("position"));;
@@ -71,12 +66,25 @@ class SNDSubStage : SubStage {
 					positions.insertLast(pos);
 				}
 			} else {
-				_log("WARNING, no crates found with " + m_crateLayerName);
+				_log("WARNING, no crates found with " + m_targetsLayerName);
 			}
 
+			// choose 2x bomb target locations from numerous possibilities and mark on map for all to see
+			@m_targetLocations = TargetLocations(m_metagame, positions);
+			addTracker(m_targetLocations);
+
 			// give someone the bomb
-			// @m_vehicleSpawner = VehicleSpawner(m_metagame, m_protectorFactionId, "event_crate.vehicle", positions, 120.0);
-			// addTracker(m_vehicleSpawner);
+				// record which team has the bomb for this round. Other team are on disarm or attrition duty
+
+			// track the bomb
+				// alert all when bomb is correctly deployed within one of the target locations
+				// alert team with bomb when bomb is dropped
+				// alert all when bomb explodes (bombers win, disarmers lose --> cycle map)
+				// alert all when bomb defused (disarmers win, bombers lose --> cycle map)
+
+			// track alive players
+				// alert when one side all dead (other side wins, all dead side loses --> cycle map)
+
 		}
 
 		SubStage::startMatch();
@@ -143,14 +151,6 @@ class SNDSubStage : SubStage {
 		if (winner >= 0) {
 			factionName = factions[winner].getName();
 		}
-
-		/*
-		eventLog.log(dictionary(
-			"type" => "match_end",
-			"winner_faction_id" => winner,
-			"winner_faction_name" => faction_name,
-			"scores" => m_scoreTracker.getScoresAsString()));
-		*/
 
 		end();
 	}

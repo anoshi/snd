@@ -5,6 +5,7 @@
 
 	<!-- faction-specific weapons (not listed in common.resources) -->
 	<!--<weapon key="counter_terrorist_specific.weapon" />-->
+	<weapon key="bomb_resource.weapon" />
 
 	<!-- explicitly enable this faction's carry items (listed as disabled in common.resources) -->
 	<carry_item key="common_blank.carry_item" enabled="1" />

@@ -34,6 +34,8 @@ class Stage {
 		@m_mapInfo = MapInfo();
 
 		m_resourcesToLoad.insertLast("<weapon file='all_weapons.xml' />");
+		m_resourcesToLoad.insertLast("<weapon file='snd_all_weapons.xml' />"); // SND-specific weapons
+		m_resourcesToLoad.insertLast("<projectile file='snd_all_throwables.xml' />"); // SND-specific throwables
 		m_resourcesToLoad.insertLast("<projectile file='all_throwables.xml' />");
 		m_resourcesToLoad.insertLast("<call file='all_calls.xml' />");
 		m_resourcesToLoad.insertLast("<carry_item file='all_carry_items.xml' />");
@@ -223,10 +225,10 @@ abstract class SubStage : Tracker {
 
 		m_winner = -1;
 
-		// enable respawning now
+		// disable respawning (1 life per round)
 		for (uint i = 0; i < m_match.m_factions.length(); ++i) {
 			int id = i;
-			string command = "<command class='set_soldier_spawn' faction_id='" + id + "' enabled='1' />";
+			string command = "<command class='set_soldier_spawn' faction_id='" + id + "' enabled='0' />";
 			m_metagame.getComms().send(command);
 		}
 
