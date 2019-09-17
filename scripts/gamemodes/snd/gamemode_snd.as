@@ -36,8 +36,8 @@ class UserSettings {
 		_log(" * snd max time: " + m_sndMaxTime);
 		_log(" * snd max score: " + m_sndMaxScore);
 
-		_log(" * koth max time: " + m_kothMaxTime);
-		_log(" * koth max defense time: " + m_kothDefenseTime);
+		// _log(" * koth max time: " + m_kothMaxTime);
+		// _log(" * koth max defense time: " + m_kothDefenseTime);
 
 	}
 }
@@ -45,7 +45,6 @@ class UserSettings {
 // --------------------------------------------
 class GameModeSND : Metagame {
 	protected UserSettings@ m_userSettings;
-
 	protected MapRotator@ m_mapRotator;
 
 	//protected MapInfo@ m_mapInfo; // already exists in Metagame class

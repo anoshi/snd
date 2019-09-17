@@ -4,35 +4,29 @@
 #include "log.as"
 #include "query_helpers.as"
 #include "game_timer.as"
-//#include "score_tracker.as"
+#include "score_tracker.as"
 #include "stage_snd.as"
 
-//#include "vehicle_protector_insta_spawner.as"
 #include "bomb_item_delivery_informer.as"
 #include "bomb_carry_marker.as"
 //#include "vehicle_spawner.as"
 //#include "vehicle_hint_manager.as"
 //#include "spawner.as"
-#include "score_tracker.as"
 
 // --------------------------------------------
 class SNDSubStage : SubStage {
 	//protected VehicleSpawner@ m_vehicleSpawner;
 	protected ScoreTracker@ m_scoreTracker;
 	protected string m_crateLayerName = "";
-	protected int m_protectorFactionId = 2;
 
 	protected GameTimer@ m_gameTimer;
-	//protected EventLog@ m_eventLog;
 
 	// --------------------------------------------
 	SNDSubStage(Stage@ stage, int maxScore, float maxTime, string crateLayerName, bool makeCrateSpotted = true, array<int> competingFactionIds = array<int>(0, 1), int protectorFactionId = 2) {
 		super(stage);
 
-		m_name = "th";
-		m_displayName = "Team teddy hunt";
-
-		m_protectorFactionId = protectorFactionId;
+		m_name = "snd";
+		m_displayName = "Search and Destroy";
 
 		// the trackers get added into active tracking at SubStage::start()
 		@m_gameTimer = GameTimer(m_metagame, maxTime);

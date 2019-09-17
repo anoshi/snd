@@ -10,18 +10,6 @@
 #include "map_rotator.as"
 
 // --------------------------------------------
-// this is a bit awkwardly handled, but
-// minimodes need to be able to locate
-// the user profiles to duplicate them
-// each round
-
-// the vanilla location for the scripts, the working dir is:
-// media\packages\vanilla\scripts\
-// making it correct if the profiles are found relatively with
-
-// this is true only for servers, but it's only
-// servers that do profile copying anyway
-// --------------------------------------------
 class Stage {
 	protected GameModeSND@ m_metagame;
 	protected MapRotatorSND@ m_mapRotator;
@@ -126,54 +114,11 @@ class Stage {
 	}
 
 	// --------------------------------------------
-	/* // not using profiles to gather stats anymore
-	protected string getProfileFolderName() {
-		// day-month-year_hour-minute_second
-		now = datetime();
-		string name = "" + now.get_day() +
-						"-" + now.get_month() +
-						"-" + now.get_year() +
-						"_" + now.get_hour() +
-						"-" + now.get_minute() +
-						"_" + now.get_second();
-		name += "_profiles_minimodes_";
-		name += m_currentSubStageIndex + "_";
-		SubStage@ subStage = getCurrentSubStage();
-		if (subStage !is null) {
-			name += subStage.m_name;
-		}
-		return name;
-	}
-	*/
-
-	// --------------------------------------------
 	void substageEnded() {
 		_log("Stage::substage_ended");
 
 		// store profiles in game now
 		//m_metagame.getComms().send("save_profiles");
-
-		/*
-		// only execute on server
-		global $argv;
-		if (!test_parameter($argv, "single_player")) {
-			// let it happen
-			sleep(1);
-			// now take a copy of the profile folder, effectively saving round results separately
-
-			// store in own subfolder
-			$round_profile_folder = "archived_profiles/" . $this->get_profile_folder_name();
-
-			copy_profiles($round_profile_folder);
-			// also collect total stats separately, so merge the latest results with the total stats so far
-			merge_profiles($round_profile_folder, "total_profiles");
-
-			// also collect ongoing tournament stats, if ongoing
-			if ($this->metagame->is_tournament_ongoing()) {
-				merge_profiles($round_profile_folder, $this->metagame->get_tournament_name() . "_profiles");
-			}
-		}
-		*/
 
 		// prepare to start next substage, allow a moment to read messages and chat
 
@@ -184,13 +129,11 @@ class Stage {
 
 			// wait a while
 			// user settings are not in metagame.as
-			// $time = $this->metagame->user_settings->time_between_substages;
 			float time = m_metagame.getUserSettings().m_timeBetweenSubstages;
 			m_metagame.getTaskSequencer().add(TimeAnnouncerTask(m_metagame,time,true));
 		}
 
 		// start new map, using the task sequencer which includes the potential time wait task just added above
-		//$this->metagame->task_sequencer->add(new GenericCallTask($this, "advance_to_next_substage", array()));
 		m_metagame.getTaskSequencer().add(Call(CALL(this.advanceToNextSubstage)));
 
 	}
@@ -297,18 +240,6 @@ abstract class SubStage : Tracker {
 		m_match.start();
 
 		// wait here
-		/* // not certain how to make queries, or why, leaving for now. TODO
-		{
-			// - make a query, the game will serve it as soon as it can (->marks that map resources have been changed and the match has been started)
-			$query_doc = new DOMDocument();
-			$command = "<command class='make_query' id='" . $this->metagame->comms->get_query_uid() . "'/>\n";
-			$query_doc->loadXML($command);
-			$doc = $this->metagame->comms->query($query_doc);
-
-			$this->metagame->reset_timer();
-			$this->metagame->comms->clear_queue();
-		}
-		*/
 
 		// substage itself is a tracker, add it
 		m_metagame.addTracker(this);
@@ -323,8 +254,6 @@ abstract class SubStage : Tracker {
 		for (uint i = 0; i < m_initCommands.length(); ++i) {
 			m_metagame.getComms().send(m_initCommands[i]);
 		}
-
-		// keep $started false; metagame tracker activation will call start() here
 	}
 
 	// --------------------------------------------
@@ -462,8 +391,8 @@ class Match {
 
 	array<Faction@> m_factions;
 
-	float m_initialXp = 0.5;
-	float m_initialRp = 200.0;
+	float m_initialXp = 0.05;
+	float m_initialRp = 10.0;
 	float m_aiAccuracy = 0.94;
 
 	float m_xpMultiplier = 1.0;
@@ -490,7 +419,7 @@ class Match {
 			"   initial_rp='" + m_initialRp + "'" +
 			"	base_capture_system='" + m_baseCaptureSystem + "'" +
 			"	clear_profiles_at_start='1'" +
-      " fov='1'";
+      		" 	fov='1'";
 
 		if (m_defenseWinTime >= 0) {
 			command +=
@@ -514,7 +443,7 @@ class Match {
 
 			// TODO: do owned bases correctly; the command can now handle it
 			if (faction.m_ownedBases.length() > 0) {
-				// don't randomize, we'll use the right ones
+			// don't randomize, we'll use the right ones
 			} else if (faction.m_bases >= 0) {
 				command += "initial_occupied_bases='" + faction.m_bases + "' ";
 			}
