@@ -15,44 +15,34 @@ class TargetLocations : Tracker {
 		@m_metagame = @metagame;
 		m_allPositions = availablePositions;
 		if (m_allPositions.length() == 0) {
-			_log("WARNING, TargetLocations 0 available positions", -1);
+			_log("** SND: WARNING, TargetLocations 0 available positions", -1);
 		}
 	}
 
 	// --------------------------------------------
 	void start() {
-		_log("starting TargetLocations tracker", 1);
-
+		_log("** SND: starting TargetLocations tracker", 1);
 		chooseTwo();
 		m_started = true;
 	}
 
 	// --------------------------------------------
 	void chooseTwo() {
+		_log("** SND: selecting 2 bomb target locations from a possible " + m_allPositions.length(), 1);
+		uint counter = 3395;
 		// select two target locations from the provided list
-		for (uint i = 1; i == 2; ++i) {
+		for (uint i = 0; i < 2; ++i) {
 			int index = rand(0, m_allPositions.length() - 1);
 			Vector3 position = m_allPositions[index];
 			m_allPositions.removeAt(index);
-			// add marker on terrain and screen edges
-			string command = "<command class='set_marker' atlas_index='2' text='Target " + i + "' position='" + position.toString() + "' color='#FFFFFF' size='10.0' show_at_screen_edge='1' />"; // faction_id='0'
-			m_metagame.getComms().send(command);
-			// TODO mark locations on the minimap
+			// add markers to minimap, terrain and screen edges
+			_log("** SND: adding bomb target location marker " + (i+1), 1);
+			for (uint j=0; j < 2; ++j) {
+				string command = "<command class='set_marker' id='" + counter + "' atlas_index='2' faction_id='" + j + "' text='Target " + (i+1) + "' position='" + position.toString() + "' color='#FFFFFF' size='1.0' show_at_screen_edge='1' />";
+				m_metagame.getComms().send(command);
+				++counter;
+			}
 		}
-	}
-
-	// ----------------------------------------------------
-	protected void handleVehicleDestroyEvent(const XmlElement@ event) {
-		// don't process if not properly started
-		if (!hasStarted()) {
-			return;
-		}
-		// vehicle_id
-		// character_id
-		//if (event.getStringAttribute("vehicle_key") == m_vehicleKey) {
-			// start respawn timer
-			//m_respawnTimer = m_respawnTime;
-		//}
 	}
 
 	// --------------------------------------------
