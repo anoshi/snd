@@ -113,9 +113,4 @@
     <effect class="blood" type="splat_map" size="2.0" atlas_index="3" layer="3" additive="1" apply_gore_factor="1" />
 
 	<!-- character specific animation override table -->
-	<!-- <animation key="running" target_key="walking" /> -->
-	<!-- <animation key="running" target_key="walking2" add="1"/> -->
-
-	<animation key="dive" target_key="diveroll" />
-	<!-- <animation key="prone" target_key="crouch still" /> -->
 </character>
