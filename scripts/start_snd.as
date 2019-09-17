@@ -11,8 +11,8 @@ void main(dictionary@ inputData) {
 	//settings.fromXmlElement(inputSettings);
 	_setupLog(inputSettings);
 
-	settings.m_minimumPlayersToStart = 2;
-	settings.m_minimumPlayersToContinue = 2;
+	settings.m_minimumPlayersToStart = 1; //2;
+	settings.m_minimumPlayersToContinue = 1; //2;
 	settings.m_timeBetweenSubstages = 20.0;
 
 	settings.m_sndMaxTime = 600.0;
