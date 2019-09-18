@@ -38,7 +38,7 @@ class TargetLocations : Tracker {
 			// add markers to minimap, terrain and screen edges
 			_log("** SND: adding bomb target location marker " + (i+1), 1);
 			for (uint j=0; j < 2; ++j) {
-				string command = "<command class='set_marker' id='" + counter + "' atlas_index='2' faction_id='" + j + "' text='Target " + (i+1) + "' position='" + position.toString() + "' color='#FFFFFF' size='1.0' show_at_screen_edge='1' />";
+				string command = "<command class='set_marker' id='" + counter + "' atlas_index='" + (8 + i) + "' faction_id='" + j + "' text='Target " + (i+1) + "' position='" + position.toString() + "' color='#FFFFFF' size='1.0' show_at_screen_edge='1' />";
 				m_metagame.getComms().send(command);
 				++counter;
 			}

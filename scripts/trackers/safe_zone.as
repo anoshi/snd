@@ -20,7 +20,7 @@ class SafeZone : Tracker {
 
 	// --------------------------------------------
 	void start() {
-		_log("starting SafeZone tracker", 1);
+		_log("** SND: starting SafeZone tracker", 1);
 
 		{
 			// query generic nodes from the server, matching with tag

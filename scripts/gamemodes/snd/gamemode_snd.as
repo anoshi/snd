@@ -8,6 +8,8 @@ class UserSettings {
 
 	int m_minimumPlayersToStart = 1; //2;
 	int m_minimumPlayersToContinue = 1; //2;
+	int m_maxPlayers = 10;
+
 	float m_timeBetweenSubstages = 30.0;
 
 	// search and destroy mode

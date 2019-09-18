@@ -4,20 +4,17 @@
 #include "log.as"
 #include "query_helpers.as"
 #include "game_timer.as"
-#include "score_tracker.as"
 #include "stage_snd.as"
 
+#include "player_tracker.as"
 #include "bomb_tracker.as"
-#include "bomb_carry_marker.as"
 #include "target_locations.as"
-//#include "vehicle_spawner.as"
-//#include "vehicle_hint_manager.as"
-//#include "spawner.as"
 
 // --------------------------------------------
 class SNDSubStage : SubStage {
+	protected PlayerTracker@ m_playerTracker;
 	protected TargetLocations@ m_targetLocations;
-	protected ScoreTracker@ m_scoreTracker;
+	protected BombTracker@ m_bombTracker;
 	protected string m_targetsLayerName = "";
 
 	protected GameTimer@ m_gameTimer;
@@ -32,18 +29,10 @@ class SNDSubStage : SubStage {
 		// the trackers get added into active tracking at SubStage::start()
 		@m_gameTimer = GameTimer(m_metagame, maxTime);
 
-		// only include the first two factions for score tracking; yup, it's hardcoded, feel free to expand
-		dictionary scoreTracking;
-		for (uint i = 0; i < competingFactionIds.length(); ++i) {
-			scoreTracking[formatInt(competingFactionIds[i])] = true;
-		}
-		@m_scoreTracker = ScoreTracker(m_metagame, this, 100, scoreTracking);
-		addTracker(m_scoreTracker);
+		@m_playerTracker = PlayerTracker(m_metagame);
+		addTracker(m_playerTracker);
 
 		m_targetsLayerName = targetsLayerName;
-
-		addTracker(BombTracker(m_metagame, "bomb.projectile", "BOMB", 0));
-		addTracker(BombCarryMarker(m_metagame, "bomb.projectile"));
 	}
 
 	// --------------------------------------------
@@ -55,32 +44,26 @@ class SNDSubStage : SubStage {
 
 		{
 			array<Vector3> positions;
-
 			array<const XmlElement@> nodes = getGenericNodes(m_metagame, m_targetsLayerName, "bomb_target");
 			if (nodes !is null) {
-				_log("** SND: bomb target locations " + nodes.length());
+				_log("** SND: Found " + nodes.length() + " possible bomb target locations:", 1);
 				for (uint i = 0; i < nodes.length(); i++) {
 					const XmlElement@ node = nodes[i];
 					Vector3 pos = stringToVector3(node.getStringAttribute("position"));;
-					_log("position " + pos.toString());
+					_log("\t" + i + ": " + pos.toString());
 					positions.insertLast(pos);
 				}
 			} else {
-				_log("WARNING, no crates found with " + m_targetsLayerName);
+				_log("** SND: WARNING, no objects tagged as bomb_target within layer[1-3]." + m_targetsLayerName + " layers of objects.svg", 1);
 			}
 
 			// choose 2x bomb target locations from numerous possibilities and mark on map for all to see
 			@m_targetLocations = TargetLocations(m_metagame, positions);
 			addTracker(m_targetLocations);
 
-			// give someone the bomb
-				// record which team has the bomb for this round. Other team are on disarm or attrition duty
-
 			// track the bomb
-				// alert all when bomb is correctly deployed within one of the target locations
-				// alert team with bomb when bomb is dropped
-				// alert all when bomb explodes (bombers win, disarmers lose --> cycle map)
-				// alert all when bomb defused (disarmers win, bombers lose --> cycle map)
+			@m_bombTracker = BombTracker(m_metagame);
+			addTracker(m_bombTracker);
 
 			// track alive players
 				// alert when one side all dead (other side wins, all dead side loses --> cycle map)
@@ -90,7 +73,7 @@ class SNDSubStage : SubStage {
 		SubStage::startMatch();
 
 		// start match by default clears in-game score hud; reset score tracker after it
-		m_scoreTracker.reset();
+		//m_scoreTracker.reset();
 
 		if (m_gameTimer !is null) {
 			m_gameTimer.start(-1);
@@ -104,11 +87,11 @@ class SNDSubStage : SubStage {
 
 	// --------------------------------------------
 	void onItemDelivery(int factionId, string factionName, int playerId, string playerName) {
-		m_scoreTracker.addScore(factionId);
+		//m_scoreTracker.addScore(factionId);
 
 		if (m_gameTimer !is null) {
 			// GameTimer controls who wins if time runs out, refresh it each time score changes
-			m_gameTimer.setWinningTeam(m_scoreTracker.getWinningTeam());
+		//m_gameTimer.setWinningTeam(m_scoreTracker.getWinningTeam());
 		}
 
 		// reset timer to spawn the next immediately

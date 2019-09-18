@@ -3,7 +3,7 @@
 	<command
 		class="start_game"
 		vehicles="1"
-		max_soldiers="44"
+		max_soldiers="10"
 		player_bot_compensation="0"
 		xp_multiplier="1.0"
 		rp_multiplier="1.0"
@@ -41,20 +41,23 @@
 		/>
 		<faction
 			initial_over_capacity="0"
-			ai_accuracy="0.98"
+			ai_accuracy="0.94"
 			lose_without_bases="false"
+			initial_occupied_bases="1"
+			capacity_multiplier="1"
+			capacity_offset="0"
 		/>
   	</command>
 	<command
 		class="commander_ai"
 		faction="0"
-		base_defense="0.85"
-		border_defense="0.1">
-  </command>
-  <command
+		base_defense="0.3"
+		border_defense="0.3">
+  	</command>
+  	<command
 		class="commander_ai"
 		faction="1"
-		base_defense="0.75"
-		border_defense="0.2">
-  </command>
+		base_defense="0.3"
+		border_defense="0.3">
+	</command>
 </commands>
