@@ -10,10 +10,10 @@
 
 	<physics max_health="3" mass="1.0" extent="0.2 0.0 0.2" offset="0 0.0 0" top_offset="0 0.5 0" collision_model_pos="0 0.2 0" collision_model_extent="0.6 0.2 0.6" visual_offset="0 0.0 0" gravity="-20" />
 
-	<!-- codify this event, so that the event only triggers when the bomb was placed within a valid 'targetLocation' -->
-	<event>
+	<!-- this event is done in code, so that the event only triggers when the bomb is placed within a valid 'targetLocation' -->
+	<!-- <event>
 		<trigger class="destroy" />
   		<result class="spawn" instance_class="grenade" instance_key="bomb.projectile" min_amount="1" max_amount="1" offset="0 0 0" position_spread="0 0" direction_spread="0 0" />
-	</event>
+	</event>-->
 
 </vehicle>

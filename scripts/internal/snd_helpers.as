@@ -10,7 +10,7 @@
 
 // -----------------------------
 const XmlElement@ getPlayerInventory(const Metagame@ metagame, int characterId) {
-	_log("** CABAL: Checking character inventory", 1);
+	_log("** SND: Checking character inventory", 1);
 	XmlElement@ query = XmlElement(
 		makeQuery(metagame, array<dictionary> = {
 			dictionary = {
@@ -25,12 +25,17 @@ const XmlElement@ getPlayerInventory(const Metagame@ metagame, int characterId) 
 	return doc.getFirstElementByTagName("character"); //.getElementsByTagName("item")
 }
 
-// -----------------------------
-void addBombToBackpack(const Metagame@ metagame, int charId) {
-	// assign / override equipment to player character
-	_log("** SND: Adding bomb to backpack of player (id: " + charId + ")", 1);
-    string addBombCmd = "<command class='update_inventory' character_id='" + charId + "' container_type_class='backpack'><item class='weapon' key='bomb_resource.weapon' /></command>";
-	metagame.getComms().send(addBombCmd);
+//////////////////////////////////////////////
+// can't code. Make it public
+// --------------------------------------------
+array<Vector3> targetLocations; // per-round locations where bombs can be placed
+void setTargetLocations(array<Vector3> v3array) {
+	targetLocations = v3array;
+}
+
+// --------------------------------------------
+array<Vector3> getTargetLocations() {
+	return targetLocations;
 }
 
 /////////////////////////////////

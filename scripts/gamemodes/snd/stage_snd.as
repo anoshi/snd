@@ -327,6 +327,7 @@ abstract class SubStage : Tracker {
 		// remove trackers added by this substage in order to make after-game events not register as game events
 		for (uint i = 0; i < m_trackers.length(); ++i) {
 			m_metagame.removeTracker(m_trackers[i]);
+			_log("** SND: stage_snd removed trackers", 1);
 		}
 		m_stage.substageEnded();
 	}

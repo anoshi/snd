@@ -9,6 +9,7 @@ class TargetLocations : Tracker {
 	protected Metagame@ m_metagame;
 	protected bool m_started = false;
 	protected array<Vector3> m_allPositions;
+	protected array<Vector3> targetLocations;
 
 	// --------------------------------------------
 	TargetLocations(Metagame@ metagame, array<Vector3> availablePositions) {
@@ -27,7 +28,7 @@ class TargetLocations : Tracker {
 	}
 
 	// --------------------------------------------
-	void chooseTwo() {
+	protected void chooseTwo() {
 		_log("** SND: selecting 2 bomb target locations from a possible " + m_allPositions.length(), 1);
 		uint counter = 3395;
 		// select two target locations from the provided list
@@ -42,7 +43,9 @@ class TargetLocations : Tracker {
 				m_metagame.getComms().send(command);
 				++counter;
 			}
+			targetLocations.insertLast(position);
 		}
+		setTargetLocations(targetLocations); // public method in snd_helpers.as
 	}
 
 	// --------------------------------------------
