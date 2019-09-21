@@ -141,7 +141,7 @@ class BombTracker : Tracker {
 					bombCarrier = -1;
 					// create the bomb
 					string placeBombCmd = "<command class='create_instance' faction_id='" + bombFaction + "' instance_class='vehicle' instance_key='bomb_armed.vehicle' position='" + bombPosition + "' />";
-					m_metagame.getComms().send(detonateBombCmd);
+					m_metagame.getComms().send(placeBombCmd);
 					// create pulsing light at location
 					string highlightBombCmd = "<command class='create_instance' faction_id='" + bombFaction + "' instance_class='grenade' instance_key='bomb_armed.projectile' activated='1' position='" + bombPosition + "' />";
 					m_metagame.getComms().send(highlightBombCmd);
