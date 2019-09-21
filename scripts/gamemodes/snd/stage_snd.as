@@ -464,7 +464,7 @@ class Match {
 		}
 
 		command +=
-			"   <local_player faction_id='0' username='Single player' />\n" +
+			"   <local_player faction_id='0' username='Host' />\n" +
 			"</command>\n";
 
 		return command;
