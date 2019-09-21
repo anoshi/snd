@@ -41,7 +41,6 @@ class Stage {
 		m_resourcesToLoad.insertLast("<carry_item file='all_carry_items.xml' />");
 		m_resourcesToLoad.insertLast("<vehicle file='snd_all_vehicles.xml' />"); // SND-specific vehicles
 		m_resourcesToLoad.insertLast("<vehicle file='all_vehicles.xml' />");
-		//m_resourcesToLoad.insertLast("<vehicle file='event_crate.vehicle' />");
 	}
 
 	// --------------------------------------------

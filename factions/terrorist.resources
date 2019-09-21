@@ -2,10 +2,13 @@
 <!-- Player-specific Vehicles, Radio Calls, and Carry Items -->
 <resources>
 	<!-- faction-specific vehicles (not listed in common.resources) -->
+	<vehicle key="bomb_planted.vehicle" />
 	<vehicle key="bomb_armed.vehicle" />
+	<vehicle key="bomb_defused.vehicle" />
 
 	<!-- faction-specific weapons (not listed in common.resources) -->
-	<weapon key="bomb_resource.weapon" />
+	<weapon key="bomb.weapon" />
+	<weapon key="wire_cutters.weapon" />
 
 	<!-- explicitly enable this faction's carry items (listed as disabled in common.resources) -->
 	<carry_item key="common_blank.carry_item" enabled="1" />
