@@ -1,0 +1,24 @@
+<vehicle name="BOMB" key="bomb_armed.vehicle" map_view_atlas_index="0" time_to_live="25.0" usable_for_cover="0" >
+	<!--
+		A vehicle that acts as the visual representation of an armed bomb.
+		It is created after bomb.weapon has been used and a bomb_planted.vehicle self-terminates
+		//Players can attach to the bomb and hold fire (lmb) for ~7 seconds to disarm the bomb//(disabled). Alternatively,
+		players can equip wire_cutters.weapon and use them (~7 seconds again) very near this vehicle to disarm the bomb.
+	-->
+	<tag name="dummy" />
+
+	<control max_speed="1.0" acceleration="1" max_reverse_speed="1.0" max_rotation="0.2" max_water_depth="1.9" />
+	<physics max_health="3" mass="1.0" extent="0.2 0.0 0.2" offset="0 0.0 0" top_offset="0 0.5 0" collision_model_pos="0 0.2 0" collision_model_extent="0.6 0.2 0.6" visual_offset="0 0.0 0" gravity="-20" />
+	<tire_set offset="0.85 0.0 1.54" radius="0.4" />
+	<tire_set offset="0.85 0.0 -1.54" radius="0.4" />
+
+	<visual class="chassis" mesh_filename="c4.mesh" texture_filename="c4.png" />
+
+	<!--
+	<visual class="turret" mesh_filename="" texture_filename="" />
+	<turret offset="0 1.0 -0.4" weapon_key="wire_cutters.weapon" weapon_offset="0 -0.15 -0.1" weapon_recoil="0.1" max_rotation_step="0.00012" />
+	<character_slot type="gunner" position="-0.7 0.3 -0.4" rotation="0" exit_rotation="0.0" hiding="0" >
+		<turret index="0" />
+	</character_slot>
+	-->
+</vehicle>

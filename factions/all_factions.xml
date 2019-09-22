@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<factions>
+	<faction file="counter_terrorist.xml" />
+	<faction file="terrorist.xml" />
+</factions>

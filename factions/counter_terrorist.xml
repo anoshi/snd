@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<faction name="Counter Terrorists"
+	color="0.1 0.1 0.4"
+	firstnames_file="counter_terrorist_firstnames.txt"
+	lastnames_file="lastnames.txt">
+	<!--chat_icon_filename="counter_terrorist_chat_icon_soldier.png"-->
+	<!--chat_icon_commander_filename="counter_terrorist_chat_icon_commander.png"-->
+	<!--campaign_completion_icon_filename="counter_terrorist_campaign_win.png">-->
+
+	<!--
+	<campaign_completion>
+		<state key="default" icon_filename="counter_terrorist_campaign_win.png" />
+		<state key="lose" icon_filename="counter_terrorist_campaign_lose.png" />
+	</campaign_completion>
+	-->
+
+	<rank xp="0.0" name="">
+		<hud_icon filename="hud_rank0.png" />
+	</rank>
+	<rank xp="10.0" name="">
+		<hud_icon filename="hud_rank13.png" />
+	</rank>
+	<rank xp="20.0" name="">
+		<hud_icon filename="hud_rank14.png" />
+	</rank>
+	<rank xp="50.0" name="">
+		<hud_icon filename="hud_rank15.png" />
+	</rank>
+	<rank xp="100.0" name="">
+		<hud_icon filename="hud_rank16.png" />
+	</rank>
+	<rank xp="1000.0" name="">
+		<hud_icon filename="hud_rank17.png" />
+	</rank>
+
+	<!-- ///////////// -->
+	<!-- default group -->
+	<!-- ///////////// -->
+	<soldier name="default" spawn_score="0.0">
+		<character filename="common_male.character" />
+		<ai filename="default.ai" />
+
+		<models file="common.models" />
+    	<models file="counter_terrorist.models" />
+
+		<resources file="common.resources" />
+		<resources file="counter_terrorist.resources" />
+
+		<item_class_existence_config>
+			<!-- primary -->
+			<item_class_existence class="weapon" slot="0" probability="0.0" />
+			<!-- secondary -->
+			<item_class_existence class="weapon" slot="1" probability="1.0" />
+			<!-- grenade -->
+			<item_class_existence class="grenade" slot="0" probability="0.0" />
+			<!-- armour -->
+			<item_class_existence class="carry_item" slot="1" probability="0.0" />
+			<!-- backpack -->
+			<item_class_existence class="carry_item" slot="0" probability="0.0" />
+		</item_class_existence_config>
+
+		<attribute_config class="rp">
+			<attribute weight="1.0" min="0.0" max="0.0" />
+		</attribute_config>
+
+		<attribute_config class="xp">
+			<attribute weight="1.0" min="0.0" max="0.0" />
+		</attribute_config>
+	</soldier>
+
+	<!-- //////////////// -->
+	<!-- supply box group -->
+	<!-- //////////////// -->
+	<soldier name="supply" spawn_score="0.0">
+		<resources file="common_supply.resources" />
+
+		<attribute_config class="xp">
+			<attribute weight="1.0" min="0.0" max="0.05" />
+		</attribute_config>
+	</soldier>
+
+</faction>

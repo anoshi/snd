@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<carry_items>
+<!-- FACTION GEAR (see factions/<faction>_default.resources to enable and disable these items)-->
+	<!-- Common Items -->
+
+	<!-- Players -->
+	<carry_item file="common_blank.carry_item" />
+	<carry_item file="common_impervavest.carry_item" />
+	<carry_item file="counter_terrorist.carry_item" />
+	<carry_item file="terrorist.carry_item" />
+
+<!-- END FACTION GEAR -->
+</carry_items>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<weapons>
+	<weapon file="bomb.weapon" />
+	<weapon file="wire_cutters.weapon" />
+</weapons>

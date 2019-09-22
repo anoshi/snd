@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package
+  name="Search and Destroy"
+  description="Plant the bomb or find the bomb. You'll work it out."
+  show_in_campaign_menu="1"
+  campaign_entry_script="start_snd.as">
+
+	<campaign_options
+		faction="1"
+		presets="0"
+		friendly_capacity="0"
+		enemy_capacity="0"
+		friendly_accuracy="0"
+		enemy_accuracy="0"
+		xp_multiplier="0"
+		rp_multiplier="0" />
+</package>
