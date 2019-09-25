@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<projectiles>
+	<!-- Search and Destroy -->
+	<projectile file="bomb_armed.projectile" />
+	<projectile file="bomb.projectile" />
+
+	<!-- Grenades -->
+	<projectile file="stun_grenade.projectile" />
+	<projectile file="hand_grenade.projectile" />
+	<projectile file="impact_grenade.projectile" />
+</projectiles>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources clear_weapons="1" clear_vehicles="1" clear_calls="1">
+	<!-- always load common first; it's the one that clears the initial weapon resources -->
+
+	<!-- ALL COMMON WEAPONS -->
+	<weapon key="bomb.weapon" />
+	<weapon key="wire_cutters.weapon" />
+
+	<!-- ALL CARRY ITEMS -->
+	<carry_item key="vest.carry_item" enabled="1" />
+	<carry_item key="vest_helmet.carry_item" enabled="1" />
+
+	<!-- List all faction-specific carry items as disabled. Enable in factions/<faction>_default.resources -->
+	<carry_item key="terrorist.carry_item" enabled="0" />
+	<carry_item key="counter_terrorist.carry_item" enabled="0" />
+	<!-- end ALL CARRY ITEMS -->
+
+	<!-- ALL COMMON VEHICLES -->
+	<vehicle key="bomb_planted.vehicle" />
+	<vehicle key="bomb_armed.vehicle" />
+	<vehicle key="bomb_defused.vehicle" />
+
+	<!-- RWR vehicles -->
+	<vehicle key="humvee.vehicle" />
+	<vehicle key="armored_truck.vehicle" />
+	<vehicle key="mobile_armory.vehicle" />
+	<vehicle key="radar_truck.vehicle" />
+	<vehicle key="radar_tower.vehicle" />
+	<vehicle key="gas_tank.vehicle" />
+	<vehicle key="water_tower.vehicle" />
+	<vehicle key="mortar_ammunition_crates.vehicle" />
+	<vehicle key="para_spawn.vehicle" />
+	<vehicle key="deco_car1_brown.vehicle" />
+	<vehicle key="deco_car1_blue.vehicle" />
+	<vehicle key="deco_car1_yellow.vehicle" />
+	<vehicle key="deco_car1_black.vehicle" />
+	<vehicle key="deco_car1_white.vehicle" />
+	<vehicle key="deco_car1_red.vehicle" />
+	<vehicle key="deco_car1_pink.vehicle" />
+	<vehicle key="deco_car1_green.vehicle" />
+	<vehicle key="deco_car2_red.vehicle" />
+	<vehicle key="deco_car2_green.vehicle" />
+	<vehicle key="deco_car2_yellow.vehicle" />
+	<vehicle key="deco_car2_white.vehicle" />
+	<vehicle key="deco_car2_silver.vehicle" />
+	<vehicle key="deco_car2_grey.vehicle" />
+	<vehicle key="deco_car2_brown.vehicle" />
+	<vehicle key="deco_car2_blue.vehicle" />
+	<vehicle key="deco_car2_black.vehicle" />
+	<vehicle key="deco_car3_sky.vehicle" />
+	<vehicle key="deco_car3_green.vehicle" />
+	<vehicle key="deco_car3_blue.vehicle" />
+	<vehicle key="deco_car3_red.vehicle" />
+	<vehicle key="deco_car3_yellow.vehicle" />
+	<vehicle key="deco_car3_black.vehicle" />
+	<vehicle key="deco_van_blue.vehicle" />
+	<vehicle key="deco_van_khaki.vehicle" />
+	<vehicle key="deco_van_sky.vehicle" />
+	<vehicle key="deco_van_brown.vehicle" />
+	<vehicle key="deco_van_yellow.vehicle" />
+	<vehicle key="deco_van_red.vehicle" />
+	<vehicle key="deco_van_green.vehicle" />
+	<vehicle key="deco_pickup_red.vehicle" />
+	<vehicle key="deco_pickup_yellow.vehicle" />
+	<vehicle key="deco_pickup_blue.vehicle" />
+	<vehicle key="deco_pickup_green.vehicle" />
+	<vehicle key="deco_pickup_khaki.vehicle" />
+	<vehicle key="dumpster.vehicle" />
+	<vehicle key="tractor.vehicle" />
+	<vehicle key="flare_checkpoint.vehicle" />
+	<!-- end RWR vehicles -->
+
+	<!-- END ALL COMMON VEHICLES -->
+
+	<!-- NO CALLS in Search and Destroy -->
+</resources>

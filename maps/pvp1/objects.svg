@@ -8061,10 +8061,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="977.02917"
-     inkscape:cy="997.59963"
+     inkscape:cx="1034.658"
+     inkscape:cy="1006.7923"
      inkscape:document-units="px"
-     inkscape:current-layer="svg2"
+     inkscape:current-layer="layer18"
      showgrid="false"
      inkscape:window-width="1680"
      inkscape:window-height="951"
@@ -13543,7 +13543,7 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        y="881.27393"
        inkscape:transform-center-x="-7.53804"
        inkscape:transform-center-y="10.139655"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <path
        style="fill:#4d4d4d;stroke:none;filter:url(#filter47182)"
        d="m 768,1097.5 -3,-22 -10,-23 -3,-32.5 12,-33.5 13.5,-33 24,-30.5 21.5,-13.5 22.5,1.5 31,12 26.5,2.5 38.5,-7 35.5,-4 37,2 48.5,10.5 42.5,5 27,3 32,-4 30,-9 151,55 -8,29.5 4.5,51 -9.5,39 -26,30 -39.5,9.5 -44,-2 -52.6464,-2.727 -54.8536,-1.773 -45.5,-0.5 -37,2 -38.5,-22.5 -48.5,19.5 -66,4 -40.5,5.5 -33.5,-4.5 -32.5,-19 z"
@@ -13552,20 +13552,16 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccc"
        inkscape:transform-center-x="24.496109"
        inkscape:transform-center-y="0.49608507"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <circle
-       style="fill:#282828;fill-opacity:1;stroke:none;display:inline;filter:url(#filter20524);enable-background:new"
+       style="display:inline;fill:#282828;fill-opacity:1;stroke:none;filter:url(#filter20524);enable-background:new"
        id="path10348"
-       transform="matrix(-1,0,0,-1,2046.4168,2046.357)"
+       transform="rotate(180,1023.2084,1023.1785)"
        inkscape:transform-center-x="5.0574461"
        inkscape:transform-center-y="-19.912308"
        cx="1027.4703"
        cy="1042.2732"
-       r="8.6620588"
-       sodipodi:ry="8.6620588"
-       sodipodi:rx="8.6620588"
-       sodipodi:cy="1042.2732"
-       sodipodi:cx="1027.4703" />
+       r="8.6620588" />
     <path
        style="fill:url(#radialGradient9974);fill-opacity:1;stroke:none"
        d="m 1292.6846,993.54773 25.7227,-10.1088 8,-5 6.5,-10.75 2,-13 -3,-11 -8,-9.25 -14.75,-9.75 -8.25,1.75 -22.9978,8.2123 -17.0668,28.3263 7.6872,17.5554 z"
@@ -13582,7 +13578,7 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        sodipodi:nodetypes="ccccccccccccc"
        inkscape:transform-center-x="279.99611"
        inkscape:transform-center-y="117.89361"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <path
        inkscape:connector-curvature="0"
        id="path22288"
@@ -13591,7 +13587,7 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        sodipodi:nodetypes="ccccccc"
        inkscape:transform-center-x="315.58723"
        inkscape:transform-center-y="167.74294"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <path
        style="fill:#3f3f3f;fill-opacity:1;stroke:none;filter:url(#filter47425)"
        d="m 1319.75,963.75 14.75,10.25 18.5,-3.5 33,-3.75 4.75,-67 -7.4697,-34.41117 c -20.905,-4.86474 -42.9488,-7.73666 -60.3158,-18.79289 L 1270.5,861 l -14.5,50 8.8185,25.07275 -1.4073,29.00047 z"
@@ -13600,9 +13596,9 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        sodipodi:nodetypes="cccccccccccc"
        inkscape:transform-center-x="299.37111"
        inkscape:transform-center-y="113.72312"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <path
-       style="fill:url(#radialGradient10062);fill-opacity:1;stroke:none;display:inline;enable-background:new"
+       style="display:inline;fill:url(#radialGradient10062);fill-opacity:1;stroke:none;enable-background:new"
        d="m 1136.4635,1112.6366 0.1359,33.6155 0.7791,8.0886 4.9685,8.0289 12.6511,7.6005 9.8992,0.4887 7.3872,-4.0522 10.0288,-10.134 0.6586,-8.4078 2.5473,-35.8472 -21.7217,-10.8716 -9.1314,0.4505 z"
        id="path8940-52"
        inkscape:connector-curvature="0"
@@ -13610,7 +13606,7 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        inkscape:transform-center-x="-136.98744"
        inkscape:transform-center-y="111.80629" />
     <path
-       style="fill:url(#radialGradient10062-2);fill-opacity:1;stroke:none;display:inline;enable-background:new"
+       style="display:inline;fill:url(#radialGradient10062-2);fill-opacity:1;stroke:none;enable-background:new"
        d="m 991.18662,924.55853 -3.574,-22.5747 -2.4579,-9.1081 -8.3956,-9.3449 -11.8568,-5.6935 -11.397,-0.328 -11.1765,4.9648 -13.6175,11.2778 -0.7244,8.4024 -4.163,21.8581 18.77,0.6472 22.9827,-0.8918 z"
        id="path8940-2"
        inkscape:connector-curvature="0"
@@ -13618,7 +13614,7 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        inkscape:transform-center-x="66.498639"
        inkscape:transform-center-y="-122.91163" />
     <path
-       style="fill:url(#radialGradient20581);fill-opacity:1;stroke:none;display:inline;enable-background:new"
+       style="display:inline;fill:url(#radialGradient20581);fill-opacity:1;stroke:none;enable-background:new"
        d="m 728.55992,959.08193 -22.8392,0.872 -9.3353,1.3606 -10.2744,7.2283 -7.0593,11.0981 -1.6771,11.2777 3.6046,11.68627 9.5835,14.8587 8.2572,1.7156 21.2103,6.7255 2.8683,-18.5609 1.8396,-22.92627 z"
        id="path8940-2-6"
        inkscape:connector-curvature="0"
@@ -13633,7 +13629,7 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        sodipodi:nodetypes="ccccccccccccc"
        inkscape:transform-center-x="339.47476"
        inkscape:transform-center-y="201.77914"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <path
        style="fill:#000000;stroke:none"
        d="m 702.91392,1244.3234 4.773,-18.9151 -22.8042,-6.7175 2.6517,-10.2531 -2.1214,-2.2981 -11.3137,-3.182 -10.253,31.2895 38.007,11.6673 z"
@@ -13646,10 +13642,10 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        inkscape:connector-curvature="0"
        id="path18405"
        d="m 1278.7805,919.62673 c 1.9071,-8.92469 0.064,-14.22774 45.5695,-27.86365 18.0865,-3.92572 9.5277,-12.71875 12.2806,-20.20436"
-       style="color:#000000;fill:none;stroke:url(#linearGradient18416);stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;filter:url(#filter18418);enable-background:new"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:url(#linearGradient18416);stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;filter:url(#filter18418);enable-background:new"
        inkscape:transform-center-x="283.70166"
        inkscape:transform-center-y="128.40336"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <rect
        style="fill:#383838;fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter18815)"
        id="rect61453"
@@ -13659,7 +13655,7 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        y="892.76428"
        inkscape:transform-center-x="323.74178"
        inkscape:transform-center-y="95.346152"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <rect
        style="fill:#383838;fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter18249)"
        id="rect61513"
@@ -13669,59 +13665,59 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        y="914.25"
        inkscape:transform-center-x="260.24611"
        inkscape:transform-center-y="87.996085"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <path
        style="fill:#5e5e5e;fill-opacity:1;stroke:none;filter:url(#filter7280)"
-       d="M 925.25,974.5 922,978 c 2.03233,4.767 4.33612,9.44351 12.25,12.25 l 4.25,0.75 0.5,-6 0.25,-5 -5.5,0 -2,-6 z"
+       d="M 925.25,974.5 922,978 c 2.03233,4.767 4.33612,9.44351 12.25,12.25 l 4.25,0.75 0.5,-6 0.25,-5 h -5.5 l -2,-6 z"
        id="path7258"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccccc"
        inkscape:transform-center-x="-93.378891"
        inkscape:transform-center-y="41.496085"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <path
-       style="fill:#5e5e5e;fill-opacity:1;stroke:none;display:inline;filter:url(#filter7280-1);enable-background:new"
+       style="display:inline;fill:#5e5e5e;fill-opacity:1;stroke:none;filter:url(#filter7280-1);enable-background:new"
        d="m 971.125,1033.5 -3.25,3.5 c 2.03233,4.767 4.33612,9.4435 12.25,12.25 l 4.25,0.75 0.5,-6 0.25,-5 -4.625,-2.375 3,-8 c -9.31377,-3.0859 -26.75571,-13.5512 -12.375,4.875 z"
        id="path7258-4"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccccc"
        inkscape:transform-center-x="-48.616659"
        inkscape:transform-center-y="-12.437848"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <path
-       style="fill:#5e5e5e;fill-opacity:1;stroke:none;display:inline;filter:url(#filter7280-0);enable-background:new"
-       d="m 1087.875,1033.5 -3.25,3.5 c 2.0323,4.767 4.3361,9.4435 12.25,12.25 1.1913,11.0583 6.3114,9.7023 11.429,8.3539 l 6.8985,13.3711 c 9.5387,-0.2338 1.9209,-11.1508 -13.5775,-26.975 l 0.25,-5 -5.5,0 -2,-6 z"
+       style="display:inline;fill:#5e5e5e;fill-opacity:1;stroke:none;filter:url(#filter7280-0);enable-background:new"
+       d="m 1087.875,1033.5 -3.25,3.5 c 2.0323,4.767 4.3361,9.4435 12.25,12.25 1.1913,11.0583 6.3114,9.7023 11.429,8.3539 l 6.8985,13.3711 c 9.5387,-0.2338 1.9209,-11.1508 -13.5775,-26.975 l 0.25,-5 h -5.5 l -2,-6 z"
        id="path7258-48"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccccccc"
-       transform="matrix(-0.30171985,-0.95339663,0.95339663,-0.30171985,291.65042,2363.0343)"
+       transform="rotate(-107.56093,1011.1838,1074.7129)"
        inkscape:transform-center-x="62.728848"
        inkscape:transform-center-y="-29.255984" />
     <path
-       style="fill:#5e5e5e;fill-opacity:1;stroke:none;display:inline;filter:url(#filter7280-0-8);enable-background:new"
+       style="display:inline;fill:#5e5e5e;fill-opacity:1;stroke:none;filter:url(#filter7280-0-8);enable-background:new"
        d="m 1087.875,1033.5 -3.25,3.5 c 2.0323,4.767 4.3361,9.4435 12.25,12.25 1.1913,11.0583 6.3114,9.7023 11.429,8.3539 l 6.8985,13.3711 c 7.5297,-0.1846 4.3687,-7.0261 -4.9203,-17.6836 -0.7351,-0.8433 -8.7502,-4.6196 -2.318,-2.6002 2.722,0.8546 -4.0431,-4.3468 -6.3392,-6.6912 l -3.2539,-1.842 -1.9961,-3.158 c 6.993,-3.1156 1.3725,-4.3941 -2,-6 z"
        id="path7258-48-4"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccssccccc"
-       transform="matrix(-0.57326156,-0.81937243,0.81937243,-0.57326156,692.93492,2582.0268)"
+       transform="rotate(-124.97798,1018.8419,1110.5692)"
        inkscape:transform-center-x="102.85365"
        inkscape:transform-center-y="51.443875" />
     <path
-       style="fill:#5e5e5e;fill-opacity:1;stroke:none;display:inline;filter:url(#filter7280-1-5);enable-background:new"
+       style="display:inline;fill:#5e5e5e;fill-opacity:1;stroke:none;filter:url(#filter7280-1-5);enable-background:new"
        d="m 1105.5419,1106.3818 -3.25,3.5 c 2.0323,4.767 -3.3417,10.7384 4.5722,13.5449 l 6.8468,-2.7732 -1.4554,-4.5142 4.5218,-3.5633 -1.8604,-3.0692 3,-8 c -9.3138,-3.0859 -26.7557,-13.5512 -12.375,4.875 z"
        id="path7258-4-1"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccccc"
-       transform="matrix(-0.12136406,0.99260806,-0.99260806,-0.12136406,2178.7827,-27.23227)"
+       transform="rotate(96.970833,1101.4441,950.69035)"
        inkscape:transform-center-x="80.6118"
        inkscape:transform-center-y="-83.9996" />
     <path
-       style="fill:#5e5e5e;fill-opacity:1;stroke:none;display:inline;filter:url(#filter7280-0-8-7);enable-background:new"
+       style="display:inline;fill:#5e5e5e;fill-opacity:1;stroke:none;filter:url(#filter7280-0-8-7);enable-background:new"
        d="m 1087.875,1033.5 -3.25,3.5 c 2.0323,4.767 4.3361,9.4435 12.25,12.25 1.1913,11.0583 6.3114,9.7023 11.429,8.3539 l 4.9223,9.5406 c -4.0536,4.8288 -6.0924,8.8075 -9.1298,12.4738 -2.9463,3.5562 -9.9275,5.546 -12.039,8.1217 -2.8634,3.4928 -7.0498,3.0824 -8.4126,5.0406 -4.0671,5.844 3.0923,7.3513 8.0017,4.7986 4.8316,-2.5122 7.3387,-8.9932 12.7153,-14.6755 4.97,-5.2526 9.2916,-10.6338 10.8406,-11.9287 7.5297,-0.1846 4.3687,-7.0261 -4.9203,-17.6836 -0.7351,-0.8433 -8.7502,-4.6196 -2.318,-2.6002 2.722,0.8546 -4.0431,-4.3468 -6.3392,-6.6912 l -3.2539,-1.842 -1.9961,-3.158 c 6.993,-3.1156 1.3725,-4.3941 -2,-6 z"
        id="path7258-48-4-1"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccssssscssccccc"
-       transform="matrix(0.58521458,0.81087847,-0.81087847,0.58521458,1225.3311,-421.59867)"
+       transform="rotate(54.181849,1024.7645,986.9219)"
        inkscape:transform-center-x="24.902706"
        inkscape:transform-center-y="64.223611" />
     <path
@@ -13732,7 +13728,7 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        sodipodi:nodetypes="ccccccccccccc"
        inkscape:transform-center-x="149.97016"
        inkscape:transform-center-y="-74.620779"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <rect
        y="916.5"
        x="1268"
@@ -13742,16 +13738,16 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        style="fill:url(#linearGradient18428);fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter18304)"
        inkscape:transform-center-x="260.99611"
        inkscape:transform-center-y="87.496085"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <path
-       style="fill:none;stroke:url(#linearGradient18341);stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter18347)"
+       style="fill:none;stroke:url(#linearGradient18341);stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter18347)"
        d="m 1336.25,874 c 1.885,-13.65707 27.2728,-19.3635 30.125,-29.25"
        id="path18333"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
        inkscape:transform-center-x="327.30861"
        inkscape:transform-center-y="164.62109"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <path
        style="fill:url(#linearGradient18359);fill-opacity:1;stroke:none;filter:url(#filter18363)"
        d="m 754.48294,1014.5634 c -5.74187,9.6526 6.61334,6.2136 22.80419,0 l 23.5113,-2.1213 9.36917,-6.5407 1.94454,-20.15256 7.95495,-17.85445 15.73313,-11.66726 16.97056,-5.48008 10.6066,1.23744 18.73833,-11.49049 -3.35876,-19.97576 -40.83541,-14.84925 -17.67767,3.53554 -26.69328,25.8094 -25.45585,37.29988 z"
@@ -13760,25 +13756,25 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        sodipodi:nodetypes="cccccccccccccccc"
        inkscape:transform-center-x="-206.41927"
        inkscape:transform-center-y="60.870817"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <path
-       style="fill:#4b4b4b;fill-opacity:1;stroke:url(#linearGradient18391);stroke-width:20;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter18401)"
+       style="fill:#4b4b4b;fill-opacity:1;stroke:url(#linearGradient18391);stroke-width:20;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter18401)"
        d="m 1283.5756,974.78868 -7.2479,-29.52171"
        id="path18383"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
        inkscape:transform-center-x="255.94776"
        inkscape:transform-center-y="63.96826"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <path
        sodipodi:nodetypes="ccc"
        inkscape:connector-curvature="0"
        id="path18790"
        d="m 1321.5605,893.11023 -0.6319,50.55746 c 0.496,6.17485 4.6429,7.50811 9.3381,7.61732"
-       style="color:#000000;fill:#383838;fill-opacity:1;stroke:#383838;stroke-width:12;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;filter:url(#filter18799);enable-background:new"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#383838;fill-opacity:1;stroke:#383838;stroke-width:12;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;filter:url(#filter18799);enable-background:new"
        inkscape:transform-center-x="301.59376"
        inkscape:transform-center-y="101.79847"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <path
        style="fill:url(#linearGradient7679);fill-opacity:1;stroke:none;filter:url(#filter7681)"
        d="m 1208.25,939.50003 3,-6 c 0,0 2.25,-7.25 3.5,-7.25 1.25,0 7.25,-7.5 7.25,-7.5 0,0 2.5,-6 3.75,-6.25 1.25,-0.25 8.75,-6.25 8.75,-6.25 l 2.75,-7.25 5,-4.25 c 0,0 5.75,0.5 7,0.25 1.25,-0.25 3.75,5 3.75,5 l 1.25,8.5 -1.25,7.25 0.5,4 -1.25,8.5 -7.75,5.5 -11,2.25 -13,4 -9.75,0.75 z"
@@ -13786,41 +13782,41 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        inkscape:connector-curvature="0"
        inkscape:transform-center-x="207.24611"
        inkscape:transform-center-y="106.24606"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <path
-       style="fill:#444444;fill-opacity:1;stroke:none;display:inline;filter:url(#filter7280-17);enable-background:new"
+       style="display:inline;fill:#444444;fill-opacity:1;stroke:none;filter:url(#filter7280-17);enable-background:new"
        d="m 879.12497,944.75004 c -2.3809,0.35569 -4.56793,0.83254 -3.25,3.5 3.06019,2.25923 4.53554,4.21637 1.75049,6.34236 -1.5169,1.15794 2.19701,3.29315 6.08009,4.6702 l 7.25521,2.16422 1.91421,-6.17678 c 0.0587,-1.6388 -12.30947,10.33971 -1.69454,-3.23223 l -4.61612,-0.88389 c -5.34839,3.16468 -3.11027,-0.67358 -2.70711,-2.81802 z"
        id="path7258-0"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccsccccccc"
        inkscape:transform-center-x="-139.82745"
        inkscape:transform-center-y="70.907655"
-       transform="matrix(-1,0,0,-1,2048.0078,2047.9922)" />
+       transform="rotate(180,1024.0039,1023.9961)" />
     <path
-       style="fill:#444444;fill-opacity:1;stroke:none;display:inline;filter:url(#filter7280-17-9);enable-background:new"
+       style="display:inline;fill:#444444;fill-opacity:1;stroke:none;filter:url(#filter7280-17-9);enable-background:new"
        d="m 775.6985,1010.4116 c -2.3809,0.3557 -4.56793,0.8326 -3.25,3.5 3.06019,2.2593 4.53554,4.2164 1.75049,6.3424 -1.5169,1.1579 2.19701,3.2932 6.08009,4.6702 l 7.25521,2.1642 1.91421,-6.1768 c 0.0587,-1.6388 -12.30947,10.3398 -1.69454,-3.2322 l -4.61612,-0.8839 c -5.34839,3.1647 -3.11027,-0.6736 -2.70711,-2.818 z"
        id="path7258-0-8"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccsccccccc"
-       transform="matrix(-0.31575005,0.9488424,-0.9488424,-0.31575005,2478.6629,610.85393)"
+       transform="rotate(108.4061,1019.0753,1199.1607)"
        inkscape:transform-center-x="-241.35288"
        inkscape:transform-center-y="6.1635683" />
     <path
-       style="fill:#444444;fill-opacity:1;stroke:none;display:inline;filter:url(#filter7280-17-8);enable-background:new"
+       style="display:inline;fill:#444444;fill-opacity:1;stroke:none;filter:url(#filter7280-17-8);enable-background:new"
        d="m 1300.6985,988.91165 c -2.3809,0.35569 -4.5679,0.83254 -3.25,3.5 3.0602,2.25923 4.5355,4.21637 1.7505,6.34236 -1.5169,1.15794 2.197,3.29319 6.0801,4.67019 l 7.2552,2.1642 4.9242,0.5877 5.4532,-5.9362 c -0.07,-1.30968 -6.6498,-11.94856 -8.0697,2.2015 -0.4525,4.5095 -7.8271,1.0758 -2.0881,-6.26198 l -4.6161,-0.88389 c -5.3484,3.16468 -3.1102,-0.67358 -2.7071,-2.81802 z"
        id="path7258-0-4"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccsccccscccc"
-       transform="matrix(-0.8669465,0.49840121,-0.49840121,-0.8669465,2369.8038,1264.7673)"
+       transform="rotate(150.10572,1016.0804,948.70581)"
        inkscape:transform-center-x="286.00317"
        inkscape:transform-center-y="28.105248" />
     <path
-       style="fill:url(#linearGradient7908);fill-opacity:1;stroke:none;display:inline;filter:url(#filter7280-17-5);enable-background:new"
+       style="display:inline;fill:url(#linearGradient7908);fill-opacity:1;stroke:none;filter:url(#filter7280-17-5);enable-background:new"
        d="m 1388.6559,869.04638 c -3.1037,-0.7254 -7.3382,-5.47019 -10.6427,-6.23517 -3.6503,-0.84502 -9.1723,-8.35356 -9.9281,-7.41887 -0.618,0.76415 2.7949,9.67126 5.9836,11.66289 2.3744,1.48301 6.0376,3.31105 11.3372,5.49115 3.0602,2.25923 4.5356,4.21637 1.7505,6.34236 -1.5169,1.15794 2.197,3.29315 6.0801,4.6702 l 7.2552,2.16422 1.9142,-6.17678 c 0.059,-1.6388 -12.3094,10.33971 -1.6945,-3.23223 l -4.6161,-0.88389 c -5.3484,3.16468 -3.1103,-0.67358 -2.7071,-2.81802 z"
        id="path7258-0-1"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cssscsccccccc"
-       transform="matrix(-0.42335774,-0.90596259,0.90596259,-0.42335774,449.45942,2804.7018)"
+       transform="rotate(-115.04676,1117.3215,1259.3112)"
        inkscape:transform-center-x="371.37015"
        inkscape:transform-center-y="158.03779" />
   </g>
@@ -14772,10 +14768,10 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
      inkscape:groupmode="layer"
      id="layer37"
      inkscape:label="bases.default"
-     style="display:inline">
+     style="display:none">
     <rect
-       transform="matrix(0.00117959,-0.9999993,0.9999993,0.00117959,0,0)"
-       style="opacity:0.72566373;fill:#ffff00;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+       transform="rotate(-89.932414)"
+       style="display:inline;opacity:0.72566373;fill:#ffff00;fill-opacity:1;stroke:none;enable-background:new"
        id="rect4874-8-1-8-6"
        width="47.918999"
        height="46.835667"
@@ -14788,8 +14784,8 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
          id="desc4876-3-1-3-8">name=East Coast; faction_index=0; capturable =0;</desc>
     </rect>
     <rect
-       transform="matrix(0.00117959,-0.9999993,0.9999993,0.00117959,0,0)"
-       style="opacity:0.72566373;fill:#ffff00;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+       transform="rotate(-89.932414)"
+       style="display:inline;opacity:0.72566373;fill:#ffff00;fill-opacity:1;stroke:none;enable-background:new"
        id="rect4874-8-1-8-8"
        width="58.385815"
        height="50.266582"
@@ -14802,8 +14798,8 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
          id="desc4876-3-1-3-2">name=Heel Quarter; faction_index=1; capturable =0;</desc>
     </rect>
     <rect
-       transform="matrix(0.00117959,-0.9999993,0.9999993,0.00117959,0,0)"
-       style="opacity:0.72566373;fill:#ffff00;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+       transform="rotate(-89.932414)"
+       style="display:inline;opacity:0.72566373;fill:#ffff00;fill-opacity:1;stroke:none;enable-background:new"
        id="rect4874-8-1-8-6-9"
        width="78.678955"
        height="77.950302"
@@ -20826,8 +20822,8 @@ key = radar_truck.vehicle;</desc>
       </rect>
       <rect
          inkscape:label="#rect10748"
-         y="946.0415"
-         x="891.66132"
+         y="945.0415"
+         x="894.91132"
          height="16.917084"
          width="17.677338"
          id="generic_node1-7-90-7"
@@ -20857,77 +20853,49 @@ key = radar_truck.vehicle;</desc>
         <desc
            id="desc9795-3-5-2">tag=bomb_target;</desc>
       </rect>
-    </g>
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer26"
-     inkscape:label="layer1.th1"
-     style="display:inline">
-    <g
-       inkscape:groupmode="layer"
-       id="layer33"
-       inkscape:label="crates"
-       style="display:inline">
       <rect
-         transform="matrix(-0.00521698,-0.99998639,0.99998639,-0.00521698,0,0)"
-         inkscape:label=""
-         y="991.04742"
-         x="-1075.2031"
-         height="7"
-         width="7"
-         id="generic_node44-4-4-81-6-2-7"
-         style="fill:#00ffff;stroke:#800000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new">
+         inkscape:label="#rect10748"
+         y="1049.0415"
+         x="1183.9113"
+         height="16.917084"
+         width="17.677338"
+         id="generic_node1-7-90-0-7"
+         style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
         <desc
-           id="desc14261-0-9-58-65-3-8">tag = th_crate;</desc>
+           id="desc9795-3-5-2-9">tag=bomb_target;</desc>
       </rect>
       <rect
-         transform="matrix(-0.00521698,-0.99998639,0.99998639,-0.00521698,0,0)"
-         inkscape:label=""
-         y="991.34979"
-         x="-1032.1064"
-         height="7"
-         width="7"
-         id="generic_node44-4-4-81-6-2-7-8"
-         style="fill:#00ffff;stroke:#800000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new">
+         inkscape:label="#rect10748"
+         y="1073.5415"
+         x="1067.1613"
+         height="16.917084"
+         width="17.677338"
+         id="generic_node1-7-90-0-3"
+         style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
         <desc
-           id="desc14261-0-9-58-65-3-8-0">tag = th_crate;</desc>
+           id="desc9795-3-5-2-8">tag=bomb_target;</desc>
       </rect>
       <rect
-         transform="matrix(-0.00521698,-0.99998639,0.99998639,-0.00521698,0,0)"
-         inkscape:label=""
-         y="1010.7126"
-         x="-980.23438"
-         height="7"
-         width="7"
-         id="generic_node44-4-4-81-6-2-7-0"
-         style="fill:#00ffff;stroke:#800000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new">
+         inkscape:label="#rect10748"
+         y="1070.0981"
+         x="956.71564"
+         height="16.917084"
+         width="17.677338"
+         id="generic_node1-7-90-0-0"
+         style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
         <desc
-           id="desc14261-0-9-58-65-3-8-8">tag = th_crate;</desc>
+           id="desc9795-3-5-2-2">tag=bomb_target;</desc>
       </rect>
       <rect
-         transform="matrix(-0.00521698,-0.99998639,0.99998639,-0.00521698,0,0)"
-         inkscape:label=""
-         y="1003.1024"
-         x="-948.02087"
-         height="7"
-         width="7"
-         id="generic_node44-4-4-81-6-2-7-05"
-         style="fill:#00ffff;stroke:#800000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new">
+         inkscape:label="#rect10748"
+         y="1076.7915"
+         x="1013.4113"
+         height="16.917084"
+         width="17.677338"
+         id="generic_node1-7-90-0-4"
+         style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
         <desc
-           id="desc14261-0-9-58-65-3-8-1">tag = th_crate;</desc>
-      </rect>
-      <rect
-         transform="matrix(-0.00521698,-0.99998639,0.99998639,-0.00521698,0,0)"
-         inkscape:label=""
-         y="1002.2207"
-         x="-1117.0171"
-         height="7"
-         width="7"
-         id="generic_node44-4-4-81-6-2-7-4"
-         style="fill:#00ffff;stroke:#800000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new">
-        <desc
-           id="desc14261-0-9-58-65-3-8-2">tag = th_crate;</desc>
+           id="desc9795-3-5-2-83">tag=bomb_target;</desc>
       </rect>
     </g>
   </g>

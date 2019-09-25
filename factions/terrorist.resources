@@ -2,17 +2,31 @@
 <!-- Player-specific Vehicles, Radio Calls, and Carry Items -->
 <resources>
 	<!-- faction-specific vehicles (not listed in common.resources) -->
-	<vehicle key="bomb_planted.vehicle" />
-	<vehicle key="bomb_armed.vehicle" />
-	<vehicle key="bomb_defused.vehicle" />
 
 	<!-- faction-specific weapons (not listed in common.resources) -->
-	<weapon key="bomb.weapon" />
-	<weapon key="wire_cutters.weapon" />
+	<!-- Pistols -->
+	<weapon key="glock17.weapon" />
+	<weapon key="desert_eagle.weapon" />
+
+	<!-- Sub Machine Guns -->
+	<weapon key="ump40.weapon" />
+	<weapon key="scorpion-evo.weapon" />
+
+	<!-- Shotguns -->
+	<weapon key="spas-12.weapon" />
+
+	<!-- Assault Rifles-->
+	<weapon key="famasg1.weapon" />
+	<weapon key="ak47.weapon" />
+
+	<!-- Sniper Rifles -->
+	<weapon key="psg90.weapon" />
+	<weapon key="dragunov_svd.weapon" />
+
+	<!-- Machine Guns -->
+	<weapon key="imi_negev.weapon"/>
 
 	<!-- explicitly enable this faction's carry items (listed as disabled in common.resources) -->
-	<carry_item key="common_blank.carry_item" enabled="1" />
-	<carry_item key="common_impervavest.carry_item" enabled="1" />
 	<carry_item key="counter_terrorist.carry_item" enabled="0" />
 	<carry_item key="terrorist.carry_item" enabled="1" />
 </resources>

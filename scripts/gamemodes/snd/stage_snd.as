@@ -34,12 +34,9 @@ class Stage {
 		@m_mapInfo = MapInfo();
 
 		m_resourcesToLoad.insertLast("<weapon file='all_weapons.xml' />");
-		m_resourcesToLoad.insertLast("<weapon file='snd_all_weapons.xml' />"); // SND-specific weapons
-		m_resourcesToLoad.insertLast("<projectile file='snd_all_throwables.xml' />"); // SND-specific throwables
 		m_resourcesToLoad.insertLast("<projectile file='all_throwables.xml' />");
 		m_resourcesToLoad.insertLast("<call file='all_calls.xml' />");
 		m_resourcesToLoad.insertLast("<carry_item file='all_carry_items.xml' />");
-		m_resourcesToLoad.insertLast("<vehicle file='snd_all_vehicles.xml' />"); // SND-specific vehicles
 		m_resourcesToLoad.insertLast("<vehicle file='all_vehicles.xml' />");
 	}
 
@@ -119,25 +116,20 @@ class Stage {
 	void substageEnded() {
 		_log("Stage::substage_ended");
 
-		// store profiles in game now
-		//m_metagame.getComms().send("save_profiles");
-
 		// prepare to start next substage, allow a moment to read messages and chat
-
 		if (m_currentSubStageIndex == m_substages.length() - 1) {
+			_log("** SND: at last substage. No time delay before advancing to next round", 1);
 			// if we are at the last substage, do insta-advance in order to begin changing the stage which includes waiting
 		} else {
 			// not at last substage yet
-
-			// wait a while
-			// user settings are not in metagame.as
+			_log("** SND: NOT at last substage. Announce time delay and countdown before advancing to next round", 1);
 			float time = m_metagame.getUserSettings().m_timeBetweenSubstages;
 			m_metagame.getTaskSequencer().add(TimeAnnouncerTask(m_metagame,time,true));
 		}
 
 		// start new map, using the task sequencer which includes the potential time wait task just added above
+		_log("** SND: now running advanceToNextSubstage...", 1);
 		m_metagame.getTaskSequencer().add(Call(CALL(this.advanceToNextSubstage)));
-
 	}
 
 	// --------------------------------------------
@@ -326,7 +318,6 @@ abstract class SubStage : Tracker {
 		// remove trackers added by this substage in order to make after-game events not register as game events
 		for (uint i = 0; i < m_trackers.length(); ++i) {
 			m_metagame.removeTracker(m_trackers[i]);
-			_log("** SND: stage_snd removed trackers", 1);
 		}
 		m_stage.substageEnded();
 	}
@@ -388,14 +379,14 @@ class Match {
 	string m_soldierCapacityModel = "variable";
 	float m_defenseWinTime = -1.0;
 	string m_defenseWinTimeMode = "hold_bases";
-	int m_playerAiCompensation = 2;                  // was 2 (1.65)
-	int m_playerAiReduction = 1;                     // was 0 (1.65)
+	int m_playerAiCompensation = 0;
+	int m_playerAiReduction = 0;
 	string m_baseCaptureSystem = "any";
 
 	array<Faction@> m_factions;
 
-	float m_initialXp = 0.05;
-	float m_initialRp = 10.0;
+	float m_initialXp = 0.05; // 500 XP
+	float m_initialRp = 10.0; // 10 RP
 	float m_aiAccuracy = 0.94;
 
 	float m_xpMultiplier = 1.0;

@@ -86,7 +86,7 @@ class BombTracker : Tracker {
 	}
 
 	// --------------------------------------------
-	protected void markBombPosition(string position, int faction = -1, int charId = -1) {
+	protected void markBombPosition(string position, int faction = -1, bool enabled = true) {
 		if (bombInPlay) {
 			// marks the current location of the bomb on screen, screen-edge, and/or map overlay
 			// by default, all factions are alerted to the location of the bomb. Pass a faction_id as the int to override
@@ -94,12 +94,14 @@ class BombTracker : Tracker {
 
 			string bombMarkerCmd = "";
 			if (faction == -1 ) {
+				// mark for everybody
 				array<Faction@> allFactions = m_metagame.getFactions();
 				for (uint f = 0; f < allFactions.length(); ++f) {
-					bombMarkerCmd = "<command class='set_marker' id='" + (8008 + f) + "' atlas_index='2' faction_id='" + f + "' text='' position='" + position + "' color='#FFFFFF' size='1.0' show_in_game_view='0' show_in_map_view='1' show_at_screen_edge='0' />";
+					bombMarkerCmd = "<command class='set_marker' id='" + (8008 + f) + "' enabled='" + (enabled ? 1 : 0) + "' atlas_index='2' faction_id='" + f + "' text='' position='" + position + "' color='#FFFFFF' size='1.0' show_in_game_view='0' show_in_map_view='1' show_at_screen_edge='0' />";
 				}
 			} else {
-				bombMarkerCmd = "<command class='set_marker' id='8008' atlas_index='2' faction_id='" + faction + "' text='' position='" + position + "' color='#FFFFFF' size='1.0' show_in_game_view='1' show_in_map_view='1' show_at_screen_edge='1' />";
+				// mark for friendlies only
+				bombMarkerCmd = "<command class='set_marker' id='8008' enabled='" + (enabled ? 1 : 0) + "' atlas_index='2' faction_id='" + faction + "' text='' position='" + position + "' color='#FFFFFF' size='1.0' show_in_game_view='1' show_in_map_view='1' show_at_screen_edge='1' />";
 			}
 			m_metagame.getComms().send(bombMarkerCmd);
 			_log("** SND: Updated bomb location marker!", 1);
@@ -126,6 +128,8 @@ class BombTracker : Tracker {
 		// variablise attributes
 		string vehKey = event.getStringAttribute("vehicle_key");
 
+		array<Faction@> allFactions = m_metagame.getFactions();
+
 		if (vehKey == "bomb_planted.vehicle") {
 			// sanity
 			if (bombIsArmed) {
@@ -147,7 +151,12 @@ class BombTracker : Tracker {
 					m_metagame.getComms().send(highlightBombCmd);
 					// start the bombTimer clock
 					_log("** SND: Bomb countdown started!", 1);
+					for (uint f = 0; f < allFactions.length(); ++f) {
+						playSound(m_metagame, "bombpl.wav", f);
+					}
 					sendFactionMessage(m_metagame, -1, "THE BOMB HAS BEEN PLANTED!");
+					// remove bomb marker
+					markBombPosition(getBombPosition(), bombFaction, false);
 					bombIsArmed = true;
 					break;
 				} else {
@@ -159,8 +168,6 @@ class BombTracker : Tracker {
 				addItemToBackpack("bomb.weapon", bombCarrier);
 				// probably worth berating the player via notice / message as well.
 			}
-			//update the bomb marker for friendlies
-			markBombPosition(getBombPosition(), event.getIntAttribute("owner_id"));
 		} else if (vehKey == "bomb_defused.vehicle") {
 			// sanity / no point checking if bomb hasn't been planted
 			if (!bombIsArmed) {
@@ -172,13 +179,16 @@ class BombTracker : Tracker {
 			if (checkRange(stringToVector3(snipPosition), stringToVector3(bombPosition), 2.0)) {
 				_log("** SND: wire cutters used within 2 units of bomb location", 1);
 				_log("** SND: The bomb has been defused", 1);
+				for (uint f = 0; f < allFactions.length(); ++f) {
+					playSound(m_metagame, "bombdef.wav", f);
+				}
 				sendFactionMessage(m_metagame, -1, "THE BOMB HAS BEEN DEFUSED!");
 				bombIsArmed = false;
-				//	defusingTeam has won
+				// defusingTeam has won
 				winRound(-(bombFaction) +1); // -1 + 1 = 0. -0 + 1 = 1
 				// winRound(event.getIntAttribute("owner_id")); // validating will allow for more than 2 faction games
 			} else {
-				_log("** SND: wire cutters were not used 2 units of the bomb's location. Bomb remains active", 1);
+				_log("** SND: wire cutters were not used within 2 units of the bomb's location. Bomb remains active", 1);
 			}
 		}
     }
@@ -212,17 +222,20 @@ class BombTracker : Tracker {
 			bombFaction = bomber.getIntAttribute("faction_id");
 			switch (event.getIntAttribute("target_container_type_id")) {
 				case 0:
-					_log("** SND: Bomb (" + itemKey + ") dropped onto ground ", 1);
+					_log("** SND: Bomb (" + itemKey + ") dropped onto ground", 1);
 					// bad idea! Now everyone gets to find out where the bomb is
 					bombCarrier = -1;
 					markBombPosition(getBombPosition());
 					break;
+				case 1:
+					_log("** SND: Bomb (" + itemKey + ") sold to armoury", 1);
+					addItemToBackpack("bomb.weapon", bombCarrier);
 				case 2:
 					_log("** SND: Bomb dropped into backpack", 1);
 					markBombPosition(getBombPosition(), bombFaction);
 					break;
 				default: // shouldn't ever get here, but sanity
-			_log("** SND: WARNING! Bomb was dropped in target_container_type_id: " + event.getIntAttribute("target_container_type_id") + ". Not tracked!", 1);
+					_log("** SND: WARNING! Bomb was dropped in target_container_type_id: " + event.getIntAttribute("target_container_type_id") + ". Not tracked!", 1);
 			}
 		}
 	}
@@ -238,6 +251,12 @@ class BombTracker : Tracker {
 				winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' lose='1'></command>";
 			}
 			m_metagame.getComms().send(winLoseCmd);
+			// sound byte to advise which team won
+			if (faction == 0) {
+				playSound(m_metagame, "ctwin.wav", f);
+			} else if (faction == 1) {
+				playSound(m_metagame, "terwin.wav", f);
+			}
 		}
 		bombInPlay = false;
 	}
@@ -268,7 +287,7 @@ class BombTracker : Tracker {
 	void update(float time) {
 		if (bombInPlay) {
 			bombPosUpdateTimer -= time;
-			if (bombPosUpdateTimer < 0.0) {
+			if ((bombPosUpdateTimer < 0.0) && (!bombIsArmed)) {
 				markBombPosition(getBombPosition(), bombFaction);
 				bombPosUpdateTimer = BOMB_POS_UPDATE_TIME;
 			}
