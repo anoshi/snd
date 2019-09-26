@@ -117,6 +117,11 @@ class SNDSubStage : SubStage {
 	// --------------------------------------------
 	// GameTimer uses in-game defense win timer, which reports match end here
 	protected void handleMatchEndEvent(const XmlElement@ event) {
+		// TagName=match_result
+		// TagName=win_condition
+		// faction_id=-1
+		// type=map_capture
+
 		int winner = -1;
 		array<const XmlElement@> elements = event.getElementsByTagName("win_condition");
 		if (elements.length() >= 1) {

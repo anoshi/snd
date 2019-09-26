@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<vehicles>
-	<vehicle file="bomb_planted.vehicle" />
-	<vehicle file="bomb_armed.vehicle" protectors="0" soldier_capacity_offset="0" allow_ai_to_use="0" />
-	<vehicle file="bomb_defused.vehicle" />
-</vehicles>

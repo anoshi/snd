@@ -5,11 +5,11 @@
 	<vehicle file="bomb_defused.vehicle" />
 
 <!-- RWR vehicles -->
-	<vehicle file="humvee.vehicle" />
-	<vehicle file="armored_truck.vehicle" />
-	<vehicle file="mobile_armory.vehicle" />
-	<vehicle file="radar_tower.vehicle" />
-	<vehicle file="radar_truck.vehicle" />
+	<vehicle file="humvee.vehicle" soldier_capacity_offset="0" />
+	<vehicle file="armored_truck.vehicle" soldier_capacity_offset="0" />
+	<vehicle file="mobile_armory.vehicle" soldier_capacity_offset="0" />
+	<vehicle file="radar_tower.vehicle" protectors="0" soldier_capacity_offset="0" />
+	<vehicle file="radar_truck.vehicle" soldier_capacity_offset="0" />
 	<vehicle file="gas_tank.vehicle" />
 	<vehicle file="water_tower.vehicle" />
 	<vehicle file="mortar_ammunition_crates.vehicle" />

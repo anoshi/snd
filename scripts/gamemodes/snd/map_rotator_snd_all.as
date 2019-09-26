@@ -37,7 +37,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 			stage.m_factionConfigs.insertLast(m_factionConfigs[0]);
 			stage.m_factionConfigs.insertLast(m_factionConfigs[1]);
 			// neutral/bots too
-			stage.m_factionConfigs.insertLast(m_factionConfigs[2]);
+			//stage.m_factionConfigs.insertLast(m_factionConfigs[2]);
 
 			// examples of different kind of matches=sub gamemodes:
 			// - team deathmatch
@@ -85,11 +85,11 @@ class MapRotatorSNDAll : MapRotatorSND {
 					faction.m_capacityMultiplier = 0.0001;
 					match.m_factions.insertLast(faction);
 				}
-				{
-					Faction@ faction = Faction(m_factionConfigs[2]);
-					faction.makeNeutral();
-					match.m_factions.insertLast(faction);
-				}
+				// {
+				// 	Faction@ faction = Faction(m_factionConfigs[2]);
+				// 	faction.makeNeutral();
+				// 	match.m_factions.insertLast(faction);
+				// }
 				// add any initial commands here, can be used as modifiers e.g. for substage specific faction resources
 				//substage.m_initCommands.insertLast("");
 				@substage.m_match = @match;
@@ -125,11 +125,11 @@ class MapRotatorSNDAll : MapRotatorSND {
 					faction.m_capacityMultiplier = 0.0001;
 					match.m_factions.insertLast(faction);
 				}
-				{
-					Faction@ faction = Faction(m_factionConfigs[2]);
-					faction.makeNeutral();
-					match.m_factions.insertLast(faction);
-				}
+				// {
+				// 	Faction@ faction = Faction(m_factionConfigs[2]);
+				// 	faction.makeNeutral();
+				// 	match.m_factions.insertLast(faction);
+				// }
 				@substage.m_match = @match;
 
 				substage.addTracker(SafeZone(m_metagame, "tdm2"));
@@ -163,11 +163,11 @@ class MapRotatorSNDAll : MapRotatorSND {
 					faction.m_capacityMultiplier = 0.0001;
 					match.m_factions.insertLast(faction);
 				}
-				{
-					Faction@ faction = Faction(m_factionConfigs[2]);
-					faction.makeNeutral();
-					match.m_factions.insertLast(faction);
-				}
+				// {
+				// 	Faction@ faction = Faction(m_factionConfigs[2]);
+				// 	faction.makeNeutral();
+				// 	match.m_factions.insertLast(faction);
+				// }
 				@substage.m_match = @match;
 
 				substage.addTracker(SafeZone(m_metagame, "tdm2"));
@@ -200,12 +200,12 @@ class MapRotatorSNDAll : MapRotatorSND {
 					faction.m_capacityMultiplier = 0.0001;
 					match.m_factions.insertLast(faction);
 				}
-				{
-					Faction@ faction = Faction(m_factionConfigs[2]);
-					faction.m_capacityMultiplier = 0.0001;
-					//faction.makeNeutral();
-					match.m_factions.insertLast(faction);
-				}
+				// {
+				// 	Faction@ faction = Faction(m_factionConfigs[2]);
+				// 	faction.m_capacityMultiplier = 0.0001;
+				// 	//faction.makeNeutral();
+				// 	match.m_factions.insertLast(faction);
+				// }
 				@substage.m_match = @match;
 
 				substage.addTracker(SafeZone(m_metagame, "tdm2"));
@@ -241,11 +241,11 @@ class MapRotatorSNDAll : MapRotatorSND {
 					faction.m_capacityMultiplier = 0.0001;
 					match.m_factions.insertLast(faction);
 				}
-				{
-					Faction@ faction = Faction(m_factionConfigs[2]);
-					faction.makeNeutral();
-					match.m_factions.insertLast(faction);
-				}
+				// {
+				// 	Faction@ faction = Faction(m_factionConfigs[2]);
+				// 	faction.makeNeutral();
+				// 	match.m_factions.insertLast(faction);
+				// }
 				@substage.m_match = @match;
 
 				substage.addTracker(SafeZone(m_metagame, "tdm2"));
