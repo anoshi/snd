@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vehicles>
+	<vehicle file="bomb_planted.vehicle" />
+	<vehicle file="bomb_armed.vehicle" protectors="0" soldier_capacity_offset="0" allow_ai_to_use="0" />
+	<vehicle file="bomb_defused.vehicle" />
+
+<!-- RWR vehicles -->
+	<vehicle file="humvee.vehicle" soldier_capacity_offset="0" />
+	<vehicle file="armored_truck.vehicle" soldier_capacity_offset="0" />
+	<vehicle file="mobile_armory.vehicle" soldier_capacity_offset="0" />
+	<vehicle file="radar_tower.vehicle" protectors="0" soldier_capacity_offset="0" />
+	<vehicle file="radar_truck.vehicle" soldier_capacity_offset="0" />
+	<vehicle file="gas_tank.vehicle" />
+	<vehicle file="water_tower.vehicle" />
+	<vehicle file="mortar_ammunition_crates.vehicle" />
+	<vehicle file="para_spawn.vehicle" />
+	<vehicle file="deco_car1_brown.vehicle" />
+	<vehicle file="deco_car1_blue.vehicle" />
+	<vehicle file="deco_car1_yellow.vehicle" />
+	<vehicle file="deco_car1_black.vehicle" />
+	<vehicle file="deco_car1_white.vehicle" />
+	<vehicle file="deco_car1_red.vehicle" />
+	<vehicle file="deco_car1_pink.vehicle" />
+	<vehicle file="deco_car1_green.vehicle" />
+	<vehicle file="deco_car2_red.vehicle" />
+	<vehicle file="deco_car2_green.vehicle" />
+	<vehicle file="deco_car2_yellow.vehicle" />
+	<vehicle file="deco_car2_white.vehicle" />
+	<vehicle file="deco_car2_silver.vehicle" />
+	<vehicle file="deco_car2_grey.vehicle" />
+	<vehicle file="deco_car2_brown.vehicle" />
+	<vehicle file="deco_car2_blue.vehicle" />
+	<vehicle file="deco_car2_black.vehicle" />
+	<vehicle file="deco_car3_sky.vehicle" />
+	<vehicle file="deco_car3_green.vehicle" />
+	<vehicle file="deco_car3_blue.vehicle" />
+	<vehicle file="deco_car3_red.vehicle" />
+	<vehicle file="deco_car3_yellow.vehicle" />
+	<vehicle file="deco_car3_black.vehicle" />
+	<vehicle file="deco_van_blue.vehicle" />
+	<vehicle file="deco_van_khaki.vehicle" />
+	<vehicle file="deco_van_sky.vehicle" />
+	<vehicle file="deco_van_brown.vehicle" />
+	<vehicle file="deco_van_yellow.vehicle" />
+	<vehicle file="deco_van_red.vehicle" />
+	<vehicle file="deco_van_green.vehicle" />
+	<vehicle file="deco_pickup_red.vehicle" />
+	<vehicle file="deco_pickup_yellow.vehicle" />
+	<vehicle file="deco_pickup_blue.vehicle" />
+	<vehicle file="deco_pickup_green.vehicle" />
+	<vehicle file="deco_pickup_khaki.vehicle" />
+	<vehicle file="dumpster.vehicle" />
+	<vehicle file="tractor.vehicle" />
+	<vehicle file="flare_checkpoint.vehicle" />
+	<!-- end RWR vehicles -->
+
+</vehicles>

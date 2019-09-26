@@ -11,12 +11,11 @@ void main(dictionary@ inputData) {
 	//settings.fromXmlElement(inputSettings);
 	_setupLog(inputSettings);
 
-	settings.m_minimumPlayersToStart = 2;
-	settings.m_minimumPlayersToContinue = 2;
+	settings.m_minimumPlayersToStart = 2; //1;
+	settings.m_minimumPlayersToContinue = 2; //1;
 	settings.m_timeBetweenSubstages = 20.0;
 
 	settings.m_sndMaxTime = 600.0;
-	settings.m_sndMaxScore = 5.0; // this is a "base" score, the actual max score is snd_max_score * player_count, e.g. max_score = 3.0 * 10 = 30
 
 	settings.m_kothMaxTime = 900.0;
 	settings.m_kothDefenseTime = 180.0;

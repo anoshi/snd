@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<weapons>
+	<!-- Search and Destroy -->
+	<weapon file="bomb.weapon" />
+	<weapon file="wire_cutters.weapon" />
+
+	<!-- Pistols -->
+	<weapon file="beretta_m9.weapon">
+		<commonness value="1.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+	<weapon file="glock17.weapon">
+		<commonness value="1.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+	<weapon file="desert_eagle.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+
+	<!-- Sub Machine Guns -->
+	<weapon file="mp5sd.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+	<weapon file="ump40.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+	<weapon file="p90.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+	<weapon file="scorpion-evo.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+
+	<!-- Shotguns -->
+	<weapon file="mossberg.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+	<weapon file="spas-12.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+
+	<!-- Assault Rifles-->
+	<weapon file="m16a4.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+	<weapon file="steyr_aug.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+	<weapon file="sg552.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+	<weapon file="famasg1.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+	<weapon file="ak47.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+
+	<!-- Sniper Rifles -->
+	<weapon file="m24_a2.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+	<weapon file="psg90.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+	<weapon file="dragunov_svd.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+
+	<!-- Machine Guns -->
+	<weapon file="m240.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+	<weapon file="imi_negev.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+
+	<!-- Accessories-->
+	<weapon file="riot_shield.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+	</weapon>
+
+	<!-- Vehicular -->
+	<weapon file="humvee_mg.weapon" />
+</weapons>

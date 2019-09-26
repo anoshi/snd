@@ -157,9 +157,10 @@ class MapRotatorSND : MapRotator {
 	}
 
 	// --------------------------------------------
-	protected string getStartGameCommand(int index) {
+	protected const XmlElement@ getStartGameCommand(GameModeSND@ metagame) {
 		// note, get_start_game_command doesn't make sense in this rotator, and isn't used
-		return "";
+		XmlElement command("");
+		return command;
 	}
 
 	// --------------------------------------------

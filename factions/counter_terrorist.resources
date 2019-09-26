@@ -2,18 +2,32 @@
 <!-- Player-specific Vehicles, Radio Calls, and Carry Items -->
 <resources>
 	<!-- faction-specific vehicles (not listed in common.resources) -->
-	<vehicle key="bomb_planted.vehicle" />
-	<vehicle key="bomb_armed.vehicle" />
-	<vehicle key="bomb_defused.vehicle" />
 
-	<!-- faction-specific weapons (not listed in common.resources) -->
-	<!--<weapon key="counter_terrorist_specific.weapon" />-->
-	<weapon key="bomb.weapon" />
-	<weapon key="wire_cutters.weapon" />
+	<!-- faction-specific STARTING weapon (see all_weapons.xml for available weapons) -->
+	<!-- Pistols -->
+	<weapon key="beretta_m9.weapon" />
+	<weapon key="desert_eagle.weapon" />
+
+	<!-- Sub Machine Guns -->
+	<weapon key="mp5sd.weapon" />
+	<weapon key="p90.weapon" />
+
+	<!-- Shotguns -->
+	<weapon key="mossberg.weapon" />
+
+	<!-- Assault Rifles-->
+	<weapon key="m16a4.weapon" />
+	<weapon key="steyr_aug.weapon" />
+	<weapon key="sg552.weapon" />
+
+	<!-- Sniper Rifles -->
+	<weapon key="m24_a2.weapon" />
+	<weapon key="psg90.weapon" />
+
+	<!-- Machine Guns -->
+	<weapon key="m240.weapon" />
 
 	<!-- explicitly enable this faction's carry items (listed as disabled in common.resources) -->
-	<carry_item key="common_blank.carry_item" enabled="1" />
-	<carry_item key="common_impervavest.carry_item" enabled="1" />
 	<carry_item key="counter_terrorist.carry_item" enabled="1" />
 	<carry_item key="terrorist.carry_item" enabled="0" />
 </resources>

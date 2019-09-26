@@ -34,12 +34,9 @@ class Stage {
 		@m_mapInfo = MapInfo();
 
 		m_resourcesToLoad.insertLast("<weapon file='all_weapons.xml' />");
-		m_resourcesToLoad.insertLast("<weapon file='snd_all_weapons.xml' />"); // SND-specific weapons
-		m_resourcesToLoad.insertLast("<projectile file='snd_all_throwables.xml' />"); // SND-specific throwables
 		m_resourcesToLoad.insertLast("<projectile file='all_throwables.xml' />");
 		m_resourcesToLoad.insertLast("<call file='all_calls.xml' />");
 		m_resourcesToLoad.insertLast("<carry_item file='all_carry_items.xml' />");
-		m_resourcesToLoad.insertLast("<vehicle file='snd_all_vehicles.xml' />"); // SND-specific vehicles
 		m_resourcesToLoad.insertLast("<vehicle file='all_vehicles.xml' />");
 	}
 
@@ -119,25 +116,20 @@ class Stage {
 	void substageEnded() {
 		_log("Stage::substage_ended");
 
-		// store profiles in game now
-		//m_metagame.getComms().send("save_profiles");
-
 		// prepare to start next substage, allow a moment to read messages and chat
-
 		if (m_currentSubStageIndex == m_substages.length() - 1) {
+			_log("** SND: at last substage. No time delay before advancing to next round", 1);
 			// if we are at the last substage, do insta-advance in order to begin changing the stage which includes waiting
 		} else {
 			// not at last substage yet
-
-			// wait a while
-			// user settings are not in metagame.as
+			_log("** SND: NOT at last substage. Announce time delay and countdown before advancing to next round", 1);
 			float time = m_metagame.getUserSettings().m_timeBetweenSubstages;
 			m_metagame.getTaskSequencer().add(TimeAnnouncerTask(m_metagame,time,true));
 		}
 
 		// start new map, using the task sequencer which includes the potential time wait task just added above
+		_log("** SND: now running advanceToNextSubstage...", 1);
 		m_metagame.getTaskSequencer().add(Call(CALL(this.advanceToNextSubstage)));
-
 	}
 
 	// --------------------------------------------
@@ -224,13 +216,6 @@ abstract class SubStage : Tracker {
 		}
 
 		m_winner = -1;
-
-		// disable respawning (1 life per round)
-		for (uint i = 0; i < m_match.m_factions.length(); ++i) {
-			int id = i;
-			string command = "<command class='set_soldier_spawn' faction_id='" + id + "' enabled='0' />";
-			m_metagame.getComms().send(command);
-		}
 
 		{
 			string command = "<command class='update_map_view' overlay_texture='" + m_mapViewOverlayFilename + "' />";
@@ -321,12 +306,15 @@ abstract class SubStage : Tracker {
 			sendFactionMessage(m_metagame, -1, "round winner " + faction.m_config.m_name + "!");
 		} else {
 			sendFactionMessage(m_metagame, -1, "the round is a tie");
+			// sound bytes for ct / terrorist wins are fired via bomb_tracker.as
+			for (uint f = 0; f < m_match.m_factions.length(); ++f) {
+				playSound(m_metagame, "rounddraw.wav", f);
+			}
 		}
 
 		// remove trackers added by this substage in order to make after-game events not register as game events
 		for (uint i = 0; i < m_trackers.length(); ++i) {
 			m_metagame.removeTracker(m_trackers[i]);
-			_log("** SND: stage_snd removed trackers", 1);
 		}
 		m_stage.substageEnded();
 	}
@@ -354,8 +342,8 @@ class Faction {
 	int m_bases = -1;
 
 	float m_overCapacity = 0;
-	float m_capacityMultiplier = 1.0;
 	int m_capacityOffset = 0;
+	float m_capacityMultiplier = 0; //0.0001;
 
 	// this is optional
 	array<string> m_ownedBases;
@@ -385,17 +373,17 @@ class Match {
 	// match specific settings
 	int m_maxSoldiers = 0;
 	float m_soldierCapacityVariance = 0.30;
-	string m_soldierCapacityModel = "variable";
+	string m_soldierCapacityModel = "constant";
 	float m_defenseWinTime = -1.0;
 	string m_defenseWinTimeMode = "hold_bases";
-	int m_playerAiCompensation = 2;                  // was 2 (1.65)
-	int m_playerAiReduction = 1;                     // was 0 (1.65)
+	int m_playerAiCompensation = 0;
+	int m_playerAiReduction = 5;
 	string m_baseCaptureSystem = "any";
 
 	array<Faction@> m_factions;
 
-	float m_initialXp = 0.05;
-	float m_initialRp = 10.0;
+	float m_initialXp = 0.05; // 500 XP
+	float m_initialRp = 10.0; // 10 RP
 	float m_aiAccuracy = 0.94;
 
 	float m_xpMultiplier = 1.0;
@@ -407,65 +395,59 @@ class Match {
 	}
 
 	// --------------------------------------------
-	string getStartGameCommand() {
-		string command =
-			"<command class='start_game'" +
-			"	vehicles='1'" +
-			"	max_soldiers='" + m_maxSoldiers + "'" +
-			"	soldier_capacity_variance='" + m_soldierCapacityVariance + "'" +
-			"	soldier_capacity_model='" + m_soldierCapacityModel + "'" +
-			"	player_ai_compensation='" + m_playerAiCompensation + "'" +
-			"	player_ai_reduction='" + m_playerAiReduction + "'" +
-			"	xp_multiplier='" + m_xpMultiplier + "'" +
-			"	rp_multiplier='" + m_rpMultiplier + "'" +
-			"   initial_xp='" + m_initialXp + "'" +
-			"   initial_rp='" + m_initialRp + "'" +
-			"	base_capture_system='" + m_baseCaptureSystem + "'" +
-			"	clear_profiles_at_start='1'" +
-      		" 	fov='1'";
+	const XmlElement@ getStartGameCommand(GameModeSND@ metagame) const {
+		XmlElement command("command");
+		command.setStringAttribute("class", "start_game");
+		//command.setStringAttribute("savegame", m_metagame.getUserSettings().m_savegame);
+		command.setIntAttribute("vehicles", 1);
+		command.setIntAttribute("max_soldiers", m_maxSoldiers);
+		command.setFloatAttribute("soldier_capacity_variance", m_soldierCapacityVariance);
+		command.setStringAttribute("soldier_capacity_model", m_soldierCapacityModel);
+		command.setFloatAttribute("player_ai_compensation", m_playerAiCompensation);
+		command.setFloatAttribute("player_ai_reduction", m_playerAiReduction);
+		command.setFloatAttribute("xp_multiplier", m_xpMultiplier);
+		command.setFloatAttribute("rp_multiplier", m_rpMultiplier);
+		command.setFloatAttribute("initial_xp", m_initialXp);
+		command.setFloatAttribute("initial_rp", m_initialRp);
+		command.setStringAttribute("base_capture_system", m_baseCaptureSystem);
+		command.setBoolAttribute("friendly_fire", true); // may want to go user-specified
+		command.setBoolAttribute("clear_profiles_at_start", true);
+		command.setBoolAttribute("fov", true);
 
 		if (m_defenseWinTime >= 0) {
-			command +=
-				"  defense_win_time='" + m_defenseWinTime + "'" +
-				"  defense_win_time_mode='" + m_defenseWinTimeMode + "'";
+			command.setFloatAttribute("defense_win_time", m_defenseWinTime);
+			command.setStringAttribute("defense_win_time_mode", m_defenseWinTimeMode);
 		}
 
-		command += ">\n";
+		for (uint i = 0; i < m_factions.size(); ++i) {
+			Faction@ f = m_factions[i];
+			XmlElement faction("faction");
 
-		for (uint i = 0; i < m_factions.length(); ++i) {
-			Faction@ faction = m_factions[i];
-			command +=
-				"	<faction capacity_offset='" + faction.m_capacityOffset + "' initial_over_capacity='" + faction.m_overCapacity + "' ";
-			command += "capacity_multiplier='" + faction.m_capacityMultiplier + "' ";
-			command += "ai_accuracy='" + m_aiAccuracy + "' ";
+			faction.setFloatAttribute("capacity_offset", 0);
+			faction.setFloatAttribute("initial_over_capacity", 0);
+			faction.setFloatAttribute("capacity_multiplier", 0.0001);
 
-			// if base amount has been declared for the faction, use it
+			faction.setFloatAttribute("ai_accuracy", m_aiAccuracy);
 
-			// allow adventure mode to use the amount of bases we managed to capture
-			// if we were in the map previously
-
-			// TODO: do owned bases correctly; the command can now handle it
-			if (faction.m_ownedBases.length() > 0) {
-			// don't randomize, we'll use the right ones
-			} else if (faction.m_bases >= 0) {
-				command += "initial_occupied_bases='" + faction.m_bases + "' ";
+			if (i == 0 && f.m_ownedBases.size() > 0) {
+				faction.setIntAttribute("initial_occupied_bases", f.m_ownedBases.size());
+			} else if (f.m_bases >= 0) {
+				faction.setIntAttribute("initial_occupied_bases", f.m_bases);
 			}
 
-			command += ">\n";
+			faction.setBoolAttribute("lose_without_bases", false);
 
-			if (faction.m_ownedBases.length() > 0) {
-				for (uint j = 0; j < faction.m_ownedBases.length(); ++j) {
-					command +=
-						"<base key='" + faction.m_ownedBases[j] + "' />\n";
-				}
-			}
-
-			command += "</faction>\n";
+			command.appendChild(faction);
 		}
 
-		command +=
-			"   <local_player faction_id='0' username='Host' />\n" +
-			"</command>\n";
+		{
+			XmlElement player("local_player");
+			// player.setIntAttribute("faction_id", m_metagame.getUserSettings().m_factionChoice); //0);
+			// player.setStringAttribute("username", m_metagame.getUserSettings().m_username);
+			player.setIntAttribute("faction_id", 0);
+			player.setStringAttribute("username", "player1");
+			command.appendChild(player);
+		}
 
 		return command;
 	}
@@ -477,7 +459,7 @@ class Match {
 		m_metagame.setFactions(m_factions);
 
 		// start game
-		string startGameCommand = getStartGameCommand();
+		const XmlElement@ startGameCommand = getStartGameCommand(m_metagame);
 		m_metagame.getComms().send(startGameCommand);
 	}
 
