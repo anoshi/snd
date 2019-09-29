@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<weapon file="base_secondary.weapon" key="bomb.weapon" radius="0.25" time_to_live_out_in_the_open="90.0" drop_count_factor_on_death="1.0">
+<weapon file="base_secondary.weapon" key="bomb.weapon" radius="0.25" time_to_live_out_in_the_open="600.0" drop_count_factor_on_death="1.0">
     <tag name="engineer" />
     <specification
         magazine_size="1"
@@ -29,6 +29,10 @@
     <animation state_key="changing_weapon_in" 	animation_key="change weapon in, single hand carry" />
 
     <sound class="impact" fileref="sandbag_drop.wav" />
+
+    <sound key="effect" fileref="bomb_arming_code.wav" pitch_variety="0.01" /><!-- volume="1.0" -->
+    <sound key="magazine_in" fileref="bomb_switch_to.wav" />
+    <sound key="cycle" fileref="bomb_switch_to.wav" />
 
     <model mesh_filename="c4.mesh" texture_filename="c4.png" />
 
