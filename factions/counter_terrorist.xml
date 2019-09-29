@@ -40,7 +40,6 @@
 		<character filename="common_male.character" />
 		<ai filename="default.ai" />
 
-		<models file="common.models" />
     	<models file="counter_terrorist.models" />
 
 		<resources file="common.resources" />
