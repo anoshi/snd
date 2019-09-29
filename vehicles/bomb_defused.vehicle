@@ -7,7 +7,8 @@
 	<tire_set offset="0.85 0.0 -1.54" radius="0.4" />
 
 	<control max_speed="1.0" acceleration="1" max_reverse_speed="1.0" max_rotation="0.2" max_water_depth="1.9" />
-
 	<physics max_health="3" mass="1.0" extent="0.2 0.0 0.2" offset="0 0.0 0" top_offset="0 0.5 0" collision_model_pos="0 0.2 0" collision_model_extent="0.6 0.2 0.6" visual_offset="0 0.0 0" gravity="-20" />
+
+	<sound key="destroy" filename="bomb_disarmfinish.wav" />
 
 </vehicle>
