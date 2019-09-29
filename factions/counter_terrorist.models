@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <models>
-	<model filename="soldier_counter_terrorist.xml" />
+	<model filename="soldier_counter_terrorist_gign_1.xml" />
+	<model filename="soldier_counter_terrorist_gign_2.xml" />
+	<model filename="soldier_counter_terrorist_gsg_1.xml" />
+	<model filename="soldier_counter_terrorist_gsg_2.xml" />
 </models>
