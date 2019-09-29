@@ -100,7 +100,6 @@ class MapRotatorSNDAll : MapRotatorSND {
 				// the map has declared some additional stuff for the substage, matched with a tag
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = SNDSubStage(stage, maxTime);
-
 				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
 
 				Match@ match = Match(m_metagame);
@@ -215,8 +214,6 @@ class MapRotatorSNDAll : MapRotatorSND {
 				// the map has declared some additional stuff for the substage, matched with a tag
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = SNDSubStage(stage, maxTime);
-
-
 				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
 
 				Match@ match = Match(m_metagame);

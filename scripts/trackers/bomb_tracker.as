@@ -9,7 +9,8 @@ class BombTracker : Tracker {
 	protected bool bombIsArmed = false; // a correctly planted and located bomb is automatically armed
 	protected bool bombInPlay = false;  // should only ever be 1 bomb in play
 	protected int bombCarrier = -1;	    // and one (or no) character_id carrying it
-	protected int bombFaction = -1;     // the faction_id of the bombCarrier
+	protected int bombFaction = -1;     // the faction_id of the current bombCarrier
+	protected int bombOwnerFaction = -1;// the faction_id of the faction who start the round with the bomb
 	protected string bombPosition = ""; // xxx.xxx yyy.yyy zzz.zzz
 
 	protected float BOMB_POS_UPDATE_TIME = 10.0;	// how often the position of the bomb is checked
@@ -50,6 +51,8 @@ class BombTracker : Tracker {
 			// record where the bomb is and who has it this round
 			bombPosition = bomber.getStringAttribute("position");
 			bombFaction = bomber.getIntAttribute("faction_id");
+			// another faction may steal the bomb. Remember who can use the bomb to win the round.
+			bombOwnerFaction = bomber.getIntAttribute("faction_id");
 			// give the other team wire_cutters!
 			for (uint p = 0; p < players.length(); ++p) {
 				int playerCharId = players[p].getIntAttribute("character_id");
@@ -72,7 +75,25 @@ class BombTracker : Tracker {
 			// relies on bombCarrier int to be updated when the bomb changes hands, is dropped, etc.
 			// see handleItemDropEvent method
 			if (bombCarrier == -1) {
-				return bombPosition;
+				_log("** SND: nobody had the bomb at last check. It's either on the ground or someone has it equipped", 1);
+				// confirm noone has picked up the bomb directly to secondary weapon slot, which is not tracked
+				// get all the players
+				array<const XmlElement@> players = getPlayers(m_metagame);
+				// for each player, get character_id and use to inspect the secondary weapon slot in the inventory
+				for (uint i = 0; i < players.length(); ++i) {
+					int playerCharId = players[i].getIntAttribute("character_id");
+					const XmlElement@ playerInv = getPlayerInventory(m_metagame, playerCharId);
+					array<const XmlElement@> pInv = playerInv.getElementsByTagName("item");
+					// element '1' is the secondary weapon slot, the only place the bomb could be and not be detected by events.
+					if (pInv[1].getStringAttribute("key") == "bomb.weapon") {
+						_log("** SND: Found who has the bomb. Updating bomb holder and location info", 1);
+						bombCarrier = playerCharId;
+						bombFaction = players[i].getIntAttribute("faction_id");
+						break;
+					}
+				}
+				_log("** SND: noone has the bomb, must be on the ground...", 1);
+				return bombPosition; // unchanged
 			} else {
 				const XmlElement@ bomberLoc = getCharacterInfo(m_metagame, bombCarrier);
 				string position = bomberLoc.getStringAttribute("position");
@@ -142,6 +163,8 @@ class BombTracker : Tracker {
 			for (uint i = 0; i < validLocs.length(); ++i) {
 				if (checkRange(stringToVector3(bombPosition), validLocs[i], 15.0)) {
 					_log("** SND: bomb has been planted within 15 units of " + validLocs[i].toString() + ".", 1);
+					string rewardBombPlanter = "<command class='rp_reward' character_id='" + bombCarrier + "' reward='25'></command>";
+					m_metagame.getComms().send(rewardBombPlanter);
 					bombCarrier = -1;
 					// create the bomb
 					string placeBombCmd = "<command class='create_instance' faction_id='" + bombFaction + "' instance_class='vehicle' instance_key='bomb_armed.vehicle' position='" + bombPosition + "' />";
@@ -179,13 +202,15 @@ class BombTracker : Tracker {
 			if (checkRange(stringToVector3(snipPosition), stringToVector3(bombPosition), 2.0)) {
 				_log("** SND: wire cutters used within 2 units of bomb location", 1);
 				_log("** SND: The bomb has been defused", 1);
+				string rewardBombDefuser = "<command class='rp_reward' character_id='" + bombCarrier + "' reward='100'></command>";
+				m_metagame.getComms().send(rewardBombDefuser);
 				for (uint f = 0; f < allFactions.length(); ++f) {
 					playSound(m_metagame, "bombdef.wav", f);
 				}
 				sendFactionMessage(m_metagame, -1, "THE BOMB HAS BEEN DEFUSED!");
 				bombIsArmed = false;
 				// defusingTeam has won
-				winRound(-(bombFaction) +1); // -1 + 1 = 0. -0 + 1 = 1
+				winRound(-(bombOwnerFaction) +1); // -1 + 1 = 0. -0 + 1 = 1
 				// winRound(event.getIntAttribute("owner_id")); // validating will allow for more than 2 faction games
 			} else {
 				_log("** SND: wire cutters were not used within 2 units of the bomb's location. Bomb remains active", 1);
@@ -295,11 +320,11 @@ class BombTracker : Tracker {
 				bombTimer -= time;
 			}
 			if (bombTimer <= 0.0) {
-				// blow up the bomb
-				string detonateBombCmd = "<command class='create_instance' faction_id='" + bombFaction + "' instance_class='grenade' instance_key='bomb.projectile' activated='1' position='" + bombPosition + "' />";
+				// blow up the bomb. Regardless of who planted it, the original owner faction will win (it's their bomb, planted at one of their target locations)
+				string detonateBombCmd = "<command class='create_instance' faction_id='" + bombOwnerFaction + "' instance_class='grenade' instance_key='bomb.projectile' activated='1' position='" + bombPosition + "' />";
 				m_metagame.getComms().send(detonateBombCmd);
-					bombIsArmed = false;
-				winRound(bombFaction);
+				bombIsArmed = false;
+				winRound(bombOwnerFaction);
 			}
 		}
 	}
