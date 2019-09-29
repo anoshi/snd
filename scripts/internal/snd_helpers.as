@@ -10,7 +10,7 @@
 
 // -----------------------------
 const XmlElement@ getPlayerInventory(const Metagame@ metagame, int characterId) {
-	_log("** SND: Checking character inventory", 1);
+	_log("** SND: Inspecting character " + characterId + "'s inventory", 1);
 	XmlElement@ query = XmlElement(
 		makeQuery(metagame, array<dictionary> = {
 			dictionary = {

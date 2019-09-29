@@ -257,9 +257,6 @@ abstract class SubStage : Tracker {
 	void maxScoreReached(int winner) { }
 
 	// --------------------------------------------
-	void onItemDelivery(int factionId, string factionName, int playerId, string playerName) { }
-
-	// --------------------------------------------
    	void end() {
 		m_ended = true;
 
@@ -382,8 +379,8 @@ class Match {
 
 	array<Faction@> m_factions;
 
-	float m_initialXp = 0.05; // 500 XP
-	float m_initialRp = 10.0; // 10 RP
+	float m_initialXp = 0.1; // 500 XP
+	float m_initialRp = 8000.0; // 10 RP
 	float m_aiAccuracy = 0.94;
 
 	float m_xpMultiplier = 1.0;
@@ -444,7 +441,7 @@ class Match {
 			XmlElement player("local_player");
 			// player.setIntAttribute("faction_id", m_metagame.getUserSettings().m_factionChoice); //0);
 			// player.setStringAttribute("username", m_metagame.getUserSettings().m_username);
-			player.setIntAttribute("faction_id", 0);
+			player.setIntAttribute("faction_id", 1);
 			player.setStringAttribute("username", "player1");
 			command.appendChild(player);
 		}

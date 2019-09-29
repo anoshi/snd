@@ -29,7 +29,8 @@ class SNDSubStage : SubStage {
 		// the trackers get added into active tracking at SubStage::start()
 		@m_gameTimer = GameTimer(m_metagame, maxTime);
 
-		@m_playerTracker = PlayerTracker(m_metagame);
+		// should this be instantiated in SubStage (and only referenced here) in order to allow persistent player stats?
+		@m_playerTracker = PlayerTracker(m_metagame, this);
 		addTracker(m_playerTracker);
 
 		m_targetsLayerName = targetsLayerName;
@@ -43,6 +44,7 @@ class SNDSubStage : SubStage {
 		}
 
 		{
+			// retrieve all possible bomb target locations for this map as 'positions'.
 			array<Vector3> positions;
 			array<const XmlElement@> nodes = getGenericNodes(m_metagame, m_targetsLayerName, "bomb_target");
 			if (nodes !is null) {
@@ -65,15 +67,11 @@ class SNDSubStage : SubStage {
 			@m_bombTracker = BombTracker(m_metagame);
 			addTracker(m_bombTracker);
 
-			// track alive players
-				// alert when one side all dead (other side wins, all dead side loses --> cycle map)
-
 		}
 
 		SubStage::startMatch();
-
-		// start match by default clears in-game score hud; reset score tracker after it
-		//m_scoreTracker.reset();
+		// start match clears in-game score hud; reset player scores after it
+		m_playerTracker.reset();
 
 		if (m_gameTimer !is null) {
 			m_gameTimer.start(-1);
@@ -83,35 +81,6 @@ class SNDSubStage : SubStage {
 	// --------------------------------------------
 	array<Faction@> getFactions() {
 		return m_match.m_factions;
-	}
-
-	// --------------------------------------------
-	void onItemDelivery(int factionId, string factionName, int playerId, string playerName) {
-		//m_scoreTracker.addScore(factionId);
-
-		if (m_gameTimer !is null) {
-			// GameTimer controls who wins if time runs out, refresh it each time score changes
-		//m_gameTimer.setWinningTeam(m_scoreTracker.getWinningTeam());
-		}
-
-		// reset timer to spawn the next immediately
-		// only reset the timer if it was running in the first place
-		//if (m_vehicleSpawner.getRespawnTimer() > 0.0) {
-		// 	m_vehicleSpawner.setRespawnTimer(0.0);
-		// }
-	}
-
-    // ----------------------------------------------------
-	// ScoreTracker informs here when max score has been reached
-	void maxScoreReached(int winner) {
-		_log("max score reached");
-
-		if (m_gameTimer !is null) {
-			m_gameTimer.cancel();
-		}
-
-		setWinner(winner);
-		end();
 	}
 
 	// --------------------------------------------

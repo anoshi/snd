@@ -6,24 +6,25 @@
 // --------------------------------------------
 class PlayerTracker : Tracker {
 	protected GameModeSND@ m_metagame;
+	protected SubStage@ m_substage;
 
 	protected array<string> playerHashes;			// stores the unique 'hash' for each active player
 	protected array<uint> factionPlayers = {0, 0}; 	// stores the number of active, alive players per faction
-	protected array<float> playerScores;    		// TODO stores the scores of each player
+	protected array<int> playerScores;
 
     protected float m_localPlayerCheckTimer;
     protected float LOCAL_PLAYER_CHECK_TIME = 5.0;
 
-	protected bool levelComplete;
-
 	// --------------------------------------------
-	PlayerTracker(GameModeSND@ metagame) {
+	PlayerTracker(GameModeSND@ metagame, SubStage@ substage) {
 		@m_metagame = @metagame;
-        levelComplete = false;
-		// enable character_kill tracking for SND game mode (off by default)
-		string trackCharKill = "<command class='set_metagame_event' name='character_kill' enabled='1' />";
-		m_metagame.getComms().send(trackCharKill);
+		// setup two-way connection between PlayerTracker and SubStage
+		@m_substage = @substage;
 	}
+
+	/////////////////////////////
+	// Player tracking methods //
+	/////////////////////////////
 
 	// --------------------------------------------
 	protected void handlePlayerConnectEvent(const XmlElement@ event) {
@@ -85,8 +86,65 @@ class PlayerTracker : Tracker {
 		updateFactionPlayerCounts(disconnector.getIntAttribute("faction_id"), -1);
 	}
 
-    // track alive players
-       // alert when one side all dead (other side wins, all dead side loses --> cycle map)
+	// -----------------------------------------------------------
+	protected void handlePlayerKillEvent(const XmlElement@ event) {
+		// TagName=player_kill
+		// key=hand_grenade.projectile
+		// method_hint=blast
+
+		// TagName=killer
+		// aim_target=589.214 7.54902 544.812
+		// character_id=3
+		// color=0.68 0.85 0 1
+		// faction_id=0
+		// ip=
+		// name=player1
+		// player_id=0
+		// port=0
+		// profile_hash=ID3024532739
+		// sid=ID0
+
+		// TagName=target
+		// aim_target=589.214 7.54902 544.812
+		// character_id=3
+		// color=0.68 0.85 0 1
+		// faction_id=0
+		// ip=
+		// name=player1
+		// player_id=0
+		// port=0
+		// profile_hash=ID3024532739
+		// sid=ID0
+
+		const XmlElement@ playerKiller = event.getFirstElementByTagName("killer");
+		const XmlElement@ playerTarget = event.getFirstElementByTagName("target");
+
+		int factionId = playerKiller.getIntAttribute("faction_id");
+		int pKillerId = playerKiller.getIntAttribute("player_id");
+		int pKillerCharId = playerKiller.getIntAttribute("character_id");
+		_log("** SND: Player scores: " + playerKiller.getStringAttribute("name") + ", faction " + factionId);
+
+		if (playerKiller.getIntAttribute("profile_hash") == playerTarget.getIntAttribute("profile_hash")) {
+			_log("** SND: Player " + pKillerId + " committed suicide. Decrement score", 1);
+			string penaliseSuicides = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='-10'></command>";
+			m_metagame.getComms().send(penaliseSuicides);
+			addScore(factionId, -1);
+		} else if (playerKiller.getIntAttribute("faction_id") == playerTarget.getIntAttribute("faction_id")) {
+			_log("** SND: Player " + pKillerId+ " killed a friendly unit. Decrement score", 1);
+			string penaliseTeamKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='-10'></command>";
+			m_metagame.getComms().send(penaliseTeamKills);
+			addScore(factionId, -1);
+		} else if (playerKiller.getIntAttribute("player_id") != playerTarget.getIntAttribute("player_id")) {
+			// may be other options, but for now we'll assume it's the two above and the correct kill on an enemy unit
+			_log("** SND: Player " + pKillerId + " killed an enemy unit. Increase score", 1);
+			playSound(m_metagame, "enemy_down.wav", factionId);
+			string rewardEnemyKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='10'></command>";
+			m_metagame.getComms().send(rewardEnemyKills);
+			addScore(factionId, 2);
+		}
+
+	}
+
 	// -----------------------------------------------------------
 	protected void handlePlayerDieEvent(const XmlElement@ event) {
 		// TagName=player_die
@@ -109,12 +167,6 @@ class PlayerTracker : Tracker {
 		// skip die event processing if disconnected
 		if (event.getBoolAttribute("combat") == false) return;
 
-		// level already won/lost? bug out
-		// if (levelComplete) {
-		// 	_log("** SND: Level already won or lost. Dropping out of method", 1);
-		// 	return;
-		// }
-
 		// enforce no respawning (1 life per round)
 		array<Faction@> allFactions = m_metagame.getFactions();
 		for (uint i = 0; i < allFactions.length(); ++i) {
@@ -133,7 +185,18 @@ class PlayerTracker : Tracker {
 		updateFactionPlayerCounts(deadPlayer.getIntAttribute("faction_id"), -1);
 	}
 
-	// --------------------------------------------
+    // // ----------------------------------------------------
+	// protected void addScore(int factionId, int score) {
+	// 	m_substage.addScore(factionId, score);
+
+	// 	// will need to include the timer here
+	// 	// if (m_gameTimer !is null) {
+	// 	// 	// GameTimer controls who wins if time runs out, refresh it each time score changes
+	// 	// 	m_gameTimer.setWinningTeam(m_scoreTracker.getWinningTeam());
+	// 	// }
+	// }
+
+	// ----------------------------------------------------
 	protected void updateFactionPlayerCounts(uint faction, int num) {
 		if (factionPlayers[faction] + num > 0) {
 			factionPlayers[faction] += num;
@@ -158,6 +221,85 @@ class PlayerTracker : Tracker {
 				}
 			}
 		}
+	}
+
+	////////////////////////////
+	// Score tracking methods //
+	////////////////////////////
+
+	// 2 points for a bomb plant. (Terrorist Only)
+	// 2 points if that bomb explodes. (Terrorist Only)
+	// 2 points for a kill, 3 when bomb planted
+	// 3 points for a kill when defending the bomb (Terrorist Only)
+	// 1 point when bomb detonate and you are alive
+	// 1 point when the bomb is defused and you are alive
+	// 1 point for an assist.
+	// 2 points for defusing a bomb. (Counter-Terrorist Only)
+	// 2 points for rescuing a hostage. (Counter-Terrorist Only)
+	// -1 point for killing a teammate.
+	// -1 point for committing suicide.
+
+	// --------------------------------------------
+	void reset() {
+		playerScores = array<int>(0);
+		for (uint id = 0; id < m_substage.m_match.m_factions.length(); ++id) {
+			// if faction is neutral or it's name is Bots, continue, do not display this faction's score
+			Faction@ faction = m_substage.m_match.m_factions[id];
+
+			playerScores.insertLast(0);
+
+			string value = "0";
+			string color = faction.m_config.m_color;
+			string command = "<command class='update_score_display' id='" + id + "' text='" + value + "' color='" + color + "' />";
+			m_metagame.getComms().send(command);
+		}
+	}
+
+	// ----------------------------------------------------
+	void addScore(int factionId, int score) {
+		playerScores[factionId] += score;
+		// update game's score display
+		int value = playerScores[factionId];
+		string command = "<command class='update_score_display' id='" + factionId + "' text='" + value + "' />";
+		m_metagame.getComms().send(command);
+		scoreChanged();
+	}
+
+	// ----------------------------------------------------
+	protected void scoreChanged() {
+		int score;
+		for (uint i = 0; i < playerScores.length(); ++i) {
+			score = playerScores[i];
+		}
+
+		string text = "";
+		array<Faction@> factions = m_metagame.getFactions();
+		for (uint i = 0; i < factions.length(); ++i) {
+			Faction@ faction = factions[i];
+			if (i != 0) {
+				text += ", ";
+			}
+			text += faction.m_config.m_name + ": " + playerScores[i];
+		}
+		sendFactionMessage(m_metagame, -1, text);
+	}
+
+	// ----------------------------------------------------
+	array<int> getScores() {
+		return playerScores;
+	}
+
+	// ----------------------------------------------------
+	string getScoresAsString() {
+		string text = "";
+		for (uint i = 0; i < playerScores.length(); ++i) {
+			text += playerScores[i];
+			if (i != playerScores.length() - 1) {
+				text += " - ";
+			}
+		}
+
+		return text;
 	}
 
     // --------------------------------------------

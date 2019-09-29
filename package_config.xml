@@ -13,5 +13,6 @@
 		friendly_accuracy="0"
 		enemy_accuracy="0"
 		xp_multiplier="0"
-		rp_multiplier="0" />
+		rp_multiplier="0"
+		player_damage_modifier="0" />
 </package>

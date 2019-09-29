@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <models>
-	<model filename="soldier_terrorist.xml" />
+	<model filename="soldier_terrorist_a_1.xml" />
+	<model filename="soldier_terrorist_a_2.xml" />
+	<model filename="soldier_terrorist_g_1.xml" />
+	<model filename="soldier_terrorist_g_2.xml" />
+	<model filename="soldier_terrorist_l_1.xml" />
+	<model filename="soldier_terrorist_l_2.xml" />
+	<model filename="soldier_terrorist_p_1.xml" />
+	<model filename="soldier_terrorist_p_2.xml" />
 </models>

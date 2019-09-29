@@ -3,7 +3,7 @@
 #include "helpers.as"
 
 // --------------------------------------------
-// helper tracker used to spawn single vehicle of specific type dynamically at predefined positions
+// helper tracker used to select two bomb sites at random from several present in 'targetLocations' layer of objects.svg
 
 class TargetLocations : Tracker {
 	protected Metagame@ m_metagame;
@@ -39,7 +39,7 @@ class TargetLocations : Tracker {
 			// add markers to minimap, terrain and screen edges
 			_log("** SND: adding bomb target location marker " + (i+1), 1);
 			for (uint j=0; j < 2; ++j) {
-				string command = "<command class='set_marker' id='" + counter + "' atlas_index='" + (8 + i) + "' faction_id='" + j + "' text='Target " + (i+1) + "' position='" + position.toString() + "' color='#FFFFFF' size='1.0' show_at_screen_edge='1' />";
+				string command = "<command class='set_marker' id='" + counter + "' atlas_index='" + (8 + i) + "' faction_id='" + j + "' text='Bombsite " + (i+1) + "' position='" + position.toString() + "' color='#FFFFFF' size='1.0' show_at_screen_edge='1' />";
 				m_metagame.getComms().send(command);
 				++counter;
 			}
