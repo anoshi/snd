@@ -25,6 +25,19 @@ const XmlElement@ getPlayerInventory(const Metagame@ metagame, int characterId) 
 	return doc.getFirstElementByTagName("character"); //.getElementsByTagName("item")
 }
 
+array<int> getFactionPlayerCharacterIds(Metagame@ metagame, uint faction) {
+	array<int> playerCharIds;
+	array<const XmlElement@> players = getPlayers(metagame);
+	for (uint i = 0; i < players.size(); ++i) {
+		const XmlElement@ player = players[i];
+		uint factionId = player.getIntAttribute("faction_id");
+		if (factionId == faction) {
+			playerCharIds.insertLast(player.getIntAttribute("character_id"));
+		}
+	}
+	return playerCharIds;
+}
+
 //////////////////////////////////////////////
 // can't code. Make it public
 // --------------------------------------------

@@ -125,24 +125,24 @@ class PlayerTracker : Tracker {
 		_log("** SND: Player scores: " + playerKiller.getStringAttribute("name") + ", faction " + factionId);
 
 		if (playerKiller.getIntAttribute("profile_hash") == playerTarget.getIntAttribute("profile_hash")) {
+			// killed self
 			_log("** SND: Player " + pKillerId + " committed suicide. Decrement score", 1);
-			string penaliseSuicides = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='-10'></command>";
-			m_metagame.getComms().send(penaliseSuicides);
+			// no cash penalty for suicide, just score
 			addScore(factionId, -1);
 		} else if (playerKiller.getIntAttribute("faction_id") == playerTarget.getIntAttribute("faction_id")) {
+			// killed teammate
 			_log("** SND: Player " + pKillerId+ " killed a friendly unit. Decrement score", 1);
-			string penaliseTeamKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='-10'></command>";
+			string penaliseTeamKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='-3300'></command>";
 			m_metagame.getComms().send(penaliseTeamKills);
 			addScore(factionId, -1);
 		} else if (playerKiller.getIntAttribute("player_id") != playerTarget.getIntAttribute("player_id")) {
-			// may be other options, but for now we'll assume it's the two above and the correct kill on an enemy unit
+			// killed player on other team
 			_log("** SND: Player " + pKillerId + " killed an enemy unit. Increase score", 1);
 			playSound(m_metagame, "enemy_down.wav", factionId);
-			string rewardEnemyKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='10'></command>";
+			string rewardEnemyKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='300'></command>";
 			m_metagame.getComms().send(rewardEnemyKills);
 			addScore(factionId, 2);
 		}
-
 	}
 
 	// -----------------------------------------------------------
@@ -209,8 +209,18 @@ class PlayerTracker : Tracker {
 				// in this case, the faction sent to this method is the losing faction (no living players remain)
 				if (f == faction) {
 					winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' lose='1'></command>";
+					array<int> losingTeamCharIds = getFactionPlayerCharacterIds(m_metagame, f);
+				for (uint i = 0; i < losingTeamCharIds.length() ; ++i) {
+					string rewardLosingTeamChar = "<command class='rp_reward' character_id='" + losingTeamCharIds[i] + "' reward='900'></command>"; // " + (900 + (consecutive * 500)) + " // up to a max of 3400 / round
+					m_metagame.getComms().send(rewardLosingTeamChar);
+				}
 				} else {
 					winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' win='1'></command>";
+					array<int> winningTeamCharIds = getFactionPlayerCharacterIds(m_metagame, f);
+					for (uint i = 0; i < winningTeamCharIds.length() ; ++i) {
+						string rewardWinningTeamChar = "<command class='rp_reward' character_id='" + winningTeamCharIds[i] + "' reward='3250'></command>";
+						m_metagame.getComms().send(rewardWinningTeamChar);
+					}
 				}
 				m_metagame.getComms().send(winLoseCmd);
 				// sound byte to advise which team won

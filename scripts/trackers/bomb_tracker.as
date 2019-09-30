@@ -163,7 +163,12 @@ class BombTracker : Tracker {
 			for (uint i = 0; i < validLocs.length(); ++i) {
 				if (checkRange(stringToVector3(bombPosition), validLocs[i], 15.0)) {
 					_log("** SND: bomb has been planted within 15 units of " + validLocs[i].toString() + ".", 1);
-					string rewardBombPlanter = "<command class='rp_reward' character_id='" + bombCarrier + "' reward='25'></command>";
+					array<int> planterTeamCharIds = getFactionPlayerCharacterIds(m_metagame, bombOwnerFaction);
+					for (uint i = 0; i < planterTeamCharIds.length() ; ++i) {
+						string rewardPlanterTeamChar = "<command class='rp_reward' character_id='" + planterTeamCharIds[i] + "' reward='800'></command>";
+						m_metagame.getComms().send(rewardPlanterTeamChar);
+					}
+					string rewardBombPlanter = "<command class='rp_reward' character_id='" + bombCarrier + "' reward='300'></command>";
 					m_metagame.getComms().send(rewardBombPlanter);
 					bombCarrier = -1;
 					// create the bomb
@@ -202,8 +207,13 @@ class BombTracker : Tracker {
 			if (checkRange(stringToVector3(snipPosition), stringToVector3(bombPosition), 2.0)) {
 				_log("** SND: wire cutters used within 2 units of bomb location", 1);
 				_log("** SND: The bomb has been defused", 1);
-				string rewardBombDefuser = "<command class='rp_reward' character_id='" + bombCarrier + "' reward='100'></command>";
+				string rewardBombDefuser = "<command class='rp_reward' character_id='" + event.getIntAttribute("character_id") + "' reward='300'></command>";
 				m_metagame.getComms().send(rewardBombDefuser);
+				array<int> defuserTeamCharIds = getFactionPlayerCharacterIds(m_metagame, -(bombOwnerFaction) +1);
+				for (uint i = 0; i < defuserTeamCharIds.length() ; ++i) {
+					string rewardDefuserTeamChar = "<command class='rp_reward' character_id='" + defuserTeamCharIds[i] + "' reward='3600'></command>";
+					m_metagame.getComms().send(rewardDefuserTeamChar);
+				}
 				for (uint f = 0; f < allFactions.length(); ++f) {
 					playSound(m_metagame, "bombdef.wav", f);
 				}
@@ -266,7 +276,7 @@ class BombTracker : Tracker {
 	}
 
 	// --------------------------------------------
-	protected void winRound(uint faction) {
+	protected void winRound(uint faction, uint consecutive = 1) {
 		string winLoseCmd = "";
 		array<Faction@> allFactions = m_metagame.getFactions();
 		for (uint f = 0; f < allFactions.length(); ++f) {
@@ -274,6 +284,11 @@ class BombTracker : Tracker {
 				winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' win='1'></command>";
 			} else {
 				winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' lose='1'></command>";
+				array<int> losingTeamCharIds = getFactionPlayerCharacterIds(m_metagame, -faction + 1);
+				for (uint i = 0; i < losingTeamCharIds.length() ; ++i) {
+					string rewardLosingTeamChar = "<command class='rp_reward' character_id='" + losingTeamCharIds[i] + "' reward='" + (900 + (consecutive * 500)) + "'></command>";
+					m_metagame.getComms().send(rewardLosingTeamChar);
+				}
 			}
 			m_metagame.getComms().send(winLoseCmd);
 			// sound byte to advise which team won
@@ -324,6 +339,11 @@ class BombTracker : Tracker {
 				string detonateBombCmd = "<command class='create_instance' faction_id='" + bombOwnerFaction + "' instance_class='grenade' instance_key='bomb.projectile' activated='1' position='" + bombPosition + "' />";
 				m_metagame.getComms().send(detonateBombCmd);
 				bombIsArmed = false;
+				array<int> planterTeamCharIds = getFactionPlayerCharacterIds(m_metagame, bombOwnerFaction);
+				for (uint i = 0; i < planterTeamCharIds.length() ; ++i) {
+					string rewardPlanterTeamChar = "<command class='rp_reward' character_id='" + planterTeamCharIds[i] + "' reward='1900'></command>";
+					m_metagame.getComms().send(rewardPlanterTeamChar);
+				}
 				winRound(bombOwnerFaction);
 			}
 		}
