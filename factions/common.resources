@@ -7,12 +7,9 @@
 	<weapon key="wire_cutters.weapon" />
 
 	<!-- ALL CARRY ITEMS -->
-	<carry_item key="vest.carry_item" enabled="1" />
-	<carry_item key="vest_helmet.carry_item" enabled="1" />
+	<carry_item key="kevlar.carry_item" enabled="1" />
+	<carry_item key="kevlar_plus_helmet.carry_item" enabled="1" />
 
-	<!-- List all faction-specific carry items as disabled. Enable in factions/<faction>_default.resources -->
-	<carry_item key="terrorist.carry_item" enabled="0" />
-	<carry_item key="counter_terrorist.carry_item" enabled="0" />
 	<!-- end ALL CARRY ITEMS -->
 
 	<!-- ALL COMMON VEHICLES -->

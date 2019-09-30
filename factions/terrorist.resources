@@ -26,7 +26,4 @@
 	<!-- Machine Guns -->
 	<weapon key="imi_negev.weapon"/>
 
-	<!-- explicitly enable this faction's carry items (listed as disabled in common.resources) -->
-	<carry_item key="counter_terrorist.carry_item" enabled="0" />
-	<carry_item key="terrorist.carry_item" enabled="1" />
 </resources>

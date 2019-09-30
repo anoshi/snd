@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <carry_items>
-    <carry_item key="vest_helmet.carry_item" name="Vest and Helmet" slot="1" transform_on_consume="vest_helmet_2" time_to_live_out_in_the_open="120.0">
-        <hud_icon filename="hud_vest_helmet.png" />
+    <carry_item key="kevlar_plus_helmet.carry_item" name="Kevlar+Helmet" slot="1" transform_on_consume="kevlar_plus_helmet_2" time_to_live_out_in_the_open="120.0">
+        <hud_icon filename="hud_kevlar_plus_helmet.png" />
         <capacity value="1" source="rank" source_value="0.0" />
-        <inventory encumbrance="5" price="150" />
+        <inventory encumbrance="5" price="1000" />
 
-        <!--<model mesh_filename="vest_helmet.xml" />-->
+        <!--<model mesh_filename="kevlar_plus_helmet.xml" />-->
 
         <commonness value="0.0" in_stock="1" can_respawn_with="1" />
 
@@ -19,12 +19,12 @@
         <modifier class="speed" value="-0.08" />
     </carry_item>
 
-    <carry_item key="vest_helmet_2" name="Vest and Helmet, 80%" slot="1" transform_on_consume="vest_helmet_3" time_to_live_out_in_the_open="60.0">
-        <hud_icon filename="hud_vest_helmet_80.png" />
+    <carry_item key="kevlar_plus_helmet_2" name="Kevlar+Helmet, 80%" slot="1" transform_on_consume="kevlar_plus_helmet_3" time_to_live_out_in_the_open="60.0">
+        <hud_icon filename="hud_kevlar_plus_helmet_80.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="5" price="2" />
 
-        <!--<model mesh_filename="vest_helmet.xml" />-->
+        <!--<model mesh_filename="kevlar_plus_helmet.xml" />-->
 
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
 
@@ -38,12 +38,12 @@
         <modifier class="speed" value="-0.08" />
     </carry_item>
 
-    <carry_item key="vest_helmet_3" name="Vest and Helmet, 60%" slot="1" transform_on_consume="vest_helmet_4" time_to_live_out_in_the_open="60.0">
-        <hud_icon filename="hud_vest_helmet_60.png" />
+    <carry_item key="kevlar_plus_helmet_3" name="Kevlar+Helmet, 60%" slot="1" transform_on_consume="kevlar_plus_helmet_4" time_to_live_out_in_the_open="60.0">
+        <hud_icon filename="hud_kevlar_plus_helmet_60.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="5" price="2" />
 
-        <!--<model mesh_filename="vest_helmet.xml" />-->
+        <!--<model mesh_filename="kevlar_plus_helmet.xml" />-->
 
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
 
@@ -57,12 +57,12 @@
         <modifier class="speed" value="-0.08" />
     </carry_item>
 
-    <carry_item key="vest_helmet_4" name="Vest and Helmet, 40%" slot="1" transform_on_consume="vest_helmet_5" time_to_live_out_in_the_open="60.0">
-        <hud_icon filename="hud_vest_helmet_40.png" />
+    <carry_item key="kevlar_plus_helmet_4" name="Kevlar+Helmet, 40%" slot="1" transform_on_consume="kevlar_plus_helmet_5" time_to_live_out_in_the_open="60.0">
+        <hud_icon filename="hud_kevlar_plus_helmet_40.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="5" price="2" />
 
-        <!--<model mesh_filename="vest_helmet.xml" />-->
+        <!--<model mesh_filename="kevlar_plus_helmet.xml" />-->
 
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
 
@@ -74,12 +74,12 @@
         <modifier class="speed" value="-0.08" />
     </carry_item>
 
-    <carry_item key="vest_helmet_5" name="Vest and Helmet, 20%" slot="1" transform_on_consume="vest_helmet_6" time_to_live_out_in_the_open="60.0">
-        <hud_icon filename="hud_vest_helmet_20.png" />
+    <carry_item key="kevlar_plus_helmet_5" name="Kevlar+Helmet, 20%" slot="1" transform_on_consume="kevlar_plus_helmet_6" time_to_live_out_in_the_open="60.0">
+        <hud_icon filename="hud_kevlar_plus_helmet_20.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="5" price="2" />
 
-        <!--<model mesh_filename="vest_helmet.xml" />-->
+        <!--<model mesh_filename="kevlar_plus_helmet.xml" />-->
 
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
 

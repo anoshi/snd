@@ -4,4 +4,6 @@
 	<model filename="soldier_counter_terrorist_gign_2.xml" />
 	<model filename="soldier_counter_terrorist_gsg_1.xml" />
 	<model filename="soldier_counter_terrorist_gsg_2.xml" />
+	<model filename="soldier_counter_terrorist_st6_1.xml" />
+	<model filename="soldier_counter_terrorist_st6_2.xml" />
 </models>
