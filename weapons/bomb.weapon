@@ -30,7 +30,15 @@
 
     <sound class="impact" fileref="sandbag_drop.wav" />
 
-    <sound key="effect" fileref="bomb_arming_code.wav" pitch_variety="0.01" /><!-- volume="1.0" -->
+    <sound key="shoot" fileref="bomb_plant.wav" pitch_variety="0.01" /><!-- volume="1.0" -->
+    <sound key="effect" fileref="bomb_key_press1.wav" pitch_variety="0.01" />
+    <sound key="effect" fileref="bomb_key_press2.wav" pitch_variety="0.01" />
+    <sound key="effect" fileref="bomb_key_press3.wav" pitch_variety="0.01" />
+    <sound key="effect" fileref="bomb_key_press4.wav" pitch_variety="0.01" />
+    <sound key="effect" fileref="bomb_key_press5.wav" pitch_variety="0.01" />
+    <sound key="effect" fileref="bomb_key_press6.wav" pitch_variety="0.01" />
+    <sound key="effect" fileref="bomb_key_press7.wav" pitch_variety="0.01" />
+
     <sound key="magazine_in" fileref="bomb_switch_to.wav" />
     <sound key="cycle" fileref="bomb_switch_to.wav" />
 

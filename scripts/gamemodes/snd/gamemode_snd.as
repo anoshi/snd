@@ -6,8 +6,8 @@
 class UserSettings {
 	array<string> m_overlayPaths;
 
-	int m_minimumPlayersToStart = 1; //2;
-	int m_minimumPlayersToContinue = 1; //2;
+	int m_minimumPlayersToStart = 2; //1;
+	int m_minimumPlayersToContinue = 2; //1;
 	int m_maxPlayers = 10;
 
 	float m_timeBetweenSubstages = 20.0;

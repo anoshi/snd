@@ -11,6 +11,8 @@
 	<tire_set offset="0.85 0.0 1.54" radius="0.4" />
 	<tire_set offset="0.85 0.0 -1.54" radius="0.4" />
 
+	<sound key="destroy" filename="bomb_initiate.wav" />
+
 	<!-- Following events are now scripted on correct / successful bomb placement
     <event>
 		<trigger class="destroy" />
