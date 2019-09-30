@@ -6,7 +6,7 @@
 
 // --------------------------------------------
 class WarmupSubStage : SubStage {
-	protected int m_minimumPlayers = 2; //1;
+	protected int m_minimumPlayers = 1; //2;
 
 	// --------------------------------------------
 	WarmupSubStage(Stage@ stage, int minimumPlayers) {

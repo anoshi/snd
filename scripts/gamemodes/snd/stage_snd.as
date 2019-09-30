@@ -380,7 +380,8 @@ class Match {
 	array<Faction@> m_factions;
 
 	float m_initialXp = 0.1; // 500 XP
-	float m_initialRp = 8000.0; // 10 RP
+	float m_initialRp = 800.0; // default starting cash in CS
+	float m_maxRp = 16000.0; // hard limit on RP, as per CS
 	float m_aiAccuracy = 0.94;
 
 	float m_xpMultiplier = 1.0;
