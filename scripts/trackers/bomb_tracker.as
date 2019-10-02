@@ -164,8 +164,8 @@ class BombTracker : Tracker {
 				if (checkRange(stringToVector3(bombPosition), validLocs[i], 15.0)) {
 					_log("** SND: bomb has been planted within 15 units of " + validLocs[i].toString() + ".", 1);
 					array<int> planterTeamCharIds = getFactionPlayerCharacterIds(m_metagame, bombOwnerFaction);
-					for (uint i = 0; i < planterTeamCharIds.length() ; ++i) {
-						string rewardPlanterTeamChar = "<command class='rp_reward' character_id='" + planterTeamCharIds[i] + "' reward='800'></command>";
+					for (uint j = 0; j < planterTeamCharIds.length() ; ++i) {
+						string rewardPlanterTeamChar = "<command class='rp_reward' character_id='" + planterTeamCharIds[j] + "' reward='800'></command>";
 						m_metagame.getComms().send(rewardPlanterTeamChar);
 					}
 					string rewardBombPlanter = "<command class='rp_reward' character_id='" + bombCarrier + "' reward='300'></command>";
