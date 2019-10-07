@@ -6,13 +6,13 @@
 // helper tracker used to select two bomb sites at random from several present in 'targetLocations' layer of objects.svg
 
 class TargetLocations : Tracker {
-	protected Metagame@ m_metagame;
+	protected GameModeSND@ m_metagame;
 	protected bool m_started = false;
 	protected array<Vector3> m_allPositions;
 	protected array<Vector3> targetLocations;
 
 	// --------------------------------------------
-	TargetLocations(Metagame@ metagame, array<Vector3> availablePositions) {
+	TargetLocations(GameModeSND@ metagame, array<Vector3> availablePositions) {
 		@m_metagame = @metagame;
 		m_allPositions = availablePositions;
 		if (m_allPositions.length() == 0) {
@@ -45,7 +45,7 @@ class TargetLocations : Tracker {
 			}
 			targetLocations.insertLast(position);
 		}
-		setTargetLocations(targetLocations); // public method in snd_helpers.as
+		m_metagame.setTargetLocations(targetLocations); // public method in snd_helpers.as
 	}
 
 	// --------------------------------------------

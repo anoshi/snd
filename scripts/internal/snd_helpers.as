@@ -9,7 +9,7 @@
 /////////////////////////////////
 
 // -----------------------------
-const XmlElement@ getPlayerInventory(const Metagame@ metagame, int characterId) {
+const XmlElement@ getPlayerInventory(const GameModeSND@ metagame, int characterId) {
 	_log("** SND: Inspecting character " + characterId + "'s inventory", 1);
 	XmlElement@ query = XmlElement(
 		makeQuery(metagame, array<dictionary> = {
@@ -25,7 +25,7 @@ const XmlElement@ getPlayerInventory(const Metagame@ metagame, int characterId) 
 	return doc.getFirstElementByTagName("character"); //.getElementsByTagName("item")
 }
 
-array<int> getFactionPlayerCharacterIds(Metagame@ metagame, uint faction) {
+array<int> getFactionPlayerCharacterIds(GameModeSND@ metagame, uint faction) {
 	array<int> playerCharIds;
 	array<const XmlElement@> players = getPlayers(metagame);
 	for (uint i = 0; i < players.size(); ++i) {
@@ -36,19 +36,6 @@ array<int> getFactionPlayerCharacterIds(Metagame@ metagame, uint faction) {
 		}
 	}
 	return playerCharIds;
-}
-
-//////////////////////////////////////////////
-// can't code. Make it public
-// --------------------------------------------
-array<Vector3> targetLocations; // per-round locations where bombs can be placed
-void setTargetLocations(array<Vector3> v3array) {
-	targetLocations = v3array;
-}
-
-// --------------------------------------------
-array<Vector3> getTargetLocations() {
-	return targetLocations;
 }
 
 /////////////////////////////////

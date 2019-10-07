@@ -1,4 +1,3 @@
-
 #include "tracker.as"
 
 // internal
@@ -80,7 +79,6 @@ class Stage {
 
 		string overlays = "";
 
-		// user settings were passed in constructor
 		for (uint i = 0; i < m_metagame.getUserSettings().m_overlayPaths.length(); ++i) {
 			string path = m_metagame.getUserSettings().m_overlayPaths[i];
 			_log("adding overlay " + path);
@@ -232,7 +230,7 @@ abstract class SubStage : Tracker {
 		m_metagame.addTracker(this);
 
 		// create substage specific trackers:
-		_log("trackers: " + m_trackers.length());
+		_log("** SND: active trackers: " + m_trackers.length());
 		for (uint i = 0; i < m_trackers.length(); ++i) {
 			m_metagame.addTracker(m_trackers[i]);
 		}
@@ -367,7 +365,7 @@ class Faction {
 class Match {
 	protected GameModeSND@ m_metagame;
 
-	// match specific settings
+	// default match settings, overridden on a per-map basis by map_rotator_snd_all.as
 	int m_maxSoldiers = 0;
 	float m_soldierCapacityVariance = 0.30;
 	string m_soldierCapacityModel = "constant";
@@ -379,9 +377,6 @@ class Match {
 
 	array<Faction@> m_factions;
 
-	float m_initialXp = 0.1; // 500 XP
-	float m_initialRp = 800.0; // default starting cash in CS
-	float m_maxRp = 16000.0; // hard limit on RP, as per CS
 	float m_aiAccuracy = 0.94;
 
 	float m_xpMultiplier = 1.0;
@@ -396,7 +391,7 @@ class Match {
 	const XmlElement@ getStartGameCommand(GameModeSND@ metagame) const {
 		XmlElement command("command");
 		command.setStringAttribute("class", "start_game");
-		//command.setStringAttribute("savegame", m_metagame.getUserSettings().m_savegame);
+		command.setStringAttribute("savegame", m_metagame.getUserSettings().m_savegame);
 		command.setIntAttribute("vehicles", 1);
 		command.setIntAttribute("max_soldiers", m_maxSoldiers);
 		command.setFloatAttribute("soldier_capacity_variance", m_soldierCapacityVariance);
@@ -405,8 +400,9 @@ class Match {
 		command.setFloatAttribute("player_ai_reduction", m_playerAiReduction);
 		command.setFloatAttribute("xp_multiplier", m_xpMultiplier);
 		command.setFloatAttribute("rp_multiplier", m_rpMultiplier);
-		command.setFloatAttribute("initial_xp", m_initialXp);
-		command.setFloatAttribute("initial_rp", m_initialRp);
+		command.setFloatAttribute("initial_xp", m_metagame.getUserSettings().m_initialXp);
+		command.setFloatAttribute("initial_rp", m_metagame.getUserSettings().m_initialRp);
+		command.setFloatAttribute("max_rp", m_metagame.getUserSettings().m_maxRp);
 		command.setStringAttribute("base_capture_system", m_baseCaptureSystem);
 		command.setBoolAttribute("friendly_fire", true); // may want to go user-specified
 		command.setBoolAttribute("clear_profiles_at_start", true);
@@ -440,10 +436,8 @@ class Match {
 
 		{
 			XmlElement player("local_player");
-			// player.setIntAttribute("faction_id", m_metagame.getUserSettings().m_factionChoice); //0);
-			// player.setStringAttribute("username", m_metagame.getUserSettings().m_username);
-			player.setIntAttribute("faction_id", 1);
-			player.setStringAttribute("username", "player1");
+			player.setIntAttribute("faction_id", m_metagame.getUserSettings().m_factionChoice);
+			player.setStringAttribute("username", m_metagame.getUserSettings().m_username);
 			command.appendChild(player);
 		}
 
