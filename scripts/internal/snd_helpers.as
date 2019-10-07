@@ -9,7 +9,7 @@
 /////////////////////////////////
 
 // -----------------------------
-const XmlElement@ getPlayerInventory(const Metagame@ metagame, int characterId) {
+const XmlElement@ getPlayerInventory(const GameModeSND@ metagame, int characterId) {
 	_log("** SND: Inspecting character " + characterId + "'s inventory", 1);
 	XmlElement@ query = XmlElement(
 		makeQuery(metagame, array<dictionary> = {
@@ -25,7 +25,7 @@ const XmlElement@ getPlayerInventory(const Metagame@ metagame, int characterId) 
 	return doc.getFirstElementByTagName("character"); //.getElementsByTagName("item")
 }
 
-array<int> getFactionPlayerCharacterIds(Metagame@ metagame, uint faction) {
+array<int> getFactionPlayerCharacterIds(GameModeSND@ metagame, uint faction) {
 	array<int> playerCharIds;
 	array<const XmlElement@> players = getPlayers(metagame);
 	for (uint i = 0; i < players.size(); ++i) {
