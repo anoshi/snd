@@ -378,10 +378,6 @@ class Match {
 
 	array<Faction@> m_factions;
 
-	//float m_initialXp = 0.0; // 0 XP will want to set this higher in hostage escort missions to allow picking up of AI hostages.
-	//float m_initialRp = 800.0; // default starting cash in CS
-	//float m_maxRp = 16000.0; // hard limit on RP, as per CS
-
 	float m_aiAccuracy = 0.94;
 
 	float m_xpMultiplier = 1.0;
