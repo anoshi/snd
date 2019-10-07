@@ -1,4 +1,3 @@
-
 #include "tracker.as"
 
 // internal
@@ -231,7 +230,7 @@ abstract class SubStage : Tracker {
 		m_metagame.addTracker(this);
 
 		// create substage specific trackers:
-		_log("trackers: " + m_trackers.length());
+		_log("** SND: active trackers: " + m_trackers.length());
 		for (uint i = 0; i < m_trackers.length(); ++i) {
 			m_metagame.addTracker(m_trackers[i]);
 		}
