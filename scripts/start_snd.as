@@ -10,7 +10,6 @@ void main(dictionary@ inputData) {
 
 	UserSettings settings; // creates a UserSettings object named 'settings', with default values (as per user_settings_snd.as)
 	_setupLog(inputSettings);
-
 	settings.readSettings(inputSettings); // read contents ('inputData') of XmlElement 'inputSettings'
 	// things like the player's username, savegame name, custom difficulty slider values, etc.
 
