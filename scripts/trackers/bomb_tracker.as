@@ -16,7 +16,7 @@ class BombTracker : Tracker {
 	protected float BOMB_POS_UPDATE_TIME = 10.0;	// how often the position of the bomb is checked
 	protected float bombPosUpdateTimer = 0.0;		// the time remaining until the next update
 
-	protected float bombTimer = 30.0;	// when bombIsArmed, the timer starts.
+	protected float bombTimer = 45.0;	// when bombIsArmed, the timer starts.
 
 	// --------------------------------------------
 	BombTracker(GameModeSND@ metagame) {
@@ -164,7 +164,7 @@ class BombTracker : Tracker {
 				if (checkRange(stringToVector3(bombPosition), validLocs[i], 15.0)) {
 					_log("** SND: bomb has been planted within 15 units of " + validLocs[i].toString() + ".", 1);
 					array<int> planterTeamCharIds = getFactionPlayerCharacterIds(m_metagame, bombOwnerFaction);
-					for (uint j = 0; j < planterTeamCharIds.length() ; ++i) {
+					for (uint j = 0; j < planterTeamCharIds.length() ; ++j) {
 						string rewardPlanterTeamChar = "<command class='rp_reward' character_id='" + planterTeamCharIds[j] + "' reward='800'></command>";
 						m_metagame.getComms().send(rewardPlanterTeamChar);
 					}
