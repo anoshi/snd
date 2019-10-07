@@ -38,19 +38,6 @@ array<int> getFactionPlayerCharacterIds(GameModeSND@ metagame, uint faction) {
 	return playerCharIds;
 }
 
-//////////////////////////////////////////////
-// can't code. Make it public
-// --------------------------------------------
-array<Vector3> targetLocations; // per-round locations where bombs can be placed
-void setTargetLocations(array<Vector3> v3array) {
-	targetLocations = v3array;
-}
-
-// --------------------------------------------
-array<Vector3> getTargetLocations() {
-	return targetLocations;
-}
-
 /////////////////////////////////
 // ----- END SND HELPERS ----- //
 /////////////////////////////////

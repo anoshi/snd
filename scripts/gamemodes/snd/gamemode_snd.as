@@ -10,6 +10,8 @@ class GameModeSND : Metagame {
 	//protected MapInfo@ m_mapInfo; // already exists in Metagame class
 	protected array<Faction@> m_factions;
 
+	array<Vector3> targetLocations; // per-round locations where bombs can be placed
+
 	protected string m_tournamentName = "";
 
 	// --------------------------------------------
@@ -46,6 +48,16 @@ class GameModeSND : Metagame {
 		// add tracker for match end to switch to next
 		addTracker(m_mapRotator);
 
+	}
+
+	// --------------------------------------------
+	void setTargetLocations(array<Vector3> v3array) {
+		targetLocations = v3array;
+	}
+
+	// --------------------------------------------
+	array<Vector3> getTargetLocations() {
+		return targetLocations;
 	}
 
 	// --------------------------------------------
