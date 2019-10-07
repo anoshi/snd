@@ -379,7 +379,7 @@ class Match {
 
 	array<Faction@> m_factions;
 
-	float m_initialXp = 0.1; // 500 XP
+	float m_initialXp = 0.0; // 0 XP will want to set this higher in hostage escort missions to allow picking up of AI hostages.
 	float m_initialRp = 800.0; // default starting cash in CS
 	float m_maxRp = 16000.0; // hard limit on RP, as per CS
 	float m_aiAccuracy = 0.94;
@@ -407,6 +407,7 @@ class Match {
 		command.setFloatAttribute("rp_multiplier", m_rpMultiplier);
 		command.setFloatAttribute("initial_xp", m_initialXp);
 		command.setFloatAttribute("initial_rp", m_initialRp);
+		command.setFloatAttribute("max_rp", m_maxRp);
 		command.setStringAttribute("base_capture_system", m_baseCaptureSystem);
 		command.setBoolAttribute("friendly_fire", true); // may want to go user-specified
 		command.setBoolAttribute("clear_profiles_at_start", true);
@@ -444,6 +445,9 @@ class Match {
 			// player.setStringAttribute("username", m_metagame.getUserSettings().m_username);
 			player.setIntAttribute("faction_id", 1);
 			player.setStringAttribute("username", "player1");
+			// _log("** SND: m_factionChoice is " + m_UserSettings.m_factionChoice, 1);
+			// player.setIntAttribute("faction_id", m_UserSettings.m_factionChoice);
+			// player.setStringAttribute("username", m_UserSettings.m_username);
 			command.appendChild(player);
 		}
 
