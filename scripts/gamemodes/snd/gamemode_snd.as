@@ -3,46 +3,6 @@
 #include "map_rotator_snd_all.as"
 
 // --------------------------------------------
-class UserSettings {
-	array<string> m_overlayPaths;
-
-	int m_minimumPlayersToStart = 2; //1;
-	int m_minimumPlayersToContinue = 2; //1;
-	int m_maxPlayers = 10;
-
-	float m_timeBetweenSubstages = 20.0;
-
-	// search and destroy mode
-	float m_sndMaxTime = 600.0;
-
-	// koth mode
-	float m_kothMaxTime = 900.0;
-	float m_kothDefenseTime = 180.0;
-
-	float m_quickmatchMaxTime = 3600.0;
-
-	string m_startServerCommand = "";
-
-	// --------------------------------------------
-	UserSettings() {
-		m_overlayPaths.insertLast("media/packages/snd");
-	}
-
-	// --------------------------------------------
-	void print() const {
-		_log(" * minimum players to start: " + m_minimumPlayersToStart);
-		_log(" * minimum players to continue: " + m_minimumPlayersToContinue);
-		_log(" * time between substages: " + m_timeBetweenSubstages);
-
-		_log(" * snd max time: " + m_sndMaxTime);
-
-		// _log(" * koth max time: " + m_kothMaxTime);
-		// _log(" * koth max defense time: " + m_kothDefenseTime);
-
-	}
-}
-
-// --------------------------------------------
 class GameModeSND : Metagame {
 	protected UserSettings@ m_userSettings;
 	protected MapRotator@ m_mapRotator;
