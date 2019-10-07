@@ -46,9 +46,9 @@ class WarmupSubStage : SubStage {
 
 		string sender = event.getStringAttribute("player_name");
 		int senderId = event.getIntAttribute("player_id");
-		if (!m_metagame.getAdminManager().isAdmin(sender, senderId)) {
-			return;
-		}
+		// if (!m_metagame.getAdminManager().isAdmin(sender, senderId)) {
+		// 	return;
+		// }
 
 		if (checkCommand(message, "start")) {
 			// start happens by ending this substage
