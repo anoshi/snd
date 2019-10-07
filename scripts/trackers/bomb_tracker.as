@@ -1,6 +1,7 @@
 #include "tracker.as"
 #include "log.as"
 #include "helpers.as"
+#include "query_helpers.as"
 
 // --------------------------------------------
 class BombTracker : Tracker {
@@ -39,10 +40,19 @@ class BombTracker : Tracker {
 		if (!bombInPlay) {
 			// get all the players
 			array<const XmlElement@> players = getPlayers(m_metagame);
-			uint i = rand(0, players.length() - 1);
-			// get a specific player's character
-			const XmlElement@ player = players[i];
-			bombCarrier = player.getIntAttribute("character_id");
+			// get the characterIds for all terrorists
+			array<int> terPlayerIds = getFactionPlayerCharacterIds(m_metagame, 1); // terrorsts are faction 1
+			if (terPlayerIds.length() > 0) {
+				// choose a terrorist at random to give the bomb to
+				uint i = rand(0, terPlayerIds.length() - 1);
+				bombCarrier = terPlayerIds[i];
+			} else {
+				_log("** SND: No terrorists! Maybe single player? Giving a random player the bomb.", 1);
+				uint i = rand(0, players.length() - 1);
+				// get a specific player's character
+				const XmlElement@ player = players[i];
+				bombCarrier = player.getIntAttribute("character_id");
+			}
 			// and give that character the bomb
 			addItemToBackpack("bomb.weapon", bombCarrier);
 			_log("** SND: gave player (id: " + bombCarrier + ") the bomb", 1);
@@ -159,7 +169,7 @@ class BombTracker : Tracker {
 			// get the bomb position
 			bombPosition = event.getStringAttribute("position");
 			// check if the bomb was placed in a valid targetLocation
-			array<Vector3> validLocs = getTargetLocations(); // public method in snd_helpers.as
+			array<Vector3> validLocs = m_metagame.getTargetLocations(); // public method in snd_helpers.as
 			for (uint i = 0; i < validLocs.length(); ++i) {
 				if (checkRange(stringToVector3(bombPosition), validLocs[i], 15.0)) {
 					_log("** SND: bomb has been planted within 15 units of " + validLocs[i].toString() + ".", 1);
