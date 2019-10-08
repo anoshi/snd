@@ -138,7 +138,7 @@ class PlayerTracker : Tracker {
 		} else if (playerKiller.getIntAttribute("player_id") != playerTarget.getIntAttribute("player_id")) {
 			// killed player on other team
 			_log("** SND: Player " + pKillerId + " killed an enemy unit. Increase score", 1);
-			playSound(m_metagame, "enemy_down.wav", factionId);
+			playSound(m_metagame, "enemydown.wav", factionId);
 			string rewardEnemyKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='300'></command>";
 			m_metagame.getComms().send(rewardEnemyKills);
 			addScore(factionId, 2);
