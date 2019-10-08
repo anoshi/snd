@@ -124,7 +124,7 @@ class PlayerTracker : Tracker {
 		int pKillerCharId = playerKiller.getIntAttribute("character_id");
 		_log("** SND: Player scores: " + playerKiller.getStringAttribute("name") + ", faction " + factionId);
 
-		if (playerKiller.getIntAttribute("profile_hash") == playerTarget.getIntAttribute("profile_hash")) {
+		if (playerKiller.getStringAttribute("profile_hash") == playerTarget.getStringAttribute("profile_hash")) {
 			// killed self
 			_log("** SND: Player " + pKillerId + " committed suicide. Decrement score", 1);
 			// no cash penalty for suicide, just score
