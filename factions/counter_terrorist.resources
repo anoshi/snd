@@ -5,8 +5,7 @@
 
 	<!-- faction-specific STARTING weapon (see all_weapons.xml for available weapons) -->
 	<!-- Pistols -->
-	<weapon key="beretta_m9.weapon" />
-	<weapon key="desert_eagle.weapon" />
+	<weapon key="es_five_seven.weapon" />
 
 	<!-- Sub Machine Guns -->
 	<weapon key="mp5sd.weapon" />
