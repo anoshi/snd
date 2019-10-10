@@ -24570,7 +24570,7 @@
       <position x="4.599201" y="-0.159432" z="13.712048" />
     </frame>
   </animation>
-  <animation loop="1" end="5.000000" speed="0.300000" comment="bomb_defuse_kit">
+  <animation loop="1" end="5.000000" speed="0.300000" comment="bomb_defuse_with_kit">
     <frame time="0.000000">
       <position x="-8.593827" y="24.019615" z="19.773434" />
       <position x="-8.169551" y="19.056721" z="14.855136" />
