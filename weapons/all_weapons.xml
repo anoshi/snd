@@ -3,6 +3,7 @@
 	<!-- Search and Destroy -->
 	<weapon file="bomb.weapon" />
 	<weapon file="wire_cutters.weapon" />
+	<weapon file="defusal_kit.weapon" />
 
 	<!-- Pistols -->
 	<weapon file="beretta_m9.weapon">
@@ -99,5 +100,5 @@
 	</weapon>
 
 	<!-- Vehicular -->
-	<weapon file="humvee_mg.weapon" />
+	<weapon file="humvee_mg.weapon" /><!-- humvee on the pvp1 map -->
 </weapons>

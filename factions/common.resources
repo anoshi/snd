@@ -5,6 +5,7 @@
 	<!-- ALL COMMON WEAPONS -->
 	<weapon key="bomb.weapon" />
 	<weapon key="wire_cutters.weapon" />
+	<weapon key="defusal_kit.weapon" />
 
 	<!-- ALL CARRY ITEMS -->
 	<carry_item key="kevlar.carry_item" enabled="1" />
