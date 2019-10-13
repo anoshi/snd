@@ -2,7 +2,7 @@
 #include "safe_zone.as"
 #include "stage_snd.as"
 #include "warmup_substage.as"
-#include "snd_substage.as"
+#include "de_substage.as"
 
 
 // --------------------------------------------
@@ -33,6 +33,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 
 			stage.m_includeLayers.insertLast("bases.default");
 			stage.m_includeLayers.insertLast("layer1.targetLocations");
+			stage.m_includeLayers.insertLast("layer2.targetLocations");
 
 			stage.m_factionConfigs.insertLast(m_factionConfigs[0]);
 			stage.m_factionConfigs.insertLast(m_factionConfigs[1]);
@@ -99,7 +100,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 			{
 				// the map has declared some additional stuff for the substage, matched with a tag
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
-				SubStage@ substage = SNDSubStage(stage, maxTime);
+				SubStage@ substage = BombDefusal(stage, maxTime);
 				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
 
 				Match@ match = Match(m_metagame);
@@ -136,7 +137,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 
 			{
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
-				SubStage@ substage = SNDSubStage(stage, maxTime);
+				SubStage@ substage = BombDefusal(stage, maxTime);
 				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
 
 				Match@ match = Match(m_metagame);
@@ -174,7 +175,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 
 			{
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
-				SubStage@ substage = SNDSubStage(stage, maxTime);
+				SubStage@ substage = BombDefusal(stage, maxTime);
 				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
 
 				Match@ match = Match(m_metagame);
@@ -213,7 +214,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 			{
 				// the map has declared some additional stuff for the substage, matched with a tag
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
-				SubStage@ substage = SNDSubStage(stage, maxTime);
+				SubStage@ substage = BombDefusal(stage, maxTime);
 				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
 
 				Match@ match = Match(m_metagame);

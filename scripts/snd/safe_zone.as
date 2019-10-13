@@ -113,7 +113,6 @@ class SafeZone : Tracker {
 	protected void updateUnsafeCharacter(const XmlElement@ character, float time) {
 		int id = character.getIntAttribute("id");
 		_log("character " + id + " in unsafe block", 1);
-		//$this->unsafe_characters[$character->getAttribute("id")]
 		// insta death for now
 		string command = "<command class='update_character' id='" + id + "' dead='1' />";
 		m_metagame.getComms().send(command);

@@ -11,7 +11,7 @@
 #include "target_locations.as"
 
 // --------------------------------------------
-class SNDSubStage : SubStage {
+class BombDefusal : SubStage {
 	protected PlayerTracker@ m_playerTracker;
 	protected TargetLocations@ m_targetLocations;
 	protected BombTracker@ m_bombTracker;
@@ -20,7 +20,7 @@ class SNDSubStage : SubStage {
 	protected GameTimer@ m_gameTimer;
 
 	// --------------------------------------------
-	SNDSubStage(Stage@ stage, float maxTime, string targetsLayerName = "targetLocations", array<int> competingFactionIds = array<int>(0, 1), int protectorFactionId = 2) {
+	BombDefusal(Stage@ stage, float maxTime, string targetsLayerName = "targetLocations", array<int> competingFactionIds = array<int>(0, 1), int protectorFactionId = 2) {
 		super(stage);
 
 		m_name = "snd";
@@ -60,7 +60,7 @@ class SNDSubStage : SubStage {
 			}
 
 			// choose 2x bomb target locations from numerous possibilities and mark on map for all to see
-			@m_targetLocations = TargetLocations(m_metagame, positions);
+			@m_targetLocations = TargetLocations(m_metagame, "de", positions);
 			addTracker(m_targetLocations);
 
 			// track the bomb

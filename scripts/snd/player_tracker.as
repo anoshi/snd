@@ -236,7 +236,7 @@ class PlayerTracker : Tracker {
 	////////////////////////////
 	// Score tracking methods //
 	////////////////////////////
-
+	// Bomb Defusal
 	// 2 points for a bomb plant. (Terrorist Only)
 	// 2 points if that bomb explodes. (Terrorist Only)
 	// 2 points for a kill, 3 when bomb planted

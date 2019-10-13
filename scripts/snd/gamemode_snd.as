@@ -10,7 +10,8 @@ class GameModeSND : Metagame {
 	//protected MapInfo@ m_mapInfo; // already exists in Metagame class
 	protected array<Faction@> m_factions;
 
-	array<Vector3> targetLocations; // per-round locations where bombs can be placed
+	array<Vector3> targetLocations;  // per-round locations where bombs can be placed or hostages start
+	array<Vector3> extractionPoints; // per-round locations that units must reach in order to escape
 
 	protected string m_tournamentName = "";
 
@@ -58,6 +59,16 @@ class GameModeSND : Metagame {
 	// --------------------------------------------
 	array<Vector3> getTargetLocations() {
 		return targetLocations;
+	}
+
+	// --------------------------------------------
+	void setExtractionPoints(array<Vector3> v3array) {
+		extractionPoints = v3array;
+	}
+
+	// --------------------------------------------
+	array<Vector3> getExtractionPoints() {
+		return extractionPoints;
 	}
 
 	// --------------------------------------------

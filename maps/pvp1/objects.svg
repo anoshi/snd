@@ -8061,10 +8061,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="885.7013"
-     inkscape:cy="1074.1925"
+     inkscape:cx="997.27916"
+     inkscape:cy="1010.8606"
      inkscape:document-units="px"
-     inkscape:current-layer="layer37"
+     inkscape:current-layer="layer28"
      showgrid="false"
      inkscape:window-width="1680"
      inkscape:window-height="951"
@@ -12495,7 +12495,7 @@ key = radar_truck.vehicle;</desc>
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path8566-5-8-1-1-5"
-       d="M 3182.7016,-90.405115 V 9.045808"
+       d="m 3182.7016,-90.405115 0,356.450915"
        style="display:inline;fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new" />
     <rect
        style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
@@ -13431,6 +13431,110 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
       <desc
          id="desc9788-45-3-6-1-6-7-2-09-4-7-2-82-2-4-2-6-7-2-3-2-9-52">type = vehicle; key = deco_van_brown.vehicle;</desc>
     </rect>
+    <rect
+       inkscape:label="#rect10748"
+       y="42.791496"
+       x="3142.2861"
+       height="10.417114"
+       width="11.427368"
+       id="generic_node1-7-90-0-4-7-3"
+       style="display:inline;enable-background:new;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:none">
+      <desc
+         id="desc9795-3-5-2-83-9-8">tag=hostage_start;</desc>
+    </rect>
+    <text
+       id="text133430-0"
+       y="50.758842"
+       x="3244.3374"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       xml:space="preserve"><tspan
+         y="50.758842"
+         x="3244.3374"
+         id="tspan133432-2"
+         sodipodi:role="line"
+         style="font-size:10px;line-height:1.25;font-family:sans-serif">hostage start</tspan></text>
+    <rect
+       inkscape:label="#rect10748"
+       y="206.72075"
+       x="3135.665"
+       height="16.917084"
+       width="17.677338"
+       id="generic_node1-7-90-4"
+       style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
+      <desc
+         id="desc9795-3-5-83">tag=bomb_target;</desc>
+    </rect>
+    <text
+       id="text133430-0-9"
+       y="218.64519"
+       x="3244.1614"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       xml:space="preserve"><tspan
+         y="218.64519"
+         x="3244.1614"
+         id="tspan133432-2-0"
+         sodipodi:role="line"
+         style="font-size:10px;line-height:1.25;font-family:sans-serif">bomb target location</tspan></text>
+    <rect
+       inkscape:label="#rect10748"
+       y="151.28085"
+       x="3108.7378"
+       height="25.26635"
+       width="52.086201"
+       id="hitbox_trigger_vip_exit-1"
+       style="display:inline;opacity:0.4;fill:#4077ca;fill-opacity:1;stroke:#000000;stroke-width:3.02362204;stroke-miterlimit:4;stroke-dasharray:9.07086614, 3.02362205;stroke-dashoffset:0;stroke-opacity:1;enable-background:new" />
+    <text
+       id="text133430-0-2"
+       y="161.01596"
+       x="3245.8599"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       xml:space="preserve"><tspan
+         y="161.01596"
+         x="3245.8599"
+         id="tspan133432-2-7"
+         sodipodi:role="line"
+         style="font-size:10px;line-height:1.25;font-family:sans-serif">vip exit</tspan></text>
+    <rect
+       inkscape:label="#rect10748"
+       y="66.781601"
+       x="3108.5613"
+       height="25.26635"
+       width="52.086201"
+       id="hitbox_trigger_hostage_exit-1"
+       style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:#000000;stroke-width:3.02362204;stroke-miterlimit:4;stroke-dasharray:9.07086614, 3.02362205000000017;stroke-dashoffset:0;stroke-opacity:1;enable-background:new" />
+    <text
+       id="text133430-0-2-7"
+       y="82.527115"
+       x="3243.7922"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       xml:space="preserve"><tspan
+         y="82.527115"
+         x="3243.7922"
+         id="tspan133432-2-7-9"
+         sodipodi:role="line"
+         style="font-size:10px;line-height:1.25;font-family:sans-serif">hostage exit</tspan></text>
+    <rect
+       inkscape:label="#rect10748"
+       y="119.46105"
+       x="3142.9626"
+       height="10.417114"
+       width="11.427368"
+       id="generic_node1-7-90-0-4-7-3-0"
+       style="display:inline;opacity:0.4;fill:#4077ca;fill-opacity:1;stroke:none;enable-background:new">
+      <desc
+         id="desc9795-3-5-2-83-9-8-2">tag=vip_start;</desc>
+    </rect>
+    <text
+       id="text133430-0-3"
+       y="127.4284"
+       x="3245.0139"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       xml:space="preserve"><tspan
+         y="127.4284"
+         x="3245.0139"
+         id="tspan133432-2-9"
+         sodipodi:role="line"
+         style="font-size:10px;line-height:1.25;font-family:sans-serif">vip start</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -20371,7 +20475,41 @@ key = radar_truck.vehicle;</desc>
        inkscape:groupmode="layer"
        id="layer28"
        inkscape:label="extraction"
-       style="display:none" />
+       style="display:inline">
+      <rect
+         inkscape:label="#rect10748"
+         y="1091.8668"
+         x="691.20691"
+         height="11.016357"
+         width="28.336182"
+         id="hitbox_trigger_hostage_exit-1-9"
+         style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:#000000;stroke-width:3.02362204;stroke-miterlimit:4;stroke-dasharray:9.07086614, 3.02362205;stroke-dashoffset:0;stroke-opacity:1;enable-background:new" />
+      <rect
+         inkscape:label="#rect10748"
+         y="877.99182"
+         x="1278.5819"
+         height="14.766357"
+         width="18.836182"
+         id="hitbox_trigger_hostage_exit-1-9-7"
+         style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:#000000;stroke-width:3.02362204;stroke-miterlimit:4;stroke-dasharray:9.07086614, 3.02362205;stroke-dashoffset:0;stroke-opacity:1;enable-background:new" />
+      <rect
+         inkscape:label="#rect10748"
+         y="1420.4905"
+         x="777.59125"
+         height="9.7545652"
+         width="20.283014"
+         id="hitbox_trigger_vip_exit-1-7"
+         style="display:inline;opacity:0.4;fill:#4077ca;fill-opacity:1;stroke:#000000;stroke-width:3.02362204;stroke-miterlimit:4;stroke-dasharray:9.07086614, 3.02362205;stroke-dashoffset:0;stroke-opacity:1;enable-background:new"
+         transform="rotate(-25.147266)" />
+      <rect
+         inkscape:label="#rect10748"
+         y="979.86682"
+         x="685.45691"
+         height="18.266357"
+         width="14.086182"
+         id="hitbox_trigger_vip_exit-1-9"
+         style="display:inline;opacity:0.4;fill:#4077ca;fill-opacity:1;stroke:#000000;stroke-width:3.02362204;stroke-miterlimit:4;stroke-dasharray:9.07086614, 3.02362205;stroke-dashoffset:0;stroke-opacity:1;enable-background:new" />
+    </g>
     <g
        inkscape:groupmode="layer"
        id="layer6"
@@ -20854,6 +20992,60 @@ key = radar_truck.vehicle;</desc>
          style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
         <desc
            id="desc9795-3-5-2-83">tag=bomb_target;</desc>
+      </rect>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer44"
+     inkscape:label="layer1.hostageLocations">
+    <g
+       inkscape:groupmode="layer"
+       id="layer45"
+       inkscape:label="hostageLocations">
+      <rect
+         inkscape:label="#rect10748"
+         y="1113.5415"
+         x="1048.4113"
+         height="10.417114"
+         width="11.427368"
+         id="generic_node1-7-90-0-4-7"
+         style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:none;enable-background:new">
+        <desc
+           id="desc9795-3-5-2-83-9">tag=hostage_start;</desc>
+      </rect>
+      <rect
+         inkscape:label="#rect10748"
+         y="898.29144"
+         x="999.28632"
+         height="10.417114"
+         width="11.427368"
+         id="generic_node1-7-90-0-4-7-0"
+         style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:none;enable-background:new">
+        <desc
+           id="desc9795-3-5-2-83-9-3">tag=hostage_start;</desc>
+      </rect>
+      <rect
+         inkscape:label="#rect10748"
+         y="1069.1055"
+         x="1235.0819"
+         height="10.417114"
+         width="11.427368"
+         id="generic_node1-7-90-0-4-7-9"
+         style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:none;enable-background:new">
+        <desc
+           id="desc9795-3-5-2-83-9-86">tag=hostage_start;</desc>
+      </rect>
+      <rect
+         inkscape:label="#rect10748"
+         y="1052.5415"
+         x="1186.5363"
+         height="10.417114"
+         width="11.427368"
+         id="generic_node1-7-90-0-4-7-5"
+         style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:none;enable-background:new">
+        <desc
+           id="desc9795-3-5-2-83-9-7">tag=hostage_start;</desc>
       </rect>
     </g>
   </g>
@@ -23973,6 +24165,71 @@ walkable = 1; </desc>
          style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
         <desc
            id="desc9795-3-5-2-9-8-2">tag=bomb_target;</desc>
+      </rect>
+    </g>
+  </g>
+  <g
+     inkscape:label="layer2.hostageLocations"
+     id="g4754"
+     inkscape:groupmode="layer">
+    <g
+       inkscape:label="hostageLocations"
+       id="g4752"
+       inkscape:groupmode="layer">
+      <rect
+         inkscape:label="#rect10748"
+         y="911.77423"
+         x="904.8631"
+         height="10.417114"
+         width="11.427368"
+         id="generic_node1-7-90-0-4-7-6"
+         style="display:inline;enable-background:new;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:none">
+        <desc
+           id="desc9795-3-5-2-83-9-2">tag=hostage_start;</desc>
+      </rect>
+      <rect
+         inkscape:label="#rect10748"
+         y="1040.9979"
+         x="998.90826"
+         height="10.417114"
+         width="11.427368"
+         id="generic_node1-7-90-0-4-7-7"
+         style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:none;enable-background:new">
+        <desc
+           id="desc9795-3-5-2-83-9-0">tag=hostage_start;</desc>
+      </rect>
+      <rect
+         inkscape:label="#rect10748"
+         y="1056.0239"
+         x="938.45062"
+         height="10.417114"
+         width="11.427368"
+         id="generic_node1-7-90-0-4-7-39"
+         style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:none;enable-background:new">
+        <desc
+           id="desc9795-3-5-2-83-9-9">tag=hostage_start;</desc>
+      </rect>
+      <rect
+         inkscape:label="#rect10748"
+         y="1024.5577"
+         x="874.2807"
+         height="10.417114"
+         width="11.427368"
+         id="generic_node1-7-90-0-4-7-91"
+         style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:none;enable-background:new">
+        <desc
+           id="desc9795-3-5-2-83-9-72">tag=hostage_start;</desc>
+      </rect>
+      <rect
+         inkscape:label="#rect10748"
+         y="955.04144"
+         x="1085.5363"
+         height="10.417114"
+         width="11.427368"
+         id="generic_node1-7-90-0-4-7-36"
+         style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:none;enable-background:new">
+        <desc
+           id="desc9795-3-5-2-83-9-5">tag=hostage_start;</desc>
       </rect>
     </g>
   </g>

@@ -169,7 +169,7 @@ class BombTracker : Tracker {
 			// get the bomb position
 			bombPosition = event.getStringAttribute("position");
 			// check if the bomb was placed in a valid targetLocation
-			array<Vector3> validLocs = m_metagame.getTargetLocations(); // public method in snd_helpers.as
+			array<Vector3> validLocs = m_metagame.getTargetLocations();
 			for (uint i = 0; i < validLocs.length(); ++i) {
 				if (checkRange(stringToVector3(bombPosition), validLocs[i], 15.0)) {
 					_log("** SND: bomb has been planted within 15 units of " + validLocs[i].toString() + ".", 1);

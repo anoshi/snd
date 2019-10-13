@@ -276,27 +276,7 @@ abstract class SubStage : Tracker {
 				string command = "<command class='set_match_status' faction_id='" + id + "' lose='1' />";
 				m_metagame.getComms().send(command);
 			}
-
-			// kill all characters left alive on losing side, don't give additional score from execution
-			for (uint i = 0; i < m_match.m_factions.length(); ++i) {
-				int factionId = i;
-				if (factionId == m_winner) {
-					continue;
-				}
-
-				array<const XmlElement@> characters = getCharacters(m_metagame, factionId);
-				if (characters !is null) {
-					for (uint j = 0; j < characters.length(); ++j) {
-						const XmlElement@ character = characters[j];
-						int characterId = character.getIntAttribute("id");
-						string command = "<command class='update_character' id='" + characterId + "' dead='1' />";
-						m_metagame.getComms().send(command);
-					}
-				}
-			}
-		}
-
-		if (m_winner >= 0) {
+			// declare winner(s)
 			Faction@ faction = m_match.m_factions[m_winner];
 			sendFactionMessage(m_metagame, -1, "round winner " + faction.m_config.m_name + "!");
 		} else {
@@ -306,6 +286,12 @@ abstract class SubStage : Tracker {
 				playSound(m_metagame, "rounddraw.wav", f);
 			}
 		}
+
+		// record inventories of all players still alive
+
+		// finalise round scoring (RP rewards etc)
+
+		// save out stats, ready to load for persistence into next subStage
 
 		// remove trackers added by this substage in order to make after-game events not register as game events
 		for (uint i = 0; i < m_trackers.length(); ++i) {
