@@ -254,16 +254,20 @@ class HitboxHandler : Tracker {
 		// confirm it's a character who is being tracked for hitbox collisions via trackCharacter(int id);
 			if (m_trackedCharIds.find(instanceId) > -1) {
 				_log("** tracked character " + instanceId + " within trigger area: " + hitboxId, 1);
-				sendFactionMessage(m_metagame, -1, stageType == 'hr' ? 'A hostage has been rescued!' : 'VIP has escaped');
+				sendFactionMessage(m_metagame, -1, m_stageType == 'hr' ? 'A hostage has been rescued!' : 'VIP has escaped');
 				// increment rescued count
-				addNumExtracted(1);
+				m_metagame.addNumExtracted(1);
 				// reward CT - if more than one CT near extraction, split reward. Can't tell who dropped the hostages off.
 				const XmlElement@ escapee = getCharacterInfo(m_metagame, instanceId);
 				Vector3 v3pos = stringToVector3(escapee.getStringAttribute("position"));
 				array<const XmlElement@> nearCTs = getCharactersNearPosition(m_metagame, v3pos, 0, 8.0);
 				for (uint ct = 0; ct < nearCTs.length(); ++ct) {
-					string rewardHostageRescuer = "<command class='rp_reward' character_id='" + nearCTs[ct] + "' reward='" + (1000 / nearCTs.length()) + "'></command>";
-					m_metagame.getComms().send(rewardHostageRescuer);
+					int ctId = nearCTs[ct].getIntAttribute("character_id");
+					int ctPId = nearCTs[ct].getIntAttribute("player_id");
+					if (ctPId >= 0) {
+						string rewardHostageRescuer = "<command class='rp_reward' character_id='" + ctId + "' reward='" + (1000 / nearCTs.length()) + "'></command>";
+						m_metagame.getComms().send(rewardHostageRescuer);
+					}
 				}
 				// clear hitbox checking
 				clearTriggerAreaAssociations(m_metagame, "character", instanceId, m_trackedTriggerAreas);
@@ -271,7 +275,7 @@ class HitboxHandler : Tracker {
 				m_trackedCharIds.removeAt(m_trackedCharIds.find(instanceId));
 				array<Faction@> allFactions = m_metagame.getFactions();
 				for (uint f = 0; f < allFactions.length(); ++f) {
-					playSound(m_metagame, stageType == 'hr' ? 'rescued.wav' : '', f);
+					playSound(m_metagame, m_stageType == 'hr' ? 'rescued.wav' : '', f);
 				}
 				// remove hostage from play
 				// kill then make disappear by applying invisivest?
