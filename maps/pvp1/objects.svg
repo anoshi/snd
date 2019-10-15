@@ -8060,11 +8060,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7071068"
-     inkscape:cx="1085.0274"
-     inkscape:cy="1010.7338"
+     inkscape:zoom="2.8284272"
+     inkscape:cx="1035.3499"
+     inkscape:cy="1021.3992"
      inkscape:document-units="px"
-     inkscape:current-layer="layer42"
+     inkscape:current-layer="layer40"
      showgrid="false"
      inkscape:window-width="1680"
      inkscape:window-height="951"
@@ -20140,19 +20140,6 @@ top_material = none;</desc>
            id="desc9788-45-3-6-1-6-7-2-09-4-7-2-82-2-4-7-1-4-7-2-2-5">type = vehicle; key = deco_car3_green.vehicle;</desc>
       </rect>
       <rect
-         transform="matrix(0.00114915,-0.99999934,0.99999934,0.00114915,0,0)"
-         inkscape:label=""
-         y="679.14539"
-         x="-1072.9965"
-         height="7.3961515"
-         width="3.982286"
-         id="spawn1-70-6-0-5-9-1-9"
-         style="fill:#007cff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:11.99999881, 11.99999881;stroke-dashoffset:4.59999935;display:inline;enable-background:new">
-        <desc
-           id="desc7082-9-8-9-8-4-1-4">type = vehicle;
-key = radar_truck.vehicle;</desc>
-      </rect>
-      <rect
          transform="scale(-1,-1)"
          inkscape:label="#mesh"
          y="-1191.9302"
@@ -20479,9 +20466,9 @@ key = radar_truck.vehicle;</desc>
       <rect
          inkscape:label="#rect10748"
          y="1091.8668"
-         x="691.20691"
-         height="11.016357"
-         width="28.336182"
+         x="698.63153"
+         height="8.8840332"
+         width="15.42682"
          id="hitbox_trigger_hr_exit-1-9"
          style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:#000000;stroke-width:3.02362204;stroke-miterlimit:4;stroke-dasharray:9.07086614, 3.02362205;stroke-dashoffset:0;stroke-opacity:1;enable-background:new" />
       <rect
@@ -20993,6 +20980,28 @@ key = radar_truck.vehicle;</desc>
         <desc
            id="desc9795-3-5-2-83">tag=bomb_target;</desc>
       </rect>
+      <rect
+         inkscape:label="#rect10748"
+         y="1090.2505"
+         x="973.33258"
+         height="16.917084"
+         width="17.677338"
+         id="generic_node1-7-90-0-7-3"
+         style="display:inline;enable-background:new;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none">
+        <desc
+           id="desc9795-3-5-2-9-8">tag=bomb_target;</desc>
+      </rect>
+      <rect
+         inkscape:label="#rect10748"
+         y="981.53296"
+         x="1029.3708"
+         height="11.083485"
+         width="11.31332"
+         id="generic_node1-7-90-0-7-3-0"
+         style="display:inline;enable-background:new;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none">
+        <desc
+           id="desc9795-3-5-2-9-8-2">tag=bomb_target;</desc>
+      </rect>
     </g>
   </g>
   <g
@@ -21027,8 +21036,8 @@ key = radar_truck.vehicle;</desc>
       </rect>
       <rect
          inkscape:label="#rect10748"
-         y="1069.1055"
-         x="1235.0819"
+         y="1128.1055"
+         x="1156.5819"
          height="10.417114"
          width="11.427368"
          id="generic_node1-7-90-0-4-7-9"
@@ -21038,14 +21047,25 @@ key = radar_truck.vehicle;</desc>
       </rect>
       <rect
          inkscape:label="#rect10748"
-         y="1052.5415"
-         x="1186.5363"
+         y="1084.5415"
+         x="1085.5363"
          height="10.417114"
          width="11.427368"
          id="generic_node1-7-90-0-4-7-5"
          style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:none;enable-background:new">
         <desc
            id="desc9795-3-5-2-83-9-7">tag=hostage_start;</desc>
+      </rect>
+      <rect
+         inkscape:label="#rect10748"
+         y="1000.7914"
+         x="1013.2863"
+         height="10.417114"
+         width="11.427368"
+         id="generic_node1-7-90-0-4-7-9-7"
+         style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:none;enable-background:new">
+        <desc
+           id="desc9795-3-5-2-83-9-86-9">tag=hostage_start;</desc>
       </rect>
     </g>
   </g>
@@ -22807,19 +22827,6 @@ roof_type = flat;</desc>
            id="desc9788-45-3-6-1-6-7-2-09-4-7-2-82-2-4-2-6-7-0-4-6">type = vehicle; key = deco_car2_white.vehicle;</desc>
       </rect>
       <rect
-         transform="matrix(-0.58109127,0.8138384,-0.8138384,-0.58109127,0,0)"
-         inkscape:label=""
-         y="-1579.8392"
-         x="-37.451225"
-         height="7.3961515"
-         width="3.982286"
-         id="spawn1-70-6-0-5-9-1-4"
-         style="fill:#007cff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:11.99999888, 11.99999888;stroke-dashoffset:4.59999938;display:inline;enable-background:new">
-        <desc
-           id="desc7082-9-8-9-8-4-1-0">type = vehicle;
-key = radar_truck.vehicle;</desc>
-      </rect>
-      <rect
          transform="matrix(0.47845581,0.87811163,-0.87811163,0.47845581,0,0)"
          inkscape:label=""
          y="-721.16895"
@@ -24143,30 +24150,7 @@ walkable = 1; </desc>
     <g
        inkscape:groupmode="layer"
        id="layer33"
-       inkscape:label="targetLocations">
-      <rect
-         inkscape:label="#rect10748"
-         y="1030.5"
-         x="1021.7694"
-         height="16.917084"
-         width="17.677338"
-         id="generic_node1-7-90-0-7-3"
-         style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
-        <desc
-           id="desc9795-3-5-2-9-8">tag=bomb_target;</desc>
-      </rect>
-      <rect
-         inkscape:label="#rect10748"
-         y="991.78601"
-         x="978.63593"
-         height="11.083485"
-         width="11.31332"
-         id="generic_node1-7-90-0-7-3-0"
-         style="display:inline;opacity:0.4;fill:#dc1414;fill-opacity:1;stroke:none;enable-background:new">
-        <desc
-           id="desc9795-3-5-2-9-8-2">tag=bomb_target;</desc>
-      </rect>
-    </g>
+       inkscape:label="targetLocations" />
   </g>
   <g
      inkscape:label="layer2.hostageLocations"
