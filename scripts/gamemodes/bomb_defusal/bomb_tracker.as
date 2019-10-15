@@ -14,8 +14,8 @@ class BombTracker : Tracker {
 	protected int bombOwnerFaction = -1;// the faction_id of the faction who start the round with the bomb
 	protected string bombPosition = ""; // xxx.xxx yyy.yyy zzz.zzz
 
-	protected float BOMB_POS_UPDATE_TIME = 10.0;	// how often the position of the bomb is checked
-	protected float bombPosUpdateTimer = 0.0;		// the time remaining until the next update
+	protected float BOMB_POS_UPDATE_TIME = 5.0;	// how often the position of the bomb is checked
+	protected float bombPosUpdateTimer = 0.0;	// the time remaining until the next update
 
 	protected float bombTimer = 45.0;	// when bombIsArmed, the timer starts.
 
