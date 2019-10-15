@@ -13,6 +13,7 @@ class GameModeSND : Metagame {
 	array<Vector3> targetLocations;		// locations where bombs may be placed or hostages may start
 	array<Vector3> extractionPoints;	// locations that units must reach in order to escape
 	array<int> trackedCharIds;			// Ids of characters being tracked against collisions with hitboxes
+	int numExtracted = 0;					// the number of hostages safely rescued
 
 	protected string m_tournamentName = "";
 
@@ -77,6 +78,16 @@ class GameModeSND : Metagame {
 	}
 
 	// --------------------------------------------
+	void addNumExtracted(int num) {
+		numExtracted += num;
+	}
+
+	// --------------------------------------------
+	int getNumExtracted() {
+		return numExtracted;
+	}
+
+	// --------------------------------------------
 	void addTrackedCharId(int charId) {
 		// Trackers call this method to add a character ID to the list of tracked character IDs
 		trackedCharIds.insertLast(charId);
@@ -87,10 +98,10 @@ class GameModeSND : Metagame {
 	void removeTrackedCharId(int charId) {
 		// Trackers call this method to remove a character ID from the list of tracked character IDs
 		_log("** SND: GameModeSND::removeTrackedCharId " + charId, 1);
-		uint idx = trackedCharIds.find(charId);
+		int idx = trackedCharIds.find(charId);
 		if (idx >= 0) {
 			trackedCharIds.removeAt(idx);
-			_log("\t " + charId + " removed", 1);
+			_log("\t charId: " + charId + " removed", 1);
 		}
 	}
 

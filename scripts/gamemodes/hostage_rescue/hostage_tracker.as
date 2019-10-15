@@ -9,12 +9,7 @@ class HostageTracker : Tracker {
 
 	protected bool m_started = false;
 
-	protected array<int> hostageIds;	// dynamic list of living hostage character Ids
-	// alive = hostageIds.length();
-	protected int rescued = 0; // count of rescued hostages.
-	// if > 2 at match end && hostageIds.length() == 0, full CT win
-
-	protected array<int> hostageEscorts;    // char or playerIds of CTs escorting hostages. Probably can't track this
+	protected int alive; 		// when m_metagame.getTrackedCharIds().length() == 0, it's the end of the round
 
 	// --------------------------------------------
 	HostageTracker(GameModeSND@ metagame) {
@@ -28,8 +23,8 @@ class HostageTracker : Tracker {
 		m_metagame.getComms().send(trackCharSpawn);
 		string trackCharKill = "<command class='set_metagame_event' name='character_kill' enabled='1' />";
 		m_metagame.getComms().send(trackCharKill);
-		string trackCharDie = "<command class='set_metagame_event' name='character_die' enabled='1' />";
-		m_metagame.getComms().send(trackCharDie);
+		// string trackCharDie = "<command class='set_metagame_event' name='character_die' enabled='1' />";
+		// m_metagame.getComms().send(trackCharDie);
 		addHostages();
 		m_started = true;
 	}
@@ -39,7 +34,6 @@ class HostageTracker : Tracker {
 	///////////////////////
 	// --------------------------------------------
 	protected void addHostages() {
-		hostageIds.clear();
 		array<Vector3> hostageStartPositions = m_metagame.getTargetLocations();
 		_log("** SND: Spawning hostages", 1);
 		for (uint i = 0; i < hostageStartPositions.length(); ++i) {
@@ -47,13 +41,8 @@ class HostageTracker : Tracker {
 			string spawnCommand = "<command class='create_instance' instance_class='character' faction_id='0' position='" + hostageStartPositions[i].toString() + "' instance_key='hostage' /></command>";
 			m_metagame.getComms().send(spawnCommand);
 		}
+		alive = hostageStartPositions.length();
 	}
-
-	// // --------------------------------------------
-	// array<int> getHostageIds() {
-	// 	_log("** SND: hostage_tracker advising " + hostageIds.length() + " hostage IDs", 1);
-	// 	return hostageIds;
-	// }
 
 	// spawned
 	// --------------------------------------------
@@ -79,8 +68,7 @@ class HostageTracker : Tracker {
 			return;
 		}
 		int charId = hostage.getIntAttribute("id");
-		hostageIds.insertLast(charId);
-		_log("** SND: Added a hostage! Id: " + charId, 1);
+		_log("** SND: Adding a hostage for tracking! Id: " + charId, 1);
 		m_metagame.addTrackedCharId(charId);
 	}
 
@@ -119,34 +107,51 @@ class HostageTracker : Tracker {
 		// wounded=0
 		// xp=0
 
-		const XmlElement@ hostage = event.getFirstElementByTagName("target");
+		const XmlElement@ target = event.getFirstElementByTagName("target");
 		// only concerned with killed hostages
-		if (hostage.getStringAttribute("soldier_group_name") != "hostage") {
+		if (target.getStringAttribute("soldier_group_name") != "hostage") {
 			return;
 		}
-		int hostageCharId = hostage.getIntAttribute("id");
+		int hostageCharId = target.getIntAttribute("id");
 		_log("** SND: Hostage (id: " + hostageCharId + " was killed!", 1);
-		int deadChar = hostageIds.find(hostage.getIntAttribute("id"));
+		// penalise killer
+		const XmlElement@ killer = event.getFirstElementByTagName("killer");
+		int pKillerId = killer.getIntAttribute("player_id");
+		if (pKillerId >= 0) {
+			string penaliseHostageKiller = "<command class='rp_reward' character_id='" + pKillerId + "' reward='-1500'></command>";
+			m_metagame.getComms().send(penaliseHostageKiller);
+		}
+		// stop tracking the hostage
 		m_metagame.removeTrackedCharId(hostageCharId);
-		if (deadChar > -1) {
-			hostageIds.removeAt(deadChar);
-			// could do a sanity here to confirm hostageIds.sort() == m_metagame.trackedCharIds.sort();
-		} else { _log("** SND: couldn't find dead hostage id in hostageIds list", 1); }
 	}
 
 	// died (confirm otherwise)
 	// --------------------------------------------
-	protected void handleCharacterDieEvent(const XmlElement@ event) {
-		// TagName=character_die
-		// character_id=4
+	// protected void handleCharacterDieEvent(const XmlElement@ event) {
+	// 	// TagName=character_die
+	// 	// character_id=4
 
-		const XmlElement@ deadChar = event.getFirstElementByTagName("character");
-		int deadCharId = deadChar.getIntAttribute("id");
-		if (hostageIds.find(deadCharId) < 0) {
-			return; // (we've already handled the death)
-		} else {
-			if (deadChar.getStringAttribute("soldier_group_name") != "hostage") {
-				_log("** SND: Non-hostage character " + deadChar.getStringAttribute("name") + " (id: " + deadChar.getIntAttribute("id") + ") was killed, but isn't being processed in hostage_tracker.as", 1);
+	// 	const XmlElement@ deadChar = event.getFirstElementByTagName("character");
+	// 	int deadCharId = deadChar.getIntAttribute("id");
+	// }
+
+	// --------------------------------------------
+	protected void handleHitboxEvent(const XmlElement@ event) {
+		if (m_started) {
+			sleep(3); // allow other hitboxHandlers to do their stuff
+			_log("** SND: hostage_tracker checking number of hostages still being tracked", 1);
+			alive = m_metagame.getTrackedCharIds().length();
+			int rescued = m_metagame.getNumExtracted();
+			if (alive == 0) {
+				// CT: 800 RP per hostage rescued
+				array<int> ctIds = getFactionPlayerCharacterIds(m_metagame, 0);
+				for (uint j = 0; j < ctIds.length() ; ++j) {
+					string hostageRescuedReward = "<command class='rp_reward' character_id='" + ctIds[j] + "' reward='" + (800 * rescued) + "'></command>";
+					m_metagame.getComms().send(hostageRescuedReward);
+				}
+				if ((rescued > 2) && (m_metagame.getTrackedCharIds().length() == 0)) {
+					winRound(0);
+				} else { winRound(1); }
 			}
 		}
 	}
@@ -174,6 +179,7 @@ class HostageTracker : Tracker {
 				playSound(m_metagame, "terwin.wav", f);
 			}
 		}
+		m_started = false;
 	}
 
 	// --------------------------------------------

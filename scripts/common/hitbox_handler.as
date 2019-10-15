@@ -221,42 +221,63 @@ class HitboxHandler : Tracker {
 	////////////////////////////////////////
 	// ----------------------------------------------------
 	protected void handleHitboxEvent(const XmlElement@ event) {
+		// TagName=hitbox_event
+		// hitbox_id=hitbox_trigger_hr_exit-1-9-7
+		// instance_id=4
+		// instance_type=character
+
 		_log("** SND hitbox event triggered. Running in hitbox_handler.as", 1);
 		// variablise returned handleHitboxEvent event attributes:
 		string hitboxId = event.getStringAttribute("hitbox_id");
 		string instanceType = event.getStringAttribute("instance_type");
 		int instanceId = event.getIntAttribute("instance_id");
-		string sPos = ""; // stores the xyz coords of the hitbox
-		Vector3 v3Pos; // stores same as a Vector3
 
 		// is it a trigger area hitbox? If not, this is not the handler you are looking for...
 		if (!startsWith(hitboxId, "hitbox_trigger_")) {
 			return;
 		}
 
-		// get details about the hitbox that has been entered
-		const array<const XmlElement@> list = getTriggerAreasList();
-		for (uint i = 0; i < list.size(); ++i) {
-			_log("** SND looping through triggerAreasList. Looking for " + hitboxId, 1);
-			const XmlElement@ thisArea = list[i];
-			if (thisArea.getStringAttribute("id") == hitboxId) {
-				_log("** SND trigger area found! " + hitboxId + " has position: " + thisArea.getStringAttribute("position"), 1);
-				sPos = thisArea.getStringAttribute("position");
-				v3Pos = stringToVector3(sPos);
-			}
-		}
+		// we can split this out based on the hitboxId (hitbox_trigger_<stageType>_exit...) if desired. below works for 2 game modes.
+
+		// // get details about the hitbox that has been entered
+		// const array<const XmlElement@> list = getTriggerAreasList();
+		// for (uint i = 0; i < list.size(); ++i) {
+		// 	_log("** SND looping through triggerAreasList. Looking for " + hitboxId, 1);
+		// 	const XmlElement@ thisArea = list[i];
+		// 	if (thisArea.getStringAttribute("id") == hitboxId) {
+		// 		_log("** SND trigger area found! " + hitboxId + " has position: " + thisArea.getStringAttribute("position"), 1);
+		// 	}
+		// }
 
 		// in Hostage Rescue and Assassination, we only track the delivery of character instance types
 		if (instanceType == "character") {
-		// confirm it's a character who is being tracked for hitbox collisions via setupCharacterForTracking(int id);
+		// confirm it's a character who is being tracked for hitbox collisions via trackCharacter(int id);
 			if (m_trackedCharIds.find(instanceId) > -1) {
 				_log("** tracked character " + instanceId + " within trigger area: " + hitboxId, 1);
+				sendFactionMessage(m_metagame, -1, stageType == 'hr' ? 'A hostage has been rescued!' : 'VIP has escaped');
+				// increment rescued count
+				addNumExtracted(1);
+				// reward CT - if more than one CT near extraction, split reward. Can't tell who dropped the hostages off.
+				const XmlElement@ escapee = getCharacterInfo(m_metagame, instanceId);
+				Vector3 v3pos = stringToVector3(escapee.getStringAttribute("position"));
+				array<const XmlElement@> nearCTs = getCharactersNearPosition(m_metagame, v3pos, 0, 8.0);
+				for (uint ct = 0; ct < nearCTs.length(); ++ct) {
+					string rewardHostageRescuer = "<command class='rp_reward' character_id='" + nearCTs[ct] + "' reward='" + (1000 / nearCTs.length()) + "'></command>";
+					m_metagame.getComms().send(rewardHostageRescuer);
+				}
+				// clear hitbox checking
+				clearTriggerAreaAssociations(m_metagame, "character", instanceId, m_trackedTriggerAreas);
+				m_metagame.removeTrackedCharId(instanceId);
+				m_trackedCharIds.removeAt(m_trackedCharIds.find(instanceId));
+				array<Faction@> allFactions = m_metagame.getFactions();
+				for (uint f = 0; f < allFactions.length(); ++f) {
+					playSound(m_metagame, stageType == 'hr' ? 'rescued.wav' : '', f);
+				}
+				// remove hostage from play
+				// kill then make disappear by applying invisivest?
+				// have an invincible 4-man vehicle sitting at the extraction point, inviting the AI to take refuge?
+				// meh, ignore for now
 			}
-			// when we're done handling the event, we may want to clear hitbox checking
-			// (I don't think we want to clear these until the end of each map)
-			clearTriggerAreaAssociations(m_metagame, "character", instanceId, m_trackedTriggerAreas);
-			m_metagame.removeTrackedCharId(instanceId);
-			m_trackedCharIds.removeAt(m_trackedCharIds.find(instanceId));
 		}
 	}
 
