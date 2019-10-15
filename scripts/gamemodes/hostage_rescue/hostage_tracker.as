@@ -138,7 +138,7 @@ class HostageTracker : Tracker {
 	// --------------------------------------------
 	protected void handleHitboxEvent(const XmlElement@ event) {
 		if (m_started) {
-			sleep(3); // allow other hitboxHandlers to do their stuff
+			sleep(2); // allow other hitboxHandlers to do their stuff
 			_log("** SND: hostage_tracker checking number of hostages still being tracked", 1);
 			alive = m_metagame.getTrackedCharIds().length();
 			int rescued = m_metagame.getNumExtracted();
