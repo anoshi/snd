@@ -283,6 +283,7 @@ class HitboxHandler : Tracker {
 					string rewardHostageRescuer = "<command class='rp_reward' character_id='" + ctId + "' reward='" + (1000 / nearCTs.length()) + "'></command>";
 					m_metagame.getComms().send(rewardHostageRescuer);
 				}
+				// TODO: ^ this isn't working correctly. hostages are being paid our hard-earned dolleros. Fix
 				// remove hostage from play
 				// kill then make disappear by applying invisivest?
 				// have an invincible 4-man vehicle sitting at the extraction point, inviting the AI to take refuge?
