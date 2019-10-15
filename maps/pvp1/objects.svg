@@ -8060,11 +8060,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="997.27916"
-     inkscape:cy="1010.8606"
+     inkscape:zoom="0.7071068"
+     inkscape:cx="1085.0274"
+     inkscape:cy="1010.7338"
      inkscape:document-units="px"
-     inkscape:current-layer="layer28"
+     inkscape:current-layer="layer42"
      showgrid="false"
      inkscape:window-width="1680"
      inkscape:window-height="951"
@@ -13481,7 +13481,7 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        x="3108.7378"
        height="25.26635"
        width="52.086201"
-       id="hitbox_trigger_vip_exit-1"
+       id="hitbox_trigger_as_exit-1"
        style="display:inline;opacity:0.4;fill:#4077ca;fill-opacity:1;stroke:#000000;stroke-width:3.02362204;stroke-miterlimit:4;stroke-dasharray:9.07086614, 3.02362205;stroke-dashoffset:0;stroke-opacity:1;enable-background:new" />
     <text
        id="text133430-0-2"
@@ -13500,7 +13500,7 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        x="3108.5613"
        height="25.26635"
        width="52.086201"
-       id="hitbox_trigger_hostage_exit-1"
+       id="hitbox_trigger_hr_exit-1"
        style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:#000000;stroke-width:3.02362204;stroke-miterlimit:4;stroke-dasharray:9.07086614, 3.02362205000000017;stroke-dashoffset:0;stroke-opacity:1;enable-background:new" />
     <text
        id="text133430-0-2-7"
@@ -20482,7 +20482,7 @@ key = radar_truck.vehicle;</desc>
          x="691.20691"
          height="11.016357"
          width="28.336182"
-         id="hitbox_trigger_hostage_exit-1-9"
+         id="hitbox_trigger_hr_exit-1-9"
          style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:#000000;stroke-width:3.02362204;stroke-miterlimit:4;stroke-dasharray:9.07086614, 3.02362205;stroke-dashoffset:0;stroke-opacity:1;enable-background:new" />
       <rect
          inkscape:label="#rect10748"
@@ -20490,7 +20490,7 @@ key = radar_truck.vehicle;</desc>
          x="1278.5819"
          height="14.766357"
          width="18.836182"
-         id="hitbox_trigger_hostage_exit-1-9-7"
+         id="hitbox_trigger_hr_exit-1-9-7"
          style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:#000000;stroke-width:3.02362204;stroke-miterlimit:4;stroke-dasharray:9.07086614, 3.02362205;stroke-dashoffset:0;stroke-opacity:1;enable-background:new" />
       <rect
          inkscape:label="#rect10748"
@@ -20498,7 +20498,7 @@ key = radar_truck.vehicle;</desc>
          x="777.59125"
          height="9.7545652"
          width="20.283014"
-         id="hitbox_trigger_vip_exit-1-7"
+         id="hitbox_trigger_as_exit-1-7"
          style="display:inline;opacity:0.4;fill:#4077ca;fill-opacity:1;stroke:#000000;stroke-width:3.02362204;stroke-miterlimit:4;stroke-dasharray:9.07086614, 3.02362205;stroke-dashoffset:0;stroke-opacity:1;enable-background:new"
          transform="rotate(-25.147266)" />
       <rect
@@ -20507,7 +20507,7 @@ key = radar_truck.vehicle;</desc>
          x="685.45691"
          height="18.266357"
          width="14.086182"
-         id="hitbox_trigger_vip_exit-1-9"
+         id="hitbox_trigger_as_exit-1-9"
          style="display:inline;opacity:0.4;fill:#4077ca;fill-opacity:1;stroke:#000000;stroke-width:3.02362204;stroke-miterlimit:4;stroke-dasharray:9.07086614, 3.02362205;stroke-dashoffset:0;stroke-opacity:1;enable-background:new" />
     </g>
     <g
