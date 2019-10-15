@@ -12,17 +12,28 @@
 // --------------------------------------------
 class HitboxHandler : Tracker {
 	protected GameModeSND@ m_metagame;
+	protected string m_stageType;	// Assassination: 'as' | Hostage Rescue: 'hr'
+
 	protected array<const XmlElement@> m_triggerAreas;
 	protected array<string> m_trackedTriggerAreas;
+	protected array<int> m_trackedCharIds;
 
-	array<int> m_trackedCharIds;
+	protected bool m_started = false;
+
+	protected float TRACKED_CHAR_CHECK_TIME = 5.0; 	// how often to check the list of tracked characters
+	protected float nextCheck = 0.0;				// countdown timer
 
 	// ----------------------------------------------------
-	HitboxHandler(GameModeSND@ metagame, array<int> trackedCharIds) {
+	HitboxHandler(GameModeSND@ metagame, string stageType) {
 		@m_metagame = @metagame;
-		m_trackedCharIds = trackedCharIds;
-		m_trackedTriggerAreas = determineTriggerAreasList();
-		trackCharacters(trackedCharIds);
+		m_stageType = stageType;
+	}
+
+	// --------------------------------------------
+	void start() {
+		_log("** SND: starting HitboxHandler tracker", 1);
+		determineTriggerAreasList();
+		m_started = true;
 	}
 
 	/////////////////////////
@@ -34,12 +45,13 @@ class HitboxHandler : Tracker {
 		_log("** SND hitbox_handler: determineTriggerAreasList", 1);
 
     	list = getTriggerAreas(m_metagame);
-		// go through the list and only leave the ones in we're interested in, 'hitbox_trigger_*'
+		// go through the list and only leave the ones in we're interested in, 'hitbox_trigger_<m_stageType>'
+		string wanted = "hitbox_trigger_" + m_stageType;
 		for (uint i = 0; i < list.size(); ++i) {
 			const XmlElement@ triggerAreaNode = list[i];
 			string id = triggerAreaNode.getStringAttribute("id");
 			bool ruleOut = false;
-			if (id.findFirst("hitbox_trigger_") < 0) {
+			if (id.findFirst(wanted) < 0) { // couldn't find the string (stored in wanted) in the triggerAreaNode id
 				ruleOut = true;
 				if (ruleOut) {
 					_log("** SND hitbox_handler determineTriggerAreasList: ruling out " + id, 1);
@@ -49,19 +61,21 @@ class HitboxHandler : Tracker {
 					_log("** SND hitbox_handler determineTriggerAreasList: including " + id, 1);
 				}
 			}
-		_log("** SND: " + list.size() + " trigger areas found");
 		}
-
+		_log("** SND: " + list.size() + " trigger areas found");
 		m_triggerAreas = list;
 		markTriggerAreas(); // show the centre point of each trigger area with a mark and also on map
 	}
 
 	// ----------------------------------------------------
 	protected array<const XmlElement@>@ getTriggerAreas(const GameModeSND@ metagame) {
+		// returns all hitbox_trigger_* objects, regardless of game type
 		_log("** SND getTriggerAreas running in hitbox_handler.as", 1);
 		XmlElement@ query = XmlElement(
 			makeQuery(metagame, array<dictionary> = {
-				dictionary = { {"TagName", "data"}, {"class", "hitboxes"} } }));
+				dictionary = { {"TagName", "data"}, {"class", "hitboxes"} }
+			})
+		);
 		const XmlElement@ doc = metagame.getComms().query(query);
 		array<const XmlElement@> triggerList = doc.getElementsByTagName("hitbox");
 
@@ -69,7 +83,7 @@ class HitboxHandler : Tracker {
 			const XmlElement@ hitboxNode = triggerList[i];
 			string id = hitboxNode.getStringAttribute("id");
 			if (startsWith(id, "hitbox_trigger")) {
-				_log("\t including " + id, 1);
+				_log("\t ** SND: including " + id, 1);
 			} else {
 				triggerList.erase(i);
 				i--;
@@ -95,8 +109,8 @@ class HitboxHandler : Tracker {
 		for (uint i = 0; i < list.size(); ++i) {
 			const XmlElement@ triggerAreaNode = list[i];
 			string id = triggerAreaNode.getStringAttribute("id");
-			string text = "a trigger area";
-			float size = 1.0;
+			string text = m_stageType == 'hr' ? 'Hostage Extraction Point' : 'VIP Extraction Point';
+			float size = 1.0; // this is the size on the map overlay.
 			string color = "#E0E0E0";
 			string position = triggerAreaNode.getStringAttribute("position");
 			string command = "<command class='set_marker' id='" + offset + "' faction_id='0' atlas_index='1' text='" + text + "' position='" + position + "' color='" + color + "' size='" + size + "' show_at_screen_edge='" + (showAtScreenEdge?1:0) + "' />";
@@ -123,21 +137,20 @@ class HitboxHandler : Tracker {
 	// Setup Character to Trigger Area tracking  //
 	///////////////////////////////////////////////
 	// ----------------------------------------------------
-	void trackCharacters(array<int> charIds) {
-		for (uint i = 0; i < charIds.length(); ++i) {
-			_log("** SND: Activating Hitbox tracking for character id: " + id, 1);
-			// remove any existing associations (char : hitbox)
-			clearTriggerAreaAssociations(m_metagame, "character", id, m_trackedTriggerAreas);
-			// get current Trigger Areas list and associate charId with each trigger area in the list
-			const array<const XmlElement@> list = getTriggerAreasList();
-			if (list !is null) {
-				associateTriggerAreas(m_metagame, list, "character", id, m_trackedTriggerAreas);
-			}
+	protected void trackCharacter(int charId) {
+		_log("** SND: Activating Hitbox tracking for character id:" + charId, 1);
+		m_trackedCharIds.insertLast(charId);
+		// remove any existing associations (char : hitbox)
+		clearTriggerAreaAssociations(m_metagame, "character", charId, m_trackedTriggerAreas);
+		// get current Trigger Areas list and associate charId with each trigger area in the list
+		const array<const XmlElement@> list = getTriggerAreasList();
+		if (list !is null) {
+			associateTriggerAreas(m_metagame, list, "character", charId, m_trackedTriggerAreas);
 		}
 	}
 
 	// ----------------------------------------------------
-	void clearTriggerAreaAssociations(const GameModeSND@ metagame, string instanceType, int instanceId, array<string>@ trackedTriggerAreas) {
+	protected void clearTriggerAreaAssociations(const GameModeSND@ metagame, string instanceType, int instanceId, array<string>@ trackedTriggerAreas) {
 		if (instanceId < 0) return;
 
 		// disassociate character 'instanceId' with each 'trackedTriggerAreas'
@@ -150,14 +163,14 @@ class HitboxHandler : Tracker {
 	}
 
 	// -------------------------------------------------------
-	void associateTriggerAreas(const GameModeSND@ metagame, const array<const XmlElement@>@ extractionList, string instanceType, int instanceId, array<string>@ trackedTriggerAreas) {
+	protected void associateTriggerAreas(const GameModeSND@ metagame, const array<const XmlElement@>@ extractionList, string instanceType, int instanceId, array<string>@ trackedTriggerAreas) {
 		array<string> addIds;
 		_log("** SND: FEEDING associateTriggerAreasEx instanceType: " + instanceType + ", instanceId: " + instanceId, 1);
 		associateTriggerAreasEx(metagame, extractionList, instanceType, instanceId, trackedTriggerAreas, addIds);
 	}
 
 	// -------------------------------------------------------
-	void associateTriggerAreasEx(const GameModeSND@ metagame, const array<const XmlElement@>@ extractionList, string instanceType, int instanceId, array<string>@ trackedTriggerAreas, array<string>@ addIds) {
+	protected void associateTriggerAreasEx(const GameModeSND@ metagame, const array<const XmlElement@>@ extractionList, string instanceType, int instanceId, array<string>@ trackedTriggerAreas, array<string>@ addIds) {
 		_log("** ASSOCIATING TRIGGER AREAS", 1);
 		if (instanceId < 0) return;
 
@@ -236,23 +249,14 @@ class HitboxHandler : Tracker {
 		// in Hostage Rescue and Assassination, we only track the delivery of character instance types
 		if (instanceType == "character") {
 		// confirm it's a character who is being tracked for hitbox collisions via setupCharacterForTracking(int id);
-			if (m_trackedCharIds.find(instanceId)) {
+			if (m_trackedCharIds.find(instanceId) > -1) {
 				_log("** tracked character " + instanceId + " within trigger area: " + hitboxId, 1);
-			else if (startsWith(hitboxId, "hitbox_trigger_repairbay")) {
-				_log("hitbox is a repair bay. Starting repairs", 1);
-				array<const XmlElement@> repVehicle = getVehiclesNearPosition(m_metagame, v3Pos, 0, 7.00f);
-				// note terminal, mounted weapon, fires healing stream at vehicle.
-			}
-			else if (startsWith(hitboxId, "hitbox_trigger_trap")) {
-				_log("hitbox is a trap. Running deterrent routines...", 1);
-				// Player has entered an area that is tracked by an enemy device.
-				// Add a particle effect like a flashing red light on the detecting device
-
-				// Spawn some baddies || commander alert to enemy faction ||  some other dastardly act.
 			}
 			// when we're done handling the event, we may want to clear hitbox checking
 			// (I don't think we want to clear these until the end of each map)
-			//clearTriggerAreaAssociations(m_metagame, "character", m_playerCharacterId, m_trackedTriggerAreas);
+			clearTriggerAreaAssociations(m_metagame, "character", instanceId, m_trackedTriggerAreas);
+			m_metagame.removeTrackedCharId(instanceId);
+			m_trackedCharIds.removeAt(m_trackedCharIds.find(instanceId));
 		}
 	}
 
@@ -260,9 +264,6 @@ class HitboxHandler : Tracker {
 	/*
 	// --------------------------------------------
 	void init() {
-	}
-	// --------------------------------------------
-	void start() {
 	}
 	*/
 	// --------------------------------------------
@@ -273,10 +274,22 @@ class HitboxHandler : Tracker {
 	// --------------------------------------------
 	bool hasStarted() const {
 		// always on
-		return true;
+		return m_started;
 	}
 	// --------------------------------------------
 	void update(float time) {
+
+		nextCheck -= time;
+
+		if (nextCheck <= 0.0) {
+			array<int> ids = m_metagame.getTrackedCharIds();
+			for (uint i = 0; i < ids.size(); ++i) {
+				if (m_trackedCharIds.find(ids[i]) == -1) {
+					trackCharacter(ids[i]); // adds the id to m_trackedCharIds
+				}
+			}
+			nextCheck = TRACKED_CHAR_CHECK_TIME;
+		}
 	}
 	// ----------------------------------------------------
 }

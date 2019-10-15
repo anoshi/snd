@@ -281,7 +281,7 @@ abstract class SubStage : Tracker {
 			sendFactionMessage(m_metagame, -1, "round winner " + faction.m_config.m_name + "!");
 		} else {
 			sendFactionMessage(m_metagame, -1, "the round is a tie");
-			// sound bytes for ct / terrorist wins are fired via bomb_tracker.as
+			// sound bytes for ct / terrorist wins are fired via (bomb|hostage|vip)_tracker.as
 			for (uint f = 0; f < m_match.m_factions.length(); ++f) {
 				playSound(m_metagame, "rounddraw.wav", f);
 			}

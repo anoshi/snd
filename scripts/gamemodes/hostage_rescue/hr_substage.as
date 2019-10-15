@@ -7,7 +7,8 @@
 #include "stage_snd.as"
 
 #include "player_tracker.as"
-#include "bomb_tracker.as"
+#include "hostage_tracker.as"
+#include "hitbox_handler.as"
 #include "target_locations.as"
 
 // --------------------------------------------
@@ -15,6 +16,8 @@ class HostageRescue : SubStage {
 	protected PlayerTracker@ m_playerTracker;
 	protected TargetLocations@ m_targetLocations;
 	protected HostageTracker@ m_hostageTracker;
+	protected HitboxHandler@ m_hitboxHandler;
+
 	protected string m_targetsLayerName = "";
 
 	protected GameTimer@ m_gameTimer;
@@ -45,7 +48,7 @@ class HostageRescue : SubStage {
 		}
 
 		{
-			// retrieve all possible bomb target locations for this map as 'positions'.
+			// retrieve all target locations (bombs, hostage spawns) in this map as 'positions'.
 			array<Vector3> positions;
 			array<const XmlElement@> nodes = getGenericNodes(m_metagame, m_targetsLayerName, "hostage_start");
 			if (nodes !is null) {
@@ -60,7 +63,7 @@ class HostageRescue : SubStage {
 				_log("** SND: WARNING, no objects tagged as hostage_start within layer[1-3]." + m_targetsLayerName + " layers of objects.svg", 1);
 			}
 
-			// choose 2x bomb target locations from numerous possibilities and mark on map for all to see
+			// choose hostage spawn locations from numerous possibilities and mark on map for all to see
 			@m_targetLocations = TargetLocations(m_metagame, "hr", positions);
 			addTracker(m_targetLocations);
 
@@ -68,6 +71,9 @@ class HostageRescue : SubStage {
 			@m_hostageTracker = HostageTracker(m_metagame);
 			addTracker(m_hostageTracker);
 
+			// prepare hostages and extraction points
+			@m_hitboxHandler = HitboxHandler(m_metagame, "hr");
+			addTracker(m_hitboxHandler);
 		}
 
 		SubStage::startMatch();

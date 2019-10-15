@@ -6,6 +6,7 @@
 // --------------------------------------------
 class HostageTracker : Tracker {
 	protected GameModeSND@ m_metagame;
+
 	protected bool m_started = false;
 
 	protected array<int> hostageIds;	// dynamic list of living hostage character Ids
@@ -13,13 +14,7 @@ class HostageTracker : Tracker {
 	protected int rescued = 0; // count of rescued hostages.
 	// if > 2 at match end && hostageIds.length() == 0, full CT win
 
-	protected array<int> hostageEscorts;    // char or playerIds of CTs escorting hostages
-
-	protected array<Vector3> hostageStartPositions; // xxx.xxx yyy.yyy zzz.zzz
-
-	// extraction vars. May want to move out to own class when assassination mode is included
-	protected array<const XmlElement@> m_extractionAreas;
-	protected array<string> m_trackedExtractionAreas;
+	protected array<int> hostageEscorts;    // char or playerIds of CTs escorting hostages. Probably can't track this
 
 	// --------------------------------------------
 	HostageTracker(GameModeSND@ metagame) {
@@ -29,13 +24,12 @@ class HostageTracker : Tracker {
 	// --------------------------------------------
 	void start() {
 		_log("** SND: starting HostageTracker tracker", 1);
-		string charSpawnTracker = "<command class='set_metagame_event' name='character_spawn' enabled='1' />";
-		m_metagame.getComms().send(charSpawnTracker);
-		string charKillTracker = "<command class='set_metagame_event' name='character_kill' enabled='1' />";
-		m_metagame.getComms().send(charKillTracker);
-		// track edge cases of hostage dying of natural causes, out of bounds, etc?
-		//string charDieTracker = "<command class='set_metagame_event' name='character_die' enabled='1' />";
-		//m_metagame.getComms().send(charDieTracker);
+		string trackCharSpawn = "<command class='set_metagame_event' name='character_spawn' enabled='1' />";
+		m_metagame.getComms().send(trackCharSpawn);
+		string trackCharKill = "<command class='set_metagame_event' name='character_kill' enabled='1' />";
+		m_metagame.getComms().send(trackCharKill);
+		string trackCharDie = "<command class='set_metagame_event' name='character_die' enabled='1' />";
+		m_metagame.getComms().send(trackCharDie);
 		addHostages();
 		m_started = true;
 	}
@@ -46,7 +40,7 @@ class HostageTracker : Tracker {
 	// --------------------------------------------
 	protected void addHostages() {
 		hostageIds.clear();
-		hostageStartPositions = m_metagame.getTargetLocations();
+		array<Vector3> hostageStartPositions = m_metagame.getTargetLocations();
 		_log("** SND: Spawning hostages", 1);
 		for (uint i = 0; i < hostageStartPositions.length(); ++i) {
 			// spawn a hostage (faction 0) at each location.
@@ -55,20 +49,106 @@ class HostageTracker : Tracker {
 		}
 	}
 
+	// // --------------------------------------------
+	// array<int> getHostageIds() {
+	// 	_log("** SND: hostage_tracker advising " + hostageIds.length() + " hostage IDs", 1);
+	// 	return hostageIds;
+	// }
+
 	// spawned
+	// --------------------------------------------
 	protected void handleCharacterSpawnEvent(const XmlElement@ event) {
+		// TagName=character_spawn
+		// character_id=4
+
+		// TagName=character
+		// dead=0
+		// faction_id=0
+		// id=4
+		// name=CT: 48
+		// player_id=-1
+		// position=525.159 0 558.281
+		// rp=0
+		// soldier_group_name=hostage
+		// wounded=0
+		// xp=0
+
+		const XmlElement@ hostage = event.getFirstElementByTagName("character");
+		// hostages have own soldier group. If not a hostage, bail.
+		if (hostage.getStringAttribute("soldier_group_name") != "hostage") {
+			return;
+		}
+		int charId = hostage.getIntAttribute("id");
 		hostageIds.insertLast(charId);
+		_log("** SND: Added a hostage! Id: " + charId, 1);
+		m_metagame.addTrackedCharId(charId);
 	}
 
 	// killed
+	// --------------------------------------------
 	protected void handleCharacterKillEvent(const XmlElement@ event) {
-		// int deadGuy = hostageIds.find(targetId);
-		// hostageIds.removeAt(deadGuy);
+		// TagName=character_kill
+		// key=9x19mm_sidearm.weapon
+		// method_hint=hit
+
+		// TagName=killer
+		// block=10 15
+		// dead=0
+		// faction_id=0
+		// id=3
+		// leader=1
+		// name=CT: 40
+		// player_id=0
+		// position=354.895 7.42591 530.407
+		// rp=800
+		// soldier_group_name=default
+		// wounded=0
+		// xp=0
+
+		// TagName=target
+		// block=9 15
+		// dead=0
+		// faction_id=0
+		// id=4
+		// leader=1
+		// name=CT: 83
+		// player_id=-1
+		// position=336.959 6.21743 533.692
+		// rp=0
+		// soldier_group_name=hostage
+		// wounded=0
+		// xp=0
+
+		const XmlElement@ hostage = event.getFirstElementByTagName("target");
+		// only concerned with killed hostages
+		if (hostage.getStringAttribute("soldier_group_name") != "hostage") {
+			return;
+		}
+		int hostageCharId = hostage.getIntAttribute("id");
+		_log("** SND: Hostage (id: " + hostageCharId + " was killed!", 1);
+		int deadChar = hostageIds.find(hostage.getIntAttribute("id"));
+		m_metagame.removeTrackedCharId(hostageCharId);
+		if (deadChar > -1) {
+			hostageIds.removeAt(deadChar);
+			// could do a sanity here to confirm hostageIds.sort() == m_metagame.trackedCharIds.sort();
+		} else { _log("** SND: couldn't find dead hostage id in hostageIds list", 1); }
 	}
 
-	// otherwise died
-	protected void handleCharacterSpawnEvent(const XmlElement@ event) {
-		// if deadChar not in hostageIds, return (already handled the death)
+	// died (confirm otherwise)
+	// --------------------------------------------
+	protected void handleCharacterDieEvent(const XmlElement@ event) {
+		// TagName=character_die
+		// character_id=4
+
+		const XmlElement@ deadChar = event.getFirstElementByTagName("character");
+		int deadCharId = deadChar.getIntAttribute("id");
+		if (hostageIds.find(deadCharId) < 0) {
+			return; // (we've already handled the death)
+		} else {
+			if (deadChar.getStringAttribute("soldier_group_name") != "hostage") {
+				_log("** SND: Non-hostage character " + deadChar.getStringAttribute("name") + " (id: " + deadChar.getIntAttribute("id") + ") was killed, but isn't being processed in hostage_tracker.as", 1);
+			}
+		}
 	}
 
 	// --------------------------------------------
