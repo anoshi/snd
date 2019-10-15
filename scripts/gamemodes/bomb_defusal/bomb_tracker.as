@@ -171,8 +171,8 @@ class BombTracker : Tracker {
 			// check if the bomb was placed in a valid targetLocation
 			array<Vector3> validLocs = m_metagame.getTargetLocations();
 			for (uint i = 0; i < validLocs.length(); ++i) {
-				if (checkRange(stringToVector3(bombPosition), validLocs[i], 15.0)) {
-					_log("** SND: bomb has been planted within 15 units of " + validLocs[i].toString() + ".", 1);
+				if (checkRange(stringToVector3(bombPosition), validLocs[i], 8.0)) {
+					_log("** SND: bomb has been planted within 8 units of " + validLocs[i].toString() + ".", 1);
 					array<int> planterTeamCharIds = getFactionPlayerCharacterIds(m_metagame, bombOwnerFaction);
 					for (uint j = 0; j < planterTeamCharIds.length() ; ++j) {
 						string rewardPlanterTeamChar = "<command class='rp_reward' character_id='" + planterTeamCharIds[j] + "' reward='800'></command>";
@@ -198,7 +198,7 @@ class BombTracker : Tracker {
 					bombIsArmed = true;
 					break;
 				} else {
-					_log("** SND: bomb not planted within 15 units of " + validLocs[i].toString() + ". Checking next targetLocation.", 1);
+					_log("** SND: bomb not planted within 8 units of " + validLocs[i].toString() + ". Checking next targetLocation.", 1);
 				}
 			}
 			if (!bombIsArmed) {
