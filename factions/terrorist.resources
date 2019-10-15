@@ -5,8 +5,7 @@
 
 	<!-- faction-specific weapons (not listed in common.resources) -->
 	<!-- Pistols -->
-	<weapon key="glock17.weapon" />
-	<weapon key="desert_eagle.weapon" />
+	<weapon key="40_dual_elites.weapon" />
 
 	<!-- Sub Machine Guns -->
 	<weapon key="ump40.weapon" />

@@ -3,20 +3,40 @@
 	<!-- Search and Destroy -->
 	<weapon file="bomb.weapon" />
 	<weapon file="wire_cutters.weapon" />
+	<weapon file="defusal_kit.weapon" />
 
 	<!-- Pistols -->
-	<weapon file="beretta_m9.weapon">
+	<weapon file="9x19mm_sidearm.weapon">
 		<commonness value="1.0" can_respawn_with="1" in_stock="1" />
 		<capacity value="1" source="rank" source_value="0.0" />
+		<inventory encumbrance="4.5" price="400.0" />
 	</weapon>
-	<weapon file="glock17.weapon">
-		<commonness value="1.0" can_respawn_with="1" in_stock="1" />
-		<capacity value="1" source="rank" source_value="0.0" />
-	</weapon>
-	<weapon file="desert_eagle.weapon">
+	<weapon file="km_45_tactical.weapon">
 		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
 		<capacity value="1" source="rank" source_value="0.0" />
+		<inventory encumbrance="5.0" price="500.0" />
 	</weapon>
+	<weapon file="228_compact.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+		<inventory encumbrance="5.015" price="600.0" />
+	</weapon>
+	<weapon file="night_hawk_50c.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+		<inventory encumbrance="9.0" price="650.0" />
+	</weapon>
+	<weapon file="es_five_seven.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+		<inventory encumbrance="3.0" price="750.0" />
+	</weapon>
+	<weapon file="40_dual_elites.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+		<inventory encumbrance="5.07" price="800.0" />
+	</weapon>
+
 
 	<!-- Sub Machine Guns -->
 	<weapon file="mp5sd.weapon">
@@ -99,5 +119,5 @@
 	</weapon>
 
 	<!-- Vehicular -->
-	<weapon file="humvee_mg.weapon" />
+	<weapon file="humvee_mg.weapon" /><!-- humvee on the pvp1 map -->
 </weapons>

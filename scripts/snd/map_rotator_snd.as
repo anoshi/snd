@@ -66,8 +66,6 @@ class MapRotatorSND : MapRotator {
 	protected void setupFactionConfigs() {
 		array<FactionConfig@> availableFactionConfigs = getAvailableFactionConfigs();
 
-		// - next add the rest of them, in random order
-		// TODO: enable random order
 		int index = 0;
 		while (availableFactionConfigs.length() > 0) {
 			int availableIndex = 0;

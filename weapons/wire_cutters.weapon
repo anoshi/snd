@@ -37,7 +37,7 @@
 
     <hud_icon filename="hud_razor.png" />
     <commonness value="0.0" can_respawn_with="0" in_stock="0" />
-    <inventory encumbrance="10.0" price="-5000.0" />
+    <inventory encumbrance="10.0" price="0.0" />
 
-    <modifier class="speed" value="-0.04" />
+    <modifier class="speed" value="+0.00" />
 </weapon>

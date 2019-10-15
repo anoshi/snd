@@ -5,6 +5,13 @@
 	<!-- ALL COMMON WEAPONS -->
 	<weapon key="bomb.weapon" />
 	<weapon key="wire_cutters.weapon" />
+	<weapon key="defusal_kit.weapon" />
+
+	<!-- PISTOLS -->
+	<weapon key="9x19mm_sidearm.weapon" />
+	<weapon key="km_45_tactical.weapon" />
+	<weapon key="228_compact.weapon" />
+	<weapon key="night_hawk_50c.weapon" />
 
 	<!-- ALL CARRY ITEMS -->
 	<carry_item key="kevlar.carry_item" enabled="1" />

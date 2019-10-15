@@ -19,7 +19,8 @@ class UserSettings {
     float m_rpFactor = 1.0;
     bool m_fov = true;
 
-	float m_initialXp = 0.0; // 0 XP will want to set this higher in hostage escort missions to allow picking up of AI hostages.
+	//float m_initialXp = 0.0; // 0 XP will want to set this higher in hostage escort missions to allow picking up of AI hostages.
+	float m_initialXp = 2.0; // testing HR game mode
 	float m_initialRp = 800.0; // default starting cash in CS
 	float m_maxRp = 16000.0; // hard limit on RP, as per CS
 
@@ -33,10 +34,6 @@ class UserSettings {
 
 	// search and destroy mode
 	float m_sndMaxTime = 600.0;
-
-	// koth mode
-	float m_kothMaxTime = 900.0;
-	float m_kothDefenseTime = 180.0;
 
 	float m_quickmatchMaxTime = 3600.0;
 
@@ -101,8 +98,5 @@ class UserSettings {
 		_log(" ** SND: time between substages: " + m_timeBetweenSubstages);
 
 		_log(" ** SND: snd max time: " + m_sndMaxTime);
-
-		_log(" ** SND: koth max time: " + m_kothMaxTime);
-		_log(" ** SND: koth max defense time: " + m_kothDefenseTime);
 	}
 }

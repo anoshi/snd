@@ -7,20 +7,23 @@
 #include "stage_snd.as"
 
 #include "player_tracker.as"
-#include "bomb_tracker.as"
+#include "hostage_tracker.as"
+#include "hitbox_handler.as"
 #include "target_locations.as"
 
 // --------------------------------------------
-class SNDSubStage : SubStage {
+class HostageRescue : SubStage {
 	protected PlayerTracker@ m_playerTracker;
 	protected TargetLocations@ m_targetLocations;
-	protected BombTracker@ m_bombTracker;
+	protected HostageTracker@ m_hostageTracker;
+	protected HitboxHandler@ m_hitboxHandler;
+
 	protected string m_targetsLayerName = "";
 
 	protected GameTimer@ m_gameTimer;
 
 	// --------------------------------------------
-	SNDSubStage(Stage@ stage, float maxTime, string targetsLayerName = "targetLocations", array<int> competingFactionIds = array<int>(0, 1), int protectorFactionId = 2) {
+	HostageRescue(Stage@ stage, float maxTime, string targetsLayerName = "hostageLocations", array<int> competingFactionIds = array<int>(0, 1), int protectorFactionId = 2) {
 		super(stage);
 
 		m_name = "snd";
@@ -30,6 +33,7 @@ class SNDSubStage : SubStage {
 		@m_gameTimer = GameTimer(m_metagame, maxTime);
 
 		// should this be instantiated in SubStage (and only referenced here) in order to allow persistent player stats?
+		// maybe not, yet... trying a save/load concept at end / start of each round.
 		@m_playerTracker = PlayerTracker(m_metagame, this);
 		addTracker(m_playerTracker);
 
@@ -44,11 +48,11 @@ class SNDSubStage : SubStage {
 		}
 
 		{
-			// retrieve all possible bomb target locations for this map as 'positions'.
+			// retrieve all target locations (bombs, hostage spawns) in this map as 'positions'.
 			array<Vector3> positions;
-			array<const XmlElement@> nodes = getGenericNodes(m_metagame, m_targetsLayerName, "bomb_target");
+			array<const XmlElement@> nodes = getGenericNodes(m_metagame, m_targetsLayerName, "hostage_start");
 			if (nodes !is null) {
-				_log("** SND: Found " + nodes.length() + " possible bomb target locations:", 1);
+				_log("** SND: Found " + nodes.length() + " possible hostage start locations:", 1);
 				for (uint i = 0; i < nodes.length(); i++) {
 					const XmlElement@ node = nodes[i];
 					Vector3 pos = stringToVector3(node.getStringAttribute("position"));;
@@ -56,17 +60,20 @@ class SNDSubStage : SubStage {
 					positions.insertLast(pos);
 				}
 			} else {
-				_log("** SND: WARNING, no objects tagged as bomb_target within layer[1-3]." + m_targetsLayerName + " layers of objects.svg", 1);
+				_log("** SND: WARNING, no objects tagged as hostage_start within layer[1-3]." + m_targetsLayerName + " layers of objects.svg", 1);
 			}
 
-			// choose 2x bomb target locations from numerous possibilities and mark on map for all to see
-			@m_targetLocations = TargetLocations(m_metagame, positions);
+			// choose hostage spawn locations from numerous possibilities and mark on map for all to see
+			@m_targetLocations = TargetLocations(m_metagame, "hr", positions);
 			addTracker(m_targetLocations);
 
-			// track the bomb
-			@m_bombTracker = BombTracker(m_metagame);
-			addTracker(m_bombTracker);
+			// track the hostages
+			@m_hostageTracker = HostageTracker(m_metagame);
+			addTracker(m_hostageTracker);
 
+			// prepare hostages and extraction points
+			@m_hitboxHandler = HitboxHandler(m_metagame, "hr");
+			addTracker(m_hitboxHandler);
 		}
 
 		SubStage::startMatch();

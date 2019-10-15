@@ -14,8 +14,8 @@ class BombTracker : Tracker {
 	protected int bombOwnerFaction = -1;// the faction_id of the faction who start the round with the bomb
 	protected string bombPosition = ""; // xxx.xxx yyy.yyy zzz.zzz
 
-	protected float BOMB_POS_UPDATE_TIME = 10.0;	// how often the position of the bomb is checked
-	protected float bombPosUpdateTimer = 0.0;		// the time remaining until the next update
+	protected float BOMB_POS_UPDATE_TIME = 5.0;	// how often the position of the bomb is checked
+	protected float bombPosUpdateTimer = 0.0;	// the time remaining until the next update
 
 	protected float bombTimer = 45.0;	// when bombIsArmed, the timer starts.
 
@@ -169,7 +169,7 @@ class BombTracker : Tracker {
 			// get the bomb position
 			bombPosition = event.getStringAttribute("position");
 			// check if the bomb was placed in a valid targetLocation
-			array<Vector3> validLocs = m_metagame.getTargetLocations(); // public method in snd_helpers.as
+			array<Vector3> validLocs = m_metagame.getTargetLocations();
 			for (uint i = 0; i < validLocs.length(); ++i) {
 				if (checkRange(stringToVector3(bombPosition), validLocs[i], 15.0)) {
 					_log("** SND: bomb has been planted within 15 units of " + validLocs[i].toString() + ".", 1);
