@@ -9,7 +9,7 @@ class HostageTracker : Tracker {
 
 	protected bool m_started = false;
 
-	protected int alive; 		// when m_metagame.getTrackedCharIds().length() == 0, it's the end of the round
+	protected int alive; 		// when m_metagame.getTrackedCharIds().length() == 0, all hostages are accounted for
 
 	// --------------------------------------------
 	HostageTracker(GameModeSND@ metagame) {
@@ -118,8 +118,10 @@ class HostageTracker : Tracker {
 		const XmlElement@ killer = event.getFirstElementByTagName("killer");
 		int pKillerId = killer.getIntAttribute("player_id");
 		if (pKillerId >= 0) {
-			string penaliseHostageKiller = "<command class='rp_reward' character_id='" + pKillerId + "' reward='-1500'></command>";
+			// TODO Rollover RP reward (penalty) to next round - looks like you can't do a negative RP reward on the fly
+			string penaliseHostageKiller = "<command class='rp_reward' character_id='" + pKillerId + "' reward='-1200'></command>";
 			m_metagame.getComms().send(penaliseHostageKiller);
+			sendFactionMessage(m_metagame, -1, "A hostage has been executed!");
 		}
 		// stop tracking the hostage
 		m_metagame.removeTrackedCharId(hostageCharId);
@@ -137,21 +139,24 @@ class HostageTracker : Tracker {
 
 	// --------------------------------------------
 	protected void handleHitboxEvent(const XmlElement@ event) {
-		if (m_started) {
+		if (alive > 0) {
 			sleep(2); // allow other hitboxHandlers to do their stuff
 			_log("** SND: hostage_tracker checking number of hostages still being tracked", 1);
 			alive = m_metagame.getTrackedCharIds().length();
 			int rescued = m_metagame.getNumExtracted();
 			if (alive == 0) {
-				// CT: 800 RP per hostage rescued
+				_log("** SND: All Hostages rescued or killed. End round or go to attrition?", 1);
+				// TODO move this into an end-of-round cash thingo.
+				// scoring ref: https://counterstrike.fandom.com/wiki/Hostage
 				array<int> ctIds = getFactionPlayerCharacterIds(m_metagame, 0);
 				for (uint j = 0; j < ctIds.length() ; ++j) {
-					string hostageRescuedReward = "<command class='rp_reward' character_id='" + ctIds[j] + "' reward='" + (800 * rescued) + "'></command>";
+					string hostageRescuedReward = "<command class='rp_reward' character_id='" + ctIds[j] + "' reward='" + (850 * rescued) + "'></command>";
 					m_metagame.getComms().send(hostageRescuedReward);
 				}
 				if ((rescued > 2) && (m_metagame.getTrackedCharIds().length() == 0)) {
 					winRound(0);
-				} else { winRound(1); }
+				}
+				// if all hostages are dead, it comes down to clock timeout or attrition.
 			}
 		}
 	}
@@ -179,7 +184,6 @@ class HostageTracker : Tracker {
 				playSound(m_metagame, "terwin.wav", f);
 			}
 		}
-		m_started = false;
 	}
 
 	// --------------------------------------------

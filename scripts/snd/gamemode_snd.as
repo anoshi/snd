@@ -13,7 +13,7 @@ class GameModeSND : Metagame {
 	array<Vector3> targetLocations;		// locations where bombs may be placed or hostages may start
 	array<Vector3> extractionPoints;	// locations that units must reach in order to escape
 	array<int> trackedCharIds;			// Ids of characters being tracked against collisions with hitboxes
-	int numExtracted = 0;					// the number of hostages safely rescued
+	int numExtracted = 0;				// the number of hostages safely rescued
 
 	protected string m_tournamentName = "";
 

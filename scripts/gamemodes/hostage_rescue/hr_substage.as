@@ -102,8 +102,12 @@ class HostageRescue : SubStage {
 		array<const XmlElement@> elements = event.getElementsByTagName("win_condition");
 		if (elements.length() >= 1) {
 			const XmlElement@ winCondition = elements[0];
-			// can be -1 if so set by GameTimer
+			// can be -1 if so set by GameTimer - means clock has run out of time.
+			// in CS (hostage rescue game mode), Terrorists win if clock runs out.
 			winner = winCondition.getIntAttribute("faction_id");
+			if (winner == -1) {
+				winner = 1; // terrorists
+			}
 		} else {
 			_log("couldn't find win_condition tag");
 		}
