@@ -20,7 +20,7 @@ class UserSettings {
     bool m_fov = true;
 
 	//float m_initialXp = 0.0; // 0 XP will want to set this higher in hostage escort missions to allow picking up of AI hostages.
-	float m_initialXp = 2.0; // testing HR game mode
+	float m_initialXp = 0.4; // testing HR game mode
 	float m_initialRp = 800.0; // default starting cash in CS
 	float m_maxRp = 16000.0; // hard limit on RP, as per CS
 

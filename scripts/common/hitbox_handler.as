@@ -110,10 +110,11 @@ class HitboxHandler : Tracker {
 			const XmlElement@ triggerAreaNode = list[i];
 			string id = triggerAreaNode.getStringAttribute("id");
 			string text = m_stageType == 'hr' ? 'Hostage Extraction Point' : 'VIP Extraction Point';
-			float size = 1.0; // this is the size on the map overlay.
+			float size = 1.0; // this is the size of the icon on the map overlay.
+			float range = 0.0; // 15.0 // this is the size of the ring (visual queue) around the hitbox/trigger area!
 			string color = "#E0E0E0";
 			string position = triggerAreaNode.getStringAttribute("position");
-			string command = "<command class='set_marker' id='" + offset + "' faction_id='0' atlas_index='1' text='" + text + "' position='" + position + "' color='" + color + "' size='" + size + "' show_at_screen_edge='" + (showAtScreenEdge?1:0) + "' />";
+			string command = "<command class='set_marker' id='" + offset + "' faction_id='0' atlas_index='1' text='" + text + "' position='" + position + "' color='" + color + "' size='" + size + "' show_at_screen_edge='" + (showAtScreenEdge?1:0) + "' range='" + range + "' />";
 			m_metagame.getComms().send(command);
 
 			offset++;
@@ -176,9 +177,8 @@ class HitboxHandler : Tracker {
 
 		// check against already associated triggerAreas
 		// and determine which need to be added or removed
-		_log("** SND: trackedTriggerAreas contains: ", 1);
 		for (uint i = 0; i < trackedTriggerAreas.size(); ++i) {
-			_log("** trackedTriggerAreas " + i + ": " + trackedTriggerAreas[i], 1);
+			_log("** SND: trackedTriggerAreas " + i + ": " + trackedTriggerAreas[i], 1);
 		}
 
 		// prepare to remove all triggerAreas
@@ -261,31 +261,40 @@ class HitboxHandler : Tracker {
 				clearTriggerAreaAssociations(m_metagame, "character", instanceId, m_trackedTriggerAreas);
 				m_metagame.removeTrackedCharId(instanceId);
 				m_trackedCharIds.removeAt(m_trackedCharIds.find(instanceId));
+				_log("** SND: stopped tracking character id: " + instanceId, 1);
 				array<Faction@> allFactions = m_metagame.getFactions();
 				for (uint f = 0; f < allFactions.length(); ++f) {
 					playSound(m_metagame, m_stageType == 'hr' ? 'rescued.wav' : '', f);
 				}
-				// reward CT - if more than one CT near extraction, split reward. Can't tell who dropped the hostages off.
+				// reward CT - if more than one CT (player) near extraction, split reward. Can't tell who dropped the hostages off.
+				// get and store the hostage's position
 				const XmlElement@ escapee = getCharacterInfo(m_metagame, instanceId);
 				Vector3 v3pos = stringToVector3(escapee.getStringAttribute("position"));
-				array<const XmlElement@> nearCTs = getCharactersNearPosition(m_metagame, v3pos, 0, 8.0);
+				// get all CT units near this position (may include hostage and player characters)
+				array<const XmlElement@> nearCTs = getCharactersNearPosition(m_metagame, v3pos, 0, 15.0);
+				_log("** SND: " + nearCTs.length() + " characters near rescued hostage", 1);
 				for (uint ct = 0; ct < nearCTs.length(); ++ct) {
+					// the characterId
 					int ctId = nearCTs[ct].getIntAttribute("id");
+					// the character info XML block, which records the player ID
 					const XmlElement@ ctInfo = getCharacterInfo(m_metagame, ctId);
-					int ctPId = ctInfo.getIntAttribute("player_id");
-					if (ctPId < 0) {
-						nearCTs.removeAt(ct);
-						continue;
+					if (ctInfo.getStringAttribute("soldier_group_name") == 'hostage') {
+						nearCTs.erase(ct);
+						_log("** SND: character ID: " + ctId + " is a hostage. Removed from list", 1);
+						ct--;
 					}
 				}
+				_log("** SND: " + nearCTs.length() + " CT player(s) near rescued hostage", 1);
 				for (uint i = 0; i < nearCTs.length(); ++ i) {
 					int ctId = nearCTs[i].getIntAttribute("id");
+					_log("** SND: rewarding characterID: " + ctId + " RP: " + (1000 / nearCTs.length()), 1);
 					string rewardHostageRescuer = "<command class='rp_reward' character_id='" + ctId + "' reward='" + (1000 / nearCTs.length()) + "'></command>";
 					m_metagame.getComms().send(rewardHostageRescuer);
 				}
-				// TODO: ^ this isn't working correctly. hostages are being paid our hard-earned dolleros. Fix
+				// TODOs:
 				// remove hostage from play
-				// kill then make disappear by applying invisivest?
+				// kill (ignore character kill/die if id not in tracked chars) then make disappear by applying invisivest?
+				// requires death sounds to be disabled for hostages!
 				// have an invincible 4-man vehicle sitting at the extraction point, inviting the AI to take refuge?
 				// meh, ignore for now
 			}
