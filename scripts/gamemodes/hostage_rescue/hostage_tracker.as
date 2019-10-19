@@ -25,6 +25,8 @@ class HostageTracker : Tracker {
 		m_metagame.getComms().send(trackCharKill);
 		// string trackCharDie = "<command class='set_metagame_event' name='character_die' enabled='1' />";
 		// m_metagame.getComms().send(trackCharDie);
+		// disable CommanderAI / orders
+		m_metagame.disableCommanderAI();
 		addHostages();
 		m_started = true;
 	}
