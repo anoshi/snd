@@ -21,7 +21,7 @@ class HitboxHandler : Tracker {
 	protected bool m_started = false;
 
 	protected float TRACKED_CHAR_CHECK_TIME = 5.0; 	// how often to check the list of tracked characters
-	protected float nextCheck = 0.0;				// countdown timer
+	protected float nextCheck = 5.0;				// countdown timer start value (allow some time to get ready for tracking)
 
 	// ----------------------------------------------------
 	HitboxHandler(GameModeSND@ metagame, string stageType) {
@@ -32,6 +32,7 @@ class HitboxHandler : Tracker {
 	// --------------------------------------------
 	void start() {
 		_log("** SND: starting HitboxHandler tracker", 1);
+		m_trackedTriggerAreas.clear();
 		determineTriggerAreasList();
 		m_started = true;
 	}
@@ -42,7 +43,7 @@ class HitboxHandler : Tracker {
 	// ----------------------------------------------------
 	protected void determineTriggerAreasList() {
 		array<const XmlElement@> list;
-		_log("** SND hitbox_handler: determineTriggerAreasList", 1);
+		_log("** SND: hitbox_handler: determineTriggerAreasList", 1);
 
     	list = getTriggerAreas(m_metagame);
 		// go through the list and only leave the ones in we're interested in, 'hitbox_trigger_<m_stageType>'
@@ -50,27 +51,25 @@ class HitboxHandler : Tracker {
 		for (uint i = 0; i < list.size(); ++i) {
 			const XmlElement@ triggerAreaNode = list[i];
 			string id = triggerAreaNode.getStringAttribute("id");
-			bool ruleOut = false;
-			if (id.findFirst(wanted) < 0) { // couldn't find the string (stored in wanted) in the triggerAreaNode id
-				ruleOut = true;
-				if (ruleOut) {
-					_log("** SND hitbox_handler determineTriggerAreasList: ruling out " + id, 1);
-					list.erase(i);
-					i--;
-				} else {
-					_log("** SND hitbox_handler determineTriggerAreasList: including " + id, 1);
-				}
+			bool ruleOut = id.findFirst(wanted) < 0 ? true : false; // couldn't find the string (stored in wanted) in the triggerAreaNode id
+			if (ruleOut) {
+				_log("** SND: hitbox_handler determineTriggerAreasList: ruling out " + id, 1);
+				list.erase(i);
+				i--;
+			} else {
+				_log("** SND: hitbox_handler determineTriggerAreasList: including " + id, 1);
+				m_trackedTriggerAreas.insertLast(id);
 			}
 		}
-		_log("** SND: " + list.size() + " trigger areas found");
+		_log("** SND: " + list.size() + " trigger areas active this level");
 		m_triggerAreas = list;
-		markTriggerAreas(); // show the centre point of each trigger area with a mark and also on map
+		markTriggerAreas();
 	}
 
 	// ----------------------------------------------------
 	protected array<const XmlElement@>@ getTriggerAreas(const GameModeSND@ metagame) {
 		// returns all hitbox_trigger_* objects, regardless of game type
-		_log("** SND getTriggerAreas running in hitbox_handler.as", 1);
+		_log("** SND: getTriggerAreas running in hitbox_handler.as", 1);
 		XmlElement@ query = XmlElement(
 			makeQuery(metagame, array<dictionary> = {
 				dictionary = { {"TagName", "data"}, {"class", "hitboxes"} }
@@ -89,7 +88,7 @@ class HitboxHandler : Tracker {
 				i--;
 			}
 		}
-		_log("** SND: " + triggerList.size() + " trigger areas found", 1);
+		_log("** SND: " + triggerList.size() + " trigger areas found in map layer", 1);
 		return triggerList;
 	}
 
@@ -157,7 +156,7 @@ class HitboxHandler : Tracker {
 		// disassociate character 'instanceId' with each 'trackedTriggerAreas'
 		for (uint i = 0; i < trackedTriggerAreas.size(); ++i) {
 			string id = trackedTriggerAreas[i];
-			string command = "<command class='remove_hitbox_check' id='" + id + "' instance_type='" + instanceType + "' instance_id='" + instanceId + "' />";
+			string command = "<command class='remove_hitbox_check' instance_type='" + instanceType + "' instance_id='" + instanceId + "' id='" + id + "'/>";
 			metagame.getComms().send(command);
 		}
 		trackedTriggerAreas.clear();
@@ -185,17 +184,17 @@ class HitboxHandler : Tracker {
 		array<string> removeIds = trackedTriggerAreas;
 
 		for (uint i = 0; i < extractionList.size(); ++i) {
-			const XmlElement@ armory = extractionList[i];
-			string armoryId = armory.getStringAttribute("id");
+			const XmlElement@ exitArea = extractionList[i];
+			string exitAreaId = exitArea.getStringAttribute("id");
 
-			int index = removeIds.find(armoryId);
+			int index = removeIds.find(exitAreaId);
 			if (index >= 0) {
 				// already tracked and still needed
 				// remove from ids to remove
 				removeIds.erase(index);
 			} else {
 				// not yet tracked, needs to be added
-				addIds.push_back(armoryId);
+				addIds.push_back(exitAreaId);
 			}
 		}
 
