@@ -53,6 +53,7 @@ class HitboxHandler : Tracker {
 			string id = triggerAreaNode.getStringAttribute("id");
 			bool ruleOut = id.findFirst(wanted) < 0 ? true : false; // couldn't find the string (stored in wanted) in the triggerAreaNode id
 			if (ruleOut) {
+				// this should be improved to also rule out the trigger / exit areas near the enemy (Terrorist, generally) base
 				_log("** SND: hitbox_handler determineTriggerAreasList: ruling out " + id, 1);
 				list.erase(i);
 				i--;
@@ -271,7 +272,7 @@ class HitboxHandler : Tracker {
 				Vector3 v3pos = stringToVector3(escapee.getStringAttribute("position"));
 				// get all CT units near this position (may include hostage and player characters)
 				array<const XmlElement@> nearCTs = getCharactersNearPosition(m_metagame, v3pos, 0, 15.0);
-				_log("** SND: " + nearCTs.length() + " characters near rescued hostage", 1);
+				_log("** SND: " + nearCTs.length() + " characters near rescued unit", 1);
 				for (uint ct = 0; ct < nearCTs.length(); ++ct) {
 					// the characterId
 					int ctId = nearCTs[ct].getIntAttribute("id");

@@ -16,7 +16,7 @@
 	<!-- ALL CARRY ITEMS -->
 	<carry_item key="kevlar.carry_item" enabled="1" />
 	<carry_item key="kevlar_plus_helmet.carry_item" enabled="1" />
-
+	<carry_item key="vip_armour.carry_item" enabled="0" />
 	<!-- end ALL CARRY ITEMS -->
 
 	<!-- ALL COMMON VEHICLES -->

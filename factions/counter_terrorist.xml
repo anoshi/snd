@@ -73,15 +73,41 @@
 	<soldier name="hostage" spawn_score="0.00">
 		<character filename="default_male.character" />
 		<ai filename="hostage.ai" />
-		<model filename="hostage.xml" />
-
-		<resources file="hostage.resources" />
+		<model filename="soldier_hostage.xml" />
+		<resources clear_weapons="1" clear_vehicles="1" clear_calls="1" />
 
 		<item_class_existence_config>
 			<!-- secondaries -->
 			<item_class_existence class="weapon" slot="1" probability="0.0" />
 			<!-- wearables -->
 			<item_class_existence class="carry_item" slot="1" probability="0.0" />
+			<!-- backpack -->
+			<item_class_existence class="carry_item" slot="0" probability="0.0" />
+		</item_class_existence_config>
+
+		<attribute_config class="rp">
+			<attribute weight="1.0" min="0.0" max="0.0" />
+		</attribute_config>
+
+		<attribute_config class="xp">
+			<attribute weight="1.0" min="0.0" max="0.01" />
+		</attribute_config>
+	</soldier>
+
+	<!-- ///////// -->
+	<!--    VIP    -->
+	<!-- ///////// -->
+	<soldier name="vip" spawn_score="0.00">
+		<character filename="default_male.character" />
+		<ai filename="vip.ai" />
+		<model filename="soldier_vip.xml" />
+		<resources filename="vip.resources" />
+
+		<item_class_existence_config>
+			<!-- secondaries -->
+			<item_class_existence class="weapon" slot="1" probability="1.0" />
+			<!-- wearables -->
+			<item_class_existence class="carry_item" slot="1" probability="1.0" />
 			<!-- backpack -->
 			<item_class_existence class="carry_item" slot="0" probability="0.0" />
 		</item_class_existence_config>
