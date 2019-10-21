@@ -12,7 +12,7 @@
 // --------------------------------------------
 class HitboxHandler : Tracker {
 	protected GameModeSND@ m_metagame;
-	protected string m_stageType;	// Assassination: 'as' | Hostage Rescue: 'hr'
+	protected string m_stageType;					// Assassination: 'as' | Hostage Rescue: 'hr'
 
 	protected array<const XmlElement@> m_triggerAreas;
 	protected array<string> m_trackedTriggerAreas;

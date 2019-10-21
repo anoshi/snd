@@ -3,7 +3,7 @@
 <resources>
 	<!-- faction-specific vehicles (not listed in common.resources) -->
 
-	<!-- faction-specific STARTING weapon (see all_weapons.xml for available weapons) -->
+	<!-- faction-specific STARTING weapon (see common.resources and all_weapons.xml for available weapons) -->
 	<!-- Pistols -->
 	<weapon key="es_five_seven.weapon" />
 

@@ -17,6 +17,8 @@ class VIPTracker : Tracker {
 	// --------------------------------------------
 	void start() {
 		_log("** SND: starting VIPTracker tracker", 1);
+		string trackCharSpawn = "<command class='set_metagame_event' name='character_spawn' enabled='1' />";
+		m_metagame.getComms().send(trackCharSpawn);
 		string trackCharKill = "<command class='set_metagame_event' name='character_kill' enabled='1' />";
 		m_metagame.getComms().send(trackCharKill);
 		// string trackCharDie = "<command class='set_metagame_event' name='character_die' enabled='1' />";
@@ -188,10 +190,7 @@ class VIPTracker : Tracker {
 		if (inPlay) {
 			sleep(2); // allow hitbox_handler.as to process this event first
 			_log("** SND: vip_tracker checking number of VIPs still being tracked", 1);
-			if (m_metagame.getTrackedCharIds().length() == 0) {
-				inPlay = false;
-			}
-			if (!inPlay) {
+			if (m_metagame.getNumExtracted() > 0) {
 				_log("** SND: The VIP has escaped. End round", 1);
 				// TODO move this into an end-of-round cash thingo.
 				// scoring ref: https://counterstrike.fandom.com/wiki/VIP
