@@ -104,6 +104,8 @@
 		<resources filename="vip.resources" />
 
 		<item_class_existence_config>
+			<!-- primary -->
+			<item_class_existence class="weapon" slot="0" probability="1.0" />
 			<!-- secondaries -->
 			<item_class_existence class="weapon" slot="1" probability="1.0" />
 			<!-- wearables -->

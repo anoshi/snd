@@ -8060,9 +8060,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8284273"
-     inkscape:cx="1256.7933"
-     inkscape:cy="1067.3011"
+     inkscape:zoom="1.4142137"
+     inkscape:cx="1022.8414"
+     inkscape:cy="1019.4267"
      inkscape:document-units="px"
      inkscape:current-layer="layer28"
      showgrid="false"
@@ -20473,8 +20473,8 @@ top_material = none;</desc>
          style="display:inline;opacity:0.4;fill:#40b235;fill-opacity:1;stroke:#000000;stroke-width:3.02362204;stroke-miterlimit:4;stroke-dasharray:9.07086614, 3.02362205;stroke-dashoffset:0;stroke-opacity:1;enable-background:new" />
       <rect
          inkscape:label="#rect10748"
-         y="887.74182"
-         x="1278.3319"
+         y="870.77124"
+         x="1273.3822"
          height="38.266357"
          width="46.836182"
          id="hitbox_trigger_hr_exit-1-9-7"
