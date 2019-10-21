@@ -278,13 +278,13 @@ class HitboxHandler : Tracker {
 					int ctId = nearCTs[ct].getIntAttribute("id");
 					// the character info XML block, which records the player ID
 					const XmlElement@ ctInfo = getCharacterInfo(m_metagame, ctId);
-					if (ctInfo.getStringAttribute("soldier_group_name") == 'hostage') {
+					if (ctInfo.getStringAttribute("soldier_group_name") != 'default') {
 						nearCTs.erase(ct);
-						_log("** SND: character ID: " + ctId + " is a hostage. Removed from list", 1);
+						_log("** SND: character ID: " + ctId + " is not a player. Removed from list", 1);
 						ct--;
 					}
 				}
-				_log("** SND: " + nearCTs.length() + " CT player(s) near rescued hostage", 1);
+				_log("** SND: " + nearCTs.length() + " CT player(s) near rescued unit", 1);
 				for (uint i = 0; i < nearCTs.length(); ++ i) {
 					int ctId = nearCTs[i].getIntAttribute("id");
 					_log("** SND: rewarding characterID: " + ctId + " RP: " + (1000 / nearCTs.length()), 1);

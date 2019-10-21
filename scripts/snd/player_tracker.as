@@ -72,7 +72,6 @@ class PlayerTracker : Tracker {
 		updateFactionPlayerCounts(player.getIntAttribute("faction_id"), 1);
 	}
 
-
 	// --------------------------------------------
 	protected void handlePlayerDisconnectEvent(const XmlElement@ event) {
 		_log("** SND: PlayerTracker Handling player disconnection!");
@@ -128,13 +127,13 @@ class PlayerTracker : Tracker {
 			addScore(factionId, -1);
 		} else if (playerKiller.getIntAttribute("faction_id") == playerTarget.getIntAttribute("faction_id")) {
 			// killed teammate
-			_log("** SND: Player " + pKillerId+ " killed a friendly unit. Decrement score", 1);
+			_log("** SND: Player " + pKillerId+ " killed a friendly unit. Cash penalty and decrement score", 1);
 			string penaliseTeamKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='-3300'></command>";
 			m_metagame.getComms().send(penaliseTeamKills);
 			addScore(factionId, -1);
 		} else if (playerKiller.getIntAttribute("player_id") != playerTarget.getIntAttribute("player_id")) {
 			// killed player on other team
-			_log("** SND: Player " + pKillerId + " killed an enemy unit. Increase score", 1);
+			_log("** SND: Player " + pKillerId + " killed an enemy unit. Cash reward and increase score", 1);
 			playSound(m_metagame, "enemydown.wav", factionId);
 			string rewardEnemyKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='300'></command>";
 			m_metagame.getComms().send(rewardEnemyKills);

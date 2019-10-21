@@ -56,9 +56,9 @@ class VIPTracker : Tracker {
 				string playerPos = vipFriend.getStringAttribute("position");
 				addVIP(playerPos);
 				inPlay = true;
+				_log("** SND: VIP has spawned near player " + charId + " (" + player.getStringAttribute('name') + ") at position: " + playerPos, 1);
 			}
 		}
-
 	}
 
 	// --------------------------------------------
@@ -70,7 +70,6 @@ class VIPTracker : Tracker {
 		string spawnCommand = "<command class='create_instance' instance_class='character' faction_id='0' position='" + pos.toString() + "' instance_key='vip' /></command>";
 		m_metagame.getComms().send(spawnCommand);
 		m_started = true;
-
 	}
 
 	// spawned
@@ -97,7 +96,7 @@ class VIPTracker : Tracker {
 			return;
 		}
 		int charId = vip.getIntAttribute("id");
-		_log("** SND: Adding a vip for tracking! Id: " + charId, 1);
+		_log("** SND: Now tracking the VIP, id: " + charId, 1);
 		m_metagame.addTrackedCharId(charId);
 	}
 
@@ -142,18 +141,31 @@ class VIPTracker : Tracker {
 			return;
 		}
 		int vipCharId = target.getIntAttribute("id");
-		_log("** SND: VIP (id: " + vipCharId + " was killed!", 1);
-		// penalise killer
+		_log("** SND: VIP (id: " + vipCharId + ") was killed!", 1);
+		// stop tracking the vip
+		m_metagame.removeTrackedCharId(vipCharId);
+
 		const XmlElement@ killer = event.getFirstElementByTagName("killer");
 		int pKillerId = killer.getIntAttribute("player_id");
 		if (pKillerId >= 0) {
-			// TODO Rollover RP reward (penalty) to next round - looks like you can't do a negative RP reward on the fly
-			string penaliseVIPKiller = "<command class='rp_reward' character_id='" + pKillerId + "' reward='-1200'></command>";
-			m_metagame.getComms().send(penaliseVIPKiller);
-			sendFactionMessage(m_metagame, -1, "A vip has been executed!");
+			if (killer.getIntAttribute("faction_id") == target.getIntAttribute("faction_id")) {
+				// TODO Rollover RP reward (penalty) to next round - looks like you can't do a negative RP reward on the fly
+				// teamkill, penalise!
+				string penaliseVIPTeamKiller = "<command class='rp_reward' character_id='" + pKillerId + "' reward='-3500'></command>";
+				m_metagame.getComms().send(penaliseVIPTeamKiller);
+			} else {
+				// Terrorist / enemy killed VIP. Winner
+				string rewardVIPKiller = "<command class='rp_reward' character_id='" + pKillerId + "' reward='500'></command>";
+				m_metagame.getComms().send(rewardVIPKiller);
+				array<int> tIds = getFactionPlayerCharacterIds(m_metagame, killer.getIntAttribute("faction_id"));
+				for (uint i = 0; i < tIds.length() ; ++i) {
+					string vipKilledReward = "<command class='rp_reward' character_id='" + tIds[i] + "' reward='" + 2000 + "'></command>";
+					m_metagame.getComms().send(vipKilledReward);
+				}
+			}
+			winRound(-(target.getIntAttribute("faction_id")) +1);
 		}
-		// stop tracking the vip
-		m_metagame.removeTrackedCharId(vipCharId);
+		sendFactionMessage(m_metagame, -1, "The VIP has been executed!");
 	}
 
 	// died (confirm otherwise)
@@ -162,37 +174,40 @@ class VIPTracker : Tracker {
 	// 	// TagName=character_die
 	// 	// character_id=4
 
-	// 	const XmlElement@ deadChar = event.getFirstElementByTagName("character");
-	// 	int deadCharId = deadChar.getIntAttribute("id");
+	// 	const XmlElement@ eventChar = event.getFirstElementByTagName("character");
+	// 	int deadCharId = eventChar.getIntAttribute("id");
+	// 	const XmlElement@ deadChar = getCharacterInfo(m_metagame, deadCharId);
+	// 	if (deadChar.getStringAttribute("soldier_group_name") == 'vip') {
+	// 		sendFactionMessage(m_metagame, -1, "The VIP did not survive the mission");
+	// 		winRound(-(deadChar.getIntAttribute("faction_id"))+1);
+	// 	}
 	// }
 
 	// --------------------------------------------
 	protected void handleHitboxEvent(const XmlElement@ event) {
 		if (inPlay) {
-			_log("** SND: vip_tracker checking number of vips still being tracked", 1);
+			sleep(2); // allow hitbox_handler.as to process this event first
+			_log("** SND: vip_tracker checking number of VIPs still being tracked", 1);
 			if (m_metagame.getTrackedCharIds().length() == 0) {
 				inPlay = false;
 			}
-			int rescued = m_metagame.getNumExtracted();
 			if (!inPlay) {
-				_log("** SND: All VIPs rescued or killed. End round or go to attrition?", 1);
+				_log("** SND: The VIP has escaped. End round", 1);
 				// TODO move this into an end-of-round cash thingo.
 				// scoring ref: https://counterstrike.fandom.com/wiki/VIP
 				array<int> ctIds = getFactionPlayerCharacterIds(m_metagame, 0);
 				for (uint j = 0; j < ctIds.length() ; ++j) {
-					string vipRescuedReward = "<command class='rp_reward' character_id='" + ctIds[j] + "' reward='" + (850 * rescued) + "'></command>";
+					string vipRescuedReward = "<command class='rp_reward' character_id='" + ctIds[j] + "' reward='" + 2500 + "'></command>";
 					m_metagame.getComms().send(vipRescuedReward);
 				}
-				if ((rescued > 2) && (m_metagame.getTrackedCharIds().length() == 0)) {
-					winRound(0);
-				}
-				// if all vips are dead, it comes down to clock timeout or attrition.
+				winRound(0);
 			}
 		}
 	}
 
 	// --------------------------------------------
 	protected void winRound(uint faction, uint consecutive = 1) {
+		inPlay = false;
 		string winLoseCmd = "";
 		array<Faction@> allFactions = m_metagame.getFactions();
 		for (uint f = 0; f < allFactions.length(); ++f) {
