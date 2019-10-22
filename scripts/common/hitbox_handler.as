@@ -12,7 +12,7 @@
 // --------------------------------------------
 class HitboxHandler : Tracker {
 	protected GameModeSND@ m_metagame;
-	protected string m_stageType;					// Assassination: 'as' | Hostage Rescue: 'hr'
+	protected string m_stageType;					// Assassination: 'as'; Hostage Rescue: 'hr'
 
 	protected array<const XmlElement@> m_triggerAreas;
 	protected array<string> m_trackedTriggerAreas;
@@ -102,22 +102,22 @@ class HitboxHandler : Tracker {
 	protected void markTriggerAreas() {
 		const array<const XmlElement@> list = getTriggerAreasList();
 		if (list is null) return;
-		// only show trigger area markers for testing purposes at this time
-        bool showAtScreenEdge = true;
-
+		bool showAtScreenEdge = true;
+		string text = m_stageType == 'hr' ? 'Hostage Extraction Point' : 'VIP Extraction Point';
+		string color = "#E0E0E0";
+		float size = 1.0; // this is the size of the icon on the map overlay.
+		float range = 0.0; // this is the size of the ring (visual queue) around the hitbox/trigger area
 		int offset = 2050;
-		for (uint i = 0; i < list.size(); ++i) {
-			const XmlElement@ triggerAreaNode = list[i];
-			string id = triggerAreaNode.getStringAttribute("id");
-			string text = m_stageType == 'hr' ? 'Hostage Extraction Point' : 'VIP Extraction Point';
-			float size = 1.0; // this is the size of the icon on the map overlay.
-			float range = 0.0; // 15.0 // this is the size of the ring (visual queue) around the hitbox/trigger area!
-			string color = "#E0E0E0";
-			string position = triggerAreaNode.getStringAttribute("position");
-			string command = "<command class='set_marker' id='" + offset + "' faction_id='0' atlas_index='1' text='" + text + "' position='" + position + "' color='" + color + "' size='" + size + "' show_at_screen_edge='" + (showAtScreenEdge?1:0) + "' range='" + range + "' />";
-			m_metagame.getComms().send(command);
-
-			offset++;
+		array<Faction@> allFactions = m_metagame.getFactions();
+		for (uint f = 0; f < allFactions.length(); ++f) {
+			for (uint i = 0; i < list.size(); ++i) {
+				const XmlElement@ triggerAreaNode = list[i];
+				string id = triggerAreaNode.getStringAttribute("id");
+				string position = triggerAreaNode.getStringAttribute("position");
+				string command = "<command class='set_marker' id='" + offset + "' faction_id='" + f + "' atlas_index='" + (m_stageType == 'hr' ? 1 : 3) + "' text='" + text + "' position='" + position + "' color='" + color + "' size='" + size + "' show_at_screen_edge='" + (showAtScreenEdge?1:0) + "' range='" + range + "' />";
+				m_metagame.getComms().send(command);
+				offset++;
+			}
 		}
 	}
 
