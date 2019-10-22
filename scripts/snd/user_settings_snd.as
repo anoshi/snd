@@ -33,9 +33,9 @@ class UserSettings {
 	float m_timeBetweenSubstages = 20.0;
 
 	// search and destroy mode
-	float m_sndMaxTime = 600.0;
+	float m_sndMaxTime = 300.0;
 
-	float m_quickmatchMaxTime = 3600.0;
+	float m_quickmatchMaxTime = 300.0;
 
 	string m_startServerCommand = "";
 
