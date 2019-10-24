@@ -140,6 +140,7 @@ class BombTracker : Tracker {
 	}
 
 	// alert all when bomb is correctly deployed within one of the target locations
+	//---------------------------------------------
 	protected void handleVehicleDestroyEvent(const XmlElement@ event) {
 		// TagName=vehicle_destroyed_event
 		// character_id=75
