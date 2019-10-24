@@ -8,6 +8,10 @@ class VIPTracker : Tracker {
 	protected GameModeSND@ m_metagame;
 	protected bool m_started = false;
 	protected bool inPlay = false; 		// when m_metagame.getTrackedCharIds().length() == 0, the vip has escaped or been killed
+	protected int theVIPId;				// the characterId of the VIP.
+
+	protected float VIP_POS_UPDATE_TIME = 5.0;	// how often the position of the VIP is checked
+	protected float vipPosUpdateTimer = 7.0;	// the time remaining until the next update
 
 	// --------------------------------------------
 	VIPTracker(GameModeSND@ metagame) {
@@ -74,6 +78,34 @@ class VIPTracker : Tracker {
 		m_started = true;
 	}
 
+
+// --------------------------------------------
+	protected string getVIPPosition() {
+		if (inPlay) {
+			// gets and returns current location of the VIP
+			const XmlElement@ vipInfo = getCharacterInfo(m_metagame, theVIPId);
+			string position = vipInfo.getStringAttribute("position");
+			return position;
+		} else {
+			_log("** SND: can't locate the VIP :-(", 1);
+			return "0 0 0";
+		}
+	}
+
+	// --------------------------------------------
+	protected void markVIPPosition(string position, int faction = 0, bool enabled = true) {
+		if (inPlay) {
+			// marks the current location of the VIP on screen, screen-edge, and/or map overlay
+			// by default, only counter terrorists (faction 0) are alerted to the VIP's location. Pass a faction_id as the int to override
+			_log("** SND: Marking location of vip", 1);
+
+			// mark for friendlies only
+			string vipMarkerCmd = "<command class='set_marker' id='8008' enabled='" + (enabled ? 1 : 0) + "' atlas_index='4' faction_id='" + faction + "' text='' position='" + position + "' color='#FFFFFF' size='1.0' show_in_game_view='1' show_in_map_view='1' show_at_screen_edge='1' />";
+			m_metagame.getComms().send(vipMarkerCmd);
+			_log("** SND: Updated vip location marker!", 1);
+		}
+	}
+
 	// spawned
 	// --------------------------------------------
 	protected void handleCharacterSpawnEvent(const XmlElement@ event) {
@@ -97,9 +129,9 @@ class VIPTracker : Tracker {
 		if (vip.getStringAttribute("soldier_group_name") != "vip") {
 			return;
 		}
-		int charId = vip.getIntAttribute("id");
-		_log("** SND: Now tracking the VIP, id: " + charId, 1);
-		m_metagame.addTrackedCharId(charId);
+		theVIPId = vip.getIntAttribute("id");
+		_log("** SND: Now tracking the VIP, id: " + theVIPId, 1);
+		m_metagame.addTrackedCharId(theVIPId);
 	}
 
 	// killed
@@ -244,5 +276,12 @@ class VIPTracker : Tracker {
 
 	// --------------------------------------------
 	void update(float time) {
+		if (inPlay) {
+			vipPosUpdateTimer -= time;
+			if (vipPosUpdateTimer < 0.0) {
+			markVIPPosition(getVIPPosition());
+			vipPosUpdateTimer = VIP_POS_UPDATE_TIME;
+			}
+		}
 	}
 }
