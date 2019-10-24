@@ -82,14 +82,32 @@ class HitboxHandler : Tracker {
 		for (uint i = 0; i < triggerList.size(); ++i) {
 			const XmlElement@ hitboxNode = triggerList[i];
 			string id = hitboxNode.getStringAttribute("id");
-			if (startsWith(id, "hitbox_trigger")) {
+			if (startsWith(id, ("hitbox_trigger_" + m_stageType))) {
 				_log("\t ** SND: including " + id, 1);
 			} else {
+				_log("\t ** SND: excluding " + id, 1);
 				triggerList.erase(i);
 				i--;
 			}
 		}
-		_log("** SND: " + triggerList.size() + " trigger areas found in map layer", 1);
+		if (m_stageType == 'as' || m_stageType == 'hr') {
+			// Players cannot use extraction point near their start base in these game modes. Rule out.
+			const XmlElement@ ctBase = getStartingBase(m_metagame, 0);
+			float shortestDistance = 1024.0;
+			uint closestTrigger;
+			for (uint i = 0; i < triggerList.size(); ++i) {
+				const XmlElement@ hitboxNode = triggerList[i];
+				float thisDistance = getPositionDistance(stringToVector3(hitboxNode.getStringAttribute("position")), stringToVector3(ctBase.getStringAttribute("position")));
+				_log("** SND: " + hitboxNode.getStringAttribute("id") + " is roughly " + int(thisDistance) + " units away from CT base: " + ctBase.getStringAttribute("id") , 1);
+				if (thisDistance < shortestDistance) {
+					shortestDistance = thisDistance;
+					closestTrigger = i;
+				}
+			}
+			_log("\t ** SND: Removing " + triggerList[closestTrigger].getStringAttribute("id"), 1);
+			triggerList.erase(closestTrigger);
+		}
+		_log("** SND: " + triggerList.size() + " trigger area(s) applicable to this map", 1);
 		return triggerList;
 	}
 
