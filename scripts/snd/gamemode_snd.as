@@ -54,6 +54,21 @@ class GameModeSND : Metagame {
 	}
 
 	// --------------------------------------------
+	void disableCommanderAI(bool commanderAI=true) {
+		// Trackers call this method to disable Commander AI on a per-map basis
+		// with no commander to give orders, AI units stand stay put until added to a players squad
+		if (commanderAI == false) {
+			return; // RWR enables the AI / bot commander by default
+		} else {
+			for (uint i = 0; i < m_factions.length(); ++i) {
+				string disableCommAI = "<command class='commander_ai' faction='" + i + "' active='0'>'";
+				getComms().send(disableCommAI);
+			}
+			_log("** SND: commander_ai disabled for this round", 1);
+		}
+	}
+
+	// --------------------------------------------
 	void setTargetLocations(array<Vector3> v3array) {
 		// Trackers call this method to store target locations on the current map
 		targetLocations = v3array;

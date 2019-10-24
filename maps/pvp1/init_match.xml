@@ -12,14 +12,4 @@
 		<faction initial_over_capacity="0" ai_accuracy="0.94" />
 		<faction initial_over_capacity="0" ai_accuracy="0.94" capacity_multiplier="0.0" />
 	</command>
-	<command
-		class='commander_ai'
-		faction='0'
-		active='0'>
-	</command>
-	<command
-		class='commander_ai'
-		faction='1'
-		active='0'>
-	</command>
 </commands>

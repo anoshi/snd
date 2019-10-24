@@ -128,11 +128,11 @@ class BombTracker : Tracker {
 				// mark for everybody
 				array<Faction@> allFactions = m_metagame.getFactions();
 				for (uint f = 0; f < allFactions.length(); ++f) {
-					bombMarkerCmd = "<command class='set_marker' id='" + (8008 + f) + "' enabled='" + (enabled ? 1 : 0) + "' atlas_index='2' faction_id='" + f + "' text='' position='" + position + "' color='#FFFFFF' size='1.0' show_in_game_view='0' show_in_map_view='1' show_at_screen_edge='0' />";
+					bombMarkerCmd = "<command class='set_marker' id='" + (8008 + f) + "' enabled='" + (enabled ? 1 : 0) + "' atlas_index='5' faction_id='" + f + "' text='' position='" + position + "' color='#FFFFFF' size='1.0' show_in_game_view='0' show_in_map_view='1' show_at_screen_edge='0' />";
 				}
 			} else {
 				// mark for friendlies only
-				bombMarkerCmd = "<command class='set_marker' id='8008' enabled='" + (enabled ? 1 : 0) + "' atlas_index='2' faction_id='" + faction + "' text='' position='" + position + "' color='#FFFFFF' size='1.0' show_in_game_view='1' show_in_map_view='1' show_at_screen_edge='1' />";
+				bombMarkerCmd = "<command class='set_marker' id='8008' enabled='" + (enabled ? 1 : 0) + "' atlas_index='5' faction_id='" + faction + "' text='' position='" + position + "' color='#FFFFFF' size='1.0' show_in_game_view='1' show_in_map_view='1' show_at_screen_edge='1' />";
 			}
 			m_metagame.getComms().send(bombMarkerCmd);
 			_log("** SND: Updated bomb location marker!", 1);
@@ -140,6 +140,7 @@ class BombTracker : Tracker {
 	}
 
 	// alert all when bomb is correctly deployed within one of the target locations
+	//---------------------------------------------
 	protected void handleVehicleDestroyEvent(const XmlElement@ event) {
 		// TagName=vehicle_destroyed_event
 		// character_id=75

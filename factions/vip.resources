@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- VIP-specific weapons and carry items -->
+<resources clear_weapons="1" clear_vehicles="1" clear_calls="1">
+	<!-- Pistol -->
+	<weapon key="km_45_tactical_pri.weapon" />
+	<weapon key="km_45_tactical.weapon" />
+
+	<!-- Armour -->
+	<carry_item key="vip_armour.carry_item" enabled="1" />
+</resources>

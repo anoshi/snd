@@ -37,6 +37,13 @@
 		<inventory encumbrance="5.07" price="800.0" />
 	</weapon>
 
+	<!-- VIP Only -->
+	<weapon file="km_45_tactical_pri.weapon">
+		<commonness value="1.0" can_respawn_with="0" in_stock="0" />
+		<capacity value="1" source="rank" source_value="0.0" />
+		<inventory encumbrance="5.0" price="0.0" />
+	</weapon>
+	<!-- END VIP Only -->
 
 	<!-- Sub Machine Guns -->
 	<weapon file="mp5sd.weapon">

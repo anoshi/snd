@@ -12,9 +12,6 @@ class PlayerTracker : Tracker {
 	protected array<uint> factionPlayers = {0, 0}; 	// stores the number of active, alive players per faction
 	protected array<int> playerScores;
 
-    protected float m_localPlayerCheckTimer;
-    protected float LOCAL_PLAYER_CHECK_TIME = 5.0;
-
 	// --------------------------------------------
 	PlayerTracker(GameModeSND@ metagame, SubStage@ substage) {
 		@m_metagame = @metagame;
@@ -75,7 +72,6 @@ class PlayerTracker : Tracker {
 		updateFactionPlayerCounts(player.getIntAttribute("faction_id"), 1);
 	}
 
-
 	// --------------------------------------------
 	protected void handlePlayerDisconnectEvent(const XmlElement@ event) {
 		_log("** SND: PlayerTracker Handling player disconnection!");
@@ -101,7 +97,7 @@ class PlayerTracker : Tracker {
 		// name=player1
 		// player_id=0
 		// port=0
-		// profile_hash=ID3024532739
+		// profile_hash=ID<10_numbers>
 		// sid=ID0
 
 		// TagName=target
@@ -113,7 +109,7 @@ class PlayerTracker : Tracker {
 		// name=player1
 		// player_id=0
 		// port=0
-		// profile_hash=ID3024532739
+		// profile_hash=ID<10_numbers>
 		// sid=ID0
 
 		const XmlElement@ playerKiller = event.getFirstElementByTagName("killer");
@@ -131,13 +127,13 @@ class PlayerTracker : Tracker {
 			addScore(factionId, -1);
 		} else if (playerKiller.getIntAttribute("faction_id") == playerTarget.getIntAttribute("faction_id")) {
 			// killed teammate
-			_log("** SND: Player " + pKillerId+ " killed a friendly unit. Decrement score", 1);
+			_log("** SND: Player " + pKillerId+ " killed a friendly unit. Cash penalty and decrement score", 1);
 			string penaliseTeamKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='-3300'></command>";
 			m_metagame.getComms().send(penaliseTeamKills);
 			addScore(factionId, -1);
 		} else if (playerKiller.getIntAttribute("player_id") != playerTarget.getIntAttribute("player_id")) {
 			// killed player on other team
-			_log("** SND: Player " + pKillerId + " killed an enemy unit. Increase score", 1);
+			_log("** SND: Player " + pKillerId + " killed an enemy unit. Cash reward and increase score", 1);
 			playSound(m_metagame, "enemydown.wav", factionId);
 			string rewardEnemyKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='300'></command>";
 			m_metagame.getComms().send(rewardEnemyKills);
@@ -159,7 +155,7 @@ class PlayerTracker : Tracker {
 		// name=Host
 		// player_id=0
 		// port=0
-		// profile_hash=ID2089185859
+		// profile_hash=ID<10_numbers>
 		// sid=ID0
 
 		_log("** SND: PlayerTracker::handlePlayerDieEvent", 1);
@@ -210,10 +206,10 @@ class PlayerTracker : Tracker {
 				if (f == faction) {
 					winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' lose='1'></command>";
 					array<int> losingTeamCharIds = getFactionPlayerCharacterIds(m_metagame, f);
-				for (uint i = 0; i < losingTeamCharIds.length() ; ++i) {
-					string rewardLosingTeamChar = "<command class='rp_reward' character_id='" + losingTeamCharIds[i] + "' reward='900'></command>"; // " + (900 + (consecutive * 500)) + " // up to a max of 3400 / round
-					m_metagame.getComms().send(rewardLosingTeamChar);
-				}
+					for (uint i = 0; i < losingTeamCharIds.length() ; ++i) {
+						string rewardLosingTeamChar = "<command class='rp_reward' character_id='" + losingTeamCharIds[i] + "' reward='900'></command>"; // " + (900 + (consecutive * 500)) + " // up to a max of 3400 / round
+						m_metagame.getComms().send(rewardLosingTeamChar);
+					}
 				} else {
 					winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' win='1'></command>";
 					array<int> winningTeamCharIds = getFactionPlayerCharacterIds(m_metagame, f);

@@ -12,7 +12,7 @@
 // --------------------------------------------
 class HitboxHandler : Tracker {
 	protected GameModeSND@ m_metagame;
-	protected string m_stageType;	// Assassination: 'as' | Hostage Rescue: 'hr'
+	protected string m_stageType;					// Assassination: 'as'; Hostage Rescue: 'hr'
 
 	protected array<const XmlElement@> m_triggerAreas;
 	protected array<string> m_trackedTriggerAreas;
@@ -21,7 +21,7 @@ class HitboxHandler : Tracker {
 	protected bool m_started = false;
 
 	protected float TRACKED_CHAR_CHECK_TIME = 5.0; 	// how often to check the list of tracked characters
-	protected float nextCheck = 0.0;				// countdown timer
+	protected float nextCheck = 5.0;				// countdown timer start value (allow some time to get ready for tracking)
 
 	// ----------------------------------------------------
 	HitboxHandler(GameModeSND@ metagame, string stageType) {
@@ -32,6 +32,7 @@ class HitboxHandler : Tracker {
 	// --------------------------------------------
 	void start() {
 		_log("** SND: starting HitboxHandler tracker", 1);
+		m_trackedTriggerAreas.clear();
 		determineTriggerAreasList();
 		m_started = true;
 	}
@@ -42,7 +43,7 @@ class HitboxHandler : Tracker {
 	// ----------------------------------------------------
 	protected void determineTriggerAreasList() {
 		array<const XmlElement@> list;
-		_log("** SND hitbox_handler: determineTriggerAreasList", 1);
+		_log("** SND: hitbox_handler: determineTriggerAreasList", 1);
 
     	list = getTriggerAreas(m_metagame);
 		// go through the list and only leave the ones in we're interested in, 'hitbox_trigger_<m_stageType>'
@@ -50,27 +51,26 @@ class HitboxHandler : Tracker {
 		for (uint i = 0; i < list.size(); ++i) {
 			const XmlElement@ triggerAreaNode = list[i];
 			string id = triggerAreaNode.getStringAttribute("id");
-			bool ruleOut = false;
-			if (id.findFirst(wanted) < 0) { // couldn't find the string (stored in wanted) in the triggerAreaNode id
-				ruleOut = true;
-				if (ruleOut) {
-					_log("** SND hitbox_handler determineTriggerAreasList: ruling out " + id, 1);
-					list.erase(i);
-					i--;
-				} else {
-					_log("** SND hitbox_handler determineTriggerAreasList: including " + id, 1);
-				}
+			bool ruleOut = id.findFirst(wanted) < 0 ? true : false; // couldn't find the string (stored in wanted) in the triggerAreaNode id
+			if (ruleOut) {
+				// this should be improved to also rule out the trigger / exit areas near the enemy (Terrorist, generally) base
+				_log("** SND: hitbox_handler determineTriggerAreasList: ruling out " + id, 1);
+				list.erase(i);
+				i--;
+			} else {
+				_log("** SND: hitbox_handler determineTriggerAreasList: including " + id, 1);
+				m_trackedTriggerAreas.insertLast(id);
 			}
 		}
-		_log("** SND: " + list.size() + " trigger areas found");
+		_log("** SND: " + list.size() + " trigger areas active this level");
 		m_triggerAreas = list;
-		markTriggerAreas(); // show the centre point of each trigger area with a mark and also on map
+		markTriggerAreas();
 	}
 
 	// ----------------------------------------------------
 	protected array<const XmlElement@>@ getTriggerAreas(const GameModeSND@ metagame) {
 		// returns all hitbox_trigger_* objects, regardless of game type
-		_log("** SND getTriggerAreas running in hitbox_handler.as", 1);
+		_log("** SND: getTriggerAreas running in hitbox_handler.as", 1);
 		XmlElement@ query = XmlElement(
 			makeQuery(metagame, array<dictionary> = {
 				dictionary = { {"TagName", "data"}, {"class", "hitboxes"} }
@@ -82,14 +82,32 @@ class HitboxHandler : Tracker {
 		for (uint i = 0; i < triggerList.size(); ++i) {
 			const XmlElement@ hitboxNode = triggerList[i];
 			string id = hitboxNode.getStringAttribute("id");
-			if (startsWith(id, "hitbox_trigger")) {
+			if (startsWith(id, ("hitbox_trigger_" + m_stageType))) {
 				_log("\t ** SND: including " + id, 1);
 			} else {
+				_log("\t ** SND: excluding " + id, 1);
 				triggerList.erase(i);
 				i--;
 			}
 		}
-		_log("** SND: " + triggerList.size() + " trigger areas found", 1);
+		if (m_stageType == 'as' || m_stageType == 'hr') {
+			// Players cannot use extraction point near their start base in these game modes. Rule out.
+			const XmlElement@ ctBase = getStartingBase(m_metagame, 0);
+			float shortestDistance = 1024.0;
+			uint closestTrigger;
+			for (uint i = 0; i < triggerList.size(); ++i) {
+				const XmlElement@ hitboxNode = triggerList[i];
+				float thisDistance = getPositionDistance(stringToVector3(hitboxNode.getStringAttribute("position")), stringToVector3(ctBase.getStringAttribute("position")));
+				_log("** SND: " + hitboxNode.getStringAttribute("id") + " is roughly " + int(thisDistance) + " units away from CT base: " + ctBase.getStringAttribute("id") , 1);
+				if (thisDistance < shortestDistance) {
+					shortestDistance = thisDistance;
+					closestTrigger = i;
+				}
+			}
+			_log("\t ** SND: Removing " + triggerList[closestTrigger].getStringAttribute("id"), 1);
+			triggerList.erase(closestTrigger);
+		}
+		_log("** SND: " + triggerList.size() + " trigger area(s) applicable to this map", 1);
 		return triggerList;
 	}
 
@@ -102,22 +120,22 @@ class HitboxHandler : Tracker {
 	protected void markTriggerAreas() {
 		const array<const XmlElement@> list = getTriggerAreasList();
 		if (list is null) return;
-		// only show trigger area markers for testing purposes at this time
-        bool showAtScreenEdge = true;
-
+		bool showAtScreenEdge = true;
+		string text = m_stageType == 'hr' ? 'Hostage Extraction Point' : 'VIP Extraction Point';
+		string color = "#E0E0E0";
+		float size = 1.0; // this is the size of the icon on the map overlay.
+		float range = 0.0; // this is the size of the ring (visual queue) around the hitbox/trigger area
 		int offset = 2050;
-		for (uint i = 0; i < list.size(); ++i) {
-			const XmlElement@ triggerAreaNode = list[i];
-			string id = triggerAreaNode.getStringAttribute("id");
-			string text = m_stageType == 'hr' ? 'Hostage Extraction Point' : 'VIP Extraction Point';
-			float size = 1.0; // this is the size of the icon on the map overlay.
-			float range = 0.0; // 15.0 // this is the size of the ring (visual queue) around the hitbox/trigger area!
-			string color = "#E0E0E0";
-			string position = triggerAreaNode.getStringAttribute("position");
-			string command = "<command class='set_marker' id='" + offset + "' faction_id='0' atlas_index='1' text='" + text + "' position='" + position + "' color='" + color + "' size='" + size + "' show_at_screen_edge='" + (showAtScreenEdge?1:0) + "' range='" + range + "' />";
-			m_metagame.getComms().send(command);
-
-			offset++;
+		array<Faction@> allFactions = m_metagame.getFactions();
+		for (uint f = 0; f < allFactions.length(); ++f) {
+			for (uint i = 0; i < list.size(); ++i) {
+				const XmlElement@ triggerAreaNode = list[i];
+				string id = triggerAreaNode.getStringAttribute("id");
+				string position = triggerAreaNode.getStringAttribute("position");
+				string command = "<command class='set_marker' id='" + offset + "' faction_id='" + f + "' atlas_index='" + (m_stageType == 'hr' ? 1 : 3) + "' text='" + text + "' position='" + position + "' color='" + color + "' size='" + size + "' show_at_screen_edge='" + (showAtScreenEdge?1:0) + "' range='" + range + "' />";
+				m_metagame.getComms().send(command);
+				offset++;
+			}
 		}
 	}
 
@@ -157,7 +175,7 @@ class HitboxHandler : Tracker {
 		// disassociate character 'instanceId' with each 'trackedTriggerAreas'
 		for (uint i = 0; i < trackedTriggerAreas.size(); ++i) {
 			string id = trackedTriggerAreas[i];
-			string command = "<command class='remove_hitbox_check' id='" + id + "' instance_type='" + instanceType + "' instance_id='" + instanceId + "' />";
+			string command = "<command class='remove_hitbox_check' instance_type='" + instanceType + "' instance_id='" + instanceId + "' id='" + id + "'/>";
 			metagame.getComms().send(command);
 		}
 		trackedTriggerAreas.clear();
@@ -185,17 +203,17 @@ class HitboxHandler : Tracker {
 		array<string> removeIds = trackedTriggerAreas;
 
 		for (uint i = 0; i < extractionList.size(); ++i) {
-			const XmlElement@ armory = extractionList[i];
-			string armoryId = armory.getStringAttribute("id");
+			const XmlElement@ exitArea = extractionList[i];
+			string exitAreaId = exitArea.getStringAttribute("id");
 
-			int index = removeIds.find(armoryId);
+			int index = removeIds.find(exitAreaId);
 			if (index >= 0) {
 				// already tracked and still needed
 				// remove from ids to remove
 				removeIds.erase(index);
 			} else {
 				// not yet tracked, needs to be added
-				addIds.push_back(armoryId);
+				addIds.push_back(exitAreaId);
 			}
 		}
 
@@ -272,19 +290,19 @@ class HitboxHandler : Tracker {
 				Vector3 v3pos = stringToVector3(escapee.getStringAttribute("position"));
 				// get all CT units near this position (may include hostage and player characters)
 				array<const XmlElement@> nearCTs = getCharactersNearPosition(m_metagame, v3pos, 0, 15.0);
-				_log("** SND: " + nearCTs.length() + " characters near rescued hostage", 1);
+				_log("** SND: " + nearCTs.length() + " characters near rescued unit", 1);
 				for (uint ct = 0; ct < nearCTs.length(); ++ct) {
 					// the characterId
 					int ctId = nearCTs[ct].getIntAttribute("id");
 					// the character info XML block, which records the player ID
 					const XmlElement@ ctInfo = getCharacterInfo(m_metagame, ctId);
-					if (ctInfo.getStringAttribute("soldier_group_name") == 'hostage') {
+					if (ctInfo.getStringAttribute("soldier_group_name") != 'default') {
 						nearCTs.erase(ct);
-						_log("** SND: character ID: " + ctId + " is a hostage. Removed from list", 1);
+						_log("** SND: character ID: " + ctId + " is not a player. Removed from list", 1);
 						ct--;
 					}
 				}
-				_log("** SND: " + nearCTs.length() + " CT player(s) near rescued hostage", 1);
+				_log("** SND: " + nearCTs.length() + " CT player(s) near rescued unit", 1);
 				for (uint i = 0; i < nearCTs.length(); ++ i) {
 					int ctId = nearCTs[i].getIntAttribute("id");
 					_log("** SND: rewarding characterID: " + ctId + " RP: " + (1000 / nearCTs.length()), 1);
