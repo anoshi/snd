@@ -11,7 +11,7 @@ class VIPTracker : Tracker {
 	protected int theVIPId;				// the characterId of the VIP.
 
 	protected float VIP_POS_UPDATE_TIME = 5.0;	// how often the position of the VIP is checked
-	protected float vipPosUpdateTimer = 7.0;	// the time remaining until the next update
+	protected float vipPosUpdateTimer = 10.0;	// the time remaining until the next update
 
 	// --------------------------------------------
 	VIPTracker(GameModeSND@ metagame) {
@@ -29,6 +29,7 @@ class VIPTracker : Tracker {
 		// m_metagame.getComms().send(trackCharDie);
 		// disable Commander orders to AI
 		m_metagame.disableCommanderAI();
+		m_started = true;
 	}
 
 	///////////////////
@@ -75,7 +76,6 @@ class VIPTracker : Tracker {
 		// spawn a vip (faction 0) very near the requested location.
 		string spawnCommand = "<command class='create_instance' instance_class='character' faction_id='0' position='" + pos.toString() + "' instance_key='vip' /></command>";
 		m_metagame.getComms().send(spawnCommand);
-		m_started = true;
 	}
 
 

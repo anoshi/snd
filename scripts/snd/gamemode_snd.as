@@ -15,6 +15,7 @@ class GameModeSND : Metagame {
 	array<int> trackedCharIds;			// Ids of characters being tracked against collisions with hitboxes
 	int numExtracted = 0;				// the number of hostages safely rescued
 
+	protected bool trackPlayerDeaths = true;
 	protected string m_tournamentName = "";
 
 	// --------------------------------------------
@@ -66,6 +67,17 @@ class GameModeSND : Metagame {
 			}
 			_log("** SND: commander_ai disabled for this round", 1);
 		}
+	}
+
+	// --------------------------------------------
+	void setTrackPlayerDeaths(bool pDeaths=true) {
+		trackPlayerDeaths = pDeaths;
+	}
+
+	// --------------------------------------------
+	bool getTrackPlayerDeaths() {
+		_log("** SND: got trackPlayerDeaths: (" + trackPlayerDeaths + ")", 1);
+		return trackPlayerDeaths;
 	}
 
 	// --------------------------------------------

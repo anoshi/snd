@@ -127,6 +127,10 @@ class HostageTracker : Tracker {
 		}
 		// stop tracking the hostage
 		m_metagame.removeTrackedCharId(hostageCharId);
+		alive = m_metagame.getTrackedCharIds().length();
+		if (alive <= 0) {
+			winRound(1);
+		}
 	}
 
 	// died (confirm otherwise)

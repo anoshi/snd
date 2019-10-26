@@ -1,4 +1,4 @@
-<vehicle name="BOMB" key="bomb_armed.vehicle" map_view_atlas_index="0" time_to_live="25.0" usable_for_cover="0" >
+<vehicle name="BOMB" key="bomb_armed.vehicle" map_view_atlas_index="0" time_to_live="45.0" usable_for_cover="0" >
 	<!--
 		A vehicle that acts as the visual representation of an armed bomb.
 		It is created after bomb.weapon has been used and a bomb_planted.vehicle self-terminates
