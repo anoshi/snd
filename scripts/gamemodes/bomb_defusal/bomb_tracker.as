@@ -347,6 +347,8 @@ class BombTracker : Tracker {
 			}
 			if (bombTimer <= 0.0) {
 				// blow up the bomb. Regardless of who planted it, the original owner faction will win (it's their bomb, planted at one of their target locations)
+				// stop tracking player deaths
+				m_metagame.setTrackPlayerDeaths(false);
 				string detonateBombCmd = "<command class='create_instance' faction_id='" + bombOwnerFaction + "' instance_class='grenade' instance_key='bomb.projectile' activated='1' position='" + bombPosition + "' />";
 				m_metagame.getComms().send(detonateBombCmd);
 				bombIsArmed = false;

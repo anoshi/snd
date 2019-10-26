@@ -198,6 +198,11 @@ class PlayerTracker : Tracker {
 			factionPlayers[faction] += num;
 			_log("** SND: faction " + faction + " has " + num + " players alive", 1);
 		} else {
+			// first check we're still tracking character deaths
+			if (!m_metagame.getTrackPlayerDeaths()) {
+				// we're not, bail.
+				return;
+			}
 			_log("** SND: faction " + faction + " has run out of live players. Lose round!", 1);
 			string winLoseCmd = "";
 			array<Faction@> allFactions = m_metagame.getFactions();
@@ -249,7 +254,7 @@ class PlayerTracker : Tracker {
 	void reset() {
 		playerScores = array<int>(0);
 		for (uint id = 0; id < m_substage.m_match.m_factions.length(); ++id) {
-			// if faction is neutral or it's name is Bots, continue, do not display this faction's score
+			// if faction is neutral or its name is Bots, continue, do not display this faction's score
 			Faction@ faction = m_substage.m_match.m_factions[id];
 
 			playerScores.insertLast(0);
