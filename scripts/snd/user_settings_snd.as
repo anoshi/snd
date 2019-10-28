@@ -19,22 +19,20 @@ class UserSettings {
     float m_rpFactor = 1.0;
     bool m_fov = true;
 
-	//float m_initialXp = 0.0; // 0 XP will want to set this higher in hostage escort missions to allow picking up of AI hostages.
-	float m_initialXp = 0.4; // testing HR game mode
+	float m_initialXp = 0.4;   // allow 4 squad members (pick up hostages in hr game mode)
 	float m_initialRp = 800.0; // default starting cash in CS
-	float m_maxRp = 16000.0; // hard limit on RP, as per CS
+	float m_maxRp = 16000.0;   // hard limit on RP, as per CS
 
     array<string> m_overlayPaths;
 
-	int m_minimumPlayersToStart = 2; //1;
-	int m_minimumPlayersToContinue = 2; //1;
+	int m_minimumPlayersToStart = 2;
+	int m_minimumPlayersToContinue = 2;
 	int m_maxPlayers = 10;
 
 	float m_timeBetweenSubstages = 20.0;
 
 	// search and destroy mode
 	float m_sndMaxTime = 300.0;
-
 	float m_quickmatchMaxTime = 300.0;
 
 	string m_startServerCommand = "";
