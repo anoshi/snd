@@ -252,9 +252,6 @@ abstract class SubStage : Tracker {
 	}
 
 	// --------------------------------------------
-	void maxScoreReached(int winner) { }
-
-	// --------------------------------------------
    	void end() {
 		m_ended = true;
 
