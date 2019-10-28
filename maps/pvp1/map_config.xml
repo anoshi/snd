@@ -12,5 +12,5 @@
 	<projectile file="all_throwables.xml" />
 	<vehicle file="all_vehicles.xml" />
     <carry_item file="all_carry_items.xml" />
-	<call file="calls.xml" />
+	<call file="all_calls.xml" />
 </map_config>
