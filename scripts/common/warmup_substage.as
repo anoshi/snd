@@ -6,7 +6,7 @@
 
 // --------------------------------------------
 class WarmupSubStage : SubStage {
-	protected int m_minimumPlayers = 2; //1;
+	protected int m_minimumPlayers = 2;
 
 	// --------------------------------------------
 	WarmupSubStage(Stage@ stage, int minimumPlayers) {
@@ -46,10 +46,6 @@ class WarmupSubStage : SubStage {
 
 		string sender = event.getStringAttribute("player_name");
 		int senderId = event.getIntAttribute("player_id");
-		// if (!m_metagame.getAdminManager().isAdmin(sender, senderId)) {
-		// 	return;
-		// }
-
 		if (checkCommand(message, "start")) {
 			// start happens by ending this substage
 			end();
