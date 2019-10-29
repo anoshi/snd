@@ -4,6 +4,7 @@
 #include "log.as"
 #include "query_helpers.as"
 #include "game_timer.as"
+#include "score_tracker.as"
 #include "stage_snd.as"
 
 #include "player_tracker.as"
@@ -21,6 +22,7 @@ class HostageRescue : SubStage {
 	protected string m_targetsLayerName = "";
 
 	protected GameTimer@ m_gameTimer;
+	protected ScoreTracker@ m_scoreTracker;
 
 	// --------------------------------------------
 	HostageRescue(Stage@ stage, float maxTime, string targetsLayerName = "hostageLocations", array<int> competingFactionIds = array<int>(0, 1), int protectorFactionId = 2) {
@@ -32,11 +34,6 @@ class HostageRescue : SubStage {
 		// the trackers get added into active tracking at SubStage::start()
 		@m_gameTimer = GameTimer(m_metagame, maxTime);
 
-		// should this be instantiated in SubStage (and only referenced here) in order to allow persistent player stats?
-		// maybe not, yet... trying a save/load concept at end / start of each round.
-		@m_playerTracker = PlayerTracker(m_metagame, this);
-		addTracker(m_playerTracker);
-
 		m_targetsLayerName = targetsLayerName;
 	}
 
@@ -47,38 +44,40 @@ class HostageRescue : SubStage {
 			m_gameTimer.prepareMatch(m_match);
 		}
 
-		{
-			// retrieve all target locations (bombs, hostage spawns) in this map as 'positions'.
-			array<Vector3> positions;
-			array<const XmlElement@> nodes = getGenericNodes(m_metagame, m_targetsLayerName, "hostage_start");
-			if (nodes !is null) {
-				_log("** SND: Found " + nodes.length() + " possible hostage start locations:", 1);
-				for (uint i = 0; i < nodes.length(); i++) {
-					const XmlElement@ node = nodes[i];
-					Vector3 pos = stringToVector3(node.getStringAttribute("position"));;
-					_log("\t" + i + ": " + pos.toString());
-					positions.insertLast(pos);
-				}
-			} else {
-				_log("** SND: WARNING, no objects tagged as hostage_start within layer[1-3]." + m_targetsLayerName + " layers of objects.svg", 1);
+		// retrieve all target locations (bombs, hostage spawns) in this map as 'positions'.
+		array<Vector3> positions;
+		array<const XmlElement@> nodes = getGenericNodes(m_metagame, m_targetsLayerName, "hostage_start");
+		if (nodes !is null) {
+			_log("** SND: Found " + nodes.length() + " possible hostage start locations:", 1);
+			for (uint i = 0; i < nodes.length(); i++) {
+				const XmlElement@ node = nodes[i];
+				Vector3 pos = stringToVector3(node.getStringAttribute("position"));;
+				_log("\t" + i + ": " + pos.toString());
+				positions.insertLast(pos);
 			}
-
-			// choose hostage spawn locations from numerous possibilities and mark on map for all to see
-			@m_targetLocations = TargetLocations(m_metagame, "hr", positions);
-			addTracker(m_targetLocations);
-
-			// track the hostages
-			@m_hostageTracker = HostageTracker(m_metagame);
-			addTracker(m_hostageTracker);
-
-			// prepare hostages and extraction points
-			@m_hitboxHandler = HitboxHandler(m_metagame, "hr");
-			addTracker(m_hitboxHandler);
+		} else {
+			_log("** SND: WARNING, no objects tagged as hostage_start within layer[1-3]." + m_targetsLayerName + " layers of objects.svg", 1);
 		}
+
+		// choose hostage spawn locations from numerous possibilities and mark on map for all to see
+		@m_targetLocations = TargetLocations(m_metagame, "hr", positions);
+		addTracker(m_targetLocations);
+
+		// setup score tracking (does not persist between rounds / matches)
+		@m_scoreTracker = ScoreTracker(m_metagame, this);
+		addTracker(m_scoreTracker);
+
+		// track the hostages
+		@m_hostageTracker = HostageTracker(m_metagame);
+		addTracker(m_hostageTracker);
+
+		// track hostage presence in extraction points
+		@m_hitboxHandler = HitboxHandler(m_metagame, "hr");
+		addTracker(m_hitboxHandler);
 
 		SubStage::startMatch();
 		// start match clears in-game score hud; reset player scores after it
-		m_playerTracker.reset();
+		m_scoreTracker.reset();
 
 		if (m_gameTimer !is null) {
 			m_gameTimer.start(-1);

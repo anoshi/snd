@@ -11,21 +11,6 @@
 #include "stage_snd.as"
 
 // --------------------------------------------
-class FactionConfig {
-	int m_index = -1;
-	string m_file = "unset faction file";
-	string m_name = "unset faction name";
-	string m_color = "0 0 0";
-
-	FactionConfig(int index, string file, string name, string color) {
-		m_index = index;
-		m_file = file;
-		m_name = name;
-		m_color = color;
-	}
-};
-
-// --------------------------------------------
 class MapRotatorSND : MapRotator {
 	GameModeSND@ m_metagame;
 	array<Stage@> m_stages;

@@ -6,17 +6,13 @@
 // --------------------------------------------
 class PlayerTracker : Tracker {
 	protected GameModeSND@ m_metagame;
-	protected SubStage@ m_substage;
 
 	protected array<string> playerHashes;			// stores the unique 'hash' for each active player
 	protected array<uint> factionPlayers = {0, 0}; 	// stores the number of active, alive players per faction
-	protected array<int> playerScores;
 
 	// --------------------------------------------
-	PlayerTracker(GameModeSND@ metagame, SubStage@ substage) {
+	PlayerTracker(GameModeSND@ metagame) {
 		@m_metagame = @metagame;
-		// setup two-way connection between PlayerTracker and SubStage
-		@m_substage = @substage;
 	}
 
 	/////////////////////////////
@@ -124,20 +120,20 @@ class PlayerTracker : Tracker {
 			// killed self
 			_log("** SND: Player " + pKillerId + " committed suicide. Decrement score", 1);
 			// no cash penalty for suicide, just score
-			addScore(factionId, -1);
+			m_metagame.addScore(factionId, -1);
 		} else if (playerKiller.getIntAttribute("faction_id") == playerTarget.getIntAttribute("faction_id")) {
 			// killed teammate
 			_log("** SND: Player " + pKillerId+ " killed a friendly unit. Cash penalty and decrement score", 1);
 			string penaliseTeamKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='-3300'></command>";
 			m_metagame.getComms().send(penaliseTeamKills);
-			addScore(factionId, -1);
+			m_metagame.addScore(factionId, -1);
 		} else if (playerKiller.getIntAttribute("player_id") != playerTarget.getIntAttribute("player_id")) {
 			// killed player on other team
 			_log("** SND: Player " + pKillerId + " killed an enemy unit. Cash reward and increase score", 1);
 			playSound(m_metagame, "enemydown.wav", factionId);
 			string rewardEnemyKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='300'></command>";
 			m_metagame.getComms().send(rewardEnemyKills);
-			addScore(factionId, 2);
+			m_metagame.addScore(factionId, 2);
 		}
 	}
 
@@ -181,17 +177,6 @@ class PlayerTracker : Tracker {
 		updateFactionPlayerCounts(deadPlayer.getIntAttribute("faction_id"), -1);
 	}
 
-    // // ----------------------------------------------------
-	// protected void addScore(int factionId, int score) {
-	// 	m_substage.addScore(factionId, score);
-
-	// 	// will need to include the timer here
-	// 	// if (m_gameTimer !is null) {
-	// 	// 	// GameTimer controls who wins if time runs out, refresh it each time score changes
-	// 	// 	m_gameTimer.setWinningTeam(m_scoreTracker.getWinningTeam());
-	// 	// }
-	// }
-
 	// ----------------------------------------------------
 	protected void updateFactionPlayerCounts(uint faction, int num) {
 		if (factionPlayers[faction] + num > 0) {
@@ -234,83 +219,83 @@ class PlayerTracker : Tracker {
 		}
 	}
 
-	////////////////////////////
-	// Score tracking methods //
-	////////////////////////////
-	// Bomb Defusal
-	// 2 points for a bomb plant. (Terrorist Only)
-	// 2 points if that bomb explodes. (Terrorist Only)
-	// 2 points for a kill, 3 when bomb planted
-	// 3 points for a kill when defending the bomb (Terrorist Only)
-	// 1 point when bomb detonate and you are alive
-	// 1 point when the bomb is defused and you are alive
-	// 1 point for an assist.
-	// 2 points for defusing a bomb. (Counter-Terrorist Only)
-	// 2 points for rescuing a hostage. (Counter-Terrorist Only)
-	// -1 point for killing a teammate.
-	// -1 point for committing suicide.
+	// --------------------------------------------
+	void save(XmlElement@ root) {
+		// called by /scripts/gamemodes/campaign/gamemode_snd.as
+		XmlElement@ parent = root;
+
+		XmlElement playerData("player_data");
+		savePlayerData(playerData); // see protected method, below
+		parent.appendChild(playerData);
+	}
 
 	// --------------------------------------------
-	void reset() {
-		playerScores = array<int>(0);
-		for (uint id = 0; id < m_substage.m_match.m_factions.length(); ++id) {
-			// if faction is neutral or its name is Bots, continue, do not display this faction's score
-			Faction@ faction = m_substage.m_match.m_factions[id];
+	protected void savePlayerData(XmlElement@ playerData) {
+		// writes <playerData> section to savegames/<savegame_name>.save/metagame_invasion.xml
+		bool doSave = true;
+		_log("** SND: saving playerData to metagame_invasion.xml", 1);
 
-			playerScores.insertLast(0);
-
-			string value = "0";
-			string color = faction.m_config.m_color;
-			string command = "<command class='update_score_display' id='" + id + "' text='" + value + "' color='" + color + "' />";
-			m_metagame.getComms().send(command);
-		}
-	}
-
-	// ----------------------------------------------------
-	void addScore(int factionId, int score) {
-		playerScores[factionId] += score;
-		// update game's score display
-		int value = playerScores[factionId];
-		string command = "<command class='update_score_display' id='" + factionId + "' text='" + value + "' />";
-		m_metagame.getComms().send(command);
-		scoreChanged();
-	}
-
-	// ----------------------------------------------------
-	protected void scoreChanged() {
-		int score;
-		for (uint i = 0; i < playerScores.length(); ++i) {
-			score = playerScores[i];
-		}
-
-		string text = "";
-		array<Faction@> factions = m_metagame.getFactions();
-		for (uint i = 0; i < factions.length(); ++i) {
-			Faction@ faction = factions[i];
-			if (i != 0) {
-				text += ", ";
+		// save player hashes and RP
+		if (playerHashes.size() > 0) {
+			XmlElement players("players");
+			for (uint i = 0; i < playerHashes.size(); ++i) {
+				if (playerHashes[i] == "") {
+					// if any spawned player doesn't have an associated hash, we're not in a position to save data
+					_log("** SND: Player " + i + " has no hash recorded. Skipping save.", 1);
+					doSave = false;
+					continue;
+				} else {
+					string pNum = "player" + (i + 1);
+					XmlElement pData(pNum);
+					pData.setStringAttribute("hash", playerHashes[i]);
+					//pData.setIntAttribute("cash", m_playerRP[i]);
+					players.appendChild(pData);
+				}
 			}
-			text += faction.m_config.m_name + ": " + playerScores[i];
-		}
-		sendFactionMessage(m_metagame, -1, text);
-	}
-
-	// ----------------------------------------------------
-	array<int> getScores() {
-		return playerScores;
-	}
-
-	// ----------------------------------------------------
-	string getScoresAsString() {
-		string text = "";
-		for (uint i = 0; i < playerScores.length(); ++i) {
-			text += playerScores[i];
-			if (i != playerScores.length() - 1) {
-				text += " - ";
+			if (doSave) {
+				playerData.appendChild(players);
+				_log("** SND: Player data saved to metagame_invasion.xml", 1);
 			}
+		} else {
+			_log("** SND: no data in m_playersSpawned. No character info to save.", 1);
 		}
 
-		return text;
+
+		// any more info to add here? Create and populate another XmlElement and append to the playerData XmlElement
+		// playerData.appendChild(another_XmlElement);
+		_log("** SND: PlayerTracker::savePlayerData() done", 1);
+	}
+
+	// --------------------------------------------
+	void load(const XmlElement@ root) {
+		_log("** SND: Loading Data", 1);
+		// m_playerHashes.clear();
+		// m_playerRP.clear();
+
+		// const XmlElement@ playerData = root.getFirstElementByTagName("Search_and_Destroy");
+		// if (playerData !is null) {
+		// 	_log("** SND: loading level data", 1);
+		// 	const XmlElement@ levelData = playerData.getFirstElementByTagName("level");
+		// 	float levelProgress = levelData.getFloatAttribute("progress");
+		// 	approachGoalXP(levelProgress);
+		// 	_log("** SND: loading player data", 1); // tag elements (one element per saved player)
+		// 	array<const XmlElement@> playerData = playerData.getElementsByTagName("players");
+		// 	for (uint i = 0; i < playerData.size(); ++ i) {
+		// 		_log("** SND: player" + (i + 1), 1); // load player[1..999] tag elements
+		// 		array<const XmlElement@> curPlayer = playerData[i].getElementsByTagName("player" + (i + 1));
+
+		// 		for (uint j = 0; j < curPlayer.size(); ++j) {
+		// 			const XmlElement@ pData = curPlayer[i];
+		// 			string hash = pData.getStringAttribute("hash");
+		// 			m_playersSpawned.insertLast(hash);
+		// 			int lives = pData.getIntAttribute("lives");
+		// 			m_playerLives.insertLast(lives);
+		// 			float score = pData.getFloatAttribute("score");
+		// 			m_playerScore.insertLast(score);
+		// 			_log("** SND: Score: " + score + ". Lives: " + lives, 1);
+		// 		}
+		// 	}
+		// }
 	}
 
     // --------------------------------------------

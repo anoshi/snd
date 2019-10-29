@@ -8060,11 +8060,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="8"
-     inkscape:cx="714.68929"
-     inkscape:cy="851.88658"
+     inkscape:zoom="0.5"
+     inkscape:cx="541.90021"
+     inkscape:cy="1093.8689"
      inkscape:document-units="px"
-     inkscape:current-layer="layer18"
+     inkscape:current-layer="g7928"
      showgrid="false"
      inkscape:window-width="1680"
      inkscape:window-height="951"
@@ -13539,11 +13539,11 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
   <g
      inkscape:groupmode="layer"
      id="layer25"
-     inkscape:label="safezones_overlay_tdm"
+     inkscape:label="safezones_overlay_hr"
      style="display:none">
     <path
-       style="fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:1.80000007;display:inline;enable-background:new"
-       d="m -69.71875,-102.21875 0,2196.43755 2227.40625,0 0,-2196.43755 -2227.40625,0 z m 612.78125,866.125 896.5937,0 0,574.15625 -896.5937,0 0,-574.15625 z"
+       style="display:inline;fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.80000007;stroke-opacity:1;enable-background:new"
+       d="M -69.71875,-102.21875 V 2094.2188 H 2157.6875 V -102.21875 Z m 612.78125,866.125 h 896.5937 V 1338.0625 H 543.0625 Z"
        id="path26126"
        inkscape:connector-curvature="0">
       <desc
@@ -13552,24 +13552,24 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
     <text
        id="text26138"
        y="671.19049"
-       x="275.77399"
+       x="303.77399"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:Impact;-inkscape-font-specification:'Sans Bold';letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;enable-background:new"
        xml:space="preserve"><tspan
          y="671.19049"
-         x="275.77399"
+         x="303.77399"
          id="tspan26140"
          sodipodi:role="line"
-         style="font-size:200px;line-height:1.25">TEAM DEATHMATCH</tspan></text>
+         style="font-size:200px;line-height:1.25">HOSTAGE RESCUE</tspan></text>
   </g>
   <g
-     inkscape:label="safezones_overlay_th"
+     inkscape:label="safezones_overlay_as"
      id="g7918"
      inkscape:groupmode="layer"
      style="display:none">
     <path
        id="path7920"
-       d="m -69.71875,-102.21875 0,2196.43755 2227.40625,0 0,-2196.43755 -2227.40625,0 z m 612.78125,866.125 896.5937,0 0,574.15625 -896.5937,0 0,-574.15625 z"
-       style="fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:1.80000007;display:inline;enable-background:new"
+       d="M -69.71875,-102.21875 V 2094.2188 H 2157.6875 V -102.21875 Z m 612.78125,866.125 h 896.5937 V 1338.0625 H 543.0625 Z"
+       style="display:inline;fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.80000007;stroke-opacity:1;enable-background:new"
        inkscape:connector-curvature="0">
       <desc
          id="desc7922">tag = danger;</desc>
@@ -13577,23 +13577,23 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:Impact;-inkscape-font-specification:'Impact Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;enable-background:new"
-       x="503.55646"
+       x="363.55646"
        y="657.83514"
        id="text26607-9-1"><tspan
          sodipodi:role="line"
          id="tspan26679"
-         x="503.55646"
+         x="363.55646"
          y="657.83514"
-         style="font-size:200px;line-height:1.25">TEDDY HUNT</tspan></text>
+         style="font-size:200px;line-height:1.25">ASSASSINATION</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="g7928"
-     inkscape:label="safezones_overlay_koth"
-     style="display:none">
+     inkscape:label="safezones_overlay_de"
+     style="display:inline">
     <path
-       style="fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:1.80000007;display:inline;enable-background:new"
-       d="m -69.71875,-102.21875 0,2196.43755 2227.40625,0 0,-2196.43755 -2227.40625,0 z m 612.78125,866.125 896.5937,0 0,574.15625 -896.5937,0 0,-574.15625 z"
+       style="display:inline;fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.80000007;stroke-opacity:1;enable-background:new"
+       d="M -69.71875,-102.21875 V 2094.2188 H 2157.6875 V -102.21875 Z m 612.78125,866.125 h 896.5937 V 1338.0625 H 543.0625 Z"
        id="path7930"
        inkscape:connector-curvature="0">
       <desc
@@ -13602,14 +13602,14 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:Impact;-inkscape-font-specification:'Impact Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;enable-background:new"
-       x="341.78024"
+       x="503.78024"
        y="663.46173"
        id="text26607-9-1-9"><tspan
          sodipodi:role="line"
          id="tspan26702"
-         x="341.78024"
+         x="503.78024"
          y="663.46173"
-         style="font-size:200px;line-height:1.25">KING OF THE HILL</tspan></text>
+         style="font-size:200px;line-height:1.25">DEMOLITION</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
