@@ -10,6 +10,21 @@ class PlayerTracker : Tracker {
 	protected array<string> playerHashes;			// stores the unique 'hash' for each active player
 	protected array<uint> factionPlayers = {0, 0}; 	// stores the number of active, alive players per faction
 
+	protected array<dictionary> playerStats = {};
+
+  	// dictionary dict = {{'one', 1}, {'object', object}, {'handle', @handle}};
+	// // Examine and access the values through get or set methods ...
+	// 	if( dict.exists('one') )
+	// 	{
+	// 	// get returns true if the stored type is compatible with the requested type
+	// 	bool isValid = dict.get('handle', @handle);
+	// 	if( isValid )
+	// 	{
+	// 		dict.delete('object');
+	// 		dict.set('value', 1);
+	// 	}
+	// }
+
 	// --------------------------------------------
 	PlayerTracker(GameModeSND@ metagame) {
 		@m_metagame = @metagame;
@@ -66,6 +81,35 @@ class PlayerTracker : Tracker {
 		const XmlElement@ player = event.getFirstElementByTagName("player");
 		// increment live player count for faction
 		updateFactionPlayerCounts(player.getIntAttribute("faction_id"), 1);
+
+		string pHash = player.getStringAttribute("profile_hash");
+
+		bool newPlayer = true;
+		for (uint i = 0; i < playerStats.length(); ++i) {
+			dictionary curPlayer = playerStats[i];
+			bool found = curPlayer.get('hash', pHash);
+			if (found) {
+				_log("** SND: player exists", 1);
+				newPlayer = false;
+				break;
+			}
+		}
+		if (newPlayer) {
+			_log("** SND: adding new player to playerStats array<dictionary>", 1);
+			playerStats.insertLast(dictionary = {
+				{ 'hash', pHash },
+				{ 'name', player.getStringAttribute("name") },
+				{ 'pId', player.getStringAttribute("player_id") },
+				{ 'cId', player.getIntAttribute("character_id") },
+				{ 'RP', 'unknown' },
+				{ 'XP', 'unknown' }
+			});
+			_log("** SND: added a new player to playerStats dictionary!", 1);
+			uint pSlen = playerStats.length() - 1;
+			_log("** SND: " + (pSlen + 1) + " players stored in playerStats array vs " + playerHashes.length() + " in playerHashes array...", 1);
+			dictionary dic = playerStats[pSlen];
+			_log("** SND: Added player's name: " + string(dic['name']) + " ", 1);
+		}
 	}
 
 	// --------------------------------------------

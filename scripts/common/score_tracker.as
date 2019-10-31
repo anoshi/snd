@@ -21,24 +21,25 @@
 class ScoreTracker : Tracker {
 	protected GameModeSND@ m_metagame;
 	protected SubStage@ m_substage;
-    protected array<int> playerScores;
-	protected dictionary m_includedFactions;
+    protected array<int> factionScores;
 
     // ----------------------------------------------------
-	ScoreTracker(GameModeSND@ metagame, SubStage@ substage, dictionary includedFactions = dictionary() ) {
+	ScoreTracker(GameModeSND@ metagame, SubStage@ substage) {
 		@m_metagame = @metagame;
 		@m_substage = @substage;
-		m_includedFactions = includedFactions;
 	}
 
+	////////////////////////////
+	// Faction Score Tracking //
+	////////////////////////////
 	// --------------------------------------------
 	void reset() {
-		playerScores = array<int>(0);
+		factionScores = array<int>(0);
 		for (uint id = 0; id < m_substage.m_match.m_factions.length(); ++id) {
 			// if faction is neutral or its name is Bots, continue, do not display this faction's score
 			Faction@ faction = m_substage.m_match.m_factions[id];
 
-			playerScores.insertLast(0);
+			factionScores.insertLast(0);
 
 			string value = "0";
 			string color = faction.m_config.m_color;
@@ -49,9 +50,9 @@ class ScoreTracker : Tracker {
 
 	// ----------------------------------------------------
 	void addScore(int factionId, int score) {
-		playerScores[factionId] += score;
+		factionScores[factionId] += score;
 		// update game's score display
-		int value = playerScores[factionId];
+		int value = factionScores[factionId];
 		string command = "<command class='update_score_display' id='" + factionId + "' text='" + value + "' />";
 		m_metagame.getComms().send(command);
 		scoreChanged();
@@ -60,8 +61,8 @@ class ScoreTracker : Tracker {
 	// ----------------------------------------------------
 	protected void scoreChanged() {
 		int score;
-		for (uint i = 0; i < playerScores.length(); ++i) {
-			score = playerScores[i];
+		for (uint i = 0; i < factionScores.length(); ++i) {
+			score = factionScores[i];
 		}
 
 		string text = "";
@@ -71,26 +72,34 @@ class ScoreTracker : Tracker {
 			if (i != 0) {
 				text += ", ";
 			}
-			text += faction.m_config.m_name + ": " + playerScores[i];
+			text += faction.m_config.m_name + ": " + factionScores[i];
 		}
 		sendFactionMessage(m_metagame, -1, text);
 	}
 
 	// ----------------------------------------------------
 	array<int> getScores() {
-		return playerScores;
+		return factionScores;
 	}
 
 	// ----------------------------------------------------
 	string getScoresAsString() {
 		string text = "";
-		for (uint i = 0; i < playerScores.length(); ++i) {
-			text += playerScores[i];
-			if (i != playerScores.length() - 1) {
+		for (uint i = 0; i < factionScores.length(); ++i) {
+			text += factionScores[i];
+			if (i != factionScores.length() - 1) {
 				text += " - ";
 			}
 		}
 
 		return text;
+	}
+
+	////////////////////////////////////
+	// Player Score Tracking (xp, rp) //
+	////////////////////////////////////
+	// -----------------------------------------------------
+	void update(float time) {
+
 	}
 }

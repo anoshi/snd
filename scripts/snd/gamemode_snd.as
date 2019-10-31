@@ -92,7 +92,6 @@ class GameModeSND : Metagame {
 
 		// add tracker for match end to switch to next
 		addTracker(m_mapRotator);
-
 	}
 
 	// --------------------------------------------
