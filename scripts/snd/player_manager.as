@@ -115,11 +115,14 @@ class PlayerTracker : Tracker {
 	protected GameModeSND@ m_metagame;
 
 	protected array<uint> factionPlayers = {0, 0}; 	// stores the number of active, alive players per faction
-	protected dictionary sidTocid = {};				// maps player SIDs to character_id
+	protected dictionary cidTosid = {};				// maps player character_ids to SIDs
 
 	protected string FILENAME = "snd_players.xml";	// file name to store player data in
 	protected SNDPlayerStore@ m_trackedPlayers;		// active players in the server
 	protected SNDPlayerStore@ m_savedPlayers;		// stores inactive players' stats (in 'appdata'/FILENAME), allows drop in/out of server over time
+
+	protected float rewardCheckTimer = 15.0;
+	protected float CHECK_IN_INTERVAL = 5.0; // must be less than UserSettings.m_timeBetweenSubstages
 
 	// --------------------------------------------
 	PlayerTracker(GameModeSND@ metagame) {
@@ -207,14 +210,15 @@ class PlayerTracker : Tracker {
 		const XmlElement@ player = event.getFirstElementByTagName("player");
 
 		string key = player.getStringAttribute("sid");
-		int playerCharId = player.getIntAttribute("character_id");
+		string playerCharId = player.getStringAttribute("character_id");
+		int pcIdint = player.getIntAttribute("character_id");
 		if (m_trackedPlayers.exists(key)) { // must have connected to be in this dict
 			SNDPlayer@ spawnedPlayer;
 			@spawnedPlayer = m_trackedPlayers.get(key);
 			// associate player's dynamic character_id with their sid.
-			sidTocid.set(key, playerCharId);
-			spawnedPlayer.m_charId = int(sidTocid[key]);
-			_log("** SND: spawned player sidTocid check: " + spawnedPlayer.m_sid + ": " + spawnedPlayer.m_charId + ", character_id: " + playerCharId);
+			cidTosid.set(playerCharId, key);
+			spawnedPlayer.m_charId = pcIdint;
+			_log("** SND: spawned player cidTosid check: " + spawnedPlayer.m_sid + ": " + spawnedPlayer.m_charId + ", character_id: " + playerCharId);
 			// boost charcter's RP and XP to fall in line with saved stats
 			_log("** SND: Grant " + spawnedPlayer.m_rp + " RP and " + spawnedPlayer.m_xp + " XP to " + spawnedPlayer.m_username, 1);
 			string setCharRP = "<command class='rp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_rp + "'></command>";
@@ -296,6 +300,7 @@ class PlayerTracker : Tracker {
 			_log("** SND: Player " + pKillerId+ " killed a friendly unit. Cash penalty and decrement score", 1);
 			string penaliseTeamKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='-3300'></command>";
 			m_metagame.getComms().send(penaliseTeamKills);
+			m_metagame.addRP(pKillerCharId, -3300);
 			m_metagame.addScore(factionId, -1);
 		} else if (playerKiller.getIntAttribute("player_id") != playerTarget.getIntAttribute("player_id")) {
 			// killed player on other team
@@ -303,6 +308,7 @@ class PlayerTracker : Tracker {
 			playSound(m_metagame, "enemydown.wav", factionId);
 			string rewardEnemyKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='300'></command>";
 			m_metagame.getComms().send(rewardEnemyKills);
+			m_metagame.addRP(pKillerCharId, 300);
 			m_metagame.addScore(factionId, 2);
 		}
 	}
@@ -372,6 +378,7 @@ class PlayerTracker : Tracker {
 					for (uint i = 0; i < losingTeamCharIds.length() ; ++i) {
 						string rewardLosingTeamChar = "<command class='rp_reward' character_id='" + losingTeamCharIds[i] + "' reward='900'></command>"; // " + (900 + (consecutive * 500)) + " // up to a max of 3400 / round
 						m_metagame.getComms().send(rewardLosingTeamChar);
+						m_metagame.addRP(losingTeamCharIds[i], 900);
 					}
 				} else {
 					winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' win='1'></command>";
@@ -379,6 +386,7 @@ class PlayerTracker : Tracker {
 					for (uint i = 0; i < winningTeamCharIds.length() ; ++i) {
 						string rewardWinningTeamChar = "<command class='rp_reward' character_id='" + winningTeamCharIds[i] + "' reward='3250'></command>";
 						m_metagame.getComms().send(rewardWinningTeamChar);
+						m_metagame.addRP(winningTeamCharIds[i], 3250);
 					}
 				}
 				m_metagame.getComms().send(winLoseCmd);
@@ -488,4 +496,24 @@ class PlayerTracker : Tracker {
 			return true;
 	}
 
+	// --------------------------------------------
+	void update(float time) {
+		rewardCheckTimer -= time;
+		if (rewardCheckTimer <= 0.0) {
+			dictionary rpRewards = m_metagame.getPendingRPRewards();
+			for (uint i = 0; i < rpRewards.getKeys().size(); ++i) {
+				string rewardChar = rpRewards.getKeys()[i];
+				// get the SID of the character(player) being rewarded
+				string rewardSid = string(cidTosid[rewardChar]);
+				// use the SID to get the player object
+				if (m_trackedPlayers.exists(rewardSid)) {
+					SNDPlayer@ aPlayer;
+					@aPlayer = m_trackedPlayers.get(rewardSid);
+					_log("** SND: rewarding player " + rewardSid + ": " + aPlayer.m_username + " " + int(rpRewards[rewardChar]) + " RP", 1);
+					aPlayer.m_rp += int(rpRewards[rewardChar]);
+				} else { _log("** SND: couldn't find player " + rewardSid + ": " + rewardChar + " to reward...", 1); }
+			}
+			rewardCheckTimer = CHECK_IN_INTERVAL;
+		}
+	}
 }

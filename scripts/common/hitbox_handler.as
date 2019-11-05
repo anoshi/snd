@@ -308,6 +308,7 @@ class HitboxHandler : Tracker {
 					_log("** SND: rewarding characterID: " + ctId + " RP: " + (1000 / nearCTs.length()), 1);
 					string rewardHostageRescuer = "<command class='rp_reward' character_id='" + ctId + "' reward='" + (1000 / nearCTs.length()) + "'></command>";
 					m_metagame.getComms().send(rewardHostageRescuer);
+					m_metagame.addRP(ctId, (1000 / nearCTs.length()));
 				}
 				// TODOs:
 				// remove hostage from play

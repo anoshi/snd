@@ -123,6 +123,7 @@ class HostageTracker : Tracker {
 			// TODO Rollover RP reward (penalty) to next round - looks like you can't do a negative RP reward on the fly
 			string penaliseHostageKiller = "<command class='rp_reward' character_id='" + pKillerId + "' reward='-1200'></command>";
 			m_metagame.getComms().send(penaliseHostageKiller);
+			m_metagame.addRP(pKillerId, -1200);
 			sendFactionMessage(m_metagame, -1, "A hostage has been executed!");
 		}
 		// stop tracking the hostage
@@ -158,6 +159,7 @@ class HostageTracker : Tracker {
 				for (uint j = 0; j < ctIds.length() ; ++j) {
 					string hostageRescuedReward = "<command class='rp_reward' character_id='" + ctIds[j] + "' reward='" + (850 * rescued) + "'></command>";
 					m_metagame.getComms().send(hostageRescuedReward);
+					m_metagame.addRP(ctIds[j], (850 * rescued));
 				}
 				if ((rescued > 2) && (m_metagame.getTrackedCharIds().length() == 0)) {
 					winRound(0);
@@ -180,6 +182,7 @@ class HostageTracker : Tracker {
 				for (uint i = 0; i < losingTeamCharIds.length() ; ++i) {
 					string rewardLosingTeamChar = "<command class='rp_reward' character_id='" + losingTeamCharIds[i] + "' reward='" + (900 + (consecutive * 500)) + "'></command>";
 					m_metagame.getComms().send(rewardLosingTeamChar);
+					m_metagame.addRP(losingTeamCharIds[i], (900 + (consecutive * 500)));
 				}
 			}
 			m_metagame.getComms().send(winLoseCmd);

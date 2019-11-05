@@ -187,14 +187,17 @@ class VIPTracker : Tracker {
 				// teamkill, penalise!
 				string penaliseVIPTeamKiller = "<command class='rp_reward' character_id='" + pKillerId + "' reward='-3500'></command>";
 				m_metagame.getComms().send(penaliseVIPTeamKiller);
+				m_metagame.addRP(pKillerId, -3500);
 			} else {
 				// Terrorist / enemy killed VIP. Winner
 				string rewardVIPKiller = "<command class='rp_reward' character_id='" + pKillerId + "' reward='500'></command>";
 				m_metagame.getComms().send(rewardVIPKiller);
+				m_metagame.addRP(pKillerId, 500);
 				array<int> tIds = getFactionPlayerCharacterIds(m_metagame, killer.getIntAttribute("faction_id"));
 				for (uint i = 0; i < tIds.length() ; ++i) {
 					string vipKilledReward = "<command class='rp_reward' character_id='" + tIds[i] + "' reward='" + 2000 + "'></command>";
 					m_metagame.getComms().send(vipKilledReward);
+					m_metagame.addRP(tIds[i], 2000);
 				}
 			}
 			winRound(-(target.getIntAttribute("faction_id")) +1);
@@ -230,6 +233,7 @@ class VIPTracker : Tracker {
 				for (uint j = 0; j < ctIds.length() ; ++j) {
 					string vipRescuedReward = "<command class='rp_reward' character_id='" + ctIds[j] + "' reward='" + 2500 + "'></command>";
 					m_metagame.getComms().send(vipRescuedReward);
+					m_metagame.addRP(ctIds[j], 2500);
 				}
 				winRound(0);
 			}
@@ -250,6 +254,7 @@ class VIPTracker : Tracker {
 				for (uint i = 0; i < losingTeamCharIds.length() ; ++i) {
 					string rewardLosingTeamChar = "<command class='rp_reward' character_id='" + losingTeamCharIds[i] + "' reward='" + (900 + (consecutive * 500)) + "'></command>";
 					m_metagame.getComms().send(rewardLosingTeamChar);
+					m_metagame.addRP(losingTeamCharIds[i], (900 + (consecutive * 500)));
 				}
 			}
 			m_metagame.getComms().send(winLoseCmd);

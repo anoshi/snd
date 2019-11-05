@@ -9,6 +9,7 @@ class GameModeSND : Metagame {
 
 	//protected MapInfo@ m_mapInfo; // already exists in Metagame class
 	protected array<Faction@> m_factions;
+	protected dictionary pendingRPRewards = {}; // queue to store RP rewards to grant to players
 
 	array<Vector3> targetLocations;		// locations where bombs may be placed or hostages may start
 	array<Vector3> extractionPoints;	// locations that units must reach in order to escape
@@ -16,6 +17,7 @@ class GameModeSND : Metagame {
 	int numExtracted = 0;				// the number of hostages safely rescued
 
 	protected bool trackPlayerDeaths = true;
+
 	protected string m_tournamentName = "";
 
 	// --------------------------------------------
@@ -99,6 +101,33 @@ class GameModeSND : Metagame {
 	// --------------------------------------------
 	void addScore(int factionId, int score) {
 		_log("** SND: GameModeSND addScore adding " + score + " points to faction " + factionId, 1);
+	}
+
+	// --------------------------------------------
+	void addRP(int cId, int rp) {
+		string charId = "" + cId + "";
+		if (pendingRPRewards.exists(charId)) {
+			int val = int(pendingRPRewards[charId]);
+			pendingRPRewards[charId] = val + rp;
+		} else {
+			pendingRPRewards.set(charId, rp);
+		}
+	}
+
+	// --------------------------------------------
+	dictionary getPendingRPRewards() {
+		dictionary queued = {};
+		for (uint i = 0; i < pendingRPRewards.getKeys().size(); ++i) {
+			string key = pendingRPRewards.getKeys()[i];
+			queued.set(key, int(pendingRPRewards[key]));
+		}
+		pendingRPRewards.deleteAll(); // this seems incredibly dangerous and/or stupid, but it's late here.
+		return queued;
+	}
+
+	// --------------------------------------------
+	void addXP(int charId, float xp) {
+		// nothing yet grants XP bonuses.
 	}
 
 	// --------------------------------------------
