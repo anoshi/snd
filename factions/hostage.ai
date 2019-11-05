@@ -116,7 +116,7 @@
 
   <parameter class="reaction_time_after_choosing_target" value="60.0" />
 
-  <parameter class="squad_join_range" value="3.0" />
+  <parameter class="squad_join_range" value="6.0" />
   <parameter class="following_target_range" value="5" />
   <parameter class="following_target_slowdown_range" value="5" />
   <parameter class="following_separation_range" value="0" />
