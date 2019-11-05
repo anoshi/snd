@@ -7,7 +7,7 @@
 #include "score_tracker.as"
 #include "stage_snd.as"
 
-#include "player_tracker.as"
+#include "player_manager.as"
 #include "vip_tracker.as"
 #include "hitbox_handler.as"
 
@@ -36,6 +36,10 @@ class Assassination : SubStage {
 			// if GameTimer is used, some match settings must be set accordingly before starting the match
 			m_gameTimer.prepareMatch(m_match);
 		}
+
+		// track Players
+		@m_playerTracker = PlayerTracker(m_metagame);
+		addTracker(m_playerTracker);
 
 		// setup score tracking (does not persist between rounds / matches)
 		@m_scoreTracker = ScoreTracker(m_metagame, this);
@@ -92,7 +96,7 @@ class Assassination : SubStage {
 		if (winner >= 0) {
 			factionName = factions[winner].getName();
 		}
-
+		m_metagame.save();
 		end();
 	}
 

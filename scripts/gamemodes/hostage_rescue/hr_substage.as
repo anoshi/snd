@@ -7,7 +7,7 @@
 #include "score_tracker.as"
 #include "stage_snd.as"
 
-#include "player_tracker.as"
+#include "player_manager.as"
 #include "hostage_tracker.as"
 #include "hitbox_handler.as"
 #include "target_locations.as"
@@ -58,6 +58,10 @@ class HostageRescue : SubStage {
 		} else {
 			_log("** SND: WARNING, no objects tagged as hostage_start within layer[1-3]." + m_targetsLayerName + " layers of objects.svg", 1);
 		}
+
+		// track players
+		@m_playerTracker = PlayerTracker(m_metagame);
+		addTracker(m_playerTracker);
 
 		// choose hostage spawn locations from numerous possibilities and mark on map for all to see
 		@m_targetLocations = TargetLocations(m_metagame, "hr", positions);
@@ -118,7 +122,7 @@ class HostageRescue : SubStage {
 		if (winner >= 0) {
 			factionName = factions[winner].getName();
 		}
-
+		m_metagame.save();
 		end();
 	}
 
