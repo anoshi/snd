@@ -25,6 +25,7 @@ const XmlElement@ getPlayerInventory(const GameModeSND@ metagame, int characterI
 	return doc.getFirstElementByTagName("character"); //.getElementsByTagName("item")
 }
 
+// -----------------------------
 array<int> getFactionPlayerCharacterIds(GameModeSND@ metagame, uint faction) {
 	array<int> playerCharIds;
 	array<const XmlElement@> players = getPlayers(metagame);
