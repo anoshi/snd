@@ -6,7 +6,6 @@
 class GameModeSND : Metagame {
 	protected UserSettings@ m_userSettings;
 	protected MapRotator@ m_mapRotator;
-	protected PlayerTracker@ m_playerTracker;
 
 	//protected MapInfo@ m_mapInfo; // already exists in Metagame class
 	protected array<Faction@> m_factions;
@@ -30,7 +29,6 @@ class GameModeSND : Metagame {
 		Metagame::init();
 
 		// trigger map change right now
-		setupPlayerTracker();
 		setupMapRotator();
 		m_mapRotator.init();
 		m_mapRotator.startRotation();
@@ -57,9 +55,6 @@ class GameModeSND : Metagame {
 		XmlElement@ settings = m_userSettings.toXmlElement("settings");
 		root.appendChild(settings);
 
-		// append search and destroy player data
-		m_playerTracker.save(root);
-
 		commandRoot.appendChild(root);
 
 		getComms().send(commandRoot);
@@ -72,11 +67,6 @@ class GameModeSND : Metagame {
 		_log("** SND: loading metagame!", 1);
 	}
 
-	// -------------------------------------------
-	protected void setupPlayerTracker() {
-		@m_playerTracker = PlayerTracker(this);
-	}
-
 	// --------------------------------------------
 	protected void setupMapRotator() {
 		@m_mapRotator =  MapRotatorSNDAll(this);
@@ -86,9 +76,6 @@ class GameModeSND : Metagame {
 	// MapRotator calls here when a battle has started
 	void postBeginMatch() {
 		Metagame::postBeginMatch();
-
-		// track players here, allow stat persistence between levels
-		addTracker(m_playerTracker);
 
 		// add tracker for match end to switch to next
 		addTracker(m_mapRotator);
