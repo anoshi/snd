@@ -31,12 +31,12 @@
     <sound class="impact" fileref="sandbag_drop.wav" />
     <sound key="effect" fileref="wire_cutters.wav" />
 
-    <model mesh_filename="wrench_small.mesh" texture_filename="concrete.png" />
+    <model filename="snd_snips.xml" />
 
     <capacity value="1" source="rank" source_value="0.0" />
 
-    <hud_icon filename="hud_razor.png" />
-    <commonness value="0.0" can_respawn_with="0" in_stock="0" />
+    <hud_icon filename="hud_snd_snips.png" />
+    <commonness value="0.0" can_respawn_with="0" in_stock="1" />
     <inventory encumbrance="10.0" price="0.0" />
 
     <modifier class="speed" value="+0.00" />
