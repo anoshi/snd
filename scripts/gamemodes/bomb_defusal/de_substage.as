@@ -112,6 +112,7 @@ class BombDefusal : SubStage {
 		if (winner >= 0) {
 			factionName = factions[winner].getName();
 		}
+		m_playerTracker.save();
 		m_metagame.save();
 		end();
 	}

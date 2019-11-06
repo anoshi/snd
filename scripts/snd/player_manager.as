@@ -401,25 +401,10 @@ class PlayerTracker : Tracker {
 	}
 
 	// --------------------------------------------
-	protected void handleMatchEndEvent(const XmlElement@ event) {
-		// TagName=match_result
-		// TagName=win_condition
-		// faction_id=-1
-		// type=map_capture
-		_log("** SND: saving player stats", 1);
+	void save() {
+		// called by substages' handleMatchEndEvent
+		_log("** SND: PlayerTracker now saving player stats", 1);
 		savePlayerStats();
-		end();
-	}
-
-	// --------------------------------------------
-	void save(XmlElement@ root) {
-		// never called - have commented out call to this function in /scripts/snd/gamemode_snd.as save function.
-		// called by /scripts/snd/gamemode_snd.as, saves out to metagame_invasion.xml in current game's save folder
-		XmlElement@ parent = root;
-		XmlElement metagameData("player_data");
-		m_trackedPlayers.addPlayersToSave(metagameData);
-		m_savedPlayers.addPlayersToSave(metagameData);
-		parent.appendChild(metagameData);
 	}
 
 	// --------------------------------------------
@@ -503,7 +488,7 @@ class PlayerTracker : Tracker {
 			dictionary rpRewards = m_metagame.getPendingRPRewards();
 			for (uint i = 0; i < rpRewards.getKeys().size(); ++i) {
 				string rewardChar = rpRewards.getKeys()[i];
-				// get the SID of the character(player) being rewarded
+				// get the SID from the character_id being rewarded
 				string rewardSid = string(cidTosid[rewardChar]);
 				// use the SID to get the player object
 				if (m_trackedPlayers.exists(rewardSid)) {
@@ -511,6 +496,7 @@ class PlayerTracker : Tracker {
 					@aPlayer = m_trackedPlayers.get(rewardSid);
 					_log("** SND: rewarding player " + rewardSid + ": " + aPlayer.m_username + " " + int(rpRewards[rewardChar]) + " RP", 1);
 					aPlayer.m_rp += int(rpRewards[rewardChar]);
+					_log("** SND: " + aPlayer.m_username + " RP now at: " + aPlayer.m_rp, 1);
 				} else { _log("** SND: couldn't find player " + rewardSid + ": " + rewardChar + " to reward...", 1); }
 			}
 			rewardCheckTimer = CHECK_IN_INTERVAL;

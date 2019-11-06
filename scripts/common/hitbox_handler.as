@@ -289,7 +289,7 @@ class HitboxHandler : Tracker {
 				const XmlElement@ escapee = getCharacterInfo(m_metagame, instanceId);
 				Vector3 v3pos = stringToVector3(escapee.getStringAttribute("position"));
 				// get all CT units near this position (may include hostage and player characters)
-				array<const XmlElement@> nearCTs = getCharactersNearPosition(m_metagame, v3pos, 0, 15.0);
+				array<const XmlElement@> nearCTs = getCharactersNearPosition(m_metagame, v3pos, 0, 25.0);
 				_log("** SND: " + nearCTs.length() + " characters near rescued unit", 1);
 				for (uint ct = 0; ct < nearCTs.length(); ++ct) {
 					// the characterId

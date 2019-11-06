@@ -161,7 +161,7 @@ class HostageTracker : Tracker {
 					m_metagame.getComms().send(hostageRescuedReward);
 					m_metagame.addRP(ctIds[j], (850 * rescued));
 				}
-				if ((rescued > 2) && (m_metagame.getTrackedCharIds().length() == 0)) {
+				if ((rescued >= 2) && (m_metagame.getTrackedCharIds().length() == 0)) {
 					winRound(0);
 				}
 				// if all hostages are dead, it comes down to clock timeout or attrition.
