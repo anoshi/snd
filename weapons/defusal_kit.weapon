@@ -31,8 +31,7 @@
     <sound class="impact" fileref="sandbag_drop.wav" />
     <sound key="effect" fileref="wire_cutters.wav" />
 
-    <model mesh_filename="wrench_small.mesh" texture_filename="concrete.png" />
-    <!-- <model mesh_filename="defusal_kit.xml" texture_filename="concrete.png" />-->
+    <model filename="snd_godsnips.xml" />
 
     <capacity value="1" source="rank" source_value="0.0" />
 
