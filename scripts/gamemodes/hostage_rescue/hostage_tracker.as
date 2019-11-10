@@ -125,6 +125,10 @@ class HostageTracker : Tracker {
 			m_metagame.getComms().send(penaliseHostageKiller);
 			m_metagame.addRP(pKillerId, -1200);
 			sendFactionMessage(m_metagame, -1, "A hostage has been executed!");
+			array<Faction@> allFactions = m_metagame.getFactions();
+			for (uint i = 0; i < allFactions.length(); ++i) {
+				playSound(m_metagame, "hosdown.wav", i);
+			}
 		}
 		// stop tracking the hostage
 		m_metagame.removeTrackedCharId(hostageCharId);
@@ -155,7 +159,7 @@ class HostageTracker : Tracker {
 				_log("** SND: All Hostages rescued or killed. End round or go to attrition?", 1);
 				// TODO move this into an end-of-round cash thingo.
 				// scoring ref: https://counterstrike.fandom.com/wiki/Hostage
-				array<int> ctIds = getFactionPlayerCharacterIds(m_metagame, 0);
+				array<int> ctIds = m_metagame.getFactionPlayerCharacterIds(0);
 				for (uint j = 0; j < ctIds.length() ; ++j) {
 					string hostageRescuedReward = "<command class='rp_reward' character_id='" + ctIds[j] + "' reward='" + (850 * rescued) + "'></command>";
 					m_metagame.getComms().send(hostageRescuedReward);
@@ -178,7 +182,7 @@ class HostageTracker : Tracker {
 				winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' win='1'></command>";
 			} else {
 				winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' lose='1'></command>";
-				array<int> losingTeamCharIds = getFactionPlayerCharacterIds(m_metagame, -faction + 1);
+				array<int> losingTeamCharIds = m_metagame.getFactionPlayerCharacterIds(-faction + 1);
 				for (uint i = 0; i < losingTeamCharIds.length() ; ++i) {
 					string rewardLosingTeamChar = "<command class='rp_reward' character_id='" + losingTeamCharIds[i] + "' reward='" + (900 + (consecutive * 500)) + "'></command>";
 					m_metagame.getComms().send(rewardLosingTeamChar);

@@ -104,6 +104,18 @@ class GameModeSND : Metagame {
 	}
 
 	// --------------------------------------------
+	dictionary getPendingRPRewards() {
+		dictionary queued = {};
+		for (uint i = 0; i < pendingRPRewards.getKeys().size(); ++i) {
+			_log("** SND: pendingRPRewards size is: " + pendingRPRewards.getKeys().size() + " and iterator (i) is: " + i, 1);
+			string key = pendingRPRewards.getKeys()[i];
+			queued.set(key, int(pendingRPRewards[key]));
+			pendingRPRewards.delete(key);
+		}
+		return queued;
+	}
+
+	// --------------------------------------------
 	void addRP(int cId, int rp) {
 		string charId = "" + cId + "";
 		if (pendingRPRewards.exists(charId)) {
@@ -112,17 +124,6 @@ class GameModeSND : Metagame {
 		} else {
 			pendingRPRewards.set(charId, rp);
 		}
-	}
-
-	// --------------------------------------------
-	dictionary getPendingRPRewards() {
-		dictionary queued = {};
-		for (uint i = 0; i < pendingRPRewards.getKeys().size(); ++i) {
-			string key = pendingRPRewards.getKeys()[i];
-			queued.set(key, int(pendingRPRewards[key]));
-		}
-		pendingRPRewards.deleteAll(); // this seems incredibly dangerous and/or stupid, but it's late here.
-		return queued;
 	}
 
 	// --------------------------------------------
@@ -197,6 +198,79 @@ class GameModeSND : Metagame {
 	array<int> getTrackedCharIds() {
 		// Trackers call this method to retrieve the full list of tracked character IDs
 		return trackedCharIds;
+	}
+
+	// -----------------------------
+	const XmlElement@ getPlayerInventory(int characterId) {
+		_log("** SND: Inspecting character " + characterId + "'s inventory", 1);
+		XmlElement@ query = XmlElement(
+			makeQuery(this, array<dictionary> = {
+				dictionary = {
+					{"TagName", "data"},
+					{"class", "character"},
+					{"id", characterId},
+					{"include_equipment", 1}
+				}
+			})
+		);
+		const XmlElement@ doc = getComms().query(query);
+		return doc.getFirstElementByTagName("character"); //.getElementsByTagName("item")
+
+		// TagName=query_result query_id=22
+		// TagName=character
+		// block=11 17
+		// dead=0
+		// faction_id=0
+		// id=3
+		// leader=1
+		// name=CT: 62
+		// player_id=0
+		// position=375.557 2.74557 609.995
+		// rp=9400
+		// soldier_group_name=default
+		// squad_size=0
+		// wounded=0
+		// xp=0
+
+		// TagName=item amount=0 index=-1 key= slot=0
+		// TagName=item amount=0 index=3 key=9x19mm_sidearm.weapon slot=1
+		// TagName=item amount=0 index=3 key=hand_grenade.projectile slot=2
+		// TagName=item amount=0 index=-1 key= slot=4
+		// TagName=item amount=0 index=-1 key= slot=5
+	}
+
+	// -----------------------------
+	void setPlayerInventory(int characterId, string vest, uint numVests) {
+		// assign / override equipment to player character
+		_log("** SND: Equipping player (id: " + characterId + ") with " + vest + " x" + numVests, 1);
+		if (numVests < 1) { return; } // sanity
+		for (uint j = numVests; j > 0; --j) {
+			XmlElement charInv("command");
+			charInv.setStringAttribute("class", "update_inventory");
+			charInv.setIntAttribute("character_id", characterId);
+			charInv.setIntAttribute("container_type_id", 4); // vest
+			XmlElement i("item");
+			i.setStringAttribute("class", "carry_item");
+			i.setStringAttribute("key", vest);
+			charInv.appendChild(i);
+			getComms().send(charInv);
+		}
+
+		_log("** SND: " + numVests + "x " + vest + " equipped on character " + characterId, 1);
+	}
+
+	// -----------------------------
+	array<int> getFactionPlayerCharacterIds(uint faction) {
+		array<int> playerCharIds;
+		array<const XmlElement@> players = getPlayers(this);
+		for (uint i = 0; i < players.size(); ++i) {
+			const XmlElement@ player = players[i];
+			uint factionId = player.getIntAttribute("faction_id");
+			if (factionId == faction) {
+				playerCharIds.insertLast(player.getIntAttribute("character_id"));
+			}
+		}
+		return playerCharIds;
 	}
 
 	// --------------------------------------------

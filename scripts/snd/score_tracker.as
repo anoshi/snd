@@ -10,7 +10,7 @@
 // 2 points if that bomb explodes. (Terrorist Only)
 // 2 points for a kill, 3 when bomb planted
 // 3 points for a kill when defending the bomb (Terrorist Only)
-// 1 point when bomb detonate and you are alive
+// 1 point when bomb detonates and you are alive
 // 1 point when the bomb is defused and you are alive
 // 1 point for an assist.
 // 2 points for defusing a bomb. (Counter-Terrorist Only)

@@ -41,7 +41,7 @@ class BombTracker : Tracker {
 			// get all the players
 			array<const XmlElement@> players = getPlayers(m_metagame);
 			// get the characterIds for all terrorists
-			array<int> terPlayerIds = getFactionPlayerCharacterIds(m_metagame, 1); // terrorsts are faction 1
+			array<int> terPlayerIds = m_metagame.getFactionPlayerCharacterIds(1); // terrorsts are faction 1
 			if (terPlayerIds.length() > 0) {
 				// choose a terrorist at random to give the bomb to
 				uint i = rand(0, terPlayerIds.length() - 1);
@@ -92,7 +92,7 @@ class BombTracker : Tracker {
 				// for each player, get character_id and use to inspect the secondary weapon slot in the inventory
 				for (uint i = 0; i < players.length(); ++i) {
 					int playerCharId = players[i].getIntAttribute("character_id");
-					const XmlElement@ playerInv = getPlayerInventory(m_metagame, playerCharId);
+					const XmlElement@ playerInv = m_metagame.getPlayerInventory(playerCharId);
 					array<const XmlElement@> pInv = playerInv.getElementsByTagName("item");
 					// element '1' is the secondary weapon slot, the only place the bomb could be and not be detected by events.
 					if (pInv[1].getStringAttribute("key") == "bomb.weapon") {
@@ -174,7 +174,7 @@ class BombTracker : Tracker {
 			for (uint i = 0; i < validLocs.length(); ++i) {
 				if (checkRange(stringToVector3(bombPosition), validLocs[i], 15.0)) {
 					_log("** SND: bomb has been planted within 15 units of " + validLocs[i].toString() + ".", 1);
-					array<int> planterTeamCharIds = getFactionPlayerCharacterIds(m_metagame, bombOwnerFaction);
+					array<int> planterTeamCharIds = m_metagame.getFactionPlayerCharacterIds(bombOwnerFaction);
 					for (uint j = 0; j < planterTeamCharIds.length() ; ++j) {
 						string rewardPlanterTeamChar = "<command class='rp_reward' character_id='" + planterTeamCharIds[j] + "' reward='800'></command>";
 						m_metagame.getComms().send(rewardPlanterTeamChar);
@@ -223,7 +223,7 @@ class BombTracker : Tracker {
 				string rewardBombDefuser = "<command class='rp_reward' character_id='" + event.getIntAttribute("character_id") + "' reward='300'></command>";
 				m_metagame.getComms().send(rewardBombDefuser);
 				m_metagame.addRP(event.getIntAttribute("character_id"), 300);
-				array<int> defuserTeamCharIds = getFactionPlayerCharacterIds(m_metagame, -(bombOwnerFaction) +1);
+				array<int> defuserTeamCharIds = m_metagame.getFactionPlayerCharacterIds(-(bombOwnerFaction) +1);
 				for (uint i = 0; i < defuserTeamCharIds.length() ; ++i) {
 					string rewardDefuserTeamChar = "<command class='rp_reward' character_id='" + defuserTeamCharIds[i] + "' reward='3600'></command>";
 					m_metagame.getComms().send(rewardDefuserTeamChar);
@@ -299,7 +299,7 @@ class BombTracker : Tracker {
 				winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' win='1'></command>";
 			} else {
 				winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' lose='1'></command>";
-				array<int> losingTeamCharIds = getFactionPlayerCharacterIds(m_metagame, -faction + 1);
+				array<int> losingTeamCharIds = m_metagame.getFactionPlayerCharacterIds(-faction + 1);
 				for (uint i = 0; i < losingTeamCharIds.length() ; ++i) {
 					string rewardLosingTeamChar = "<command class='rp_reward' character_id='" + losingTeamCharIds[i] + "' reward='" + (900 + (consecutive * 500)) + "'></command>";
 					m_metagame.getComms().send(rewardLosingTeamChar);
@@ -357,7 +357,7 @@ class BombTracker : Tracker {
 				string detonateBombCmd = "<command class='create_instance' faction_id='" + bombOwnerFaction + "' instance_class='grenade' instance_key='bomb.projectile' activated='1' position='" + bombPosition + "' />";
 				m_metagame.getComms().send(detonateBombCmd);
 				bombIsArmed = false;
-				array<int> planterTeamCharIds = getFactionPlayerCharacterIds(m_metagame, bombOwnerFaction);
+				array<int> planterTeamCharIds = m_metagame.getFactionPlayerCharacterIds(bombOwnerFaction);
 				for (uint i = 0; i < planterTeamCharIds.length() ; ++i) {
 					string rewardPlanterTeamChar = "<command class='rp_reward' character_id='" + planterTeamCharIds[i] + "' reward='1900'></command>";
 					m_metagame.getComms().send(rewardPlanterTeamChar);

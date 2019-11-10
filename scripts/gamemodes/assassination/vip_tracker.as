@@ -193,7 +193,7 @@ class VIPTracker : Tracker {
 				string rewardVIPKiller = "<command class='rp_reward' character_id='" + pKillerId + "' reward='500'></command>";
 				m_metagame.getComms().send(rewardVIPKiller);
 				m_metagame.addRP(pKillerId, 500);
-				array<int> tIds = getFactionPlayerCharacterIds(m_metagame, killer.getIntAttribute("faction_id"));
+				array<int> tIds = m_metagame.getFactionPlayerCharacterIds(killer.getIntAttribute("faction_id"));
 				for (uint i = 0; i < tIds.length() ; ++i) {
 					string vipKilledReward = "<command class='rp_reward' character_id='" + tIds[i] + "' reward='" + 2000 + "'></command>";
 					m_metagame.getComms().send(vipKilledReward);
@@ -202,7 +202,7 @@ class VIPTracker : Tracker {
 			}
 			winRound(-(target.getIntAttribute("faction_id")) +1);
 		}
-		sendFactionMessage(m_metagame, -1, "The VIP has been executed!");
+		sendFactionMessage(m_metagame, -1, "The VIP has been assassinated!");
 	}
 
 	// died (confirm otherwise)
@@ -229,7 +229,7 @@ class VIPTracker : Tracker {
 				_log("** SND: The VIP has escaped. End round", 1);
 				// TODO move this into an end-of-round cash thingo.
 				// scoring ref: https://counterstrike.fandom.com/wiki/VIP
-				array<int> ctIds = getFactionPlayerCharacterIds(m_metagame, 0);
+				array<int> ctIds = m_metagame.getFactionPlayerCharacterIds(0);
 				for (uint j = 0; j < ctIds.length() ; ++j) {
 					string vipRescuedReward = "<command class='rp_reward' character_id='" + ctIds[j] + "' reward='" + 2500 + "'></command>";
 					m_metagame.getComms().send(vipRescuedReward);
@@ -250,7 +250,7 @@ class VIPTracker : Tracker {
 				winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' win='1'></command>";
 			} else {
 				winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' lose='1'></command>";
-				array<int> losingTeamCharIds = getFactionPlayerCharacterIds(m_metagame, -faction + 1);
+				array<int> losingTeamCharIds = m_metagame.getFactionPlayerCharacterIds(-faction + 1);
 				for (uint i = 0; i < losingTeamCharIds.length() ; ++i) {
 					string rewardLosingTeamChar = "<command class='rp_reward' character_id='" + losingTeamCharIds[i] + "' reward='" + (900 + (consecutive * 500)) + "'></command>";
 					m_metagame.getComms().send(rewardLosingTeamChar);

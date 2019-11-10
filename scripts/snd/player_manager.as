@@ -1,7 +1,6 @@
 #include "tracker.as"
 #include "log.as"
 #include "helpers.as"
-#include "snd_helpers.as"
 
 //////////////////////////////////
 // Each player is a game object //
@@ -15,17 +14,19 @@ class SNDPlayer {
 
 	int m_rp;
 	float m_xp;
+	XmlElement m_kit("equipment");
 
 	int m_playerId = -1;	// the 'player_id'. Value positive only when player is in-game
 	int m_charId = -1;		// the 'character_id' of the player. Value positive only when player is in-game
 
 	// --------------------------------------------
-	SNDPlayer(string username, string hash, string sid, string ip, int id) {
+	SNDPlayer(string username, string hash, string sid, string ip, int id, XmlElement@ inv=kit("equipment")) {
 		m_username = username;
 		m_hash = hash;
 		m_sid = sid;
 		m_ip = ip;
 		m_playerId = id;
+		m_kit.appendChild(inv);
 	}
 
 	// --------------------------------------------
@@ -40,7 +41,7 @@ class SNDPlayer {
 // --------------------------------------------
 class SNDPlayerStore {
 	protected PlayerTracker@ m_playerTracker;
-	protected string m_name;
+	protected string m_name; // name of the storage container e.g. 'goodGuys', 'faction3'...
 	protected dictionary m_players;
 
 	// --------------------------------------------
@@ -94,6 +95,7 @@ class SNDPlayerStore {
 			savedPlayer.setStringAttribute("ip", player.m_ip);
 			savedPlayer.setIntAttribute("rp", player.m_rp);
 			savedPlayer.setFloatAttribute("xp", player.m_xp);
+			savedPlayer.appendChild(player.m_kit); // add sub element contaning inventory
 			root.appendChild(savedPlayer);
 			_log("** SND: Saved player " + i + " " + player.m_username, 1);
 		}
@@ -121,8 +123,10 @@ class PlayerTracker : Tracker {
 	protected SNDPlayerStore@ m_trackedPlayers;		// active players in the server
 	protected SNDPlayerStore@ m_savedPlayers;		// stores inactive players' stats (in 'appdata'/FILENAME), allows drop in/out of server over time
 
-	protected float rewardCheckTimer = 15.0;
-	protected float CHECK_IN_INTERVAL = 5.0; // must be less than UserSettings.m_timeBetweenSubstages
+	protected array<uint> dropEvents;				// stores character_ids that have been associated with an ItemDropEvent since last check in.
+
+	protected float playerCheckTimer = 15.0;		// initial delay at round start before starting player stat and inventory checks
+	protected float CHECK_IN_INTERVAL = 5.0; 		// must be less than UserSettings.m_timeBetweenSubstages
 
 	// --------------------------------------------
 	PlayerTracker(GameModeSND@ metagame) {
@@ -175,7 +179,10 @@ class PlayerTracker : Tracker {
 						m_trackedPlayers.add(aPlayer);
 						m_savedPlayers.remove(aPlayer);
 					} else {
-						SNDPlayer@ aPlayer = SNDPlayer(connName, connHash, key, connIp, connId);
+						// assign stock starter kit
+						// TODO: getPlayerInventory(this player's character_id)
+						XmlElement kit("equipment"); // placeholder
+						SNDPlayer@ aPlayer = SNDPlayer(connName, connHash, key, connIp, connId, kit);
 						_log("** SND: Unknown/new player " + aPlayer.m_username + " joining server", 1);
 						// set RP and XP for new players
 						aPlayer.m_rp = 800;		// starting cash for CS rounds
@@ -226,6 +233,8 @@ class PlayerTracker : Tracker {
 			// improve this so only awarding XP in HR and AS missions, to CT units. Useless stat otherwise?
 			string setCharXP = "<command class='xp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_xp + "'></command>";
 			m_metagame.getComms().send(setCharXP);
+			// load up saved inventory
+			// TODO: = spawnedPlayer.m_kit[blah];
 		} else {
 			_log("** SND: Player spawned, but not registered as having connected. Doing nothing...", 1);
 		}
@@ -356,6 +365,26 @@ class PlayerTracker : Tracker {
 		updateFactionPlayerCounts(deadPlayer.getIntAttribute("faction_id"), -1);
 	}
 
+	protected void handleItemDropEvent(const XmlElement@ event) {
+		// character_id=11
+		// item_class=0
+		// item_key=bomb.weapon
+		// item_type_id=53
+		// player_id=0
+		// position=359.807 7.54902 486.65
+		// target_container_type_id=2 (backpack) id=0 (ground) id=1 (armoury)
+
+		// if it's not related to a player, this tracker isn't interested
+		if (event.getIntAttribute("player_id") < 0) {
+			return;
+		}
+		// otherwise, continue
+		uint char = event.getIntAttribute("character_id");
+		if (dropEvents.find(char) < 0) {
+			dropEvents.insertLast(char);
+		}
+	}
+
 	// ----------------------------------------------------
 	protected void updateFactionPlayerCounts(uint faction, int num) {
 		if (factionPlayers[faction] + num > 0) {
@@ -374,7 +403,7 @@ class PlayerTracker : Tracker {
 				// in this case, the faction sent to this method is the losing faction (no living players remain)
 				if (f == faction) {
 					winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' lose='1'></command>";
-					array<int> losingTeamCharIds = getFactionPlayerCharacterIds(m_metagame, f);
+					array<int> losingTeamCharIds = m_metagame.getFactionPlayerCharacterIds(f);
 					for (uint i = 0; i < losingTeamCharIds.length() ; ++i) {
 						string rewardLosingTeamChar = "<command class='rp_reward' character_id='" + losingTeamCharIds[i] + "' reward='900'></command>"; // " + (900 + (consecutive * 500)) + " // up to a max of 3400 / round
 						m_metagame.getComms().send(rewardLosingTeamChar);
@@ -382,7 +411,7 @@ class PlayerTracker : Tracker {
 					}
 				} else {
 					winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' win='1'></command>";
-					array<int> winningTeamCharIds = getFactionPlayerCharacterIds(m_metagame, f);
+					array<int> winningTeamCharIds = m_metagame.getFactionPlayerCharacterIds(f);
 					for (uint i = 0; i < winningTeamCharIds.length() ; ++i) {
 						string rewardWinningTeamChar = "<command class='rp_reward' character_id='" + winningTeamCharIds[i] + "' reward='3250'></command>";
 						m_metagame.getComms().send(rewardWinningTeamChar);
@@ -402,7 +431,7 @@ class PlayerTracker : Tracker {
 
 	// --------------------------------------------
 	void save() {
-		// called by substages' handleMatchEndEvent
+		// called by substages' handleMatchEndEvent methods
 		_log("** SND: PlayerTracker now saving player stats", 1);
 		savePlayerStats();
 	}
@@ -451,8 +480,9 @@ class PlayerTracker : Tracker {
 					string hash = loadPlayer.getStringAttribute("hash");
 					string sid = loadPlayer.getStringAttribute("sid");
 					string ip = loadPlayer.getStringAttribute("ip");
-
-					SNDPlayer player(username, hash, sid, ip, -1);
+					// TODO: load up the equipment from subelement
+					XmlElement kit("equipment");
+					SNDPlayer player(username, hash, sid, ip, -1, kit);
 					player.m_rp = loadPlayer.getIntAttribute("rp");
 					player.m_xp = loadPlayer.getFloatAttribute("xp");
 
@@ -483,8 +513,8 @@ class PlayerTracker : Tracker {
 
 	// --------------------------------------------
 	void update(float time) {
-		rewardCheckTimer -= time;
-		if (rewardCheckTimer <= 0.0) {
+		playerCheckTimer -= time;
+		if (playerCheckTimer <= 0.0) {
 			dictionary rpRewards = m_metagame.getPendingRPRewards();
 			for (uint i = 0; i < rpRewards.getKeys().size(); ++i) {
 				string rewardChar = rpRewards.getKeys()[i];
@@ -499,7 +529,17 @@ class PlayerTracker : Tracker {
 					_log("** SND: " + aPlayer.m_username + " RP now at: " + aPlayer.m_rp, 1);
 				} else { _log("** SND: couldn't find player " + rewardSid + ": " + rewardChar + " to reward...", 1); }
 			}
-			rewardCheckTimer = CHECK_IN_INTERVAL;
+			// if a handleItemDropEvent has fired since last check, save out associated player chars' inventories
+			if (dropEvents.length() > 0) {
+				for (uint j = 0; j < dropEvents.length(); ++j) {
+					// save inventory
+					const XmlElement@ playerInv = m_metagame.getPlayerInventory(dropEvents[j]);
+					array<const XmlElement@> pInv = playerInv.getElementsByTagName("item");
+				}
+				dropEvents.clear();
+			}
+
+			playerCheckTimer = CHECK_IN_INTERVAL;
 		}
 	}
 }
