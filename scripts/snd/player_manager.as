@@ -11,22 +11,30 @@ class SNDPlayer {
 	string m_hash = "";
 	string m_sid = "ID0";
 	string m_ip = "";
+	string m_primary = "";
+	string m_secondary = "";
+	string m_grenade = "";
+	int m_grenNum = 0;
+	string m_armour = "";
 
 	int m_rp;
 	float m_xp;
-	XmlElement m_kit("equipment");
 
 	int m_playerId = -1;	// the 'player_id'. Value positive only when player is in-game
 	int m_charId = -1;		// the 'character_id' of the player. Value positive only when player is in-game
 
 	// --------------------------------------------
-	SNDPlayer(string username, string hash, string sid, string ip, int id, XmlElement@ inv=kit("equipment")) {
+	SNDPlayer(string username, string hash, string sid, string ip, int id, string pri="", string sec="", string gren="", int grenNum="", string arm="") {
 		m_username = username;
 		m_hash = hash;
 		m_sid = sid;
 		m_ip = ip;
 		m_playerId = id;
-		m_kit.appendChild(inv);
+		m_primary = pri;
+		m_secondary = sec;
+		m_grenade = gren;
+		m_grenNum = grenNum;
+		m_armour = arm;
 	}
 
 	// --------------------------------------------
@@ -93,9 +101,16 @@ class SNDPlayerStore {
 			savedPlayer.setStringAttribute("hash", player.m_hash);
 			savedPlayer.setStringAttribute("sid", player.m_sid);
 			savedPlayer.setStringAttribute("ip", player.m_ip);
+			if (player.m_rp > 16000) { // m_metagame.getUserSettings().m_maxRp, but no metagame here
+				player.m_rp = 16000;
+			}
 			savedPlayer.setIntAttribute("rp", player.m_rp);
 			savedPlayer.setFloatAttribute("xp", player.m_xp);
-			savedPlayer.appendChild(player.m_kit); // add sub element contaning inventory
+			savedPlayer.setStringAttribute("primary", player.m_primary);
+			savedPlayer.setStringAttribute("secondary", player.m_secondary);
+			savedPlayer.setStringAttribute("grenade", player.m_grenade);
+			savedPlayer.setIntAttribute("gren_num", player.m_grenNum);
+			savedPlayer.setStringAttribute("armour", player.m_armour);
 			root.appendChild(savedPlayer);
 			_log("** SND: Saved player " + i + " " + player.m_username, 1);
 		}
@@ -180,9 +195,7 @@ class PlayerTracker : Tracker {
 						m_savedPlayers.remove(aPlayer);
 					} else {
 						// assign stock starter kit
-						// TODO: getPlayerInventory(this player's character_id)
-						XmlElement kit("equipment"); // placeholder
-						SNDPlayer@ aPlayer = SNDPlayer(connName, connHash, key, connIp, connId, kit);
+						SNDPlayer@ aPlayer = SNDPlayer(connName, connHash, key, connIp, connId, "", "some_secondary.weapon", "he_gren.weapon", 0, "");
 						_log("** SND: Unknown/new player " + aPlayer.m_username + " joining server", 1);
 						// set RP and XP for new players
 						aPlayer.m_rp = 800;		// starting cash for CS rounds
@@ -381,6 +394,7 @@ class PlayerTracker : Tracker {
 		// otherwise, continue
 		uint char = event.getIntAttribute("character_id");
 		if (dropEvents.find(char) < 0) {
+			_log("** SND: Inventory update/save for character " + char + " (player ID: " + event.getIntAttribute("player_id") + ") has been queued", 1);
 			dropEvents.insertLast(char);
 		}
 	}
@@ -452,7 +466,8 @@ class PlayerTracker : Tracker {
 
 		m_metagame.getComms().send(command);
 
-		_log("** SND: PlayerTracker " + m_savedPlayers.size() + " players saved", 1);
+		_log("** SND: PlayerTracker " + m_trackedPlayers.size() + " active players saved", 1);
+		_log("** SND: PlayerTracker " + m_savedPlayers.size() + " inactive players saved", 1);
 	}
 
 	// --------------------------------------------
@@ -480,9 +495,19 @@ class PlayerTracker : Tracker {
 					string hash = loadPlayer.getStringAttribute("hash");
 					string sid = loadPlayer.getStringAttribute("sid");
 					string ip = loadPlayer.getStringAttribute("ip");
-					// TODO: load up the equipment from subelement
-					XmlElement kit("equipment");
-					SNDPlayer player(username, hash, sid, ip, -1, kit);
+
+					string primary = loadPlayer.getStringAttribute("primary");
+					_log("** SND: primary weapon is : " + primary, 1);
+					string secondary = loadPlayer.getStringAttribute("secondary");
+					_log("** SND: secondary weapon is : " + secondary, 1);
+					string grenade = loadPlayer.getStringAttribute("grenade");
+					_log("** SND: grenade is : " + grenade, 1);
+					int grenNum = loadPlayer.getIntAttribute("gren_num");
+					_log("** SND: grenade count is : " + grenNum, 1);
+					string armour = loadPlayer.getStringAttribute("armour");
+					_log("** SND: armour is : " + armour, 1);
+
+					SNDPlayer player(username, hash, sid, ip, -1, primary, secondary, grenade, grenNum, armour);
 					player.m_rp = loadPlayer.getIntAttribute("rp");
 					player.m_xp = loadPlayer.getFloatAttribute("xp");
 
@@ -532,9 +557,48 @@ class PlayerTracker : Tracker {
 			// if a handleItemDropEvent has fired since last check, save out associated player chars' inventories
 			if (dropEvents.length() > 0) {
 				for (uint j = 0; j < dropEvents.length(); ++j) {
+					// get player SID from character_id
+					string cid = "" + dropEvents[j] + "";
+					if (cidTosid.exists(cid)) {
+						// TODO: what was I doing here?
+					}
 					// save inventory
-					const XmlElement@ playerInv = m_metagame.getPlayerInventory(dropEvents[j]);
-					array<const XmlElement@> pInv = playerInv.getElementsByTagName("item");
+					_log("** SND: Updating saved inventory for character id " + dropEvents[j], 1);
+					// get the SID from the character_id involved in a drop event
+					string key = string(cidTosid[cid]);
+					if (m_trackedPlayers.exists(key)) {
+						// we have an active player to update the inventory for
+						SNDPlayer@ aPlayer;
+						@aPlayer = m_trackedPlayers.get(key);
+						// get the character info + inventory
+						const XmlElement@ playerInv = m_metagame.getPlayerInventory(dropEvents[j]);
+						array<const XmlElement@> pInv = playerInv.getElementsByTagName("item");
+						for (uint k = 0; k < pInv.size(); ++k) {
+							string invItem = pInv[k].getStringAttribute("key");
+							if (invItem == "") {
+								continue;
+							} else {
+								_log("** SND: slot " + k + ": " + invItem, 1);
+								switch (k) {
+									case 0:
+										aPlayer.m_primary = invItem;
+										break;
+									case 1:
+										aPlayer.m_secondary = invItem;
+										break;
+									case 2:
+										aPlayer.m_grenade = invItem;
+										aPlayer.m_grenNum = pInv[k].getIntAttribute("amount");
+										break;
+									case 4:
+										aPlayer.m_armour = invItem;
+										break;
+									default:
+										_log("** SND: WARNING! untracked slot " + k + "!", 1);
+								}
+							}
+						}
+					}
 				}
 				dropEvents.clear();
 			}

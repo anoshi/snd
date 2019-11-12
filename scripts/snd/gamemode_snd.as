@@ -232,31 +232,46 @@ class GameModeSND : Metagame {
 		// wounded=0
 		// xp=0
 
-		// TagName=item amount=0 index=-1 key= slot=0
+		// TagName=item amount=1 index=17 key=steyr_aug.weapon slot=0
 		// TagName=item amount=0 index=3 key=9x19mm_sidearm.weapon slot=1
-		// TagName=item amount=0 index=3 key=hand_grenade.projectile slot=2
+		// TagName=item amount=1 index=3 key=hand_grenade.projectile slot=2
 		// TagName=item amount=0 index=-1 key= slot=4
-		// TagName=item amount=0 index=-1 key= slot=5
+		// TagName=item amount=1 index=3 key=kevlar_plus_helmet.carry_item slot=5
 	}
 
 	// -----------------------------
-	void setPlayerInventory(int characterId, string vest, uint numVests) {
-		// assign / override equipment to player character
-		_log("** SND: Equipping player (id: " + characterId + ") with " + vest + " x" + numVests, 1);
-		if (numVests < 1) { return; } // sanity
-		for (uint j = numVests; j > 0; --j) {
-			XmlElement charInv("command");
-			charInv.setStringAttribute("class", "update_inventory");
-			charInv.setIntAttribute("character_id", characterId);
-			charInv.setIntAttribute("container_type_id", 4); // vest
-			XmlElement i("item");
-			i.setStringAttribute("class", "carry_item");
-			i.setStringAttribute("key", vest);
-			charInv.appendChild(i);
-			getComms().send(charInv);
-		}
+	void setPlayerInventory(int characterId, const XmlElement@ kit, bool newPlayer=false) {
+		// container_type_ids (slot=[0-5])
+		// 0 : primary weapon (cannot add directly, put in backpack instead)
+		// 1 : secondary weapon
+		// 2 : grenade
+		// 3 : ?
+		// 4 : armour
+		// 5 : armour
 
-		_log("** SND: " + numVests + "x " + vest + " equipped on character " + characterId, 1);
+		// assign / override equipment to player character
+		if (newPlayer) {
+			// give the character appropriate starting kit for their faction
+			const XmlElement@ thisChar = getCharacterInfo(this, characterId);
+			int faction = thisChar.getIntAttribute("faction_id");
+			_log("** SND: Equipping new player (id: " + characterId + ") with " + (faction == 0 ? 'Counter Terrorist' : 'Terrorist') + " starting gear", 1);
+			// TODO: equip with starting gear
+		} else {
+			_log("** SND: Updating inventory for player (character_id: " + characterId + ")", 1);
+			// TODO: equip known player with saved inventory.
+			// for (uint j = 0; j < kit.length(); ++j) {
+			// 	XmlElement charInv("command");
+			// 	charInv.setStringAttribute("class", "update_inventory");
+			// 	charInv.setIntAttribute("character_id", characterId);
+			// 	charInv.setIntAttribute("container_type_id", 4); // vest
+			// 	XmlElement iVest("item");
+			// 	iVest.setStringAttribute("class", "carry_item");
+			// 	iVest.setStringAttribute("key", vest);
+			// 	charInv.appendChild(iVest);
+
+			// 	getComms().send(charInv);
+			// }
+		}
 	}
 
 	// -----------------------------
