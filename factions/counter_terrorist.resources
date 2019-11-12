@@ -26,4 +26,6 @@
 	<!-- Machine Guns -->
 	<weapon key="m240.weapon" />
 
+	<!-- Armour -->
+	<carry_item key="vip_armour.carry_item" enabled="0" />
 </resources>

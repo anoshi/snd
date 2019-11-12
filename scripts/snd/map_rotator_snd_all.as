@@ -21,9 +21,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 		// setupPlaylist4();
 	}
 
-	/////////////////////////////////
-	// PLAYLIST 1 : HR, DE, HR, DE //
-	/////////////////////////////////
+	/////////////////////////////////////////
+	// PLAYLIST 1 : AS, HR, DE, AS, HR, DE //
+	/////////////////////////////////////////
 	// ------------------------------------------------------------------------------------------------
 	protected void setupPlaylist1() {
 		int maxSoldiers = 0;
@@ -85,7 +85,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				// the map has declared some additional stuff for the substage, matched with a tag
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = Assassination(stage, maxTime);
-				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
+				substage.m_mapViewOverlayFilename = "pvp1_overlay_as.png";
 
 				Match@ match = Match(m_metagame);
 				match.m_maxSoldiers = maxSoldiers;
@@ -119,7 +119,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				// the map has declared some additional stuff for the substage, matched with a tag
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = HostageRescue(stage, maxTime);
-				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
+				substage.m_mapViewOverlayFilename = "pvp1_overlay_hr.png";
 
 				Match@ match = Match(m_metagame);
 				match.m_maxSoldiers = maxSoldiers;
@@ -152,7 +152,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 			{
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = BombDefusal(stage, maxTime);
-				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
+				substage.m_mapViewOverlayFilename = "pvp1_overlay_de.png";
 
 				Match@ match = Match(m_metagame);
 				match.m_maxSoldiers = maxSoldiers;
@@ -187,7 +187,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				// the map has declared some additional stuff for the substage, matched with a tag
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = Assassination(stage, maxTime);
-				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
+				substage.m_mapViewOverlayFilename = "pvp1_overlay_as.png";
 
 				Match@ match = Match(m_metagame);
 				match.m_maxSoldiers = maxSoldiers;
@@ -220,7 +220,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 			{
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = HostageRescue(stage, maxTime);
-				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
+				substage.m_mapViewOverlayFilename = "pvp1_overlay_hr.png";
 
 				Match@ match = Match(m_metagame);
 				match.m_maxSoldiers = maxSoldiers;
@@ -253,7 +253,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 			{
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = BombDefusal(stage, maxTime);
-				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
+				substage.m_mapViewOverlayFilename = "pvp1_overlay_de.png";
 
 				Match@ match = Match(m_metagame);
 				match.m_maxSoldiers = maxSoldiers;
@@ -286,9 +286,9 @@ class MapRotatorSNDAll : MapRotatorSND {
 		}
 	}
 
-	/////////////////////////////////
-	// PLAYLIST 2 : HR, DE, HR, DE //
-	/////////////////////////////////
+	/////////////////////////////////////////
+	// PLAYLIST 2 : HR, AS, DE, HR, AS, DE //
+	/////////////////////////////////////////
 	// ------------------------------------------------------------------------------------------------
 	protected void setupPlaylist2() {
 		int maxSoldiers = 0;
@@ -352,7 +352,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				// the map has declared some additional stuff for the substage, matched with a tag
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = HostageRescue(stage, maxTime);
-				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
+				substage.m_mapViewOverlayFilename = "pvp1_overlay_hr.png";
 
 				Match@ match = Match(m_metagame);
 				match.m_maxSoldiers = maxSoldiers;
@@ -386,7 +386,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				// the map has declared some additional stuff for the substage, matched with a tag
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = Assassination(stage, maxTime);
-				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
+				substage.m_mapViewOverlayFilename = "pvp1_overlay_as.png";
 
 				Match@ match = Match(m_metagame);
 				match.m_maxSoldiers = maxSoldiers;
@@ -419,7 +419,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 			{
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = BombDefusal(stage, maxTime);
-				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
+				substage.m_mapViewOverlayFilename = "pvp1_overlay_de.png";
 
 				Match@ match = Match(m_metagame);
 				match.m_maxSoldiers = maxSoldiers;
@@ -452,7 +452,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 			{
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = HostageRescue(stage, maxTime);
-				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
+				substage.m_mapViewOverlayFilename = "pvp1_overlay_hr.png";
 
 				Match@ match = Match(m_metagame);
 				match.m_maxSoldiers = maxSoldiers;
@@ -487,7 +487,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				// the map has declared some additional stuff for the substage, matched with a tag
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = Assassination(stage, maxTime);
-				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
+				substage.m_mapViewOverlayFilename = "pvp1_overlay_as.png";
 
 				Match@ match = Match(m_metagame);
 				match.m_maxSoldiers = maxSoldiers;
@@ -521,7 +521,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				// the map has declared some additional stuff for the substage, matched with a tag
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = BombDefusal(stage, maxTime);
-				substage.m_mapViewOverlayFilename = "pvp1_overlay_tdm1.png";
+				substage.m_mapViewOverlayFilename = "pvp1_overlay_de.png";
 
 				Match@ match = Match(m_metagame);
 				match.m_maxSoldiers = maxSoldiers;

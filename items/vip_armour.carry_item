@@ -26,7 +26,7 @@
 
         <!--<model mesh_filename="vip_armour.xml" />-->
 
-        <commonness value="0.1" in_stock="0" can_respawn_with="0" />
+        <commonness value="0.0" in_stock="0" can_respawn_with="0" />
 
 	<!-- death or wound or stun -> no effect -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="none" />
@@ -45,7 +45,7 @@
 
         <!--<model mesh_filename="vip_armour.xml" />-->
 
-        <commonness value="0.1" in_stock="0" can_respawn_with="0" />
+        <commonness value="0.0" in_stock="0" can_respawn_with="0" />
 
 	<!-- death or wound or stun -> no effect -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="none" />
@@ -64,7 +64,7 @@
 
         <!--<model mesh_filename="vip_armour.xml" />-->
 
-        <commonness value="0.1" in_stock="0" can_respawn_with="0" />
+        <commonness value="0.0" in_stock="0" can_respawn_with="0" />
 
 	<!-- death or wound -> stun only -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="none" />
@@ -81,7 +81,7 @@
 
         <!--<model mesh_filename="vip_armour.xml" />-->
 
-        <commonness value="0.1" in_stock="0" can_respawn_with="0" />
+        <commonness value="0.0" in_stock="0" can_respawn_with="0" />
 
 	<!-- death or wound -> stun only -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="none" />
@@ -98,7 +98,7 @@
 
         <!--<model mesh_filename="vip_armour.xml" />-->
 
-        <commonness value="0.1" in_stock="0" can_respawn_with="0" />
+        <commonness value="0.0" in_stock="0" can_respawn_with="0" />
 
 	<!-- death or wound -> stun only -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="stun" />
@@ -115,7 +115,7 @@
 
         <!--<model mesh_filename="vip_armour.xml" />-->
 
-        <commonness value="0.1" in_stock="0" can_respawn_with="0" />
+        <commonness value="0.0" in_stock="0" can_respawn_with="0" />
 
 	<!-- death or wound -> stun only -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="stun" />
@@ -132,7 +132,7 @@
 
         <!--<model mesh_filename="vip_armour.xml" />-->
 
-        <commonness value="0.1" in_stock="0" can_respawn_with="0" />
+        <commonness value="0.0" in_stock="0" can_respawn_with="0" />
 
 	<!-- death or wound -> stun only -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="death" />

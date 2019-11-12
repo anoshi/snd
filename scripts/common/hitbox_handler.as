@@ -289,7 +289,7 @@ class HitboxHandler : Tracker {
 				const XmlElement@ escapee = getCharacterInfo(m_metagame, instanceId);
 				Vector3 v3pos = stringToVector3(escapee.getStringAttribute("position"));
 				// get all CT units near this position (may include hostage and player characters)
-				array<const XmlElement@> nearCTs = getCharactersNearPosition(m_metagame, v3pos, 0, 15.0);
+				array<const XmlElement@> nearCTs = getCharactersNearPosition(m_metagame, v3pos, 0, 25.0);
 				_log("** SND: " + nearCTs.length() + " characters near rescued unit", 1);
 				for (uint ct = 0; ct < nearCTs.length(); ++ct) {
 					// the characterId
@@ -308,6 +308,7 @@ class HitboxHandler : Tracker {
 					_log("** SND: rewarding characterID: " + ctId + " RP: " + (1000 / nearCTs.length()), 1);
 					string rewardHostageRescuer = "<command class='rp_reward' character_id='" + ctId + "' reward='" + (1000 / nearCTs.length()) + "'></command>";
 					m_metagame.getComms().send(rewardHostageRescuer);
+					m_metagame.addRP(ctId, (1000 / nearCTs.length()));
 				}
 				// TODOs:
 				// remove hostage from play
@@ -319,12 +320,6 @@ class HitboxHandler : Tracker {
 		}
 	}
 
-	// --------------------------------------------
-	/*
-	// --------------------------------------------
-	void init() {
-	}
-	*/
 	// --------------------------------------------
 	bool hasEnded() const {
 		// always on

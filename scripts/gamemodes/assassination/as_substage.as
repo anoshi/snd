@@ -4,9 +4,10 @@
 #include "log.as"
 #include "query_helpers.as"
 #include "game_timer.as"
+#include "score_tracker.as"
 #include "stage_snd.as"
 
-#include "player_tracker.as"
+#include "player_manager.as"
 #include "vip_tracker.as"
 #include "hitbox_handler.as"
 
@@ -16,6 +17,7 @@ class Assassination : SubStage {
 	protected VIPTracker@ m_vipTracker;
 	protected HitboxHandler@ m_hitboxHandler;
 	protected GameTimer@ m_gameTimer;
+	protected ScoreTracker@ m_scoreTracker;
 
 	// --------------------------------------------
 	Assassination(Stage@ stage, float maxTime, array<int> competingFactionIds = array<int>(0, 1), int protectorFactionId = 2) {
@@ -26,11 +28,6 @@ class Assassination : SubStage {
 
 		// the trackers get added into active tracking at SubStage::start()
 		@m_gameTimer = GameTimer(m_metagame, maxTime);
-
-		// should this be instantiated in SubStage (and only referenced here) in order to allow persistent player stats?
-		// maybe not, yet... trying a save/load concept at end / start of each round.
-		@m_playerTracker = PlayerTracker(m_metagame, this);
-		addTracker(m_playerTracker);
 	}
 
 	// --------------------------------------------
@@ -39,6 +36,14 @@ class Assassination : SubStage {
 			// if GameTimer is used, some match settings must be set accordingly before starting the match
 			m_gameTimer.prepareMatch(m_match);
 		}
+
+		// track Players
+		@m_playerTracker = PlayerTracker(m_metagame);
+		addTracker(m_playerTracker);
+
+		// setup score tracking (does not persist between rounds / matches)
+		@m_scoreTracker = ScoreTracker(m_metagame, this);
+		addTracker(m_scoreTracker);
 
 		// track the vip
 		@m_vipTracker = VIPTracker(m_metagame);
@@ -50,7 +55,7 @@ class Assassination : SubStage {
 
 		SubStage::startMatch();
 		// start match clears in-game score hud; reset player scores after it
-		m_playerTracker.reset();
+		m_scoreTracker.reset();
 
 		if (m_gameTimer !is null) {
 			m_gameTimer.start(-1);
@@ -91,7 +96,8 @@ class Assassination : SubStage {
 		if (winner >= 0) {
 			factionName = factions[winner].getName();
 		}
-
+		m_playerTracker.save();
+		m_metagame.save();
 		end();
 	}
 

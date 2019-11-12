@@ -8060,11 +8060,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142137"
-     inkscape:cx="1022.8414"
-     inkscape:cy="1019.4267"
+     inkscape:zoom="0.5"
+     inkscape:cx="541.90021"
+     inkscape:cy="1093.8689"
      inkscape:document-units="px"
-     inkscape:current-layer="layer28"
+     inkscape:current-layer="g7928"
      showgrid="false"
      inkscape:window-width="1680"
      inkscape:window-height="951"
@@ -8152,20 +8152,20 @@
        y="-20.951645"
        inkscape:label="#material">
       <desc
-         id="desc9346-8">name = BuildingWhite1; 
-color = stroke; 
-color_variance = 0.0 0.0 0.3; 
-# plain; 
-detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125  0.0078125; detail_texture_scale = 3 3; 
-1st_floor_1 = apartment1_1st_floor; 
-1st_floor_2 = apartment1_1st_floor_empty; 1st_floor_3 = apartment1_1st_floor; 
-1st_floor_4 = apartment1_1st_floor_empty; other_floor_1 = apartment1; 
-other_floor_2 = apartment1; 
-other_floor_3 = apartment1; 
-other_floor_4 = apartment1; 
-roof_color = fill; 
-roof_color_variance = 0.0 0.0 0.2; 
-roof_texture = wall_atlas1.png; 
+         id="desc9346-8">name = BuildingWhite1;
+color = stroke;
+color_variance = 0.0 0.0 0.3;
+# plain;
+detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125  0.0078125; detail_texture_scale = 3 3;
+1st_floor_1 = apartment1_1st_floor;
+1st_floor_2 = apartment1_1st_floor_empty; 1st_floor_3 = apartment1_1st_floor;
+1st_floor_4 = apartment1_1st_floor_empty; other_floor_1 = apartment1;
+other_floor_2 = apartment1;
+other_floor_3 = apartment1;
+other_floor_4 = apartment1;
+roof_color = fill;
+roof_color_variance = 0.0 0.0 0.2;
+roof_texture = wall_atlas1.png;
 roof_texture_atlas_cell = 1 0 2 2;
 roof_texture_scale = 8.0 8.0;</desc>
     </rect>
@@ -8178,8 +8178,8 @@ roof_texture_scale = 8.0 8.0;</desc>
        y="132.63548"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-8">name = BuildingWhite2; color = stroke; color_variance = 0.02 0.2 0.2; # brick; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 0 8 8 0.0078125 0.0078125; 
-detail_texture_scale = 3 3; detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; 1st_floor_1 = apartment1_1st_floor; 1st_floor_2 = apartment1_1st_floor; 1st_floor_3 = apartment1_1st_floor; 1st_floor_4 = apartment1_1st_floor; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0 0.1 0.1; roof_texture = wall_atlas1.png; 
+         id="desc9346-8-8">name = BuildingWhite2; color = stroke; color_variance = 0.02 0.2 0.2; # brick; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 0 8 8 0.0078125 0.0078125;
+detail_texture_scale = 3 3; detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; 1st_floor_1 = apartment1_1st_floor; 1st_floor_2 = apartment1_1st_floor; 1st_floor_3 = apartment1_1st_floor; 1st_floor_4 = apartment1_1st_floor; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0 0.1 0.1; roof_texture = wall_atlas1.png;
 roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <flowRoot
@@ -8206,13 +8206,13 @@ roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
        y="2.1844208"
        inkscape:label="#general">
       <desc
-         id="desc9346-4-7-4">day_color = fill; 
+         id="desc9346-4-7-4">day_color = fill;
 night_color = stroke;
-night_color = stroke; 
-name = Islet of Eflen; 
+night_color = stroke;
+name = Islet of Eflen;
 description = pure pvp map;
-randomize_faction_index=1; 
-flip = 1; 
+randomize_faction_index=1;
+flip = 1;
 visible_in_menu = 0;
 show_base_names_in_map_view = 0;</desc>
     </rect>
@@ -8225,7 +8225,7 @@ show_base_names_in_map_view = 0;</desc>
        y="58.142471"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-7-4-7">name = BuildingShop1; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8  0.0078125 0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = shop1; 1st_floor_2 = shop1; 1st_floor_3 = shop1; 1st_floor_4 = shop1; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png; 
+         id="desc9346-8-7-4-7">name = BuildingShop1; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8  0.0078125 0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = shop1; 1st_floor_2 = shop1; 1st_floor_3 = shop1; 1st_floor_4 = shop1; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png;
 roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <flowRoot
@@ -8283,7 +8283,7 @@ roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
        y="57.067078"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-7-4-7-8">name = BuildingShop1End; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = shop1; 1st_floor_2 = shop1; 1st_floor_3 = shop1; 1st_floor_4 = shop1; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png; 
+         id="desc9346-8-7-4-7-8">name = BuildingShop1End; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = shop1; 1st_floor_2 = shop1; 1st_floor_3 = shop1; 1st_floor_4 = shop1; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png;
 roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <rect
@@ -8339,29 +8339,29 @@ roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
        y="333.91885"
        inkscape:label="#material">
       <desc
-         id="desc9346-0">name = BuildingHouse; 
-color = stroke; 
-color_variance = 0.01 0.1 0.1; 
-# panel side; 
+         id="desc9346-0">name = BuildingHouse;
+color = stroke;
+color_variance = 0.01 0.1 0.1;
+# panel side;
 detail_texture = wall_atlas1.png;
-detail_texture_atlas_cell = 0 1 8 8 0.0078125 0.0078125; 
-detail_texture_scale = 3 3; 
-detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; 
-atlas_texture = building_atlas2.png; 
-1st_floor_1 = house; 
-1st_floor_2 = house; 
-1st_floor_3 = house; 
-1st_floor_4 = house; 
-other_floor_1 = house; 
-other_floor_2 = house; 
-other_floor_3 = house; 
-other_floor_4 = house; 
+detail_texture_atlas_cell = 0 1 8 8 0.0078125 0.0078125;
+detail_texture_scale = 3 3;
+detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10;
+atlas_texture = building_atlas2.png;
+1st_floor_1 = house;
+1st_floor_2 = house;
+1st_floor_3 = house;
+1st_floor_4 = house;
+other_floor_1 = house;
+other_floor_2 = house;
+other_floor_3 = house;
+other_floor_4 = house;
 roof_color = fill;
-roof_color_variance = 0.01 0.1 0.1; 
-roof_texture = wall_atlas1.png; 
+roof_color_variance = 0.01 0.1 0.1;
+roof_texture = wall_atlas1.png;
 roof_texture_atlas_cell = 0 4 8 8 0.0078125 0.03125;
-roof_texture_scale = 1.5 1.5; 
-#roof_texture_rect = 0 0 1 1; 
+roof_texture_scale = 1.5 1.5;
+#roof_texture_rect = 0 0 1 1;
 roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_texture_scale = 15 15;</desc>
     </rect>
     <rect
@@ -8384,24 +8384,24 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        y="-21.878139"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-0">name = BuildingRoofStory1; 
-color = stroke; 
-color_variance = 0.0 0.0 0.3; 
-# plain; 
-detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125; 
+         id="desc9346-8-0">name = BuildingRoofStory1;
+color = stroke;
+color_variance = 0.0 0.0 0.3;
+# plain;
+detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125;
 detail_texture_scale = 3 3;
- 1st_floor_1 = empty; 
-1st_floor_2 = empty; 
-1st_floor_3 = empty; 
-1st_floor_4 = empty; 
-other_floor_1 = empty; 
-other_floor_2 = empty; 
-other_floor_3 = empty; 
-other_floor_4 = empty; 
-roof_color = fill; 
-roof_color_variance = 0.0 0.0 0.2; 
-roof_texture = wall_atlas1.png; 
-roof_texture_atlas_cell = 1 0 2 2; 
+ 1st_floor_1 = empty;
+1st_floor_2 = empty;
+1st_floor_3 = empty;
+1st_floor_4 = empty;
+other_floor_1 = empty;
+other_floor_2 = empty;
+other_floor_3 = empty;
+other_floor_4 = empty;
+roof_color = fill;
+roof_color_variance = 0.0 0.0 0.2;
+roof_texture = wall_atlas1.png;
+roof_texture_atlas_cell = 1 0 2 2;
 roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <rect
@@ -8433,7 +8433,7 @@ roof_texture_scale = 8.0 8.0;</desc>
        id="rect9583-5"
        style="display:inline;fill:#848989;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;enable-background:new">
       <desc
-         id="desc9585">name = BuildingWhite1Empty1stFloor; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8  0.0078125  0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = apartment1_1st_floor_really_empty; 1st_floor_2 = apartment1_1st_floor_really_empty; 1st_floor_3 = apartment1_1st_floor_really_empty; 1st_floor_4 = apartment1_1st_floor_really_empty; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png; 
+         id="desc9585">name = BuildingWhite1Empty1stFloor; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8  0.0078125  0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = apartment1_1st_floor_really_empty; 1st_floor_2 = apartment1_1st_floor_really_empty; 1st_floor_3 = apartment1_1st_floor_really_empty; 1st_floor_4 = apartment1_1st_floor_really_empty; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png;
 roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <rect
@@ -8456,7 +8456,7 @@ roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
        y="-23.942627"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-9">name = BuildingWhite1Busy; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = apartment1_1st_floor_busy; 1st_floor_2 = apartment1_1st_floor_busy; 1st_floor_3 = apartment1_1st_floor_busy; 1st_floor_4 = apartment1_1st_floor_busy; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png; 
+         id="desc9346-8-9">name = BuildingWhite1Busy; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = apartment1_1st_floor_busy; 1st_floor_2 = apartment1_1st_floor_busy; 1st_floor_3 = apartment1_1st_floor_busy; 1st_floor_4 = apartment1_1st_floor_busy; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png;
 roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <rect
@@ -8468,8 +8468,8 @@ roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
        y="58.333233"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-7-4-7-6">name = BuildingShop2; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125; 
-detail_texture_scale = 3 3; atlas_texture = building_atlas3.png; 1st_floor_1 = shop1; 1st_floor_2 = shop1; 1st_floor_3 = shop1; 1st_floor_4 = shop1; other_floor_1 = apartment1_normal_windows; other_floor_2 = apartment1_normal_windows; other_floor_3 = apartment1_normal_windows; other_floor_4 = apartment1_normal_windows; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png; 
+         id="desc9346-8-7-4-7-6">name = BuildingShop2; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125;
+detail_texture_scale = 3 3; atlas_texture = building_atlas3.png; 1st_floor_1 = shop1; 1st_floor_2 = shop1; 1st_floor_3 = shop1; 1st_floor_4 = shop1; other_floor_1 = apartment1_normal_windows; other_floor_2 = apartment1_normal_windows; other_floor_3 = apartment1_normal_windows; other_floor_4 = apartment1_normal_windows; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png;
 roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <rect
@@ -8492,9 +8492,9 @@ roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
        y="272.61041"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-3">name = BuildingWhite4; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125; detail_texture_scale = 3 3; atlas_texture = building_atlas3.png; 1st_floor_1 = apartment1_1st_floor; 1st_floor_2 = apartment1_1st_floor_really_empty; 1st_floor_3 = apartment1_1st_floor; 1st_floor_4 = apartment1_1st_floor_really_empty; other_floor_1 = apartment1_normal_windows; other_floor_2 = apartment1_normal_windows; other_floor_3 = apartment1_normal_windows; other_floor_4 = apartment1_normal_windows; roof_color = fill; roof_color_variance = 0.01 0.1 0.1; 
-roof_texture = wall_atlas1.png; 
-roof_texture_atlas_cell = 1 0 2 2; 
+         id="desc9346-8-3">name = BuildingWhite4; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125; detail_texture_scale = 3 3; atlas_texture = building_atlas3.png; 1st_floor_1 = apartment1_1st_floor; 1st_floor_2 = apartment1_1st_floor_really_empty; 1st_floor_3 = apartment1_1st_floor; 1st_floor_4 = apartment1_1st_floor_really_empty; other_floor_1 = apartment1_normal_windows; other_floor_2 = apartment1_normal_windows; other_floor_3 = apartment1_normal_windows; other_floor_4 = apartment1_normal_windows; roof_color = fill; roof_color_variance = 0.01 0.1 0.1;
+roof_texture = wall_atlas1.png;
+roof_texture_atlas_cell = 1 0 2 2;
 roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <rect
@@ -8702,11 +8702,11 @@ roof_texture_scale = 8.0 8.0;</desc>
        y="203.69458"
        inkscape:label="#wall_template">
       <desc
-         id="desc9346-8-2-1-6-2-7-7">name = BrickWall1; 
-color = fill; depth = 0.6; 
-height = 2.5; 
-side_texture = wall_atlas1.png; 
-side_texture_scale = 2.0 2.0; 
+         id="desc9346-8-2-1-6-2-7-7">name = BrickWall1;
+color = fill; depth = 0.6;
+height = 2.5;
+side_texture = wall_atlas1.png;
+side_texture_scale = 2.0 2.0;
 side_texture_atlas_cell = 2 0 8 8  0.0078125; side_cutout_texture = cutout.png; side_cutout_texture_channel = 1; side_cutout_texture_scale = 15 15; top_texture = wall_atlas1.png; top_texture_atlas_cell = 2 4 8 16  0.0078125 0.015625; top_texture_scale = 2.0 0.4; separator_side_texture = wall_atlas1.png; separator_side_texture_scale = 2.0 2.0; separator_side_texture_atlas_cell = 2 0 8 8  0.0078125; separator_top_texture = wall_atlas1.png; separator_top_texture_atlas_cell = 2 4 8 16  0.0078125 0.015625; separator_top_texture_scale = 0.5 0.5; separator_color = fill; separator_over_height = 0.1; separator_depth = 0.7;</desc>
     </rect>
     <rect
@@ -8754,10 +8754,10 @@ side_texture_atlas_cell = 2 0 8 8  0.0078125; side_cutout_texture = cutout.png; 
        y="-25.101543"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-6">name = BuildingWhite1Brick; 
-color = stroke; color_variance = 0.0 0.0 0.3; 
-# brick; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 0 8 8 0.0078125; detail_texture_scale = 3 3; 
-detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; 1st_floor_1 = apartment1_1st_floor; 1st_floor_2 = apartment1_1st_floor_empty; 1st_floor_3 = apartment1_1st_floor; 1st_floor_4 = apartment1_1st_floor_empty; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2;roof_texture = wall_atlas1.png; 
+         id="desc9346-8-6">name = BuildingWhite1Brick;
+color = stroke; color_variance = 0.0 0.0 0.3;
+# brick; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 0 8 8 0.0078125; detail_texture_scale = 3 3;
+detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; 1st_floor_1 = apartment1_1st_floor; 1st_floor_2 = apartment1_1st_floor_empty; 1st_floor_3 = apartment1_1st_floor; 1st_floor_4 = apartment1_1st_floor_empty; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2;roof_texture = wall_atlas1.png;
 roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <rect
@@ -8769,8 +8769,8 @@ roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
        y="129.47144"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-8-4-1">name = BuildingWhite2RoofStory1; color = stroke; color_variance = 0.02 0.2 0.2; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = empty; 1st_floor_2 = empty; 1st_floor_3 = empty; 1st_floor_4 = empty; other_floor_1 = empty; other_floor_2 = empty; other_floor_3 = empty; other_floor_4 = empty; roof_color = fill; roof_color_variance = 0 0.1 0.1; roof_texture = wall_atlas1.png; 
-roof_texture_atlas_cell = 1 0 2 2; 
+         id="desc9346-8-8-4-1">name = BuildingWhite2RoofStory1; color = stroke; color_variance = 0.02 0.2 0.2; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = empty; 1st_floor_2 = empty; 1st_floor_3 = empty; 1st_floor_4 = empty; other_floor_1 = empty; other_floor_2 = empty; other_floor_3 = empty; other_floor_4 = empty; roof_color = fill; roof_color_variance = 0 0.1 0.1; roof_texture = wall_atlas1.png;
+roof_texture_atlas_cell = 1 0 2 2;
 roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <rect
@@ -8782,8 +8782,8 @@ roof_texture_scale = 8.0 8.0;</desc>
        y="203.92847"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-01-8">name = BuildingWhite3RoofStory1; color = stroke; color_variance = 0.01 0.1 0.1; # brick; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 0 8 8 0.0078125 0.0078125; 
-detail_texture_scale = 3 3; 
+         id="desc9346-8-01-8">name = BuildingWhite3RoofStory1; color = stroke; color_variance = 0.01 0.1 0.1; # brick; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 0 8 8 0.0078125 0.0078125;
+detail_texture_scale = 3 3;
 detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; 1st_floor_1 = apartment1_1st_floor; 1st_floor_2 = apartment1_1st_floor_empty; 1st_floor_3 = apartment1_1st_floor_empty; 1st_floor_4 = apartment1_1st_floor_empty; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.1 0.1; #roof_texture = concrete_roof.png; #roof_texture_scale = 8.0 8.0; roof_texture = wall_atlas1.png; roof_texture_atlas_cell = 2 1 8 8 0.015625 0.015625; roof_texture_scale = 3 3; roof_cutout_texture = cutout_2.png; roof_cutout_texture_scale = 20 20;</desc>
     </rect>
     <rect
@@ -8795,9 +8795,9 @@ detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cu
        y="203.24689"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-01-8-8">name = BuildingWhite3Busy; color = stroke; color_variance = 0.01 0.1 0.1; # brick; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 0 8 8 0.0078125 0.0078125; 
-detail_texture_scale = 3 3; 
-detail_cutout_texture = cutout.png; 
+         id="desc9346-8-01-8-8">name = BuildingWhite3Busy; color = stroke; color_variance = 0.01 0.1 0.1; # brick; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 0 8 8 0.0078125 0.0078125;
+detail_texture_scale = 3 3;
+detail_cutout_texture = cutout.png;
 detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; 1st_floor_1 = apartment1_1st_floor_busy; 1st_floor_2 = apartment1_1st_floor_busy; 1st_floor_3 = apartment1_1st_floor_busy; 1st_floor_4 = apartment1_1st_floor_busy; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.1 0.1; #roof_texture = concrete_roof.png; #roof_texture_scale = 8.0 8.0; roof_texture = wall_atlas1.png; roof_texture_atlas_cell = 1 2 4 4 0.004; roof_texture_scale = 5 5; roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_texture_scale = 30 30;</desc>
     </rect>
     <text
@@ -8926,13 +8926,13 @@ detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; 1st_floo
        id="mesh_template9-14"
        style="display:inline;fill:#855e00;fill-opacity:1;stroke:none;enable-background:new">
       <desc
-         id="desc7569-7-1-1-0-37-49-0-3">name = hedgehog; 
+         id="desc7569-7-1-1-0-37-49-0-3">name = hedgehog;
 mesh_name = hedgehog.mesh;
-texture0 = world_atlas1.png; 
-texture0_atlas_cell = 7 0 64 64; 
-collision_model_type = 1; 
-collision_model_size = 1.2 1.2 1.2; 
-penetrability = 0.4; 
+texture0 = world_atlas1.png;
+texture0_atlas_cell = 7 0 64 64;
+collision_model_type = 1;
+collision_model_size = 1.2 1.2 1.2;
+penetrability = 0.4;
 see_through = 1;</desc>
     </rect>
     <rect
@@ -9461,8 +9461,8 @@ see_through = 1;</desc>
        y="396.86087"
        inkscape:label="#material">
       <desc
-         id="desc9346-0-9">name = BuildingVilla; color = stroke; color_variance = 0.0 0.1 0.1; # panel side; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 0 1 8 8 0.0078125 0.0078125; 
-detail_texture_scale = 3.0 3.0; 
+         id="desc9346-0-9">name = BuildingVilla; color = stroke; color_variance = 0.0 0.1 0.1; # panel side; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 0 1 8 8 0.0078125 0.0078125;
+detail_texture_scale = 3.0 3.0;
 detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; atlas_texture = building_atlas2.png; 1st_floor_1 = house; 1st_floor_2 = house; 1st_floor_3 = house; 1st_floor_4 = house; other_floor_1 = house; other_floor_2 = house; other_floor_3 = house; other_floor_4 = house; roof_color = fill; roof_color_variance = 0.01 0.1 0.1; roof_texture = wall_atlas1.png;
 roof_texture_atlas_cell = 0 4 8 8 0.0078125 0.03125;
 roof_texture_scale = 1.5 1.5; #roof_texture_rect = 0 0 1 1; roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_texture_scale = 15 15;</desc>
@@ -11872,19 +11872,19 @@ see_through = 1;</desc>
        id="rect9344-60-7-4-5-4-6-2-5-2"
        style="display:inline;fill:url(#pattern8072);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;enable-background:new">
       <desc
-         id="desc9346-8-2-1-6-2-7-3-9-7">name = RuinWall1; 
-#color = fill; 
-depth = 0.8; 
-height = 3.0; 
-side_texture = none; 
-#side_texture_scale = 2.0 1.25; 
-#side_texture_atlas_cell = 0 1 4 4 0.015625; separator_side_texture = none; #separator_side_texture_scale = 0.2 1.0; #separator_side_texture_atlas_cell = 2 1 4 4 0.03125 0.015625; 
-separator_top_texture = none; #separator_top_texture_scale = 0.2 1.0; #separator_top_texture_atlas_cell = 2 1 4 4 0.03125 0.03125; 
-#separator_color = stroke; 
-separator_over_height = 0.0; 
-separator_depth = 0.0; 
-penetrability = 0.0; 
-see_through = 0; 
+         id="desc9346-8-2-1-6-2-7-3-9-7">name = RuinWall1;
+#color = fill;
+depth = 0.8;
+height = 3.0;
+side_texture = none;
+#side_texture_scale = 2.0 1.25;
+#side_texture_atlas_cell = 0 1 4 4 0.015625; separator_side_texture = none; #separator_side_texture_scale = 0.2 1.0; #separator_side_texture_atlas_cell = 2 1 4 4 0.03125 0.015625;
+separator_top_texture = none; #separator_top_texture_scale = 0.2 1.0; #separator_top_texture_atlas_cell = 2 1 4 4 0.03125 0.03125;
+#separator_color = stroke;
+separator_over_height = 0.0;
+separator_depth = 0.0;
+penetrability = 0.0;
+see_through = 0;
 climbable = 0;
 
 </desc>
@@ -11898,19 +11898,19 @@ climbable = 0;
        id="rect9344-60-7-4-5-4-6-2-5-2-3"
        style="display:inline;fill:url(#pattern8068);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;enable-background:new">
       <desc
-         id="desc9346-8-2-1-6-2-7-3-9-7-3">name = RuinWall2; 
-#color = fill; 
-depth = 0.8; 
-height = 3.0; 
-side_texture = none; 
-#side_texture_scale = 2.0 1.25; 
-#side_texture_atlas_cell = 0 1 4 4 0.015625; separator_side_texture = none; #separator_side_texture_scale = 0.2 1.0; #separator_side_texture_atlas_cell = 2 1 4 4 0.03125 0.015625; 
-separator_top_texture = none; #separator_top_texture_scale = 0.2 1.0; #separator_top_texture_atlas_cell = 2 1 4 4 0.03125 0.03125; 
-#separator_color = stroke; 
-separator_over_height = 0.0; 
-separator_depth = 0.0; 
-penetrability = 0.0; 
-see_through = 0; 
+         id="desc9346-8-2-1-6-2-7-3-9-7-3">name = RuinWall2;
+#color = fill;
+depth = 0.8;
+height = 3.0;
+side_texture = none;
+#side_texture_scale = 2.0 1.25;
+#side_texture_atlas_cell = 0 1 4 4 0.015625; separator_side_texture = none; #separator_side_texture_scale = 0.2 1.0; #separator_side_texture_atlas_cell = 2 1 4 4 0.03125 0.015625;
+separator_top_texture = none; #separator_top_texture_scale = 0.2 1.0; #separator_top_texture_atlas_cell = 2 1 4 4 0.03125 0.03125;
+#separator_color = stroke;
+separator_over_height = 0.0;
+separator_depth = 0.0;
+penetrability = 0.0;
+see_through = 0;
 climbable = 1;
 
 </desc>
@@ -11957,8 +11957,8 @@ cord_offset4 = +1.5 0 0;
       <desc
          id="desc11579-7">name = post1_3;
 mesh_name = post1_3.mesh;
-texture0 = world_atlas1.png; 
-texture0_atlas_cell = 11 16 32 32; 
+texture0 = world_atlas1.png;
+texture0_atlas_cell = 11 16 32 32;
 collision_model_type = 0;
 collision_model_size =0.4 8.5 0.4;</desc>
     </rect>
@@ -11973,8 +11973,8 @@ collision_model_size =0.4 8.5 0.4;</desc>
       <desc
          id="desc11579-0">name = post1_4;
 mesh_name = post1_4.mesh;
-texture0 = world_atlas1.png; 
-texture0_atlas_cell = 11 16 32 32; 
+texture0 = world_atlas1.png;
+texture0_atlas_cell = 11 16 32 32;
 collision_model_type = 0;
 collision_model_size =0.4 10.0 0.4;</desc>
     </rect>
@@ -12027,24 +12027,24 @@ cord_offset3 = +0.5 0 0;
        y="-3.5644996"
        inkscape:label="#wall_template">
       <desc
-         id="desc9346-8-2-4-2">name = SandbagWall1; 
-color = fill; 
-depth = 0.6; 
-height = 1.325; 
-side_texture = wall_atlas1.png; 
-side_texture_scale = 2.65 2.65; 
-side_texture_atlas_cell = 1 0 8 8 0.0078125; 
-top_texture = wall_atlas1.png; 
-top_texture_atlas_cell = 1 8 8 16 0.0078125 0.015625; 
+         id="desc9346-8-2-4-2">name = SandbagWall1;
+color = fill;
+depth = 0.6;
+height = 1.325;
+side_texture = wall_atlas1.png;
+side_texture_scale = 2.65 2.65;
+side_texture_atlas_cell = 1 0 8 8 0.0078125;
+top_texture = wall_atlas1.png;
+top_texture_atlas_cell = 1 8 8 16 0.0078125 0.015625;
 top_texture_scale = 2.65 2.65;
-separator_side_texture = wall_atlas1.png; 
+separator_side_texture = wall_atlas1.png;
 separator_side_texture_scale = 0.6 2.65;
-separator_side_texture_atlas_cell = 6 3 16 8 0.015625 0.0078125; 
-separator_top_texture = wall_atlas1.png; 
-separator_top_texture_scale = 0.6 0.6; 
-separator_top_texture_atlas_cell = 6 5 16 16  0.015625  0.015625; 
-separator_color = #938c7d; 
-separator_over_height = 0.1; 
+separator_side_texture_atlas_cell = 6 3 16 8 0.015625 0.0078125;
+separator_top_texture = wall_atlas1.png;
+separator_top_texture_scale = 0.6 0.6;
+separator_top_texture_atlas_cell = 6 5 16 16  0.015625  0.015625;
+separator_color = #938c7d;
+separator_over_height = 0.1;
 separator_depth = 0.7;</desc>
     </rect>
     <rect
@@ -12090,13 +12090,13 @@ visual_hitbox_size = 3.5 15 3.5;
        id="rect9036-2-2-4-2-83-1"
        style="display:inline;fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;enable-background:new">
       <desc
-         id="desc9040-4-3-2-0-75-7">name = parasol_blue; 
-mesh_name = parasol.mesh; 
-texture0 = world_atlas1.png; 
-texture0_atlas_cell = 4 0 32 32; 
-collision_model_type = 0; 
-penetrability = 0.2; 
-see_through = 1; 
+         id="desc9040-4-3-2-0-75-7">name = parasol_blue;
+mesh_name = parasol.mesh;
+texture0 = world_atlas1.png;
+texture0_atlas_cell = 4 0 32 32;
+collision_model_type = 0;
+penetrability = 0.2;
+see_through = 1;
 collision_model_size = 0.1 2.0 0.1;
 
 visual_hitbox_size = 2 2 2;
@@ -12111,13 +12111,13 @@ visual_hitbox_size = 2 2 2;
        id="rect9036-2-2-4-2-83-1-8"
        style="display:inline;fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;enable-background:new">
       <desc
-         id="desc9040-4-3-2-0-75-7-8">name = parasol_yellow; 
-mesh_name = parasol.mesh; 
-texture0 = world_atlas1.png; 
-texture0_atlas_cell = 4 1 32 32; 
-collision_model_type = 0; 
-penetrability = 0.2; 
-see_through = 1; 
+         id="desc9040-4-3-2-0-75-7-8">name = parasol_yellow;
+mesh_name = parasol.mesh;
+texture0 = world_atlas1.png;
+texture0_atlas_cell = 4 1 32 32;
+collision_model_type = 0;
+penetrability = 0.2;
+see_through = 1;
 collision_model_size = 0.1 2.0 0.1;
 
 visual_hitbox_size = 2 2 2;
@@ -12132,13 +12132,13 @@ visual_hitbox_size = 2 2 2;
        id="rect9036-2-2-4-2-83-1-2"
        style="display:inline;fill:#0e5500;fill-opacity:0.79607843;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;enable-background:new">
       <desc
-         id="desc9040-4-3-2-0-75-7-4">name = parasol_green; 
-mesh_name = parasol.mesh; 
-texture0 = world_atlas1.png; 
-texture0_atlas_cell = 5 0 32 32; 
-collision_model_type = 0; 
-penetrability = 0.2; 
-see_through = 1; 
+         id="desc9040-4-3-2-0-75-7-4">name = parasol_green;
+mesh_name = parasol.mesh;
+texture0 = world_atlas1.png;
+texture0_atlas_cell = 5 0 32 32;
+collision_model_type = 0;
+penetrability = 0.2;
+see_through = 1;
 collision_model_size = 0.1 2.0 0.1;
 
 visual_hitbox_size = 2 2 2;
@@ -12153,13 +12153,13 @@ visual_hitbox_size = 2 2 2;
        id="rect9036-2-2-4-2-83-16"
        style="display:inline;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;enable-background:new">
       <desc
-         id="desc9040-4-3-2-0-75-8">name = parasol_red; 
-mesh_name = parasol.mesh; 
-texture0 = world_atlas1.png; 
-texture0_atlas_cell = 5 1 32 32; 
-collision_model_type = 0; 
-penetrability = 0.2; 
-see_through = 1; 
+         id="desc9040-4-3-2-0-75-8">name = parasol_red;
+mesh_name = parasol.mesh;
+texture0 = world_atlas1.png;
+texture0_atlas_cell = 5 1 32 32;
+collision_model_type = 0;
+penetrability = 0.2;
+see_through = 1;
 collision_model_size = 0.1 2.0 0.1;
 
 visual_hitbox_size = 2 2 2;
@@ -12344,7 +12344,7 @@ visual_hitbox_size = 2 2 2;
        id="spawn1-1-4-2-1-1-0-6-2-4"
        style="display:inline;fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:12.00000088, 12.00000088;stroke-dashoffset:4.60000038;stroke-opacity:1;enable-background:new">
       <desc
-         id="desc7082-7-0-45-7-9-2-8-8-1">type = vehicle; 
+         id="desc7082-7-0-45-7-9-2-8-8-1">type = vehicle;
 key = cargo_truck.vehicle;</desc>
     </rect>
     <text
@@ -13303,21 +13303,21 @@ key = radar_truck.vehicle;</desc>
        y="199.74619"
        inkscape:label="#wall_template">
       <desc
-         id="desc9346-8-2-1-6-2-7-2-7">name = TennisNet; 
-color = fill; 
-depth = -1.0; 
-height = 1.0; 
-side_texture = fence_atlas1.png; 
-side_texture_scale = 1.0 0.625; 
-side_texture_atlas_cell = 0 1 4 4 0.015625; separator_side_texture = wall_atlas1.png; separator_side_texture_scale = 0.2 1.0; separator_side_texture_atlas_cell = 6 3 8 4 0.03125 0.015625; 
-separator_top_texture = wall_atlas1.png; separator_top_texture_scale = 0.2 1.0; separator_top_texture_atlas_cell = 6 5 8 8 0.03125 0.03125; 
-separator_color = stroke; 
-separator_over_height = 0.0; 
-separator_depth = 0.2; 
-penetrability = 1.0; 
-see_through = 1; 
+         id="desc9346-8-2-1-6-2-7-2-7">name = TennisNet;
+color = fill;
+depth = -1.0;
+height = 1.0;
+side_texture = fence_atlas1.png;
+side_texture_scale = 1.0 0.625;
+side_texture_atlas_cell = 0 1 4 4 0.015625; separator_side_texture = wall_atlas1.png; separator_side_texture_scale = 0.2 1.0; separator_side_texture_atlas_cell = 6 3 8 4 0.03125 0.015625;
+separator_top_texture = wall_atlas1.png; separator_top_texture_scale = 0.2 1.0; separator_top_texture_atlas_cell = 6 5 8 8 0.03125 0.03125;
+separator_color = stroke;
+separator_over_height = 0.0;
+separator_depth = 0.2;
+penetrability = 1.0;
+see_through = 1;
 climb_type = 0;
-hack1 = 1; 
+hack1 = 1;
 </desc>
     </rect>
     <rect
@@ -13359,20 +13359,20 @@ hack1 = 1;</desc>
        y="670.75806"
        inkscape:label="#wall_template">
       <desc
-         id="desc9346-8-2-1-6-4-2">name = PoolWall; 
-color = fill; 
-depth = 0.6; 
-height = 1.1; 
-side_texture = wall_atlas1.png; 
-side_texture_scale = 5.0 5.0; 
-side_texture_atlas_cell = 2 3 8 8 0.0078125; #side_cutout_texture = cutout.png; #detail_cutout_texture_channel = 1; #side_cutout_texture_scale = 20 20; 
-top_texture = wall_atlas1.png; 
-top_texture_atlas_cell = 0 4 8 16 0.0078125 0.015625; top_texture_scale = 2.0 0.4; 
-# plain; 
-separator_side_texture = wall_atlas1.png; separator_side_texture_atlas_cell = 2 1 8 8 0.0078125; separator_texture_scale = 3 3; 
-# plain; 
-separator_top_texture = wall_atlas1.png; separator_top_texture_atlas_cell = 2 1 8 8 0.0078125; separator_top_texture_scale = 3 3; separator_color = fill; 
-separator_over_height = 0.0; 
+         id="desc9346-8-2-1-6-4-2">name = PoolWall;
+color = fill;
+depth = 0.6;
+height = 1.1;
+side_texture = wall_atlas1.png;
+side_texture_scale = 5.0 5.0;
+side_texture_atlas_cell = 2 3 8 8 0.0078125; #side_cutout_texture = cutout.png; #detail_cutout_texture_channel = 1; #side_cutout_texture_scale = 20 20;
+top_texture = wall_atlas1.png;
+top_texture_atlas_cell = 0 4 8 16 0.0078125 0.015625; top_texture_scale = 2.0 0.4;
+# plain;
+separator_side_texture = wall_atlas1.png; separator_side_texture_atlas_cell = 2 1 8 8 0.0078125; separator_texture_scale = 3 3;
+# plain;
+separator_top_texture = wall_atlas1.png; separator_top_texture_atlas_cell = 2 1 8 8 0.0078125; separator_top_texture_scale = 3 3; separator_color = fill;
+separator_over_height = 0.0;
 separator_depth = 0.6;</desc>
     </rect>
     <rect
@@ -13384,26 +13384,26 @@ separator_depth = 0.6;</desc>
        y="468.25342"
        inkscape:label="#material">
       <desc
-         id="desc9346-0-1">name = BuildingHouse2; 
-color = fill; 
-# panel side; 
+         id="desc9346-0-1">name = BuildingHouse2;
+color = fill;
+# panel side;
 detail_texture = wall_atlas1.png;
 detail_texture_atlas_cell = 0 1 8 8 0.0078125;
-detail_texture_scale = 3 3; 
-detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; 
-detail_cutout_texture_scale = 10 10; 
-1st_floor_1 = house2_1st_floor; 
-1st_floor_2 = house2_1st_floor; 
-1st_floor_3 = house2_1st_floor; 
-1st_floor_4 = house2_1st_floor; 
-other_floor_1 = apartment1; 
-other_floor_2 = apartment1; 
-other_floor_3 = apartment1; 
-other_floor_4 = apartment1; 
-roof_color = stroke; 
-roof_texture = wall_atlas1.png; 
+detail_texture_scale = 3 3;
+detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1;
+detail_cutout_texture_scale = 10 10;
+1st_floor_1 = house2_1st_floor;
+1st_floor_2 = house2_1st_floor;
+1st_floor_3 = house2_1st_floor;
+1st_floor_4 = house2_1st_floor;
+other_floor_1 = apartment1;
+other_floor_2 = apartment1;
+other_floor_3 = apartment1;
+other_floor_4 = apartment1;
+roof_color = stroke;
+roof_texture = wall_atlas1.png;
 roof_texture_atlas_cell = 0 4 8 8;
-roof_texture_scale = 3 3; 
+roof_texture_scale = 3 3;
 roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_texture_scale = 15 15;</desc>
     </rect>
     <rect
@@ -13539,11 +13539,11 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
   <g
      inkscape:groupmode="layer"
      id="layer25"
-     inkscape:label="safezones_overlay_tdm"
+     inkscape:label="safezones_overlay_hr"
      style="display:none">
     <path
-       style="fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:1.80000007;display:inline;enable-background:new"
-       d="m -69.71875,-102.21875 0,2196.43755 2227.40625,0 0,-2196.43755 -2227.40625,0 z m 612.78125,866.125 896.5937,0 0,574.15625 -896.5937,0 0,-574.15625 z"
+       style="display:inline;fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.80000007;stroke-opacity:1;enable-background:new"
+       d="M -69.71875,-102.21875 V 2094.2188 H 2157.6875 V -102.21875 Z m 612.78125,866.125 h 896.5937 V 1338.0625 H 543.0625 Z"
        id="path26126"
        inkscape:connector-curvature="0">
       <desc
@@ -13552,24 +13552,24 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
     <text
        id="text26138"
        y="671.19049"
-       x="275.77399"
+       x="303.77399"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:Impact;-inkscape-font-specification:'Sans Bold';letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;enable-background:new"
        xml:space="preserve"><tspan
          y="671.19049"
-         x="275.77399"
+         x="303.77399"
          id="tspan26140"
          sodipodi:role="line"
-         style="font-size:200px;line-height:1.25">TEAM DEATHMATCH</tspan></text>
+         style="font-size:200px;line-height:1.25">HOSTAGE RESCUE</tspan></text>
   </g>
   <g
-     inkscape:label="safezones_overlay_th"
+     inkscape:label="safezones_overlay_as"
      id="g7918"
      inkscape:groupmode="layer"
      style="display:none">
     <path
        id="path7920"
-       d="m -69.71875,-102.21875 0,2196.43755 2227.40625,0 0,-2196.43755 -2227.40625,0 z m 612.78125,866.125 896.5937,0 0,574.15625 -896.5937,0 0,-574.15625 z"
-       style="fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:1.80000007;display:inline;enable-background:new"
+       d="M -69.71875,-102.21875 V 2094.2188 H 2157.6875 V -102.21875 Z m 612.78125,866.125 h 896.5937 V 1338.0625 H 543.0625 Z"
+       style="display:inline;fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.80000007;stroke-opacity:1;enable-background:new"
        inkscape:connector-curvature="0">
       <desc
          id="desc7922">tag = danger;</desc>
@@ -13577,23 +13577,23 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:Impact;-inkscape-font-specification:'Impact Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;enable-background:new"
-       x="503.55646"
+       x="363.55646"
        y="657.83514"
        id="text26607-9-1"><tspan
          sodipodi:role="line"
          id="tspan26679"
-         x="503.55646"
+         x="363.55646"
          y="657.83514"
-         style="font-size:200px;line-height:1.25">TEDDY HUNT</tspan></text>
+         style="font-size:200px;line-height:1.25">ASSASSINATION</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="g7928"
-     inkscape:label="safezones_overlay_koth"
-     style="display:none">
+     inkscape:label="safezones_overlay_de"
+     style="display:inline">
     <path
-       style="fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:1.80000007;display:inline;enable-background:new"
-       d="m -69.71875,-102.21875 0,2196.43755 2227.40625,0 0,-2196.43755 -2227.40625,0 z m 612.78125,866.125 896.5937,0 0,574.15625 -896.5937,0 0,-574.15625 z"
+       style="display:inline;fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.80000007;stroke-opacity:1;enable-background:new"
+       d="M -69.71875,-102.21875 V 2094.2188 H 2157.6875 V -102.21875 Z m 612.78125,866.125 h 896.5937 V 1338.0625 H 543.0625 Z"
        id="path7930"
        inkscape:connector-curvature="0">
       <desc
@@ -13602,14 +13602,14 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:Impact;-inkscape-font-specification:'Impact Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;enable-background:new"
-       x="341.78024"
+       x="503.78024"
        y="663.46173"
        id="text26607-9-1-9"><tspan
          sodipodi:role="line"
          id="tspan26702"
-         x="341.78024"
+         x="503.78024"
          y="663.46173"
-         style="font-size:200px;line-height:1.25">KING OF THE HILL</tspan></text>
+         style="font-size:200px;line-height:1.25">DEMOLITION</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -16452,9 +16452,9 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
       <path
          style="color:#000000;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:new"
          d="m 770.49609,941.75391 -7.2207,6.63476 -1.00586,-2.23828 -18.39258,8.26953 -0.89843,-0.52734 -9.48438,16.17578 10.56836,6.19531 6.10742,-10.41797 12.26953,-5.51758 4.07617,4.43555 8.06641,-7.41211 9.51172,10.39649 3.20898,11.7207 -0.7207,9.42773 -8.0918,7.05664 4.93165,5.65428 -5.88868,1.6133 4.22461,15.4316 15.19141,-4.1601 -2.70313,-9.8672 9.12305,-7.95508 -2.14844,-2.46289 1.15235,-15.07226 0.59961,-0.16407 -0.45899,-1.67773 0.0586,-0.77539 -0.27735,-0.0215 -3.8125,-13.92187 -3.44336,0.94336 0.23438,-0.21485 -15.52539,-16.96875 -2.74024,2.50782 -6.51172,-7.08789 z"
-         transform="translate(0,-1024)"
          id="rect17405"
-         inkscape:connector-curvature="0">
+         inkscape:connector-curvature="0"
+         transform="translate(0,-1024)">
         <desc
            id="desc17438">height=4; material = BuildingWhite1; offset = 0 0.1 0;</desc>
       </path>
@@ -19310,8 +19310,8 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
          height="8.0654364"
          width="7.6234946"
          id="rect5174-0-0-1-9-0-4-1-3-839"
-         style="fill:#009700;fill-opacity:1;stroke:none;display:inline;filter:url(#filter11084-17-0-3-14-91);enable-background:new"
-         transform="matrix(0.96624098,-0.25763999,0.25763999,0.96624098,132.44942,4560.3886)"
+         style="display:inline;fill:#009700;fill-opacity:1;stroke:none;filter:url(#filter11084-17-0-3-14-91);enable-background:new"
+         transform="rotate(-14.930073,17475.788,1771.4294)"
          inkscape:transform-center-x="309.49616"
          inkscape:transform-center-y="171.24615">
         <desc
@@ -19926,7 +19926,7 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
         <desc
            id="desc127677-6">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = world_atlas1.png; 
+texture0 = world_atlas1.png;
 texture0_atlas_cell = 8 8 16 16;
 offset = 0 -1.05 0;
 </desc>
@@ -19943,7 +19943,7 @@ offset = 0 -1.05 0;
            d="m 672.639,1217.0358 3.0089,-9.6896 8.6226,2.5884 -2.8881,10.6474 23.2591,6.0819 -4.6135,15.2444 -32.0795,-9.7545"
            style="fill:none;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;enable-background:new">
           <desc
-             id="desc7945-4-0-2-6-8-7-20">type = end; wall = farm; #sidewall = none; wall_template = PoolWall; wall_height = 0.1; 
+             id="desc7945-4-0-2-6-8-7-20">type = end; wall = farm; #sidewall = none; wall_template = PoolWall; wall_height = 0.1;
 height = 0;
 separator_size = 0;
 separator_height = 0.05;
@@ -19974,7 +19974,7 @@ no_collision_side1;</desc>
            style="fill:none;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;enable-background:new">
           <desc
              id="desc7945-4-0-2-6-8-7-20-17-7">type = end; wall = farm; #sidewall = none; wall_template = PoolWall; wall_height = 0.1;
-height = 0; 
+height = 0;
 top_material = terrain;
 wall_merge = 1;
 no_collision_side2;
@@ -20001,9 +20001,9 @@ no_collision_side1;</desc>
            d="m 680.8876,1220.434 -3.9191,-1.7953 -4.3208,-0.5475"
            style="fill:none;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;enable-background:new">
           <desc
-             id="desc7945-4-0-2-7-4-8">type = end; 
+             id="desc7945-4-0-2-7-4-8">type = end;
 wall_template = InvisibleWall1;
-base_wall_template = InvisibleWall1; 
+base_wall_template = InvisibleWall1;
 mode = bridge;
 wall_height = 0;
 no_collision_side1;
@@ -21901,7 +21901,7 @@ top_material = none;</desc>
          inkscape:transform-center-x="-296.4755"
          inkscape:transform-center-y="-136.82876">
         <desc
-           id="desc47103">name = dock_crane; mesh_name = dock_crane.mesh; 
+           id="desc47103">name = dock_crane; mesh_name = dock_crane.mesh;
 texture0 = world_atlas1.png; texture0_atlas_cell = 4 5 8 8;
 collision_model_type = -1; </desc>
       </rect>
@@ -22835,7 +22835,7 @@ roof_type = flat;</desc>
          id="spawn1-70-1-4-9-17-2-25-2-6-1-9"
          style="fill:#ffd5d5;fill-opacity:1;stroke:#ff00ff;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:11.99999985, 11.99999985;stroke-dashoffset:4.59999986;display:inline;enable-background:new">
         <desc
-           id="desc7082-9-7-0-4-4-3-3-9-2-1-8">type = vehicle; 
+           id="desc7082-9-7-0-4-4-3-3-9-2-1-8">type = vehicle;
 key = mobile_armory.vehicle;</desc>
       </rect>
       <rect
@@ -22861,7 +22861,7 @@ key = special_crate6.vehicle;</desc>
          id="spawn1-70-1-4-9-17-2-25-2-6-1-9-1-4"
          style="fill:#ffd5d5;fill-opacity:1;stroke:#ff00ff;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:12, 12;stroke-dashoffset:4.59999994;display:inline;enable-background:new">
         <desc
-           id="desc7082-9-7-0-4-4-3-3-9-2-1-8-7-8">type = vehicle; 
+           id="desc7082-9-7-0-4-4-3-3-9-2-1-8-7-8">type = vehicle;
 key = mobile_armory.vehicle;</desc>
       </rect>
       <rect
@@ -22898,11 +22898,11 @@ key = mobile_armory.vehicle;</desc>
          inkscape:label="#mesh"
          transform="matrix(0.20687797,-0.97836675,0.97836675,0.20687797,0,0)">
         <desc
-           id="desc22679-6-3-0">name = construction_part_1; 
+           id="desc22679-6-3-0">name = construction_part_1;
 mesh_name = construction_part_1.mesh;
 texture0 = world_atlas1.png; texture0_atlas_cell = 4 3 8 8;
-collision_model_type = 1; 
-collision_model_size = 10.0 0.25 1.0; 
+collision_model_type = 1;
+collision_model_size = 10.0 0.25 1.0;
 walkable = 1; </desc>
       </rect>
       <rect
@@ -22915,12 +22915,42 @@ walkable = 1; </desc>
          inkscape:label="#mesh"
          transform="matrix(-0.10893433,-0.99404895,0.99404895,-0.10893433,0,0)">
         <desc
-           id="desc22679-6-3-0-6">name = construction_part_1; 
+           id="desc22679-6-3-0-6">name = construction_part_1;
 mesh_name = construction_part_1.mesh;
 texture0 = world_atlas1.png; texture0_atlas_cell = 4 3 8 8;
-collision_model_type = 1; 
-collision_model_size = 10.0 0.25 1.0; 
+collision_model_type = 1;
+collision_model_size = 10.0 0.25 1.0;
 walkable = 1; </desc>
+      </rect>
+      <rect
+         inkscape:label=""
+         y="-1214.6962"
+         x="-672.63873"
+         height="4"
+         width="4"
+         id="item_supply2-2-4-11-6-4"
+         style="display:inline;fill:#de8787;fill-opacity:1;enable-background:new"
+         transform="rotate(177.89687)"
+         inkscape:transform-center-x="5.8677515"
+         inkscape:transform-center-y="0.42663047">
+        <desc
+           id="desc33018-1-8">type = weapon_rack;</desc>
+      </rect>
+      <rect
+         style="display:inline;fill:#69c044;fill-opacity:1;stroke:#000000;stroke-width:1.20000005;enable-background:new"
+         id="mesh3-9-9-5-4-6-2-55-9-0-1-3"
+         width="7.1999998"
+         height="9.6000004"
+         x="1183.9902"
+         y="-724.16882"
+         inkscape:label="#mesh"
+         transform="rotate(89.950178)"
+         inkscape:transform-center-x="0.093391188"
+         inkscape:transform-center-y="0.15148088">
+        <title
+           id="title33916-4-7-5-9">armory</title>
+        <desc
+           id="desc6851-7-7-1-6-4-05">template = armory;</desc>
       </rect>
     </g>
     <g
@@ -24315,6 +24345,36 @@ walkable = 1; </desc>
          style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          inkscape:transform-center-x="-248.39616"
          inkscape:transform-center-y="31.971532" />
+      <rect
+         inkscape:label=""
+         y="1068.9041"
+         x="1238.054"
+         height="4"
+         width="4"
+         id="item_supply2-2-4-11-6-4-2"
+         style="display:inline;fill:#de8787;fill-opacity:1;enable-background:new"
+         transform="rotate(-1.8929779)"
+         inkscape:transform-center-x="-5.8691977"
+         inkscape:transform-center-y="-0.40504077">
+        <desc
+           id="desc33018-1-8-2">type = weapon_rack;</desc>
+      </rect>
+      <rect
+         style="display:inline;fill:#69c044;fill-opacity:1;stroke:#000000;stroke-width:1.20000005;enable-background:new"
+         id="mesh3-9-9-5-4-6-2-55-9-0-1-3-7"
+         width="7.1999998"
+         height="9.6000004"
+         x="-1029.6849"
+         y="1267.1172"
+         inkscape:label="#mesh"
+         transform="rotate(-89.839672)"
+         inkscape:transform-center-x="-0.094070599"
+         inkscape:transform-center-y="-0.15116111">
+        <title
+           id="title33916-4-7-5-9-3">armory</title>
+        <desc
+           id="desc6851-7-7-1-6-4-05-7">template = armory;</desc>
+      </rect>
     </g>
   </g>
   <g
@@ -24328,7 +24388,7 @@ walkable = 1; </desc>
        inkscape:label="other"
        style="display:inline">
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-9"
          width="2.2977724"
          height="2.0679491"
@@ -24337,9 +24397,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-234.00394"
          inkscape:transform-center-y="38.996034"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-2"
          width="2.2977724"
          height="2.0679491"
@@ -24348,9 +24408,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-183.50394"
          inkscape:transform-center-y="63.996034"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-5"
          width="2.2977724"
          height="2.0679491"
@@ -24359,9 +24419,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-135.50394"
          inkscape:transform-center-y="90.496034"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-93"
          width="2.2977724"
          height="2.0679491"
@@ -24370,9 +24430,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-168.00394"
          inkscape:transform-center-y="33.996034"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-59"
          width="2.2977724"
          height="2.0679491"
@@ -24381,9 +24441,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-76.503943"
          inkscape:transform-center-y="81.496034"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-4"
          width="2.2977724"
          height="2.0679491"
@@ -24392,9 +24452,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-107.50394"
          inkscape:transform-center-y="-3.0039054"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-6"
          width="2.2977724"
          height="2.0679491"
@@ -24403,9 +24463,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-133.00394"
          inkscape:transform-center-y="-74.003905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-1"
          width="2.2977724"
          height="2.0679491"
@@ -24414,9 +24474,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-25.503943"
          inkscape:transform-center-y="29.996034"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-7"
          width="2.2977724"
          height="2.0679491"
@@ -24425,9 +24485,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="157.99606"
          inkscape:transform-center-y="19.996034"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-96"
          width="2.2977724"
          height="2.0679491"
@@ -24436,9 +24496,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="159.99606"
          inkscape:transform-center-y="-68.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-54"
          width="2.2977724"
          height="2.0679491"
@@ -24447,9 +24507,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-53.003943"
          inkscape:transform-center-y="-61.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-8"
          width="2.2977724"
          height="2.0679491"
@@ -24458,9 +24518,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-15.503943"
          inkscape:transform-center-y="-59.003905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-22"
          width="2.2977724"
          height="2.0679491"
@@ -24469,9 +24529,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="23.496118"
          inkscape:transform-center-y="-62.003905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46"
          width="2.2977724"
          height="2.0679491"
@@ -24480,9 +24540,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-138.50394"
          inkscape:transform-center-y="-24.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-4"
          width="2.2977724"
          height="2.0679491"
@@ -24491,9 +24551,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-67.503943"
          inkscape:transform-center-y="41.996034"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-43"
          width="2.2977724"
          height="2.0679491"
@@ -24502,9 +24562,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-34.003943"
          inkscape:transform-center-y="13.496034"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-2"
          width="2.2977724"
          height="2.0679491"
@@ -24513,9 +24573,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="141.49606"
          inkscape:transform-center-y="21.996034"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-21"
          width="2.2977724"
          height="2.0679491"
@@ -24524,9 +24584,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="139.99606"
          inkscape:transform-center-y="2.9960336"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-6"
          width="2.2977724"
          height="2.0679491"
@@ -24535,9 +24595,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-166.50394"
          inkscape:transform-center-y="11.496034"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-3"
          width="2.2977724"
          height="2.0679491"
@@ -24546,9 +24606,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-216.00394"
          inkscape:transform-center-y="94.996034"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-7"
          width="2.2977724"
          height="2.0679491"
@@ -24557,9 +24617,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-245.50394"
          inkscape:transform-center-y="-32.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-0"
          width="2.2977724"
          height="2.0679491"
@@ -24568,9 +24628,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="282.49606"
          inkscape:transform-center-y="-24.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-35"
          width="2.2977724"
          height="2.0679491"
@@ -24579,9 +24639,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="241.99606"
          inkscape:transform-center-y="-64.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-8"
          width="2.2977724"
          height="2.0679491"
@@ -24590,9 +24650,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="183.99606"
          inkscape:transform-center-y="-47.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-66"
          width="2.2977724"
          height="2.0679491"
@@ -24601,9 +24661,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="301.49606"
          inkscape:transform-center-y="158.99603"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-68"
          width="2.2977724"
          height="2.0679491"
@@ -24612,9 +24672,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-142.00394"
          inkscape:transform-center-y="15.996034"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         transform="scale(-1,-1)"
+         transform="scale(-1)"
          inkscape:transform-center-y="-0.11346347"
          inkscape:transform-center-x="279.21469"
          inkscape:label="#spawnrect10748"
@@ -24623,9 +24683,9 @@ walkable = 1; </desc>
          height="2.0679491"
          width="2.2977724"
          id="rect17634"
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new" />
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new" />
       <rect
-         transform="scale(-1,-1)"
+         transform="scale(-1)"
          inkscape:transform-center-y="-43.050902"
          inkscape:transform-center-x="232.96469"
          inkscape:label="#spawnrect10748"
@@ -24634,9 +24694,9 @@ walkable = 1; </desc>
          height="2.0679491"
          width="2.2977724"
          id="rect17636"
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new" />
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new" />
       <rect
-         transform="scale(-1,-1)"
+         transform="scale(-1)"
          inkscape:transform-center-y="-40.771971"
          inkscape:transform-center-x="-222.85196"
          inkscape:label="#spawnrect10748"
@@ -24645,9 +24705,9 @@ walkable = 1; </desc>
          height="2.0679491"
          width="2.2977724"
          id="rect17638"
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new" />
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new" />
       <rect
-         transform="scale(-1,-1)"
+         transform="scale(-1)"
          inkscape:transform-center-y="-94.335326"
          inkscape:transform-center-x="-192.77262"
          inkscape:label="#spawnrect10748"
@@ -24656,9 +24716,9 @@ walkable = 1; </desc>
          height="2.0679491"
          width="2.2977724"
          id="rect17640"
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new" />
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new" />
       <rect
-         transform="scale(-1,-1)"
+         transform="scale(-1)"
          inkscape:transform-center-y="-2.9417105"
          inkscape:transform-center-x="-239.46904"
          inkscape:label="#spawnrect10748"
@@ -24667,9 +24727,9 @@ walkable = 1; </desc>
          height="2.0679491"
          width="2.2977724"
          id="rect17642"
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new" />
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new" />
       <rect
-         transform="scale(-1,-1)"
+         transform="scale(-1)"
          inkscape:transform-center-y="-8.7752677"
          inkscape:transform-center-x="-217.7255"
          inkscape:label="#spawnrect10748"
@@ -24678,9 +24738,9 @@ walkable = 1; </desc>
          height="2.0679491"
          width="2.2977724"
          id="rect17644"
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new" />
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new" />
       <rect
-         transform="scale(-1,-1)"
+         transform="scale(-1)"
          inkscape:transform-center-y="-3.7957755"
          inkscape:transform-center-x="239.65353"
          inkscape:label="#spawnrect10748"
@@ -24689,9 +24749,9 @@ walkable = 1; </desc>
          height="2.0679491"
          width="2.2977724"
          id="rect17646"
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new" />
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new" />
       <rect
-         transform="scale(-1,-1)"
+         transform="scale(-1)"
          inkscape:transform-center-y="-72.753905"
          inkscape:transform-center-x="279.24606"
          inkscape:label="#spawnrect10748"
@@ -24700,9 +24760,9 @@ walkable = 1; </desc>
          height="2.0679491"
          width="2.2977724"
          id="rect17648"
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new" />
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new" />
       <rect
-         transform="scale(-1,-1)"
+         transform="scale(-1)"
          inkscape:transform-center-y="78.496034"
          inkscape:transform-center-x="19.996118"
          inkscape:label="#spawnrect10748"
@@ -24711,9 +24771,9 @@ walkable = 1; </desc>
          height="2.0679491"
          width="2.2977724"
          id="rect17650"
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new" />
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new" />
       <rect
-         transform="scale(-1,-1)"
+         transform="scale(-1)"
          inkscape:transform-center-y="91.746034"
          inkscape:transform-center-x="-29.066443"
          inkscape:label="#spawnrect10748"
@@ -24722,9 +24782,9 @@ walkable = 1; </desc>
          height="2.0679491"
          width="2.2977724"
          id="rect17652"
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new" />
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new" />
       <rect
-         transform="scale(-1,-1)"
+         transform="scale(-1)"
          inkscape:transform-center-y="26.996034"
          inkscape:transform-center-x="14.996118"
          inkscape:label="#spawnrect10748"
@@ -24733,9 +24793,9 @@ walkable = 1; </desc>
          height="2.0679491"
          width="2.2977724"
          id="rect17654"
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new" />
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new" />
       <rect
-         transform="scale(-1,-1)"
+         transform="scale(-1)"
          inkscape:transform-center-y="40.996034"
          inkscape:transform-center-x="46.746057"
          inkscape:label="#spawnrect10748"
@@ -24744,9 +24804,9 @@ walkable = 1; </desc>
          height="2.0679491"
          width="2.2977724"
          id="rect17656"
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new" />
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new" />
       <rect
-         transform="scale(-1,-1)"
+         transform="scale(-1)"
          inkscape:transform-center-y="-125.62475"
          inkscape:transform-center-x="-282.60245"
          inkscape:label="#spawnrect10748"
@@ -24755,9 +24815,9 @@ walkable = 1; </desc>
          height="2.0679491"
          width="2.2977724"
          id="rect17658"
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new" />
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new" />
       <rect
-         transform="scale(-1,-1)"
+         transform="scale(-1)"
          inkscape:transform-center-y="166.94074"
          inkscape:transform-center-x="338.94443"
          inkscape:label="#spawnrect10748"
@@ -24766,9 +24826,9 @@ walkable = 1; </desc>
          height="2.0679491"
          width="2.2977724"
          id="rect17660"
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new" />
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-2-4"
          width="2.2977724"
          height="2.0679491"
@@ -24777,9 +24837,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="78.996057"
          inkscape:transform-center-y="50.496034"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-35-9"
          width="2.2977724"
          height="2.0679491"
@@ -24788,9 +24848,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="241.99606"
          inkscape:transform-center-y="-64.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-35-94"
          width="2.2977724"
          height="2.0679491"
@@ -24799,9 +24859,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="241.99606"
          inkscape:transform-center-y="-64.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-35-8"
          width="2.2977724"
          height="2.0679491"
@@ -24810,9 +24870,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="241.99606"
          inkscape:transform-center-y="-64.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-35-2"
          width="2.2977724"
          height="2.0679491"
@@ -24821,9 +24881,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="241.99606"
          inkscape:transform-center-y="-64.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-35-7"
          width="2.2977724"
          height="2.0679491"
@@ -24832,9 +24892,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="241.99606"
          inkscape:transform-center-y="-64.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-35-87"
          width="2.2977724"
          height="2.0679491"
@@ -24843,9 +24903,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="241.99606"
          inkscape:transform-center-y="-64.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-35-21"
          width="2.2977724"
          height="2.0679491"
@@ -24854,9 +24914,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="241.99606"
          inkscape:transform-center-y="-64.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-35-0"
          width="2.2977724"
          height="2.0679491"
@@ -24865,9 +24925,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="241.99606"
          inkscape:transform-center-y="-64.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-35-1"
          width="2.2977724"
          height="2.0679491"
@@ -24876,9 +24936,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="241.99606"
          inkscape:transform-center-y="-64.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-35-873"
          width="2.2977724"
          height="2.0679491"
@@ -24887,7 +24947,7 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="241.99606"
          inkscape:transform-center-y="-64.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
          inkscape:label=""
          y="205.28619"
@@ -24895,22 +24955,22 @@ walkable = 1; </desc>
          height="4"
          width="4"
          id="item_supply2-2-4-11-6"
-         style="fill:#de8787;fill-opacity:1;display:inline;enable-background:new"
-         transform="matrix(0.72113614,0.69279339,-0.69279339,0.72113614,0,0)"
+         style="display:inline;fill:#de8787;fill-opacity:1;enable-background:new"
+         transform="rotate(43.851638)"
          inkscape:transform-center-x="307.57722"
          inkscape:transform-center-y="-48.283164">
         <desc
            id="desc33018-1">type = weapon_rack;</desc>
       </rect>
       <rect
-         style="fill:#69c044;fill-opacity:1;stroke:#000000;stroke-width:1.20000005;display:inline;enable-background:new"
+         style="display:inline;fill:#69c044;fill-opacity:1;stroke:#000000;stroke-width:1.20000005;enable-background:new"
          id="mesh3-9-9-5-4-6-2-55-9-0-1"
          width="7.1999998"
          height="9.6000004"
          x="-168.32175"
          y="1188.759"
          inkscape:label="#mesh"
-         transform="matrix(0.71818632,-0.69585085,0.69585085,0.71818632,0,0)"
+         transform="rotate(-44.095058)"
          inkscape:transform-center-x="311.76574"
          inkscape:transform-center-y="-52.176577">
         <title
@@ -24925,22 +24985,22 @@ walkable = 1; </desc>
          height="4"
          width="4"
          id="item_supply2-2-4-11-6-0"
-         style="fill:#de8787;fill-opacity:1;display:inline;enable-background:new"
-         transform="matrix(-0.9845082,0.17533856,-0.17533856,-0.9845082,0,0)"
+         style="display:inline;fill:#de8787;fill-opacity:1;enable-background:new"
+         transform="rotate(169.90164)"
          inkscape:transform-center-x="-260.32567"
          inkscape:transform-center-y="-70.739055">
         <desc
            id="desc33018-1-1">type = weapon_rack;</desc>
       </rect>
       <rect
-         style="fill:#69c044;fill-opacity:1;stroke:#000000;stroke-width:1.20000005;display:inline;enable-background:new"
+         style="display:inline;fill:#69c044;fill-opacity:1;stroke:#000000;stroke-width:1.20000005;enable-background:new"
          id="mesh3-9-9-5-4-6-2-55-9-0-1-6"
          width="7.1999998"
          height="9.6000004"
          x="1119.7207"
          y="-1148.7906"
          inkscape:label="#mesh"
-         transform="matrix(0.1399518,0.99015832,-0.99015832,0.1399518,0,0)"
+         transform="rotate(81.954943)"
          inkscape:transform-center-x="-265.9387"
          inkscape:transform-center-y="-71.834325">
         <title
@@ -24949,7 +25009,7 @@ walkable = 1; </desc>
            id="desc6851-7-7-1-6-4-0">template = armory;</desc>
       </rect>
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-35-0-1"
          width="2.2977724"
          height="2.0679491"
@@ -24958,9 +25018,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="241.99606"
          inkscape:transform-center-y="-64.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-35-0-15"
          width="2.2977724"
          height="2.0679491"
@@ -24969,9 +25029,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="241.99606"
          inkscape:transform-center-y="-64.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-35-0-2"
          width="2.2977724"
          height="2.0679491"
@@ -24980,9 +25040,9 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="241.99606"
          inkscape:transform-center-y="-64.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
       <rect
-         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
+         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-46-35-0-7"
          width="2.2977724"
          height="2.0679491"
@@ -24991,7 +25051,7 @@ walkable = 1; </desc>
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="241.99606"
          inkscape:transform-center-y="-64.503905"
-         transform="scale(-1,-1)" />
+         transform="scale(-1)" />
     </g>
   </g>
 </svg>

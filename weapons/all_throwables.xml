@@ -7,5 +7,4 @@
 	<!-- Grenades -->
 	<projectile file="stun_grenade.projectile" />
 	<projectile file="hand_grenade.projectile" />
-	<projectile file="impact_grenade.projectile" />
 </projectiles>

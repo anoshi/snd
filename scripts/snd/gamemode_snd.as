@@ -9,6 +9,7 @@ class GameModeSND : Metagame {
 
 	//protected MapInfo@ m_mapInfo; // already exists in Metagame class
 	protected array<Faction@> m_factions;
+	protected dictionary pendingRPRewards = {}; // queue to store RP rewards to grant to players
 
 	array<Vector3> targetLocations;		// locations where bombs may be placed or hostages may start
 	array<Vector3> extractionPoints;	// locations that units must reach in order to escape
@@ -16,6 +17,7 @@ class GameModeSND : Metagame {
 	int numExtracted = 0;				// the number of hostages safely rescued
 
 	protected bool trackPlayerDeaths = true;
+
 	protected string m_tournamentName = "";
 
 	// --------------------------------------------
@@ -35,8 +37,36 @@ class GameModeSND : Metagame {
 	}
 
 	// --------------------------------------------
+	void uninit() {
+		save();
+	}
+
+	// --------------------------------------------
 	const UserSettings@ getUserSettings() const {
 		return m_userSettings;
+	}
+
+	// --------------------------------------------
+	void save() {
+		_log("** SND: saving metagame!", 1);
+
+		XmlElement commandRoot("command");
+		commandRoot.setStringAttribute("class", "save_data");
+
+		XmlElement root("Search_and_Destroy");
+		XmlElement@ settings = m_userSettings.toXmlElement("settings");
+		root.appendChild(settings);
+
+		commandRoot.appendChild(root);
+
+		getComms().send(commandRoot);
+		_log("** SND: finished saving game settings and player data", 1);
+
+	}
+
+	// --------------------------------------------
+	void load() {
+		_log("** SND: loading metagame!", 1);
 	}
 
 	// --------------------------------------------
@@ -51,7 +81,6 @@ class GameModeSND : Metagame {
 
 		// add tracker for match end to switch to next
 		addTracker(m_mapRotator);
-
 	}
 
 	// --------------------------------------------
@@ -67,6 +96,39 @@ class GameModeSND : Metagame {
 			}
 			_log("** SND: commander_ai disabled for this round", 1);
 		}
+	}
+
+	// --------------------------------------------
+	void addScore(int factionId, int score) {
+		_log("** SND: GameModeSND addScore adding " + score + " points to faction " + factionId, 1);
+	}
+
+	// --------------------------------------------
+	dictionary getPendingRPRewards() {
+		dictionary queued = {};
+		for (uint i = 0; i < pendingRPRewards.getKeys().size(); ++i) {
+			_log("** SND: pendingRPRewards size is: " + pendingRPRewards.getKeys().size() + " and iterator (i) is: " + i, 1);
+			string key = pendingRPRewards.getKeys()[i];
+			queued.set(key, int(pendingRPRewards[key]));
+			pendingRPRewards.delete(key);
+		}
+		return queued;
+	}
+
+	// --------------------------------------------
+	void addRP(int cId, int rp) {
+		string charId = "" + cId + "";
+		if (pendingRPRewards.exists(charId)) {
+			int val = int(pendingRPRewards[charId]);
+			pendingRPRewards[charId] = val + rp;
+		} else {
+			pendingRPRewards.set(charId, rp);
+		}
+	}
+
+	// --------------------------------------------
+	void addXP(int charId, float xp) {
+		// nothing yet grants XP bonuses.
 	}
 
 	// --------------------------------------------
@@ -136,6 +198,94 @@ class GameModeSND : Metagame {
 	array<int> getTrackedCharIds() {
 		// Trackers call this method to retrieve the full list of tracked character IDs
 		return trackedCharIds;
+	}
+
+	// -----------------------------
+	const XmlElement@ getPlayerInventory(int characterId) {
+		_log("** SND: Inspecting character " + characterId + "'s inventory", 1);
+		XmlElement@ query = XmlElement(
+			makeQuery(this, array<dictionary> = {
+				dictionary = {
+					{"TagName", "data"},
+					{"class", "character"},
+					{"id", characterId},
+					{"include_equipment", 1}
+				}
+			})
+		);
+		const XmlElement@ doc = getComms().query(query);
+		return doc.getFirstElementByTagName("character"); //.getElementsByTagName("item")
+
+		// TagName=query_result query_id=22
+		// TagName=character
+		// block=11 17
+		// dead=0
+		// faction_id=0
+		// id=3
+		// leader=1
+		// name=CT: 62
+		// player_id=0
+		// position=375.557 2.74557 609.995
+		// rp=9400
+		// soldier_group_name=default
+		// squad_size=0
+		// wounded=0
+		// xp=0
+
+		// TagName=item amount=1 index=17 key=steyr_aug.weapon slot=0
+		// TagName=item amount=0 index=3 key=9x19mm_sidearm.weapon slot=1
+		// TagName=item amount=1 index=3 key=hand_grenade.projectile slot=2
+		// TagName=item amount=0 index=-1 key= slot=4
+		// TagName=item amount=1 index=3 key=kevlar_plus_helmet.carry_item slot=5
+	}
+
+	// -----------------------------
+	void setPlayerInventory(int characterId, const XmlElement@ kit, bool newPlayer=false) {
+		// container_type_ids (slot=[0-5])
+		// 0 : primary weapon (cannot add directly, put in backpack instead)
+		// 1 : secondary weapon
+		// 2 : grenade
+		// 3 : ?
+		// 4 : armour
+		// 5 : armour
+
+		// assign / override equipment to player character
+		if (newPlayer) {
+			// give the character appropriate starting kit for their faction
+			const XmlElement@ thisChar = getCharacterInfo(this, characterId);
+			int faction = thisChar.getIntAttribute("faction_id");
+			_log("** SND: Equipping new player (id: " + characterId + ") with " + (faction == 0 ? 'Counter Terrorist' : 'Terrorist') + " starting gear", 1);
+			// TODO: equip with starting gear
+		} else {
+			_log("** SND: Updating inventory for player (character_id: " + characterId + ")", 1);
+			// TODO: equip known player with saved inventory.
+			// for (uint j = 0; j < kit.length(); ++j) {
+			// 	XmlElement charInv("command");
+			// 	charInv.setStringAttribute("class", "update_inventory");
+			// 	charInv.setIntAttribute("character_id", characterId);
+			// 	charInv.setIntAttribute("container_type_id", 4); // vest
+			// 	XmlElement iVest("item");
+			// 	iVest.setStringAttribute("class", "carry_item");
+			// 	iVest.setStringAttribute("key", vest);
+			// 	charInv.appendChild(iVest);
+
+			// 	getComms().send(charInv);
+			// }
+		}
+	}
+
+	// -----------------------------
+	array<int> getFactionPlayerCharacterIds(uint faction) {
+		array<int> playerCharIds;
+		array<const XmlElement@> players = getPlayers(this);
+		for (uint i = 0; i < players.size(); ++i) {
+			const XmlElement@ player = players[i];
+			uint factionId = player.getIntAttribute("faction_id");
+			if (factionId == faction) {
+				playerCharIds.insertLast(player.getIntAttribute("character_id"));
+			}
+		}
+		return playerCharIds;
 	}
 
 	// --------------------------------------------
