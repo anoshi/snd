@@ -4,7 +4,7 @@
   description="Plant the bomb or find the bomb. You'll work it out."
   show_in_campaign_menu="1"
   campaign_entry_script="start_snd.as"
-  image="snd_campaign.png">>
+  image="snd_campaign.png">
 
 	<campaign_options
 		faction="1"
