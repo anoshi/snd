@@ -247,7 +247,17 @@ class PlayerTracker : Tracker {
 			string setCharXP = "<command class='xp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_xp + "'></command>";
 			m_metagame.getComms().send(setCharXP);
 			// load up saved inventory
-			// TODO: = spawnedPlayer.m_kit[blah];
+			// primary into backpack, cannot override slot
+			string addPri = "<command class='update_inventory' character_id='" + playerCharId + "' container_type_class='backpack'><item class='weapon' key='" + spawnedPlayer.m_primary + "' /></command>";
+			m_metagame.getComms().send(addPri);
+			string addSec = "<command class='update_inventory' character_id='" + playerCharId + "' container_type_class='backpack'><item class='weapon' key='" + spawnedPlayer.m_secondary + "' /></command>";
+			m_metagame.getComms().send(addSec);
+			for (uint gn = 0; gn < spawnedPlayer.m_grenNum; ++gn) {
+				string addGren = "<command class='update_inventory' character_id='" + playerCharId + "' container_type_id='2'><item class='grenade' key='" + spawnedPlayer.m_grenade + "' /></command>";
+				m_metagame.getComms().send(addGren);
+			}
+			string addArm = "<command class='update_inventory' character_id='" + playerCharId + "' container_type_id='4'><item class='carry_item' key='" + spawnedPlayer.m_armour + "' /></command>";
+			m_metagame.getComms().send(addArm);
 		} else {
 			_log("** SND: Player spawned, but not registered as having connected. Doing nothing...", 1);
 		}
@@ -495,17 +505,11 @@ class PlayerTracker : Tracker {
 					string hash = loadPlayer.getStringAttribute("hash");
 					string sid = loadPlayer.getStringAttribute("sid");
 					string ip = loadPlayer.getStringAttribute("ip");
-
 					string primary = loadPlayer.getStringAttribute("primary");
-					_log("** SND: primary weapon is : " + primary, 1);
 					string secondary = loadPlayer.getStringAttribute("secondary");
-					_log("** SND: secondary weapon is : " + secondary, 1);
 					string grenade = loadPlayer.getStringAttribute("grenade");
-					_log("** SND: grenade is : " + grenade, 1);
 					int grenNum = loadPlayer.getIntAttribute("gren_num");
-					_log("** SND: grenade count is : " + grenNum, 1);
 					string armour = loadPlayer.getStringAttribute("armour");
-					_log("** SND: armour is : " + armour, 1);
 
 					SNDPlayer player(username, hash, sid, ip, -1, primary, secondary, grenade, grenNum, armour);
 					player.m_rp = loadPlayer.getIntAttribute("rp");
@@ -515,7 +519,6 @@ class PlayerTracker : Tracker {
 				}
 			}
 		}
-
 		_log("** SND: PlayerTracker load(): " + m_savedPlayers.size() + " players loaded");
 	}
 
