@@ -381,7 +381,7 @@ class PlayerTracker : Tracker {
 		string key = deadPlayer.getStringAttribute("sid");
 
 		if (m_trackedPlayers.exists(key)) {
-			SNDPlayer@ deadPlayerObj = m_savedPlayers.get(key);
+			SNDPlayer@ deadPlayerObj = m_trackedPlayers.get(key);
 			_log("** SND: Player " + deadPlayerObj.m_username + " has died", 1);
 		}
 
