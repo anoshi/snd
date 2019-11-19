@@ -37,7 +37,7 @@
     <sound key="magazine_out" fileref="pistol2_clip_out.wav" />
     <sound key="magazine_in" fileref="pistol2_clip_in.wav" volume="0.6" />
     <sound key="cycle" fileref="pistol2_chamber.wav" volume="0.6" />
-    <model filename="desert_eagle.xml" />
+    <model filename="deagle.xml" />
 
     <hud_icon filename="hud_desert_eagle.png" />
     <commonness value="0.0" />

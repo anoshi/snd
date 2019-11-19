@@ -8,24 +8,23 @@
 	<weapon key="es_five_seven.weapon" />
 
 	<!-- Sub Machine Guns -->
-	<weapon key="mp5sd.weapon" />
-	<weapon key="p90.weapon" />
+	<weapon key="schmidt_machine_pistol.weapon" />
 
 	<!-- Shotguns -->
-	<weapon key="mossberg.weapon" />
 
 	<!-- Assault Rifles-->
-	<weapon key="m16a4.weapon" />
-	<weapon key="steyr_aug.weapon" />
-	<weapon key="sg552.weapon" />
+	<weapon key="maverick_m4A1_carbine.weapon" />
+	<weapon key="bullpup.weapon" />
+	<weapon key="clarion_556.weapon" />
 
 	<!-- Sniper Rifles -->
-	<weapon key="m24_a2.weapon" />
-	<weapon key="psg90.weapon" />
+	<weapon key="krieg_550_commando.weapon" />
 
 	<!-- Machine Guns -->
-	<weapon key="m240.weapon" />
 
 	<!-- Armour -->
 	<carry_item key="vip_armour.carry_item" enabled="0" />
+
+	<!-- Tactical Shield -->
+	<weapon key="tactical_shield.weapon" />
 </resources>

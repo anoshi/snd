@@ -37,7 +37,7 @@
     <sound key="magazine_out" fileref="pistol_clip_out.wav" />
     <sound key="magazine_in" fileref="pistol_clip_in.wav" volume="0.5" />
     <sound key="cycle" fileref="pistol_chamber.wav" volume="0.5" />
-    <model filename="glock17.xml" />
+    <model filename="five-seven.xml" />
 
     <hud_icon filename="hud_glock17.png" />
     <commonness value="0.0" />

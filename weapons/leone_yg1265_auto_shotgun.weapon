@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<weapon file="base_primary_shotgun.weapon" key="leone_yg1265_auto_shotgun.weapon">
+    <tag name="cqb" />
+    <specification
+  retrigger_time="0.166"
+  accuracy_factor="0.8"
+  sustained_fire_grow_step="2.0"
+  sustained_fire_diminish_rate="0.6"
+  magazine_size="7"
+  can_shoot_standing="1"
+  suppressed="0"
+  name="Leone YG1265 Auto Shotgun"
+  class="4"
+  reload_one_at_a_time="1"
+  sight_range_modifier="1.0"
+  projectile_speed="86.0"
+  projectiles_per_shot="5"
+  burst_shots="1" />
+
+    <animation state_key="recoil" ref="27" />
+    <animation state_key="cycle" ref="28" />
+    <animation state_key="reload" ref="29" />
+    <sound key="fire" fileref="benelli_m4_shot.wav" volume="0.8" />
+    <sound key="cycle" fileref="mossberg500_cycle.wav" />
+    <sound key="reload_one" fileref="mossberg500_reload.wav" />
+    <sound class="impact" fileref="rifle_drop.wav" />
+    <model filename="xm1014.xml" />
+
+    <hud_icon filename="hud_benelli_m4.png" />
+
+    <weak_hand_hold offset="0.2" />
+    <projectile file="bullet.projectile">
+        <result class="hit" kill_probability="0.65" kill_decay_start_time="0.25" kill_decay_end_time="0.32" />
+    </projectile>
+
+    <modifier class="speed" value="+0.0" />
+</weapon>

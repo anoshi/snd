@@ -37,7 +37,7 @@
     <sound key="magazine_out" fileref="pistol_clip_out.wav" />
     <sound key="magazine_in" fileref="pistol_clip_in.wav" volume="0.4" />
     <sound key="cycle" fileref="pistol_chamber.wav" volume="0.4" />
-    <model filename="pb.xml" />
+    <model filename="usp.xml" />
 
     <hud_icon filename="hud_pb.png" />
     <commonness value="0.0" />

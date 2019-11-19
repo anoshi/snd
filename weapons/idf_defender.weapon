@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<weapon file="base_primary.weapon" key="idf_defender.weapon">
+    <tag name="assault" />
+    <specification
+    retrigger_time="0.090"
+    accuracy_factor="1.0"
+    sustained_fire_grow_step="0.6"
+    sustained_fire_diminish_rate="1.0"
+    magazine_size="35"
+    can_shoot_standing="1"
+    suppressed="0"
+    name="IDF Defender"
+    class="0"
+    projectile_speed="100.0" />
+    <animation key="recoil" ref="12" />
+    <animation key="recoil" ref="13" />
+    <animation key="recoil" ref="14" />
+    <animation state_key="reload" animation_key="reloading, aks74u" />
+    <sound key="fire" fileref="aks74u_shot.wav" />
+    <sound key="magazine_out" fileref="rifle_clip_out.wav" />
+    <sound key="magazine_in" fileref="rifle_clip_in.wav" />
+    <sound key="cycle" fileref="rifle_chamber.wav" />
+    <sound class="impact" fileref="rifle_drop.wav" />
+    <model filename="galil.xml" />
+
+    <hud_icon filename="hud_aks74u.png" />
+
+    <projectile file="bullet.projectile">
+        <result class="hit" kill_probability="0.6" kill_decay_start_time="0.38" kill_decay_end_time="0.52" />
+    </projectile>
+</weapon>
