@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <weapon key='glock17.weapon' enabled="1" />
+  <weapon key='9x19mm_sidearm.weapon' enabled="1" />
+  <weapon key='km_45_tactical.weapon' enabled="1" />
 </resources>
