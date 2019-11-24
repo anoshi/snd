@@ -2,18 +2,18 @@
 <weapon file="base_primary.weapon" key="bullpup.weapon">
     <tag name="assault" />
     <specification
-    retrigger_time="0.09"
-    accuracy_factor="1.0"
-    sustained_fire_grow_step="0.36"
-    sustained_fire_diminish_rate="1.0"
-    magazine_size="30"
-    can_shoot_standing="1"
-    suppressed="0"
-    name="Bullpup"
-    class="0"
-    projectile_speed="110.0"
-	sight_range_modifier="1.3"
-	barrel_offset="0.325"
+      retrigger_time="0.09"
+      accuracy_factor="1.0"
+      sustained_fire_grow_step="0.36"
+      sustained_fire_diminish_rate="1.0"
+      magazine_size="30"
+      can_shoot_standing="1"
+      suppressed="0"
+      name="Bullpup"
+      class="0"
+      projectile_speed="110.0"
+      sight_range_modifier="1.3"
+      barrel_offset="0.325"
 	/>
     <animation key="recoil" ref="12" />
     <animation key="recoil" ref="13" />
@@ -29,7 +29,7 @@
     <hud_icon filename="hud_aug.png" />
 
     <projectile file="bullet.projectile">
-        <result class="hit" kill_probability="0.70" kill_decay_start_time="0.45" kill_decay_end_time="0.75" />
+      <result class="hit" kill_probability="0.70" kill_decay_start_time="0.45" kill_decay_end_time="0.75" />
     </projectile>
 	<modifier class="speed" value="-0.04" />
 </weapon>

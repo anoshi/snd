@@ -11,6 +11,10 @@ class SNDPlayer {
 	string m_hash = "";
 	string m_sid = "ID0";
 	string m_ip = "";
+
+	int m_playerId = -1;	// the 'player_id'. Value positive only when player is in-game
+	int m_charId = -1;		// the 'character_id' of the player. Value positive only when player is in-game
+
 	string m_primary = "";
 	string m_secondary = "";
 	string m_grenade = "";
@@ -19,9 +23,6 @@ class SNDPlayer {
 
 	int m_rp;
 	float m_xp;
-
-	int m_playerId = -1;	// the 'player_id'. Value positive only when player is in-game
-	int m_charId = -1;		// the 'character_id' of the player. Value positive only when player is in-game
 
 	// --------------------------------------------
 	SNDPlayer(string username, string hash, string sid, string ip, int id, string pri="", string sec="", string gren="", int grenNum="", string arm="") {
@@ -243,21 +244,11 @@ class PlayerTracker : Tracker {
 			_log("** SND: Grant " + spawnedPlayer.m_rp + " RP and " + spawnedPlayer.m_xp + " XP to " + spawnedPlayer.m_username, 1);
 			string setCharRP = "<command class='rp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_rp + "'></command>";
 			m_metagame.getComms().send(setCharRP);
-			// improve this so only awarding XP in HR and AS missions, to CT units. Useless stat otherwise?
+			// TODO: improve this so only awarding XP in HR and AS missions, to CT units. Useless stat otherwise?
 			string setCharXP = "<command class='xp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_xp + "'></command>";
 			m_metagame.getComms().send(setCharXP);
 			// load up saved inventory
-			// primary into backpack, cannot override slot
-			string addPri = "<command class='update_inventory' character_id='" + playerCharId + "' container_type_class='backpack'><item class='weapon' key='" + spawnedPlayer.m_primary + "' /></command>";
-			m_metagame.getComms().send(addPri);
-			string addSec = "<command class='update_inventory' character_id='" + playerCharId + "' container_type_class='backpack'><item class='weapon' key='" + spawnedPlayer.m_secondary + "' /></command>";
-			m_metagame.getComms().send(addSec);
-			for (uint gn = 0; gn < spawnedPlayer.m_grenNum; ++gn) {
-				string addGren = "<command class='update_inventory' character_id='" + playerCharId + "' container_type_id='2'><item class='grenade' key='" + spawnedPlayer.m_grenade + "' /></command>";
-				m_metagame.getComms().send(addGren);
-			}
-			string addArm = "<command class='update_inventory' character_id='" + playerCharId + "' container_type_id='4'><item class='carry_item' key='" + spawnedPlayer.m_armour + "' /></command>";
-			m_metagame.getComms().send(addArm);
+			m_metagame.setPlayerInventory(pcIdint, false, spawnedPlayer.m_primary, spawnedPlayer.m_secondary, spawnedPlayer.m_grenade, spawnedPlayer.m_grenNum, spawnedPlayer.m_armour);
 		} else {
 			_log("** SND: Player spawned, but not registered as having connected. Doing nothing...", 1);
 		}
@@ -383,6 +374,12 @@ class PlayerTracker : Tracker {
 		if (m_trackedPlayers.exists(key)) {
 			SNDPlayer@ deadPlayerObj = m_trackedPlayers.get(key);
 			_log("** SND: Player " + deadPlayerObj.m_username + " has died", 1);
+			// empty that player's inventory
+			deadPlayerObj.m_primary = "";
+			deadPlayerObj.m_secondary = "";
+			deadPlayerObj.m_grenade = "";
+			deadPlayerObj.m_grenNum = 0;
+			deadPlayerObj.m_armour = "";
 		}
 
 		updateFactionPlayerCounts(deadPlayer.getIntAttribute("faction_id"), -1);
@@ -581,20 +578,31 @@ class PlayerTracker : Tracker {
 							if (invItem == "") {
 								continue;
 							} else {
-								_log("** SND: slot " + k + ": " + invItem, 1);
+								_log("** SND: slot " + k + ": " + (pInv[k].getIntAttribute("amount") > 0 ? invItem : ''), 1);
 								switch (k) {
 									case 0:
-										aPlayer.m_primary = invItem;
+										if (pInv[k].getIntAttribute("amount") > 0) {
+											aPlayer.m_primary = invItem;
+										} else { aPlayer.m_primary = ""; }
 										break;
 									case 1:
-										aPlayer.m_secondary = invItem;
+										if (pInv[k].getIntAttribute("amount") > 0) {
+											aPlayer.m_secondary = invItem;
+										} else { aPlayer.m_secondary = ""; }
 										break;
 									case 2:
-										aPlayer.m_grenade = invItem;
-										aPlayer.m_grenNum = pInv[k].getIntAttribute("amount");
+										if (pInv[k].getIntAttribute("amount") > 0) {
+											aPlayer.m_grenade = invItem;
+											aPlayer.m_grenNum = pInv[k].getIntAttribute("amount");
+										} else {
+											aPlayer.m_grenade = "";
+											aPlayer.m_grenNum = 0;
+										}
 										break;
 									case 4:
-										aPlayer.m_armour = invItem;
+										if (pInv[k].getIntAttribute("amount") > 0) {
+											aPlayer.m_armour = invItem;
+										} else { aPlayer.m_armour = ""; }
 										break;
 									default:
 										_log("** SND: WARNING! untracked slot " + k + "!", 1);

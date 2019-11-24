@@ -2,18 +2,19 @@
 <weapon file="base_primary.weapon" key="clarion_556.weapon">
     <tag name="assault" />
     <specification
-  retrigger_time="0.08"
-  last_burst_retrigger_time="0.25"
-  accuracy_factor="1.0"
-  sustained_fire_grow_step="0.32"
-  sustained_fire_diminish_rate="1.4"
-  magazine_size="25"
-  can_shoot_standing="1"
-  suppressed="0"
-  name="Clarion 5.56"
-  class="4"
-  projectile_speed="100.0"
-  barrel_offset="0.2" />
+      retrigger_time="0.08"
+      last_burst_retrigger_time="0.25"
+      accuracy_factor="1.0"
+      sustained_fire_grow_step="0.32"
+      sustained_fire_diminish_rate="1.4"
+      magazine_size="25"
+      can_shoot_standing="1"
+      suppressed="0"
+      name="Clarion 5.56"
+      class="4"
+      projectile_speed="100.0"
+      barrel_offset="0.2"
+    />
 
     <animation key="recoil" ref="12" />
     <animation key="recoil" ref="13" />
@@ -30,7 +31,7 @@
 
     <weak_hand_hold offset="0.0" />
     <projectile file="bullet.projectile">
-        <result class="hit"  kill_probability="0.55" kill_decay_start_time="0.37" kill_decay_end_time="0.65" />
+      <result class="hit"  kill_probability="0.55" kill_decay_start_time="0.37" kill_decay_end_time="0.65" />
     </projectile>
     <modifier class="speed" value="-0.02" />
 </weapon>

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <weapon on_ground_up="1 0 0" key="tactical_shield.weapon">
-    <specification magazine_size="0"
-    can_shoot_standing="1"
-    can_shoot_crouching="1"
-    can_shoot_prone="0"
-    suppressed="0"
-    name="Tactical Shield"
-    class="3"
-    sight_range_modifier="1"
-    slot="0" />
+    <specification
+        magazine_size="0"
+        can_shoot_standing="1"
+        can_shoot_crouching="1"
+        can_shoot_prone="0"
+        suppressed="0"
+        name="Tactical Shield"
+        class="3"
+        sight_range_modifier="1"
+        slot="0"
+    />
 
     <modifier class="projectile_hit_result" input_character_state="death" output_character_state="none" consumes_item="0" />
     <modifier class="projectile_hit_result" input_character_state="wound" output_character_state="none" consumes_item="0" />

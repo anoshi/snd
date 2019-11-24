@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <weapon file="base_secondary_sidearm.weapon" key="228_compact.weapon">
-    <tag name="assault" />
-
+    <tag name="pistol" />
     <specification
-	retrigger_time="0.30"
-	accuracy_factor="0.95"
-	sustained_fire_grow_step="0.8"
-	sustained_fire_diminish_rate="0.70"
-	magazine_size="13"
-	can_shoot_standing="1"
-    carry_in_two_hands="0"
-	suppressed="0"
-	name="228 COMPACT"
-	class="4"
-	reload_one_at_a_time="0"
-	sight_range_modifier="1.0"
-	projectile_speed="130.0"
-	projectiles_per_shot="1"
-	burst_shots="1"
-    slot="1" />
+        retrigger_time="0.30"
+        accuracy_factor="0.95"
+        sustained_fire_grow_step="0.8"
+        sustained_fire_diminish_rate="0.70"
+        magazine_size="13"
+        can_shoot_standing="1"
+        carry_in_two_hands="0"
+        suppressed="0"
+        name="228 COMPACT"
+        class="4"
+        reload_one_at_a_time="0"
+        sight_range_modifier="1.0"
+        projectile_speed="130.0"
+        projectiles_per_shot="1"
+        burst_shots="1"
+        slot="1"
+    />
 
 	<animation state_key="recoil"	animation_key="recoil, pistol" />
     <animation state_key="reload"	animation_key="reloading, pistol" />
