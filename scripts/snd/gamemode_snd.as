@@ -60,8 +60,7 @@ class GameModeSND : Metagame {
 		commandRoot.appendChild(root);
 
 		getComms().send(commandRoot);
-		_log("** SND: finished saving game settings and player data", 1);
-
+		_log("** SND: finished saving game settings", 1);
 	}
 
 	// --------------------------------------------
@@ -86,7 +85,7 @@ class GameModeSND : Metagame {
 	// --------------------------------------------
 	void disableCommanderAI(bool commanderAI=true) {
 		// Trackers call this method to disable Commander AI on a per-map basis
-		// with no commander to give orders, AI units stand stay put until added to a players squad
+		// with no commander to give orders, AI units stand stay put until added to a player's squad
 		if (commanderAI == false) {
 			return; // RWR enables the AI / bot commander by default
 		} else {
@@ -257,7 +256,7 @@ class GameModeSND : Metagame {
 			// give the character appropriate starting kit for their faction
 			_log("** SND: Equipping new player (id: " + characterId + ") with " + (faction == 0 ? 'Counter Terrorist' : 'Terrorist') + " starting gear", 1);
 			// TODO: equip with starting gear
-			string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + (faction == 0 ? 'km_45_tactical.weapon' : '9x19mm_sidearm.weapon') + "' /></command>";
+			string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon') + "' /></command>";
 			getComms().send(addSec);
 		} else {
 			_log("** SND: Updating inventory for player (character_id: " + characterId + ")", 1);
@@ -271,8 +270,8 @@ class GameModeSND : Metagame {
 				getComms().send(addSec);
 			} else {
 				// you always get a pistol if you aren't carrying one
-				_log("** SND: Character " + characterId + " has no sidearm. Granting a free " + (faction == 0 ? 'km_45_tactical.weapon' : '9x19mm_sidearm.weapon'), 1);
-				string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + (faction == 0 ? 'km_45_tactical.weapon' : '9x19mm_sidearm.weapon') + "' /></command>";
+				_log("** SND: Character " + characterId + " has no sidearm. Granting a free " + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon'), 1);
+				string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon') + "' /></command>";
 				getComms().send(addSec);
 			}
 			for (int gn = 0; gn < grenNum; ++gn) {

@@ -385,6 +385,7 @@ class PlayerTracker : Tracker {
 		updateFactionPlayerCounts(deadPlayer.getIntAttribute("faction_id"), -1);
 	}
 
+	// ----------------------------------------------------
 	protected void handleItemDropEvent(const XmlElement@ event) {
 		// character_id=11
 		// item_class=0
@@ -403,6 +404,58 @@ class PlayerTracker : Tracker {
 		if (dropEvents.find(char) < 0) {
 			_log("** SND: Inventory update/save for character " + char + " (player ID: " + event.getIntAttribute("player_id") + ") has been queued", 1);
 			dropEvents.insertLast(char);
+		}
+	}
+
+	// ----------------------------------------------------
+	protected void updateSavedInventory(int charId) {
+		// save inventory
+		_log("** SND: Updating saved inventory for character id " + charId, 1);
+		string scharId = "" + charId + "";
+		string key = string(cidTosid[scharId]);
+		if (m_trackedPlayers.exists(key)) {
+			// we have an active player to update the inventory for
+			SNDPlayer@ aPlayer;
+			@aPlayer = m_trackedPlayers.get(key);
+			// get the character info + inventory
+			const XmlElement@ playerInv = m_metagame.getPlayerInventory(charId);
+			array<const XmlElement@> pInv = playerInv.getElementsByTagName("item");
+			for (uint k = 0; k < pInv.size(); ++k) {
+				string invItem = pInv[k].getStringAttribute("key");
+				if (invItem == "") {
+					continue;
+				} else {
+					_log("** SND: slot " + k + ": " + (pInv[k].getIntAttribute("amount") > 0 ? invItem : ''), 1);
+					switch (k) {
+						case 0:
+							if (pInv[k].getIntAttribute("amount") > 0) {
+								aPlayer.m_primary = invItem;
+							} else { aPlayer.m_primary = ""; }
+							break;
+						case 1:
+							if (pInv[k].getIntAttribute("amount") > 0) {
+								aPlayer.m_secondary = invItem;
+							} else { aPlayer.m_secondary = ""; }
+							break;
+						case 2:
+							if (pInv[k].getIntAttribute("amount") > 0) {
+								aPlayer.m_grenade = invItem;
+								aPlayer.m_grenNum = pInv[k].getIntAttribute("amount");
+							} else {
+								aPlayer.m_grenade = "";
+								aPlayer.m_grenNum = 0;
+							}
+							break;
+						case 4:
+							if (pInv[k].getIntAttribute("amount") > 0) {
+								aPlayer.m_armour = invItem;
+							} else { aPlayer.m_armour = ""; }
+							break;
+						default:
+							_log("** SND: WARNING! untracked slot " + k + "!", 1);
+					}
+				}
+			}
 		}
 	}
 
@@ -453,6 +506,17 @@ class PlayerTracker : Tracker {
 	// --------------------------------------------
 	void save() {
 		// called by substages' handleMatchEndEvent methods
+		_log("** SND: Round ended. PlayerTracker now updating player inventories", 1);
+		for (uint i=0; i < m_trackedPlayers.getKeys().size(); ++i) {
+			string sid = m_trackedPlayers.getKeys()[i];
+			_log("** SND: Working with player " + sid, 1);
+			array<const XmlElement@> allPlayers = getPlayers(m_metagame);
+			// TagName=player character_id=3 name=LC1A player_id=0 sid=ID0 (among others)
+			for (uint j=0; j < allPlayers.length(); ++j) {
+				int characterId = allPlayers[j].getIntAttribute("character_id");
+				updateSavedInventory(characterId);
+			}
+		}
 		_log("** SND: PlayerTracker now saving player stats", 1);
 		savePlayerStats();
 	}
@@ -560,55 +624,7 @@ class PlayerTracker : Tracker {
 					// get player SID from character_id
 					string cid = "" + dropEvents[j] + "";
 					if (cidTosid.exists(cid)) {
-						// TODO: what was I doing here?
-					}
-					// save inventory
-					_log("** SND: Updating saved inventory for character id " + dropEvents[j], 1);
-					// get the SID from the character_id involved in a drop event
-					string key = string(cidTosid[cid]);
-					if (m_trackedPlayers.exists(key)) {
-						// we have an active player to update the inventory for
-						SNDPlayer@ aPlayer;
-						@aPlayer = m_trackedPlayers.get(key);
-						// get the character info + inventory
-						const XmlElement@ playerInv = m_metagame.getPlayerInventory(dropEvents[j]);
-						array<const XmlElement@> pInv = playerInv.getElementsByTagName("item");
-						for (uint k = 0; k < pInv.size(); ++k) {
-							string invItem = pInv[k].getStringAttribute("key");
-							if (invItem == "") {
-								continue;
-							} else {
-								_log("** SND: slot " + k + ": " + (pInv[k].getIntAttribute("amount") > 0 ? invItem : ''), 1);
-								switch (k) {
-									case 0:
-										if (pInv[k].getIntAttribute("amount") > 0) {
-											aPlayer.m_primary = invItem;
-										} else { aPlayer.m_primary = ""; }
-										break;
-									case 1:
-										if (pInv[k].getIntAttribute("amount") > 0) {
-											aPlayer.m_secondary = invItem;
-										} else { aPlayer.m_secondary = ""; }
-										break;
-									case 2:
-										if (pInv[k].getIntAttribute("amount") > 0) {
-											aPlayer.m_grenade = invItem;
-											aPlayer.m_grenNum = pInv[k].getIntAttribute("amount");
-										} else {
-											aPlayer.m_grenade = "";
-											aPlayer.m_grenNum = 0;
-										}
-										break;
-									case 4:
-										if (pInv[k].getIntAttribute("amount") > 0) {
-											aPlayer.m_armour = invItem;
-										} else { aPlayer.m_armour = ""; }
-										break;
-									default:
-										_log("** SND: WARNING! untracked slot " + k + "!", 1);
-								}
-							}
-						}
+						updateSavedInventory(dropEvents[j]);
 					}
 				}
 				dropEvents.clear();

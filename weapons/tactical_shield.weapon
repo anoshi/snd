@@ -38,9 +38,6 @@
 
     <model filename="tactical_shield.xml" />
     <hud_icon filename="hud_riot_shield.png" />
-    <commonness value="0.02" />
-    <capacity value="1" source="rank" source_value="0.0" />
-    <inventory encumbrance="10.0" price="3.0" />
 
     <shield offset="0.5 -0.35 0" extent="0.8 1.4 1.6" />
 

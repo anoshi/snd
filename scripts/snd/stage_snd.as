@@ -126,13 +126,20 @@ class Stage {
 		} else {
 			// not at last substage yet
 			_log("** SND: NOT at last substage. Announce time delay and countdown before advancing to next round", 1);
-			float time = m_metagame.getUserSettings().m_timeBetweenSubstages;
-			m_metagame.getTaskSequencer().add(TimeAnnouncerTask(m_metagame,time,true));
+			int time = int(m_metagame.getUserSettings().m_timeBetweenSubstages);
+			for (int timer = time; timer > 0; --timer) {
+				if (timer % 5 == 0) {
+					sendFactionMessage(m_metagame, -1, "starting in " + timer + " seconds");
+				}
+				sleep(1);
+			}
 		}
-
-		// start new map, using the task sequencer which includes the potential time wait task just added above
+		// start new map immediately or after delay, as dictated above
 		_log("** SND: now running advanceToNextSubstage...", 1);
-		m_metagame.getTaskSequencer().add(Call(CALL(this.advanceToNextSubstage)));
+
+		// to overcome timer bug, just manually push the advance instead of relying on getTaskSequencer to work
+		// suggests something is clearing the task list that contains the task that is counting down before executing ...
+		advanceToNextSubstage();
 	}
 
 	// --------------------------------------------

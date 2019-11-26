@@ -40,7 +40,6 @@
     <model filename="deagle.xml" />
 
     <hud_icon filename="hud_desert_eagle.png" />
-    <commonness value="0.0" />
 
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.1" />

@@ -43,8 +43,6 @@
     <projectile file="bullet.projectile">
         <result class="hit" kill_probability="0.45" kill_decay_start_time="0.28" kill_decay_end_time="0.40" />
     </projectile>
-    <capacity value="0" source="rank" source_value="0.0" />
-    <capacity value="1" source="rank" source_value="0.1" />
 
     <stance state_key="running" accuracy="0.45" />
     <stance state_key="walking" accuracy="0.7" />

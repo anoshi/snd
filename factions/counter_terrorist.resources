@@ -4,6 +4,9 @@
 	<!-- faction-specific vehicles (not listed in common.resources) -->
 
 	<!-- faction-specific STARTING weapon (see common.resources and all_weapons.xml for available weapons) -->
+	<weapon key="km_45_tactical_free.weapon" />
+
+	<!-- faction-specific weapons (not listed in common.resources) -->
 	<!-- Pistols -->
 	<weapon key="es_five_seven.weapon" />
 

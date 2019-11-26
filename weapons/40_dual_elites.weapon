@@ -45,10 +45,6 @@
     <model filename="40_dual_elites.xml" />
 
     <hud_icon filename="hud_beretta_93r.png" />
-    <commonness value="0.0014" can_respawn_with="0" in_stock="0" />
-
-	<capacity value="0" source="rank" source_value="0.0" />
-	<capacity value="1" source="rank" source_value="0.15" />
 
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.1" />
