@@ -7,11 +7,30 @@
 	<weapon key="wire_cutters.weapon" />
 	<weapon key="defusal_kit.weapon" />
 
-	<!-- PISTOLS -->
+	<!-- Pistols -->
 	<weapon key="9x19mm_sidearm.weapon" />
 	<weapon key="km_45_tactical.weapon" />
 	<weapon key="228_compact.weapon" />
 	<weapon key="night_hawk_50c.weapon" />
+
+	<!-- Sub Machine Guns -->
+	<weapon key="km_sub_machine_gun.weapon" />
+	<weapon key="km_ump_45.weapon" />
+	<weapon key="p90.weapon" />
+
+	<!-- Shotguns -->
+	<weapon key="leone_12_gauge_super.weapon" />
+	<weapon key="leone_yg1265_auto_shotgun.weapon" />
+
+	<!-- Assault Rifles -->
+	<!-- No shared ARs -->
+
+	<!-- Sniper Rifles -->
+	<weapon key="schmidt_scout.weapon" />
+	<weapon key="magnum_sniper_rifle.weapon" />
+
+	<!-- Machine Guns -->
+	<weapon key="m249.weapon" />
 
 	<!-- ALL CARRY ITEMS -->
 	<carry_item key="kevlar.carry_item" enabled="1" />

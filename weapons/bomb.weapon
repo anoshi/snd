@@ -14,7 +14,8 @@
         consume="1"
         sight_range_modifier="1"
         slot="1"
-        deployment="1" />
+        deployment="1"
+    />
 
     <animation state_key="running" 		animation_key="running, carrying load" />
     <animation state_key="walking" 		animation_key="walking, carrying load" />

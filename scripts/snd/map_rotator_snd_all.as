@@ -6,7 +6,6 @@
 #include "hr_substage.as"
 #include "as_substage.as"
 
-
 // --------------------------------------------
 class MapRotatorSNDAll : MapRotatorSND {
 

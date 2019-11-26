@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <weapon file="base_secondary_sidearm.weapon" key="40_dual_elites.weapon">
-    <tag name="assault" />
-
+    <tag name="pistol" />
 	<specification
-	retrigger_time="0.105"
-	accuracy_factor="0.55"
-	sustained_fire_grow_step="0.6"
-	sustained_fire_diminish_rate="1.2"
-	magazine_size="30"
-	can_shoot_standing="1"
-	suppressed="0"
-    carry_in_two_hands="0"
-	name=".40 DUAL ELITES"
-	class="0"
-	reload_one_at_a_time="0"
-	sight_range_modifier="1.0"
-	projectile_speed="118.0"
-    projectiles_per_shot="2"
-    barrel_offset="0.48"
-    slot="1" />
+        retrigger_time="0.105"
+        accuracy_factor="0.55"
+        sustained_fire_grow_step="0.6"
+        sustained_fire_diminish_rate="1.2"
+        magazine_size="30"
+        can_shoot_standing="1"
+        suppressed="0"
+        carry_in_two_hands="0"
+        name=".40 DUAL ELITES"
+        class="0"
+        reload_one_at_a_time="0"
+        sight_range_modifier="1.0"
+        projectile_speed="118.0"
+        projectiles_per_shot="2"
+        barrel_offset="0.48"
+        slot="1"
+    />
 
     <animation state_key="recoil"   animation_key="dual recoil" />
 	<animation state_key="recoil" stance_key="crouching" animation_key="dual recoil" />
@@ -45,10 +45,6 @@
     <model filename="40_dual_elites.xml" />
 
     <hud_icon filename="hud_beretta_93r.png" />
-    <commonness value="0.0014" can_respawn_with="0" in_stock="0" />
-
-	<capacity value="0" source="rank" source_value="0.0" />
-	<capacity value="1" source="rank" source_value="0.15" />
 
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.1" />

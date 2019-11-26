@@ -3,26 +3,26 @@
 <resources>
 	<!-- faction-specific vehicles (not listed in common.resources) -->
 
+	<!-- faction-specific STARTING weapon (see common.resources and all_weapons.xml for available weapons) -->
+	<weapon key="9x19mm_sidearm_free.weapon" />
+
 	<!-- faction-specific weapons (not listed in common.resources) -->
 	<!-- Pistols -->
 	<weapon key="40_dual_elites.weapon" />
 
 	<!-- Sub Machine Guns -->
-	<weapon key="ump40.weapon" />
-	<weapon key="scorpion-evo.weapon" />
+	<weapon key="mac_10.weapon" />
 
 	<!-- Shotguns -->
-	<weapon key="spas-12.weapon" />
 
 	<!-- Assault Rifles-->
-	<weapon key="famasg1.weapon" />
-	<weapon key="ak47.weapon" />
+	<weapon key="idf_defender.weapon" />
+	<weapon key="cv_47.weapon" />
+	<weapon key="krieg_552.weapon" />
 
 	<!-- Sniper Rifles -->
-	<weapon key="psg90.weapon" />
-	<weapon key="dragunov_svd.weapon" />
+	<weapon key="d3_au_1.weapon" />
 
 	<!-- Machine Guns -->
-	<weapon key="imi_negev.weapon"/>
 
 </resources>

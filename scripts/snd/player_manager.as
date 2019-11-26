@@ -11,6 +11,10 @@ class SNDPlayer {
 	string m_hash = "";
 	string m_sid = "ID0";
 	string m_ip = "";
+
+	int m_playerId = -1;	// the 'player_id'. Value positive only when player is in-game
+	int m_charId = -1;		// the 'character_id' of the player. Value positive only when player is in-game
+
 	string m_primary = "";
 	string m_secondary = "";
 	string m_grenade = "";
@@ -19,9 +23,6 @@ class SNDPlayer {
 
 	int m_rp;
 	float m_xp;
-
-	int m_playerId = -1;	// the 'player_id'. Value positive only when player is in-game
-	int m_charId = -1;		// the 'character_id' of the player. Value positive only when player is in-game
 
 	// --------------------------------------------
 	SNDPlayer(string username, string hash, string sid, string ip, int id, string pri="", string sec="", string gren="", int grenNum="", string arm="") {
@@ -243,21 +244,11 @@ class PlayerTracker : Tracker {
 			_log("** SND: Grant " + spawnedPlayer.m_rp + " RP and " + spawnedPlayer.m_xp + " XP to " + spawnedPlayer.m_username, 1);
 			string setCharRP = "<command class='rp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_rp + "'></command>";
 			m_metagame.getComms().send(setCharRP);
-			// improve this so only awarding XP in HR and AS missions, to CT units. Useless stat otherwise?
+			// TODO: improve this so only awarding XP in HR and AS missions, to CT units. Useless stat otherwise?
 			string setCharXP = "<command class='xp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_xp + "'></command>";
 			m_metagame.getComms().send(setCharXP);
 			// load up saved inventory
-			// primary into backpack, cannot override slot
-			string addPri = "<command class='update_inventory' character_id='" + playerCharId + "' container_type_class='backpack'><item class='weapon' key='" + spawnedPlayer.m_primary + "' /></command>";
-			m_metagame.getComms().send(addPri);
-			string addSec = "<command class='update_inventory' character_id='" + playerCharId + "' container_type_class='backpack'><item class='weapon' key='" + spawnedPlayer.m_secondary + "' /></command>";
-			m_metagame.getComms().send(addSec);
-			for (uint gn = 0; gn < spawnedPlayer.m_grenNum; ++gn) {
-				string addGren = "<command class='update_inventory' character_id='" + playerCharId + "' container_type_id='2'><item class='grenade' key='" + spawnedPlayer.m_grenade + "' /></command>";
-				m_metagame.getComms().send(addGren);
-			}
-			string addArm = "<command class='update_inventory' character_id='" + playerCharId + "' container_type_id='4'><item class='carry_item' key='" + spawnedPlayer.m_armour + "' /></command>";
-			m_metagame.getComms().send(addArm);
+			m_metagame.setPlayerInventory(pcIdint, false, spawnedPlayer.m_primary, spawnedPlayer.m_secondary, spawnedPlayer.m_grenade, spawnedPlayer.m_grenNum, spawnedPlayer.m_armour);
 		} else {
 			_log("** SND: Player spawned, but not registered as having connected. Doing nothing...", 1);
 		}
@@ -381,13 +372,20 @@ class PlayerTracker : Tracker {
 		string key = deadPlayer.getStringAttribute("sid");
 
 		if (m_trackedPlayers.exists(key)) {
-			SNDPlayer@ deadPlayerObj = m_savedPlayers.get(key);
+			SNDPlayer@ deadPlayerObj = m_trackedPlayers.get(key);
 			_log("** SND: Player " + deadPlayerObj.m_username + " has died", 1);
+			// empty that player's inventory
+			deadPlayerObj.m_primary = "";
+			deadPlayerObj.m_secondary = "";
+			deadPlayerObj.m_grenade = "";
+			deadPlayerObj.m_grenNum = 0;
+			deadPlayerObj.m_armour = "";
 		}
 
 		updateFactionPlayerCounts(deadPlayer.getIntAttribute("faction_id"), -1);
 	}
 
+	// ----------------------------------------------------
 	protected void handleItemDropEvent(const XmlElement@ event) {
 		// character_id=11
 		// item_class=0
@@ -406,6 +404,58 @@ class PlayerTracker : Tracker {
 		if (dropEvents.find(char) < 0) {
 			_log("** SND: Inventory update/save for character " + char + " (player ID: " + event.getIntAttribute("player_id") + ") has been queued", 1);
 			dropEvents.insertLast(char);
+		}
+	}
+
+	// ----------------------------------------------------
+	protected void updateSavedInventory(int charId) {
+		// save inventory
+		_log("** SND: Updating saved inventory for character id " + charId, 1);
+		string scharId = "" + charId + "";
+		string key = string(cidTosid[scharId]);
+		if (m_trackedPlayers.exists(key)) {
+			// we have an active player to update the inventory for
+			SNDPlayer@ aPlayer;
+			@aPlayer = m_trackedPlayers.get(key);
+			// get the character info + inventory
+			const XmlElement@ playerInv = m_metagame.getPlayerInventory(charId);
+			array<const XmlElement@> pInv = playerInv.getElementsByTagName("item");
+			for (uint k = 0; k < pInv.size(); ++k) {
+				string invItem = pInv[k].getStringAttribute("key");
+				if (invItem == "") {
+					continue;
+				} else {
+					_log("** SND: slot " + k + ": " + (pInv[k].getIntAttribute("amount") > 0 ? invItem : ''), 1);
+					switch (k) {
+						case 0:
+							if (pInv[k].getIntAttribute("amount") > 0) {
+								aPlayer.m_primary = invItem;
+							} else { aPlayer.m_primary = ""; }
+							break;
+						case 1:
+							if (pInv[k].getIntAttribute("amount") > 0) {
+								aPlayer.m_secondary = invItem;
+							} else { aPlayer.m_secondary = ""; }
+							break;
+						case 2:
+							if (pInv[k].getIntAttribute("amount") > 0) {
+								aPlayer.m_grenade = invItem;
+								aPlayer.m_grenNum = pInv[k].getIntAttribute("amount");
+							} else {
+								aPlayer.m_grenade = "";
+								aPlayer.m_grenNum = 0;
+							}
+							break;
+						case 4:
+							if (pInv[k].getIntAttribute("amount") > 0) {
+								aPlayer.m_armour = invItem;
+							} else { aPlayer.m_armour = ""; }
+							break;
+						default:
+							_log("** SND: WARNING! untracked slot " + k + "!", 1);
+					}
+				}
+			}
 		}
 	}
 
@@ -456,6 +506,17 @@ class PlayerTracker : Tracker {
 	// --------------------------------------------
 	void save() {
 		// called by substages' handleMatchEndEvent methods
+		_log("** SND: Round ended. PlayerTracker now updating player inventories", 1);
+		for (uint i=0; i < m_trackedPlayers.getKeys().size(); ++i) {
+			string sid = m_trackedPlayers.getKeys()[i];
+			_log("** SND: Working with player " + sid, 1);
+			array<const XmlElement@> allPlayers = getPlayers(m_metagame);
+			// TagName=player character_id=3 name=LC1A player_id=0 sid=ID0 (among others)
+			for (uint j=0; j < allPlayers.length(); ++j) {
+				int characterId = allPlayers[j].getIntAttribute("character_id");
+				updateSavedInventory(characterId);
+			}
+		}
 		_log("** SND: PlayerTracker now saving player stats", 1);
 		savePlayerStats();
 	}
@@ -563,44 +624,7 @@ class PlayerTracker : Tracker {
 					// get player SID from character_id
 					string cid = "" + dropEvents[j] + "";
 					if (cidTosid.exists(cid)) {
-						// TODO: what was I doing here?
-					}
-					// save inventory
-					_log("** SND: Updating saved inventory for character id " + dropEvents[j], 1);
-					// get the SID from the character_id involved in a drop event
-					string key = string(cidTosid[cid]);
-					if (m_trackedPlayers.exists(key)) {
-						// we have an active player to update the inventory for
-						SNDPlayer@ aPlayer;
-						@aPlayer = m_trackedPlayers.get(key);
-						// get the character info + inventory
-						const XmlElement@ playerInv = m_metagame.getPlayerInventory(dropEvents[j]);
-						array<const XmlElement@> pInv = playerInv.getElementsByTagName("item");
-						for (uint k = 0; k < pInv.size(); ++k) {
-							string invItem = pInv[k].getStringAttribute("key");
-							if (invItem == "") {
-								continue;
-							} else {
-								_log("** SND: slot " + k + ": " + invItem, 1);
-								switch (k) {
-									case 0:
-										aPlayer.m_primary = invItem;
-										break;
-									case 1:
-										aPlayer.m_secondary = invItem;
-										break;
-									case 2:
-										aPlayer.m_grenade = invItem;
-										aPlayer.m_grenNum = pInv[k].getIntAttribute("amount");
-										break;
-									case 4:
-										aPlayer.m_armour = invItem;
-										break;
-									default:
-										_log("** SND: WARNING! untracked slot " + k + "!", 1);
-								}
-							}
-						}
+						updateSavedInventory(dropEvents[j]);
 					}
 				}
 				dropEvents.clear();

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<weapon file="base_primary.weapon" key="km_45_tactical_pri.weapon">
-    <tag name="assault" />
-
+<weapon file="base_secondary_sidearm.weapon" key="km_45_tactical_pri.weapon">
+    <tag name="pistol" />
     <specification
-	retrigger_time="0.3"
-	accuracy_factor="0.95"
-	sustained_fire_grow_step="0.5"
-	sustained_fire_diminish_rate="0.8"
-	magazine_size="12"
-	can_shoot_standing="1"
-    carry_in_two_hands="0"
-	suppressed="1"
-	name="KM .45 TACTICAL"
-	class="4"
-	reload_one_at_a_time="0"
-	sight_range_modifier="1.0"
-	projectile_speed="93.0"
-	projectiles_per_shot="1"
-	burst_shots="1"
-    slot="0" />
+        retrigger_time="0.3"
+        accuracy_factor="0.95"
+        sustained_fire_grow_step="0.5"
+        sustained_fire_diminish_rate="0.8"
+        magazine_size="12"
+        can_shoot_standing="1"
+        carry_in_two_hands="0"
+        suppressed="1"
+        name="KM .45 TACTICAL"
+        class="4"
+        reload_one_at_a_time="0"
+        sight_range_modifier="1.0"
+        projectile_speed="93.0"
+        projectiles_per_shot="1"
+        burst_shots="1"
+        slot="0"
+    />
 
 	<animation state_key="recoil"	animation_key="recoil, pistol" />
     <animation state_key="reload"	animation_key="reloading, pistol" />
@@ -37,10 +37,9 @@
     <sound key="magazine_out" fileref="pistol_clip_out.wav" />
     <sound key="magazine_in" fileref="pistol_clip_in.wav" volume="0.4" />
     <sound key="cycle" fileref="pistol_chamber.wav" volume="0.4" />
-    <model filename="pb.xml" />
+    <model filename="usp.xml" />
 
     <hud_icon filename="hud_pb.png" />
-    <commonness value="0.0" />
 
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.1" />

@@ -63,7 +63,7 @@
 	<parameter class="still_relax_min_time" value="2.0" />
 	<parameter class="still_relax_max_time" value="6.0" />
 
-	<parameter class="sight_range_as_dead" value="0.0" />
+	<parameter class="sight_range_as_dead" value="10.0" />
 
 	<parameter class="warn_about_overencumbered_time" value="4.0" />
 
