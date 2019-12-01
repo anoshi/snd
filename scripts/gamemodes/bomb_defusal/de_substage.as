@@ -19,7 +19,6 @@ class BombDefusal : SubStage {
 	protected string m_targetsLayerName = "";
 
 	protected GameTimer@ m_gameTimer;
-	protected ScoreTracker@ m_scoreTracker;
 
 	// --------------------------------------------
 	BombDefusal(Stage@ stage, float maxTime, string targetsLayerName = "targetLocations", array<int> competingFactionIds = array<int>(0, 1), int protectorFactionId = 2) {
@@ -64,18 +63,11 @@ class BombDefusal : SubStage {
 		@m_targetLocations = TargetLocations(m_metagame, "de", positions);
 		addTracker(m_targetLocations);
 
-		// setup score tracking (does not persist between rounds / matches)
-		@m_scoreTracker = ScoreTracker(m_metagame, this);
-		addTracker(m_scoreTracker);
-
 		// track the bomb
 		@m_bombTracker = BombTracker(m_metagame);
 		addTracker(m_bombTracker);
 
-
 		SubStage::startMatch();
-		// start match clears in-game score hud; reset player scores after it
-		m_scoreTracker.reset();
 
 		if (m_gameTimer !is null) {
 			m_gameTimer.start(-1);

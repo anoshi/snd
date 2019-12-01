@@ -125,6 +125,7 @@ class HostageTracker : Tracker {
 			m_metagame.getComms().send(penaliseHostageKiller);
 			m_metagame.addRP(pKillerId, -1200);
 			sendFactionMessage(m_metagame, -1, "A hostage has been executed!");
+			m_metagame.addScore(killer.getIntAttribute("faction_id"), -1);
 			array<Faction@> allFactions = m_metagame.getFactions();
 			for (uint i = 0; i < allFactions.length(); ++i) {
 				playSound(m_metagame, "hosdown.wav", i);

@@ -92,5 +92,4 @@ class Match {
 		const XmlElement@ startGameCommand = getStartGameCommand(m_metagame);
 		m_metagame.getComms().send(startGameCommand);
 	}
-
 }

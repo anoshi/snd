@@ -5,8 +5,7 @@
 ////////////////////////////
 // Score tracking methods //
 ////////////////////////////
-// Bomb Defusal
-// 2 points for a bomb plant. (Terrorist Only)
+// 2 points for a bomb plant.
 // 2 points if that bomb explodes. (Terrorist Only)
 // 2 points for a kill, 3 when bomb planted
 // 3 points for a kill when defending the bomb (Terrorist Only)
@@ -20,27 +19,20 @@
 
 class ScoreTracker : Tracker {
 	protected GameModeSND@ m_metagame;
-	protected SubStage@ m_substage;
     protected array<int> factionScores;
 
     // ----------------------------------------------------
-	ScoreTracker(GameModeSND@ metagame, SubStage@ substage) {
+	ScoreTracker(GameModeSND@ metagame) {
 		@m_metagame = @metagame;
-		@m_substage = @substage;
 	}
 
-	////////////////////////////
-	// Faction Score Tracking //
-	////////////////////////////
 	// --------------------------------------------
 	void reset() {
 		factionScores = array<int>(0);
-		for (uint id = 0; id < m_substage.m_match.m_factions.length(); ++id) {
-			// if faction is neutral or its name is Bots, continue, do not display this faction's score
-			Faction@ faction = m_substage.m_match.m_factions[id];
-
+		array<Faction@> factions = m_metagame.getFactions();
+		for (uint id = 0; id < factions.length(); ++id) {
+			Faction@ faction = factions[id];
 			factionScores.insertLast(0);
-
 			string value = "0";
 			string color = faction.m_config.m_color;
 			string command = "<command class='update_score_display' id='" + id + "' text='" + value + "' color='" + color + "' />";
@@ -51,7 +43,6 @@ class ScoreTracker : Tracker {
 	// ----------------------------------------------------
 	void addScore(int factionId, int score) {
 		factionScores[factionId] += score;
-		// update game's score display
 		int value = factionScores[factionId];
 		string command = "<command class='update_score_display' id='" + factionId + "' text='" + value + "' />";
 		m_metagame.getComms().send(command);
@@ -91,15 +82,6 @@ class ScoreTracker : Tracker {
 				text += " - ";
 			}
 		}
-
 		return text;
-	}
-
-	////////////////////////////////////
-	// Player Score Tracking (xp, rp) //
-	////////////////////////////////////
-	// -----------------------------------------------------
-	void update(float time) {
-
 	}
 }
