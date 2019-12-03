@@ -227,8 +227,6 @@ class VIPTracker : Tracker {
 			_log("** SND: vip_tracker checking number of VIPs still being tracked", 1);
 			if (m_metagame.getNumExtracted() > 0) {
 				_log("** SND: The VIP has escaped. End round", 1);
-				// TODO move this into an end-of-round cash thingo.
-				// scoring ref: https://counterstrike.fandom.com/wiki/VIP
 				array<int> ctIds = m_metagame.getFactionPlayerCharacterIds(0);
 				for (uint j = 0; j < ctIds.length() ; ++j) {
 					string vipRescuedReward = "<command class='rp_reward' character_id='" + ctIds[j] + "' reward='" + 2500 + "'></command>";
