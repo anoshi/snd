@@ -613,9 +613,15 @@ class PlayerTracker : Tracker {
 				if (m_trackedPlayers.exists(rewardSid)) {
 					SNDPlayer@ aPlayer;
 					@aPlayer = m_trackedPlayers.get(rewardSid);
-					_log("** SND: rewarding player " + rewardSid + ": " + aPlayer.m_username + " " + int(rpRewards[rewardChar]) + " RP", 1);
-					aPlayer.m_rp += int(rpRewards[rewardChar]);
-					_log("** SND: " + aPlayer.m_username + " RP now at: " + aPlayer.m_rp, 1);
+					if (aPlayer.m_rp < m_metagame.getUserSettings().m_maxRp) {
+						_log("** SND: rewarding player " + rewardSid + ": " + aPlayer.m_username + " " + int(rpRewards[rewardChar]) + " RP", 1);
+						aPlayer.m_rp += int(rpRewards[rewardChar]);
+						if (aPlayer.m_rp > m_metagame.getUserSettings().m_maxRp) {
+							_log("** SND: " + aPlayer.m_username + " already at Max RP. Cannot reward any further", 1);
+						} else { _log("** SND: " + aPlayer.m_username + " RP now at: " + aPlayer.m_rp, 1); }
+					} else {
+						_log("** SND: " + aPlayer.m_username + " already at Max RP. Cannot reward any further", 1);
+					}
 				} else { _log("** SND: couldn't find player " + rewardSid + ": " + rewardChar + " to reward...", 1); }
 			}
 			// if a handleItemDropEvent has fired since last check, save out associated player chars' inventories
