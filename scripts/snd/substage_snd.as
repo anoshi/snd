@@ -56,15 +56,6 @@ abstract class SubStage : Tracker {
 		// clear game's score display
 		m_metagame.resetScores();
 		_log("** SND: Scoreboard Reset", 1);
-		// for (uint i = 0; i < m_match.m_factions.length(); ++i) {
-		// 	int id = i;
-		// 	string command = "<command class='update_score_display' id='" + id + "' text='' />";
-		// 	m_metagame.getComms().send(command);
-		// }
-		// {
-		// 	string command = "<command class='update_score_display' max_text='' />";
-		// 	m_metagame.getComms().send(command);
-		// }
 		m_winner = -1;
 		// add map view overlay to show safezone boundary and match/level type (AS/DE/HR)
 		{
