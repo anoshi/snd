@@ -17,7 +17,6 @@ class Assassination : SubStage {
 	protected VIPTracker@ m_vipTracker;
 	protected HitboxHandler@ m_hitboxHandler;
 	protected GameTimer@ m_gameTimer;
-	protected ScoreTracker@ m_scoreTracker;
 
 	// --------------------------------------------
 	Assassination(Stage@ stage, float maxTime, array<int> competingFactionIds = array<int>(0, 1), int protectorFactionId = 2) {
@@ -41,10 +40,6 @@ class Assassination : SubStage {
 		@m_playerTracker = PlayerTracker(m_metagame);
 		addTracker(m_playerTracker);
 
-		// setup score tracking (does not persist between rounds / matches)
-		@m_scoreTracker = ScoreTracker(m_metagame, this);
-		addTracker(m_scoreTracker);
-
 		// track the vip
 		@m_vipTracker = VIPTracker(m_metagame);
 		addTracker(m_vipTracker);
@@ -54,8 +49,6 @@ class Assassination : SubStage {
 		addTracker(m_hitboxHandler);
 
 		SubStage::startMatch();
-		// start match clears in-game score hud; reset player scores after it
-		m_scoreTracker.reset();
 
 		if (m_gameTimer !is null) {
 			m_gameTimer.start(-1);

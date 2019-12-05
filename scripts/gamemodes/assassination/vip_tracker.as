@@ -181,18 +181,18 @@ class VIPTracker : Tracker {
 
 		const XmlElement@ killer = event.getFirstElementByTagName("killer");
 		int pKillerId = killer.getIntAttribute("player_id");
+		int killerCharId = killer.getIntAttribute("id");
 		if (pKillerId >= 0) {
 			if (killer.getIntAttribute("faction_id") == target.getIntAttribute("faction_id")) {
-				// TODO Rollover RP reward (penalty) to next round - looks like you can't do a negative RP reward on the fly
 				// teamkill, penalise!
-				string penaliseVIPTeamKiller = "<command class='rp_reward' character_id='" + pKillerId + "' reward='-3500'></command>";
+				string penaliseVIPTeamKiller = "<command class='rp_reward' character_id='" + killerCharId + "' reward='-3500'></command>";
 				m_metagame.getComms().send(penaliseVIPTeamKiller);
-				m_metagame.addRP(pKillerId, -3500);
+				m_metagame.addRP(killerCharId, -3500);
 			} else {
 				// Terrorist / enemy killed VIP. Winner
-				string rewardVIPKiller = "<command class='rp_reward' character_id='" + pKillerId + "' reward='500'></command>";
+				string rewardVIPKiller = "<command class='rp_reward' character_id='" + killerCharId + "' reward='500'></command>";
 				m_metagame.getComms().send(rewardVIPKiller);
-				m_metagame.addRP(pKillerId, 500);
+				m_metagame.addRP(killerCharId, 500);
 				array<int> tIds = m_metagame.getFactionPlayerCharacterIds(killer.getIntAttribute("faction_id"));
 				for (uint i = 0; i < tIds.length() ; ++i) {
 					string vipKilledReward = "<command class='rp_reward' character_id='" + tIds[i] + "' reward='" + 2000 + "'></command>";
@@ -227,8 +227,6 @@ class VIPTracker : Tracker {
 			_log("** SND: vip_tracker checking number of VIPs still being tracked", 1);
 			if (m_metagame.getNumExtracted() > 0) {
 				_log("** SND: The VIP has escaped. End round", 1);
-				// TODO move this into an end-of-round cash thingo.
-				// scoring ref: https://counterstrike.fandom.com/wiki/VIP
 				array<int> ctIds = m_metagame.getFactionPlayerCharacterIds(0);
 				for (uint j = 0; j < ctIds.length() ; ++j) {
 					string vipRescuedReward = "<command class='rp_reward' character_id='" + ctIds[j] + "' reward='" + 2500 + "'></command>";

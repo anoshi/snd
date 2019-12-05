@@ -1,11 +1,13 @@
 #include "metagame.as"
 #include "log.as"
 #include "map_rotator_snd_all.as"
+#include "score_tracker.as"
 
 // --------------------------------------------
 class GameModeSND : Metagame {
 	protected UserSettings@ m_userSettings;
 	protected MapRotator@ m_mapRotator;
+	protected ScoreTracker@ m_scoreTracker;
 
 	//protected MapInfo@ m_mapInfo; // already exists in Metagame class
 	protected array<Faction@> m_factions;
@@ -29,7 +31,8 @@ class GameModeSND : Metagame {
 	// --------------------------------------------
 	void init() {
 		Metagame::init();
-
+		// add the scoreboard
+		setupScoreboard();
 		// trigger map change right now
 		setupMapRotator();
 		m_mapRotator.init();
@@ -70,14 +73,23 @@ class GameModeSND : Metagame {
 
 	// --------------------------------------------
 	protected void setupMapRotator() {
-		@m_mapRotator =  MapRotatorSNDAll(this);
+		@m_mapRotator = MapRotatorSNDAll(this);
+	}
+
+	// --------------------------------------------
+	protected void setupScoreboard() {
+		@m_scoreTracker = ScoreTracker(this);
+		// per-faction score tracking
+		addTracker(m_scoreTracker);
+		_log("** SND: ScoreTracker Added", 1);
+		resetScores();
+		_log("** SND: Scores reset", 1);
 	}
 
 	// --------------------------------------------
 	// MapRotator calls here when a battle has started
 	void postBeginMatch() {
 		Metagame::postBeginMatch();
-
 		// add tracker for match end to switch to next
 		addTracker(m_mapRotator);
 	}
@@ -98,8 +110,19 @@ class GameModeSND : Metagame {
 	}
 
 	// --------------------------------------------
+	void resetScores() {
+		m_scoreTracker.reset();
+	}
+
+	// --------------------------------------------
 	void addScore(int factionId, int score) {
 		_log("** SND: GameModeSND addScore adding " + score + " points to faction " + factionId, 1);
+		m_scoreTracker.addScore(factionId, score);
+	}
+
+	// --------------------------------------------
+	array<int> getScores() {
+		return m_scoreTracker.getScores();
 	}
 
 	// --------------------------------------------
@@ -109,8 +132,9 @@ class GameModeSND : Metagame {
 			_log("** SND: pendingRPRewards size is: " + pendingRPRewards.getKeys().size() + " and iterator (i) is: " + i, 1);
 			string key = pendingRPRewards.getKeys()[i];
 			queued.set(key, int(pendingRPRewards[key]));
-			pendingRPRewards.delete(key);
 		}
+		// all pending rewards accounted for, empty dictionary.
+		pendingRPRewards.deleteAll();
 		return queued;
 	}
 
@@ -255,7 +279,6 @@ class GameModeSND : Metagame {
 		if (newPlayer) {
 			// give the character appropriate starting kit for their faction
 			_log("** SND: Equipping new player (id: " + characterId + ") with " + (faction == 0 ? 'Counter Terrorist' : 'Terrorist') + " starting gear", 1);
-			// TODO: equip with starting gear
 			string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon') + "' /></command>";
 			getComms().send(addSec);
 		} else {
@@ -268,6 +291,9 @@ class GameModeSND : Metagame {
 			if (sec != '') {
 				string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + sec + "' /></command>";
 				getComms().send(addSec);
+			}
+			if (startsWith(sec, '9x19') || startsWith(sec, 'km_45') || startsWith(sec, '228') || startsWith(sec, 'night_hawk') || startsWith(sec, 'es_five') || startsWith(sec, '40_dual')) {
+				// player has a sidearm. no action required
 			} else {
 				// you always get a pistol if you aren't carrying one
 				_log("** SND: Character " + characterId + " has no sidearm. Granting a free " + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon'), 1);
@@ -318,9 +344,6 @@ class GameModeSND : Metagame {
 	void endTournament() {
 		m_tournamentName = "";
 	}
-
-	// TODO:
-	// - consider providing this stuff by default, it's always needed
 
 	// --------------------------------------------
 	// map rotator feeds in data about current situation here

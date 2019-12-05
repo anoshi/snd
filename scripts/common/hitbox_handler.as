@@ -284,6 +284,7 @@ class HitboxHandler : Tracker {
 				for (uint f = 0; f < allFactions.length(); ++f) {
 					playSound(m_metagame, m_stageType == 'hr' ? 'rescued.wav' : '', f);
 				}
+				m_metagame.addScore(0, 2);
 				// reward CT - if more than one CT (player) near extraction, split reward. Can't tell who dropped the hostages off.
 				// get and store the hostage's position
 				const XmlElement@ escapee = getCharacterInfo(m_metagame, instanceId);

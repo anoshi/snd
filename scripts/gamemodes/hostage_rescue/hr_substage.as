@@ -15,14 +15,12 @@
 // --------------------------------------------
 class HostageRescue : SubStage {
 	protected PlayerTracker@ m_playerTracker;
+	protected GameTimer@ m_gameTimer;
 	protected TargetLocations@ m_targetLocations;
 	protected HostageTracker@ m_hostageTracker;
 	protected HitboxHandler@ m_hitboxHandler;
 
 	protected string m_targetsLayerName = "";
-
-	protected GameTimer@ m_gameTimer;
-	protected ScoreTracker@ m_scoreTracker;
 
 	// --------------------------------------------
 	HostageRescue(Stage@ stage, float maxTime, string targetsLayerName = "hostageLocations", array<int> competingFactionIds = array<int>(0, 1), int protectorFactionId = 2) {
@@ -67,10 +65,6 @@ class HostageRescue : SubStage {
 		@m_targetLocations = TargetLocations(m_metagame, "hr", positions);
 		addTracker(m_targetLocations);
 
-		// setup score tracking (does not persist between rounds / matches)
-		@m_scoreTracker = ScoreTracker(m_metagame, this);
-		addTracker(m_scoreTracker);
-
 		// track the hostages
 		@m_hostageTracker = HostageTracker(m_metagame);
 		addTracker(m_hostageTracker);
@@ -80,8 +74,6 @@ class HostageRescue : SubStage {
 		addTracker(m_hitboxHandler);
 
 		SubStage::startMatch();
-		// start match clears in-game score hud; reset player scores after it
-		m_scoreTracker.reset();
 
 		if (m_gameTimer !is null) {
 			m_gameTimer.start(-1);

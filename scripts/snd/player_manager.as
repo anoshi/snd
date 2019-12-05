@@ -244,7 +244,6 @@ class PlayerTracker : Tracker {
 			_log("** SND: Grant " + spawnedPlayer.m_rp + " RP and " + spawnedPlayer.m_xp + " XP to " + spawnedPlayer.m_username, 1);
 			string setCharRP = "<command class='rp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_rp + "'></command>";
 			m_metagame.getComms().send(setCharRP);
-			// TODO: improve this so only awarding XP in HR and AS missions, to CT units. Useless stat otherwise?
 			string setCharXP = "<command class='xp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_xp + "'></command>";
 			m_metagame.getComms().send(setCharXP);
 			// load up saved inventory
@@ -613,9 +612,16 @@ class PlayerTracker : Tracker {
 				if (m_trackedPlayers.exists(rewardSid)) {
 					SNDPlayer@ aPlayer;
 					@aPlayer = m_trackedPlayers.get(rewardSid);
-					_log("** SND: rewarding player " + rewardSid + ": " + aPlayer.m_username + " " + int(rpRewards[rewardChar]) + " RP", 1);
-					aPlayer.m_rp += int(rpRewards[rewardChar]);
-					_log("** SND: " + aPlayer.m_username + " RP now at: " + aPlayer.m_rp, 1);
+					if (int(rpRewards[rewardChar]) < 0 || aPlayer.m_rp < m_metagame.getUserSettings().m_maxRp) {
+						_log("** SND: rewarding player " + rewardSid + ": " + aPlayer.m_username + " " + int(rpRewards[rewardChar]) + " RP", 1);
+						aPlayer.m_rp += int(rpRewards[rewardChar]);
+						if (aPlayer.m_rp > m_metagame.getUserSettings().m_maxRp) {
+							aPlayer.m_rp = m_metagame.getUserSettings().m_maxRp;
+						}
+						_log("** SND: " + aPlayer.m_username + " RP now at: " + aPlayer.m_rp, 1);
+					} else {
+						_log("** SND: " + aPlayer.m_username + " already at Max RP. Cannot reward any further", 1);
+					}
 				} else { _log("** SND: couldn't find player " + rewardSid + ": " + rewardChar + " to reward...", 1); }
 			}
 			// if a handleItemDropEvent has fired since last check, save out associated player chars' inventories

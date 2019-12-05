@@ -115,16 +115,17 @@ class HostageTracker : Tracker {
 			return;
 		}
 		int hostageCharId = target.getIntAttribute("id");
-		_log("** SND: Hostage (id: " + hostageCharId + " was killed!", 1);
+		_log("** SND: Hostage (id: " + hostageCharId + ") was killed!", 1);
 		// penalise killer
 		const XmlElement@ killer = event.getFirstElementByTagName("killer");
 		int pKillerId = killer.getIntAttribute("player_id");
+		int killerCharId = killer.getIntAttribute("id");
 		if (pKillerId >= 0) {
-			// TODO Rollover RP reward (penalty) to next round - looks like you can't do a negative RP reward on the fly
-			string penaliseHostageKiller = "<command class='rp_reward' character_id='" + pKillerId + "' reward='-1200'></command>";
+			string penaliseHostageKiller = "<command class='rp_reward' character_id='" + killerCharId + "' reward='-1200'></command>";
 			m_metagame.getComms().send(penaliseHostageKiller);
-			m_metagame.addRP(pKillerId, -1200);
+			m_metagame.addRP(killerCharId, -1200);
 			sendFactionMessage(m_metagame, -1, "A hostage has been executed!");
+			m_metagame.addScore(killer.getIntAttribute("faction_id"), -1);
 			array<Faction@> allFactions = m_metagame.getFactions();
 			for (uint i = 0; i < allFactions.length(); ++i) {
 				playSound(m_metagame, "hosdown.wav", i);
@@ -157,18 +158,26 @@ class HostageTracker : Tracker {
 			int rescued = m_metagame.getNumExtracted();
 			if (alive == 0) {
 				_log("** SND: All Hostages rescued or killed. End round or go to attrition?", 1);
-				// TODO move this into an end-of-round cash thingo.
-				// scoring ref: https://counterstrike.fandom.com/wiki/Hostage
 				array<int> ctIds = m_metagame.getFactionPlayerCharacterIds(0);
 				for (uint j = 0; j < ctIds.length() ; ++j) {
 					string hostageRescuedReward = "<command class='rp_reward' character_id='" + ctIds[j] + "' reward='" + (850 * rescued) + "'></command>";
 					m_metagame.getComms().send(hostageRescuedReward);
 					m_metagame.addRP(ctIds[j], (850 * rescued));
 				}
-				if ((rescued >= 2) && (m_metagame.getTrackedCharIds().length() == 0)) {
+				if ((rescued > 2) && (m_metagame.getTrackedCharIds().length() == 0)) {
 					winRound(0);
+				} else {
+					// if all hostages are accounted for but not CT win by rescue
+					// then use score to determine winner
+					array<int> endScore = m_metagame.getScores();
+					if (endScore[0] > endScore[1]) {
+						// CT win
+						winRound(0);
+					} else {
+						// T win
+						winRound(1);
+					}
 				}
-				// if all hostages are dead, it comes down to clock timeout or attrition.
 			}
 		}
 	}

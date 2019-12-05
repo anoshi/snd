@@ -198,6 +198,7 @@ class BombTracker : Tracker {
 					sendFactionMessage(m_metagame, -1, "THE BOMB HAS BEEN PLANTED!");
 					// remove bomb marker
 					markBombPosition(getBombPosition(), bombFaction, false);
+					m_metagame.addScore(bombFaction, 2);
 					bombIsArmed = true;
 					break;
 				} else {
@@ -233,6 +234,7 @@ class BombTracker : Tracker {
 					playSound(m_metagame, "bombdef.wav", f);
 				}
 				sendFactionMessage(m_metagame, -1, "THE BOMB HAS BEEN DEFUSED!");
+				m_metagame.addScore(-bombFaction + 1, 2);
 				bombIsArmed = false;
 				// defusingTeam has won
 				winRound(-(bombOwnerFaction) +1); // -1 + 1 = 0. -0 + 1 = 1
@@ -363,6 +365,7 @@ class BombTracker : Tracker {
 					m_metagame.getComms().send(rewardPlanterTeamChar);
 					m_metagame.addRP(planterTeamCharIds[i], 1900);
 				}
+				m_metagame.addScore(bombOwnerFaction, 2);
 				winRound(bombOwnerFaction);
 			}
 		}
