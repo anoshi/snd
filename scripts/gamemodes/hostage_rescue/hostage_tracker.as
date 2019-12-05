@@ -115,15 +115,15 @@ class HostageTracker : Tracker {
 			return;
 		}
 		int hostageCharId = target.getIntAttribute("id");
-		_log("** SND: Hostage (id: " + hostageCharId + " was killed!", 1);
+		_log("** SND: Hostage (id: " + hostageCharId + ") was killed!", 1);
 		// penalise killer
 		const XmlElement@ killer = event.getFirstElementByTagName("killer");
 		int pKillerId = killer.getIntAttribute("player_id");
+		int killerCharId = killer.getIntAttribute("id");
 		if (pKillerId >= 0) {
-			// TODO Rollover RP reward (penalty) to next round - looks like you can't do a negative RP reward on the fly
-			string penaliseHostageKiller = "<command class='rp_reward' character_id='" + pKillerId + "' reward='-1200'></command>";
+			string penaliseHostageKiller = "<command class='rp_reward' character_id='" + killerCharId + "' reward='-1200'></command>";
 			m_metagame.getComms().send(penaliseHostageKiller);
-			m_metagame.addRP(pKillerId, -1200);
+			m_metagame.addRP(killerCharId, -1200);
 			sendFactionMessage(m_metagame, -1, "A hostage has been executed!");
 			m_metagame.addScore(killer.getIntAttribute("faction_id"), -1);
 			array<Faction@> allFactions = m_metagame.getFactions();

@@ -132,8 +132,9 @@ class GameModeSND : Metagame {
 			_log("** SND: pendingRPRewards size is: " + pendingRPRewards.getKeys().size() + " and iterator (i) is: " + i, 1);
 			string key = pendingRPRewards.getKeys()[i];
 			queued.set(key, int(pendingRPRewards[key]));
-			pendingRPRewards.delete(key);
 		}
+		// all pending rewards accounted for, empty dictionary.
+		pendingRPRewards.deleteAll();
 		return queued;
 	}
 
@@ -290,6 +291,9 @@ class GameModeSND : Metagame {
 			if (sec != '') {
 				string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + sec + "' /></command>";
 				getComms().send(addSec);
+			}
+			if (startsWith(sec, '9x19') || startsWith(sec, 'km_45') || startsWith(sec, '228') || startsWith(sec, 'night_hawk') || startsWith(sec, 'es_five') || startsWith(sec, '40_dual')) {
+				// player has a sidearm. no action required
 			} else {
 				// you always get a pistol if you aren't carrying one
 				_log("** SND: Character " + characterId + " has no sidearm. Granting a free " + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon'), 1);

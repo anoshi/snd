@@ -38,8 +38,8 @@ class Match {
 		command.setFloatAttribute("xp_multiplier", m_xpMultiplier);
 		command.setFloatAttribute("rp_multiplier", m_rpMultiplier);
 		command.setFloatAttribute("initial_xp", m_metagame.getUserSettings().m_initialXp);
-		command.setFloatAttribute("initial_rp", m_metagame.getUserSettings().m_initialRp);
-		command.setFloatAttribute("max_rp", m_metagame.getUserSettings().m_maxRp);
+		command.setIntAttribute("initial_rp", m_metagame.getUserSettings().m_initialRp);
+		command.setIntAttribute("max_rp", m_metagame.getUserSettings().m_maxRp);
 		command.setStringAttribute("base_capture_system", m_baseCaptureSystem);
 		command.setBoolAttribute("friendly_fire", true); // may want to go user-specified
 		command.setBoolAttribute("clear_profiles_at_start", true);
