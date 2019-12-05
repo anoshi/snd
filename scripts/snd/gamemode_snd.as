@@ -341,9 +341,6 @@ class GameModeSND : Metagame {
 		m_tournamentName = "";
 	}
 
-	// TODO:
-	// - consider providing this stuff by default, it's always needed
-
 	// --------------------------------------------
 	// map rotator feeds in data about current situation here
 	void setFactions(array<Faction@> factions) {

@@ -244,7 +244,6 @@ class PlayerTracker : Tracker {
 			_log("** SND: Grant " + spawnedPlayer.m_rp + " RP and " + spawnedPlayer.m_xp + " XP to " + spawnedPlayer.m_username, 1);
 			string setCharRP = "<command class='rp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_rp + "'></command>";
 			m_metagame.getComms().send(setCharRP);
-			// TODO: improve this so only awarding XP in HR and AS missions, to CT units. Useless stat otherwise?
 			string setCharXP = "<command class='xp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_xp + "'></command>";
 			m_metagame.getComms().send(setCharXP);
 			// load up saved inventory
