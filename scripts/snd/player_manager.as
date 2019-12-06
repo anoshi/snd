@@ -406,6 +406,46 @@ class PlayerTracker : Tracker {
 		}
 	}
 
+	// ---------------------------------------------------
+	protected void flushPendingDropEvents() {
+		// if a handleItemDropEvent has fired since last check, save out associated player chars' inventories
+		if (dropEvents.length() > 0) {
+			for (uint j = 0; j < dropEvents.length(); ++j) {
+				// get player SID from character_id
+				string cid = "" + dropEvents[j] + "";
+				if (cidTosid.exists(cid)) {
+					updateSavedInventory(dropEvents[j]);
+				}
+			}
+			dropEvents.clear();
+		}
+	}
+
+	// ----------------------------------------------------
+	protected void flushPendingRewards() {
+		dictionary rpRewards = m_metagame.getPendingRPRewards();
+		for (uint i = 0; i < rpRewards.getKeys().size(); ++i) {
+			string rewardChar = rpRewards.getKeys()[i];
+			// get the SID from the character_id being rewarded
+			string rewardSid = string(cidTosid[rewardChar]);
+			// use the SID to get the player object
+			if (m_trackedPlayers.exists(rewardSid)) {
+				SNDPlayer@ aPlayer;
+				@aPlayer = m_trackedPlayers.get(rewardSid);
+				if (int(rpRewards[rewardChar]) < 0 || aPlayer.m_rp < m_metagame.getUserSettings().m_maxRp) {
+					_log("** SND: rewarding player " + rewardSid + ": " + aPlayer.m_username + " " + int(rpRewards[rewardChar]) + " RP", 1);
+					aPlayer.m_rp += int(rpRewards[rewardChar]);
+					if (aPlayer.m_rp > m_metagame.getUserSettings().m_maxRp) {
+						aPlayer.m_rp = m_metagame.getUserSettings().m_maxRp;
+					}
+					_log("** SND: " + aPlayer.m_username + " RP now at: " + aPlayer.m_rp, 1);
+				} else {
+					_log("** SND: " + aPlayer.m_username + " already at Max RP. Cannot reward any further", 1);
+				}
+			} else { _log("** SND: couldn't find player " + rewardSid + ": " + rewardChar + " to reward...", 1); }
+		}
+	}
+
 	// ----------------------------------------------------
 	protected void updateSavedInventory(int charId) {
 		// save inventory
@@ -505,7 +545,10 @@ class PlayerTracker : Tracker {
 	// --------------------------------------------
 	void save() {
 		// called by substages' handleMatchEndEvent methods
+		_log("** SND: PlayerTracker finalising this round's RP rewards", 1);
+		flushPendingRewards();
 		_log("** SND: Round ended. PlayerTracker now updating player inventories", 1);
+		flushPendingDropEvents();
 		for (uint i=0; i < m_trackedPlayers.getKeys().size(); ++i) {
 			string sid = m_trackedPlayers.getKeys()[i];
 			_log("** SND: Working with player " + sid, 1);
@@ -603,39 +646,8 @@ class PlayerTracker : Tracker {
 	void update(float time) {
 		playerCheckTimer -= time;
 		if (playerCheckTimer <= 0.0) {
-			dictionary rpRewards = m_metagame.getPendingRPRewards();
-			for (uint i = 0; i < rpRewards.getKeys().size(); ++i) {
-				string rewardChar = rpRewards.getKeys()[i];
-				// get the SID from the character_id being rewarded
-				string rewardSid = string(cidTosid[rewardChar]);
-				// use the SID to get the player object
-				if (m_trackedPlayers.exists(rewardSid)) {
-					SNDPlayer@ aPlayer;
-					@aPlayer = m_trackedPlayers.get(rewardSid);
-					if (int(rpRewards[rewardChar]) < 0 || aPlayer.m_rp < m_metagame.getUserSettings().m_maxRp) {
-						_log("** SND: rewarding player " + rewardSid + ": " + aPlayer.m_username + " " + int(rpRewards[rewardChar]) + " RP", 1);
-						aPlayer.m_rp += int(rpRewards[rewardChar]);
-						if (aPlayer.m_rp > m_metagame.getUserSettings().m_maxRp) {
-							aPlayer.m_rp = m_metagame.getUserSettings().m_maxRp;
-						}
-						_log("** SND: " + aPlayer.m_username + " RP now at: " + aPlayer.m_rp, 1);
-					} else {
-						_log("** SND: " + aPlayer.m_username + " already at Max RP. Cannot reward any further", 1);
-					}
-				} else { _log("** SND: couldn't find player " + rewardSid + ": " + rewardChar + " to reward...", 1); }
-			}
-			// if a handleItemDropEvent has fired since last check, save out associated player chars' inventories
-			if (dropEvents.length() > 0) {
-				for (uint j = 0; j < dropEvents.length(); ++j) {
-					// get player SID from character_id
-					string cid = "" + dropEvents[j] + "";
-					if (cidTosid.exists(cid)) {
-						updateSavedInventory(dropEvents[j]);
-					}
-				}
-				dropEvents.clear();
-			}
-
+			flushPendingRewards();
+			flushPendingDropEvents();
 			playerCheckTimer = CHECK_IN_INTERVAL;
 		}
 	}
