@@ -128,11 +128,7 @@ abstract class SubStage : Tracker {
 			}
 		}
 
-		// record inventories of all players still alive
-
-		// finalise round scoring (RP rewards etc)
-
-		// save out stats, ready to load for persistence into next subStage
+		// finalise round scoring (RP rewards etc) and save out stats, ready to load for persistence into next subStage
 		m_metagame.save();
 		// remove trackers added by this substage in order to make after-game events not register as game events
 		for (uint i = 0; i < m_trackers.length(); ++i) {
