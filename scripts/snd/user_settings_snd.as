@@ -20,7 +20,7 @@ class UserSettings {
     bool m_fov = true;
 
 	float m_initialXp = 0.0;	// XP is only used to allow CTs to add hostages and VIP to team
-	float m_initialRp = 0.0;	// PlayerTracker assigns RP to each player on spawn
+	int m_initialRp = 0;		// PlayerTracker assigns RP to each player on spawn
 	int m_maxRp = 16000;		// hard limit on RP, as per CS
 
     array<string> m_overlayPaths;
