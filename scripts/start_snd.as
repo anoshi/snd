@@ -24,7 +24,7 @@ void main(dictionary@ inputData) {
 		register_in_serverlist='1'
 		mode='snd'
 		persistency='match'
-		max_players='10'>
+		max_players='30'>
 		<client_faction id="0" />
 		<client_faction id="1" />
 	</command>
