@@ -8060,11 +8060,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="541.90021"
-     inkscape:cy="1093.8689"
+     inkscape:zoom="8"
+     inkscape:cx="1143.4771"
+     inkscape:cy="952.12639"
      inkscape:document-units="px"
-     inkscape:current-layer="g7928"
+     inkscape:current-layer="layer2"
      showgrid="false"
      inkscape:window-width="1680"
      inkscape:window-height="951"
@@ -13590,7 +13590,7 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
      inkscape:groupmode="layer"
      id="g7928"
      inkscape:label="safezones_overlay_de"
-     style="display:inline">
+     style="display:none">
     <path
        style="display:inline;fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.80000007;stroke-opacity:1;enable-background:new"
        d="M -69.71875,-102.21875 V 2094.2188 H 2157.6875 V -102.21875 Z m 612.78125,866.125 h 896.5937 V 1338.0625 H 543.0625 Z"
@@ -17740,6 +17740,17 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
          width="6"
          id="rect7651-13-5-8-33-8-6-9-8-2-3-4-1-4-3-1-4-2-2-7-4-1-6-2-0-4-0"
          style="opacity:0.79775277;fill:#2cffe7;fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline;enable-background:new" />
+      <rect
+         transform="rotate(91.880768)"
+         inkscape:label="#ladder"
+         y="-1192.5446"
+         x="1062.5228"
+         height="2.25"
+         width="6"
+         id="rect7651-13-5-8-33-8-6-9-8-2-3-4-1-4-3-1-4-2-2-7-4-1-6-20-8-9"
+         style="display:inline;opacity:0.79775277;fill:#2cffe7;fill-opacity:1;fill-rule:nonzero;stroke:none;enable-background:new"
+         inkscape:transform-center-x="70.488039"
+         inkscape:transform-center-y="63.982388" />
     </g>
     <g
        inkscape:groupmode="layer"
@@ -19356,261 +19367,7 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        inkscape:groupmode="layer"
        id="layer17"
        inkscape:label="crates"
-       style="display:inline">
-      <rect
-         transform="matrix(-0.26937504,0.96303535,-0.96303535,-0.26937504,0,0)"
-         inkscape:label="#rect10748"
-         y="-1220.1167"
-         x="743.00183"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="51.953121"
-         inkscape:transform-center-y="21.996095" />
-      <rect
-         transform="matrix(-0.96366072,0.26712921,-0.26712921,-0.96366072,0,0)"
-         inkscape:label="#rect10748"
-         y="-1260.6965"
-         x="-753.48083"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-7"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="-35.878959"
-         inkscape:transform-center-y="-11.878877" />
-      <rect
-         transform="matrix(-0.73700308,-0.67588938,0.67588938,-0.73700308,0,0)"
-         inkscape:label="#rect10748"
-         y="47.323708"
-         x="-1458.7323"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-6"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="-82.753954"
-         inkscape:transform-center-y="-76.253879" />
-      <rect
-         transform="matrix(-0.62646084,0.77945289,-0.77945289,-0.62646084,0,0)"
-         inkscape:label="#rect10748"
-         y="-1592.4913"
-         x="70.415932"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-1"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="-169.86127"
-         inkscape:transform-center-y="29.056807" />
-      <rect
-         transform="matrix(-0.67883214,-0.73429349,0.73429349,-0.67883214,0,0)"
-         inkscape:label="#rect10748"
-         y="65.752235"
-         x="-1577.5304"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-2"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="-95.112598"
-         inkscape:transform-center-y="86.40284" />
-      <rect
-         transform="matrix(-0.99878756,0.04922814,-0.04922814,-0.99878756,0,0)"
-         inkscape:label="#rect10748"
-         y="-997.90961"
-         x="-860.2619"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-3"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="118.24614"
-         inkscape:transform-center-y="-71.753973" />
-      <rect
-         transform="matrix(0.56722093,0.82356567,-0.82356567,0.56722093,0,0)"
-         inkscape:label="#rect10748"
-         y="-14.661156"
-         x="1386.3491"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-22"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="225.99608"
-         inkscape:transform-center-y="112.74602" />
-      <rect
-         transform="matrix(-0.4221111,0.90654411,-0.90654411,-0.4221111,0,0)"
-         inkscape:label="#rect10748"
-         y="-1136.6565"
-         x="614.56628"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-16"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="256.06103"
-         inkscape:transform-center-y="14.235689" />
-      <rect
-         transform="matrix(-0.8834114,-0.46859823,0.46859823,-0.8834114,0,0)"
-         inkscape:label="#rect10748"
-         y="-494.23679"
-         x="-1419.1322"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-8"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="3.0686899"
-         inkscape:transform-center-y="74.486418" />
-      <rect
-         transform="matrix(-0.99878756,0.04922814,-0.04922814,-0.99878756,0,0)"
-         inkscape:label="#rect10748"
-         y="-981.48712"
-         x="-938.41528"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-3-6"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="40.995969"
-         inkscape:transform-center-y="-92.003893" />
-      <rect
-         transform="matrix(-0.95512322,0.29620876,-0.29620876,-0.95512322,0,0)"
-         inkscape:label="#rect10748"
-         y="-1216.1857"
-         x="-584.96613"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-7-1"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="108.07399"
-         inkscape:transform-center-y="-37.059618" />
-      <rect
-         transform="matrix(-0.9179618,-0.39666879,0.39666879,-0.9179618,0,0)"
-         inkscape:label="#rect10748"
-         y="-576.79108"
-         x="-1206.3694"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-7-1-7"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="146.78808"
-         inkscape:transform-center-y="-19.028388" />
-      <rect
-         transform="matrix(-0.9348301,0.35509532,-0.35509532,-0.9348301,0,0)"
-         inkscape:label="#rect10748"
-         y="-1203.2876"
-         x="-409.80133"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-7-1-7-4"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="216.73835"
-         inkscape:transform-center-y="-45.852444" />
-      <rect
-         transform="matrix(-0.99995076,0.00992318,-0.00992318,-0.99995076,0,0)"
-         inkscape:label="#rect10748"
-         y="-1119.9318"
-         x="-846.7254"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-7-1-7-4-6"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="168.70837"
-         inkscape:transform-center-y="85.269776" />
-      <rect
-         transform="matrix(-0.9348301,0.35509532,-0.35509532,-0.9348301,0,0)"
-         inkscape:label="#rect10748"
-         y="-1327.6892"
-         x="-368.5415"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-7-1-7-4-1"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="211.13484"
-         inkscape:transform-center-y="85.093098" />
-      <rect
-         transform="matrix(-0.56866928,0.82256626,-0.82256626,-0.56866928,0,0)"
-         inkscape:label="#rect10748"
-         y="-1570.6051"
-         x="216.23178"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-7-1-7-4-8"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="-141.71153"
-         inkscape:transform-center-y="47.793246" />
-      <rect
-         transform="matrix(-0.999898,-0.0142827,0.0142827,-0.999898,0,0)"
-         inkscape:label="#rect10748"
-         y="-950.96326"
-         x="-1038.1313"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-7-1-7-4-9"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="2.0080486"
-         inkscape:transform-center-y="-60.570954" />
-      <rect
-         transform="matrix(-0.99980146,-0.01992569,0.01992569,-0.99980146,0,0)"
-         inkscape:label="#rect10748"
-         y="-985.84393"
-         x="-1041.4177"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-7-8"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="4.8710016"
-         inkscape:transform-center-y="-19.879137" />
-      <rect
-         transform="matrix(0.98080472,0.19499256,-0.19499256,0.98080472,0,0)"
-         inkscape:label="#rect10748"
-         y="891.42212"
-         x="1358.774"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-22-6"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="-136.86378"
-         inkscape:transform-center-y="117.93958" />
-      <rect
-         transform="matrix(0.99868212,-0.05132276,0.05132276,0.99868212,0,0)"
-         inkscape:label="#rect10748"
-         y="943.65118"
-         x="912.78027"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-22-89"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="61.405016"
-         inkscape:transform-center-y="-126.33192" />
-      <rect
-         transform="matrix(0.00915732,0.99995807,-0.99995807,0.00915732,0,0)"
-         inkscape:label="#rect10748"
-         y="-683.14026"
-         x="994.62329"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-22-2"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="333.99464"
-         inkscape:transform-center-y="-33.170492" />
-      <rect
-         transform="matrix(0.56722093,0.82356567,-0.82356567,0.56722093,0,0)"
-         inkscape:label="#rect10748"
-         y="72.249397"
-         x="1401.4695"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-22-54"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="288.99604"
-         inkscape:transform-center-y="174.49611" />
-      <rect
-         transform="matrix(0.56722093,0.82356567,-0.82356567,0.56722093,0,0)"
-         inkscape:label="#rect10748"
-         y="117.65491"
-         x="1358.2351"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-22-3"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="350.91391"
-         inkscape:transform-center-y="164.64473" />
-    </g>
+       style="display:inline" />
     <g
        inkscape:groupmode="layer"
        id="layer16"
@@ -22056,41 +21813,7 @@ roof_type = flat;</desc>
        inkscape:groupmode="layer"
        id="layer14"
        inkscape:label="crates"
-       style="display:inline">
-      <rect
-         transform="matrix(0.96757634,-0.25257875,0.25257875,0.96757634,0,0)"
-         inkscape:label="#rect10748"
-         y="1088.5315"
-         x="468.28845"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-22-8"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="292.99606"
-         inkscape:transform-center-y="-87.503935" />
-      <rect
-         transform="matrix(0.56722093,0.82356567,-0.82356567,0.56722093,0,0)"
-         inkscape:label="#rect10748"
-         y="-461.95749"
-         x="1421.824"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-22-5"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="-162.50391"
-         inkscape:transform-center-y="-111.75395" />
-      <rect
-         transform="matrix(-0.0361709,-0.99934562,0.99934562,-0.0361709,0,0)"
-         inkscape:label="#rect10748"
-         y="1218.9127"
-         x="-1129.0839"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-4"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="-237.09324"
-         inkscape:transform-center-y="57.701148" />
-    </g>
+       style="display:inline" />
     <g
        inkscape:groupmode="layer"
        id="layer3"
@@ -22229,17 +21952,6 @@ roof_type = flat;</desc>
         <desc
            id="desc22270">template = streetlight;</desc>
       </rect>
-      <rect
-         transform="matrix(0.19073765,0.98164105,-0.98164105,0.19073765,0,0)"
-         inkscape:label="#rect10748"
-         y="-1081.8302"
-         x="1197.8442"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-22-1"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="-264.7197"
-         inkscape:transform-center-y="-51.628923" />
       <rect
          transform="matrix(-0.63935228,0.76891395,-0.76891395,-0.63935228,0,0)"
          inkscape:label=""
@@ -24334,17 +24046,6 @@ walkable = 1; </desc>
         <desc
            id="desc7569-9-3-1-4-4-3-6-0-7-0-1-2-7-0">mesh_name = container.mesh; texture0 = alpha.png; collision_model_type = 1; collision_model_size = 2.6 3.0 3.6; walkable = 0; texture0 = alpha.png; alpha_blend = 1:</desc>
       </rect>
-      <rect
-         transform="matrix(-0.81210141,-0.58351632,0.58351632,-0.81210141,0,0)"
-         inkscape:label="#rect10748"
-         y="-115.97147"
-         x="-1650.8676"
-         height="4.4664636"
-         width="4.9588485"
-         id="craterect10748-4-29-6-8-48-4-7"
-         style="fill:#ff9955;fill-opacity:1;stroke:none;display:inline;enable-background:new"
-         inkscape:transform-center-x="-248.39616"
-         inkscape:transform-center-y="31.971532" />
       <rect
          inkscape:label=""
          y="1068.9041"
