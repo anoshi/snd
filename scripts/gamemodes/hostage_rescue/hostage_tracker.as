@@ -9,7 +9,7 @@ class HostageTracker : Tracker {
 
 	protected bool m_started = false;
 
-	protected int alive; 		// when m_metagame.getTrackedCharIds().length() == 0, all hostages are accounted for
+	protected int activeHostages; 		// when m_metagame.getTrackedCharIds().length() == 0, all hostages are accounted for
 
 	// --------------------------------------------
 	HostageTracker(GameModeSND@ metagame) {
@@ -43,7 +43,7 @@ class HostageTracker : Tracker {
 			string spawnCommand = "<command class='create_instance' instance_class='character' faction_id='0' position='" + hostageStartPositions[i].toString() + "' instance_key='hostage' /></command>";
 			m_metagame.getComms().send(spawnCommand);
 		}
-		alive = hostageStartPositions.length();
+		activeHostages = hostageStartPositions.length();
 	}
 
 	// spawned
@@ -133,8 +133,8 @@ class HostageTracker : Tracker {
 		}
 		// stop tracking the hostage
 		m_metagame.removeTrackedCharId(hostageCharId);
-		alive = m_metagame.getTrackedCharIds().length();
-		if (alive <= 0) {
+		activeHostages = m_metagame.getTrackedCharIds().length();
+		if (activeHostages <= 0) {
 			winRound(1);
 		}
 	}
@@ -151,12 +151,12 @@ class HostageTracker : Tracker {
 
 	// --------------------------------------------
 	protected void handleHitboxEvent(const XmlElement@ event) {
-		if (alive > 0) {
+		if (activeHostages > 0) {
 			sleep(2); // allow other hitboxHandlers to do their stuff
 			_log("** SND: hostage_tracker checking number of hostages still being tracked", 1);
-			alive = m_metagame.getTrackedCharIds().length();
+			activeHostages = m_metagame.getTrackedCharIds().length();
 			int rescued = m_metagame.getNumExtracted();
-			if (alive == 0) {
+			if (activeHostages == 0) {
 				_log("** SND: All Hostages rescued or killed. End round or go to attrition?", 1);
 				array<int> ctIds = m_metagame.getFactionPlayerCharacterIds(0);
 				for (uint j = 0; j < ctIds.length() ; ++j) {
@@ -164,7 +164,7 @@ class HostageTracker : Tracker {
 					m_metagame.getComms().send(hostageRescuedReward);
 					m_metagame.addRP(ctIds[j], (850 * rescued));
 				}
-				if ((rescued > 2) && (m_metagame.getTrackedCharIds().length() == 0)) {
+				if (rescued > 2) {
 					winRound(0);
 				} else {
 					// if all hostages are accounted for but not CT win by rescue
@@ -184,6 +184,10 @@ class HostageTracker : Tracker {
 
 	// --------------------------------------------
 	protected void winRound(uint faction, uint consecutive = 1) {
+
+		// Winning by Team Elimination 3250 RP
+		// Winning by Time Win (Hostage Rescue, T) 3000 RP
+
 		string winLoseCmd = "";
 		array<Faction@> allFactions = m_metagame.getFactions();
 		for (uint f = 0; f < allFactions.length(); ++f) {
@@ -206,6 +210,7 @@ class HostageTracker : Tracker {
 				playSound(m_metagame, "terwin.wav", f);
 			}
 		}
+		m_metagame.setTrackPlayerDeaths(false);
 	}
 
 	// --------------------------------------------

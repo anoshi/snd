@@ -64,10 +64,7 @@ abstract class SubStage : Tracker {
 		}
 
 		m_metagame.preBeginMatch();
-
 		m_match.start();
-
-		// wait here
 
 		// substage itself is a tracker, add it
 		m_metagame.addTracker(this);
@@ -106,22 +103,13 @@ abstract class SubStage : Tracker {
 			m_metagame.getComms().send(command);
 		}
 
-		// make losing factions lose
+		// declare winner or draw
 		if (m_winner >= 0) {
-			for (uint i = 0; i < m_match.m_factions.length(); ++i) {
-				int id = i;
-				if (id == m_winner) {
-					continue;
-				}
-
-				string command = "<command class='set_match_status' faction_id='" + id + "' lose='1' />";
-				m_metagame.getComms().send(command);
-			}
-			// declare winner(s)
+			// declare winner
 			Faction@ faction = m_match.m_factions[m_winner];
 			sendFactionMessage(m_metagame, -1, "round winner " + faction.m_config.m_name + "!");
 		} else {
-			sendFactionMessage(m_metagame, -1, "the round is a tie");
+			sendFactionMessage(m_metagame, -1, "the round is drawn");
 			// sound bytes for ct / terrorist wins are fired via (bomb|hostage|vip)_tracker.as
 			for (uint f = 0; f < m_match.m_factions.length(); ++f) {
 				playSound(m_metagame, "rounddraw.wav", f);

@@ -263,6 +263,7 @@ class VIPTracker : Tracker {
 				playSound(m_metagame, "terwin.wav", f);
 			}
 		}
+		m_metagame.setTrackPlayerDeaths(false);
 	}
 
 	// --------------------------------------------

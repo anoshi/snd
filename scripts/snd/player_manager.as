@@ -25,7 +25,7 @@ class SNDPlayer {
 	float m_xp;
 
 	// --------------------------------------------
-	SNDPlayer(string username, string hash, string sid, string ip, int id, string pri="", string sec="", string gren="", int grenNum="", string arm="") {
+	SNDPlayer(string username, string hash, string sid, string ip, int id, string pri="", string sec="", string gren="", int grenNum=0, string arm="") {
 		m_username = username;
 		m_hash = hash;
 		m_sid = sid;
@@ -182,27 +182,27 @@ class PlayerTracker : Tracker {
 				_log("** SND: Player " + connName + " has joined. " + (m_metagame.getUserSettings().m_maxPlayers - int(m_trackedPlayers.size() + 1)) + " seats left in server", 1);
 
 				// if (key != "ID0") { // local player receives ID0
-					if (m_savedPlayers.exists(key)) {
-						SNDPlayer@ aPlayer;
-						@aPlayer = m_savedPlayers.get(key);
-						_log("** SND: known player " + aPlayer.m_username + " rejoining server", 1);
-						// sanity check the known player's RP and XP
-						_log("\t RP: " + aPlayer.m_rp, 1);
-						_log("\t XP: " + aPlayer.m_xp, 1);
-						aPlayer.m_username = connName;
-						aPlayer.m_ip = connIp;
-						aPlayer.m_playerId = connId;
-						m_trackedPlayers.add(aPlayer);
-						m_savedPlayers.remove(aPlayer);
-					} else {
-						// assign stock starter kit
-						SNDPlayer@ aPlayer = SNDPlayer(connName, connHash, key, connIp, connId, "", "some_secondary.weapon", "he_gren.weapon", 0, "");
-						_log("** SND: Unknown/new player " + aPlayer.m_username + " joining server", 1);
-						// set RP and XP for new players
-						aPlayer.m_rp = 800;		// starting cash for CS rounds
-						aPlayer.m_xp = 0.2000;	// grant enough XP to allow VIP and 2 x hostage escorts
-						m_trackedPlayers.add(aPlayer);
-					}
+				if (m_savedPlayers.exists(key)) {
+					SNDPlayer@ aPlayer;
+					@aPlayer = m_savedPlayers.get(key);
+					_log("** SND: known player " + aPlayer.m_username + " rejoining server", 1);
+					// sanity check the known player's RP and XP
+					_log("\t RP: " + aPlayer.m_rp, 1);
+					_log("\t XP: " + aPlayer.m_xp, 1);
+					aPlayer.m_username = connName;
+					aPlayer.m_ip = connIp;
+					aPlayer.m_playerId = connId;
+					m_trackedPlayers.add(aPlayer);
+					m_savedPlayers.remove(aPlayer);
+				} else {
+					// assign stock starter kit
+					SNDPlayer@ aPlayer = SNDPlayer(connName, connHash, key, connIp, connId);
+					_log("** SND: Unknown/new player " + aPlayer.m_username + " joining server", 1);
+					// set RP and XP for new players
+					aPlayer.m_rp = 800;		// starting cash for CS rounds
+					aPlayer.m_xp = 0.2000;	// grant enough XP to allow VIP and 2 x hostage escorts
+					m_trackedPlayers.add(aPlayer);
+				}
 				//}
 			} else {
 				_log("** SND: Player " + connName + " (" + connHash + ") is attempting to join, but no room left in server", 1);

@@ -273,40 +273,45 @@ class GameModeSND : Metagame {
 		// 5 : armour
 
 		const XmlElement@ thisChar = getCharacterInfo(this, characterId);
-		int faction = thisChar.getIntAttribute("faction_id");
-
-		// assign / override equipment to player character
-		if (newPlayer) {
-			// give the character appropriate starting kit for their faction
-			_log("** SND: Equipping new player (id: " + characterId + ") with " + (faction == 0 ? 'Counter Terrorist' : 'Terrorist') + " starting gear", 1);
-			string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon') + "' /></command>";
-			getComms().send(addSec);
-		} else {
-			_log("** SND: Updating inventory for player (character_id: " + characterId + ")", 1);
-			// primary into backpack, cannot override slot
-			if (pri != '') {
-				string addPri = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + pri + "' /></command>";
-				getComms().send(addPri);
+		if (thisChar !is null) {
+			int faction = thisChar.getIntAttribute("faction_id");
+			if (faction < 0) {
+				_log("** SND: WARNING! Can't identify faction for character.", 1);
+				return;
 			}
-			if (sec != '') {
-				string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + sec + "' /></command>";
-				getComms().send(addSec);
-			}
-			if (startsWith(sec, '9x19') || startsWith(sec, 'km_45') || startsWith(sec, '228') || startsWith(sec, 'night_hawk') || startsWith(sec, 'es_five') || startsWith(sec, '40_dual')) {
-				// player has a sidearm. no action required
-			} else {
-				// you always get a pistol if you aren't carrying one
-				_log("** SND: Character " + characterId + " has no sidearm. Granting a free " + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon'), 1);
+			// assign / override equipment to player character
+			if (newPlayer) {
+				// give the character appropriate starting kit for their faction
+				_log("** SND: Equipping new player (id: " + characterId + ") with " + (faction == 0 ? 'Counter Terrorist' : 'Terrorist') + " starting gear", 1);
 				string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon') + "' /></command>";
 				getComms().send(addSec);
-			}
-			for (int gn = 0; gn < grenNum; ++gn) {
-				string addGren = "<command class='update_inventory' character_id='" + characterId + "' container_type_id='2'><item class='grenade' key='" + gren + "' /></command>";
-				getComms().send(addGren);
-			}
-			if (arm != '') {
-				string addArm = "<command class='update_inventory' character_id='" + characterId + "' container_type_id='4'><item class='carry_item' key='" + arm + "' /></command>";
-				getComms().send(addArm);
+			} else {
+				_log("** SND: Updating inventory for player (character_id: " + characterId + ")", 1);
+				// primary into backpack, cannot override slot
+				if (pri != '') {
+					string addPri = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + pri + "' /></command>";
+					getComms().send(addPri);
+				}
+				if (sec != '') {
+					string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + sec + "' /></command>";
+					getComms().send(addSec);
+				}
+				if (startsWith(sec, '9x19') || startsWith(sec, 'km_45') || startsWith(sec, '228') || startsWith(sec, 'night_hawk') || startsWith(sec, 'es_five') || startsWith(sec, '40_dual')) {
+					// player has a sidearm. no action required
+				} else {
+					// you always get a pistol if you aren't carrying one
+					_log("** SND: Character " + characterId + " has no sidearm. Granting a free " + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon'), 1);
+					string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon') + "' /></command>";
+					getComms().send(addSec);
+				}
+				for (int gn = 0; gn < grenNum; ++gn) {
+					string addGren = "<command class='update_inventory' character_id='" + characterId + "' container_type_id='2'><item class='grenade' key='" + gren + "' /></command>";
+					getComms().send(addGren);
+				}
+				if (arm != '') {
+					string addArm = "<command class='update_inventory' character_id='" + characterId + "' container_type_id='4'><item class='carry_item' key='" + arm + "' /></command>";
+					getComms().send(addArm);
+				}
 			}
 		}
 	}
