@@ -18,10 +18,12 @@
     <animation key="recoil" ref="13" />
     <animation key="recoil" ref="14" />
     <animation state_key="reload" animation_key="reloading, mp5sd" />
-    <sound key="fire" fileref="ump40_shot.wav" volume="0.5" pitch_variety="0.05" />
-    <sound key="magazine_out" fileref="rifle_clip_out.wav" />
-    <sound key="magazine_in" fileref="rifle_clip_in.wav" />
-    <sound key="cycle" fileref="rifle_chamber.wav" />
+
+    <sound key="fire" fileref="ump45_01.wav" volume="0.8" pitch_variety="0.05" />
+    <sound key="fire" fileref="ump45_02.wav" volume="0.8" pitch_variety="0.05" />
+    <sound key="magazine_out" fileref="ump45_clipout.wav" />
+    <sound key="magazine_in" fileref="ump45_clipin.wav" />
+    <sound key="cycle" fileref="ump45_cycle.wav" />
     <sound class="impact" fileref="rifle_drop.wav" />
 
     <model filename="ump40.xml" />

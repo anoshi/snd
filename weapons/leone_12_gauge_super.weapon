@@ -20,9 +20,13 @@
     <animation key="recoil" ref="27" />
     <animation key="cycle" ref="28" />
     <animation key="reload" ref="29" />
-    <sound key="fire" fileref="spas-12_shot.wav" volume="0.7" />
-    <sound key="cycle" fileref="mossberg500_cycle.wav" />
-    <sound key="reload_one" fileref="mossberg500_reload.wav" />
+    <sound key="fire" fileref="nova_01.wav" volume="0.7" />
+    <sound key="cycle" fileref="nova_pump.wav" />
+    <sound key="reload_one" fileref="nova_insertshell_01.wav" />
+    <sound key="reload_one" fileref="nova_insertshell_02.wav" />
+    <sound key="reload_one" fileref="nova_insertshell_03.wav" />
+    <sound key="reload_one" fileref="nova_insertshell_04.wav" />
+    <sound key="reload_one" fileref="nova_insertshell_05.wav" />
     <sound class="impact" fileref="rifle_drop.wav" />
     <model filename="benelli_m3.xml" />
 

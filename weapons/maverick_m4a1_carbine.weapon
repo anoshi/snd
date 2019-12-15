@@ -22,10 +22,13 @@
 
     <animation state_key="celebrate_shoot" animation_key="celebrating, shooting" />
 
-    <sound key="fire" fileref="m16a4_shot.wav" pitch_variety="0.05" volume="0.5" />
-    <sound key="magazine_out" fileref="rifle_clip_out.wav" />
-    <sound key="magazine_in" fileref="rifle_clip_in.wav" />
-    <sound key="cycle" fileref="rifle_chamber.wav" />
+    <sound key="fire" fileref="m4a1_01.wav" pitch_variety="0.05" volume="0.8" />
+    <sound key="fire" fileref="m4a1_02.wav" pitch_variety="0.05" volume="0.8" />
+    <sound key="fire" fileref="m4a1_03.wav" pitch_variety="0.05" volume="0.8" />
+    <sound key="fire" fileref="m4a1_04.wav" pitch_variety="0.05" volume="0.8" />
+    <sound key="magazine_out" fileref="m4a1_clipout.wav" />
+    <sound key="magazine_in" fileref="m4a1_clipin.wav" />
+    <sound key="cycle" fileref="m4a1_cycle.wav" />
     <sound class="impact" fileref="rifle_drop.wav" />
     <model filename="m4a1.xml" />
 

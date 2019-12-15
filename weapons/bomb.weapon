@@ -31,7 +31,7 @@
 
     <sound class="impact" fileref="sandbag_drop.wav" />
 
-    <sound key="shoot" fileref="bomb_plant.wav" pitch_variety="0.01" /><!-- volume="1.0" -->
+    <sound key="shoot" fileref="bomb_plant.wav" pitch_variety="0.01" volume="0.6" />
     <sound key="effect" fileref="bomb_key_press1.wav" pitch_variety="0.01" />
     <sound key="effect" fileref="bomb_key_press2.wav" pitch_variety="0.01" />
     <sound key="effect" fileref="bomb_key_press3.wav" pitch_variety="0.01" />

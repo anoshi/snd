@@ -33,10 +33,11 @@
     <animation state_key="prone_still" animation_key="prone_still, pistol" />
     <animation state_key="walking_backwards" animation_key="walking backwards, pistol" />
 
-    <sound key="fire" fileref="desert_eagle_shot.wav" pitch_variety="0.05" volume="0.8" />
-    <sound key="magazine_out" fileref="pistol2_clip_out.wav" />
-    <sound key="magazine_in" fileref="pistol2_clip_in.wav" volume="0.6" />
-    <sound key="cycle" fileref="pistol2_chamber.wav" volume="0.6" />
+    <sound key="fire" fileref="deagle_01.wav" pitch_variety="0.05" volume="0.8" />
+    <sound key="fire" fileref="deagle_02.wav" pitch_variety="0.05" volume="0.8" />
+    <sound key="magazine_out" fileref="deagle_clipout.wav" />
+    <sound key="magazine_in" fileref="deagle_clipin.wav" volume="0.8" />
+    <sound key="cycle" fileref="deagle_cycle.wav" volume="0.8" />
     <model filename="deagle.xml" />
 
     <hud_icon filename="hud_desert_eagle.png" />

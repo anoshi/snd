@@ -3,7 +3,7 @@
     <tag name="assault" />
     <specification
       retrigger_time="0.08"
-      last_burst_retrigger_time="0.25"
+      last_burst_retrigger_time="0.125"
       accuracy_factor="1.0"
       sustained_fire_grow_step="0.32"
       sustained_fire_diminish_rate="1.4"
@@ -20,10 +20,13 @@
     <animation key="recoil" ref="13" />
     <animation key="recoil" ref="14" />
     <animation state_key="reload" animation_key="reloading, famasg1" />
-    <sound key="fire" fileref="famasg1_shot.wav" pitch_variety="0.1" volume="0.8" />
-    <sound key="magazine_out" fileref="rifle_clip_out.wav" />
-    <sound key="magazine_in" fileref="rifle_clip_in.wav" />
-    <sound key="cycle" fileref="rifle_chamber.wav" />
+    <sound key="fire" fileref="famas_01.wav" pitch_variety="0.1" volume="0.8" />
+    <sound key="fire" fileref="famas_02.wav" pitch_variety="0.1" volume="0.8" />
+    <sound key="fire" fileref="famas_03.wav" pitch_variety="0.1" volume="0.8" />
+    <sound key="fire" fileref="famas_04.wav" pitch_variety="0.1" volume="0.8" />
+    <sound key="magazine_out" fileref="famas_clipout.wav" />
+    <sound key="magazine_in" fileref="famas_clipin.wav" />
+    <sound key="cycle" fileref="famas_cycle.wav" />
     <sound class="impact" fileref="rifle_drop.wav" />
     <model filename="famasf1.xml" />
 

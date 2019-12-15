@@ -33,10 +33,12 @@
     <animation state_key="prone_still" animation_key="prone_still, pistol" />
     <animation state_key="walking_backwards" animation_key="walking backwards, pistol" />
 
-    <sound key="fire" fileref="supp6.wav" pitch_variety="0.05" volume="0.75" />
-    <sound key="magazine_out" fileref="pistol_clip_out.wav" />
-    <sound key="magazine_in" fileref="pistol_clip_in.wav" volume="0.4" />
-    <sound key="cycle" fileref="pistol_chamber.wav" volume="0.4" />
+    <sound key="fire" fileref="usp_01.wav" pitch_variety="0.05" volume="0.75" />
+    <sound key="fire" fileref="usp_02.wav" pitch_variety="0.05" volume="0.75" />
+    <sound key="fire" fileref="usp_03.wav" pitch_variety="0.05" volume="0.75" />
+    <sound key="magazine_out" fileref="usp_clipout.wav" />
+    <sound key="magazine_in" fileref="usp_clipin.wav" volume="0.4" />
+    <sound key="cycle" fileref="usp_cycle.wav" volume="0.4" />
     <model filename="usp.xml" />
 
     <hud_icon filename="hud_pb.png" />
@@ -45,7 +47,7 @@
     <weak_hand_hold offset="0.1" />
     <projectile file="bullet.projectile">
         <result class="hit"
-		kill_probability="0.5"
+		kill_probability="0.4"
 		kill_decay_start_time="0.3"
 		kill_decay_end_time="0.4"  />
     </projectile>

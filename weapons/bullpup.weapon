@@ -19,10 +19,13 @@
     <animation key="recoil" ref="13" />
     <animation key="recoil" ref="14" />
     <animation state_key="reload" animation_key="reloading, aks74u" />
-    <sound key="fire" fileref="aug_shot.wav" pitch_variety="0.04" volume="0.9" />
-    <sound key="magazine_out" fileref="rifle_clip_out.wav" />
-    <sound key="magazine_in" fileref="rifle_clip_in.wav" />
-    <sound key="cycle" fileref="rifle_chamber.wav" />
+    <sound key="fire" fileref="aug_01.wav" pitch_variety="0.04" volume="0.9" />
+    <sound key="fire" fileref="aug_02.wav" pitch_variety="0.04" volume="0.9" />
+    <sound key="fire" fileref="aug_03.wav" pitch_variety="0.04" volume="0.9" />
+    <sound key="fire" fileref="aug_04.wav" pitch_variety="0.04" volume="0.9" />
+    <sound key="magazine_out" fileref="aug_clipout.wav" />
+    <sound key="magazine_in" fileref="aug_clipin.wav" />
+    <sound key="cycle" fileref="aug_cycle.wav" />
     <sound class="impact" fileref="rifle_drop.wav" />
     <model filename="aug.xml" />
 
