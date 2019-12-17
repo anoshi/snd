@@ -264,7 +264,7 @@ class GameModeSND : Metagame {
 		uint iter = 0;
 		while (thisChar.getIntAttribute("id") != characterId && iter < 5) {
 			_log("** SND: getCharacterInfo returned a negative characterId. Retrying ...", 1);
-			sleep 2;
+			sleep(2);
 			thisChar = getCharacterInfo(this, characterId);
 			iter++;
 			if (iter == 4) {
