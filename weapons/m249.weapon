@@ -29,8 +29,7 @@
     <sound key="magazine_in" fileref="m249_boxin.wav" />
     <sound key="cycle" fileref="m249_pump.wav" />
     <sound class="impact" fileref="rifle_drop.wav" />
-    <!--<model filename="m249.xml" />-->
-    <model filename="machine_gun1.xml" />
+    <model filename="m249.xml" />
 
     <hud_icon filename="hud_m240.png" />
 
