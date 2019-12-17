@@ -265,13 +265,15 @@ class GameModeSND : Metagame {
 		while (thisChar.getIntAttribute("id") != characterId && iter < 5) {
 			_log("** SND: getCharacterInfo returned a negative characterId. Retrying ...", 1);
 			sleep(2);
-			thisChar = getCharacterInfo(this, characterId);
+			const XmlElement@ thisChar = getCharacterInfo(this, characterId);
 			iter++;
 			if (iter == 4) {
 				_log("** SND: giving up on getCharacterInfo call for character " + characterId, 1);
 				return;
 			}
 		}
+
+		int faction = thisChar.getIntAttribute("faction_id");
 
 		// assign / override equipment to player character
 		if (newPlayer) {
