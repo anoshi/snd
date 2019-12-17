@@ -108,13 +108,6 @@ class HostageRescue : SubStage {
 		}
 
 		setWinner(winner);
-
-		// TODO: this shouldn't have any impact. Test without and remove if confirmed.
-		// array<Faction@> factions = getFactions();
-		// string factionName = "";
-		// if (winner >= 0) {
-		// 	factionName = factions[winner].getName();
-		// }
 		m_playerTracker.save();
 		m_metagame.save();
 		end();
