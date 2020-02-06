@@ -5,6 +5,8 @@
 #include "announce_task.as"
 #include "query_helpers.as"
 // --------------------------------------------
+#include "snd_helpers.as" // checkPositionDistance2D
+
 
 // This tracker monitors specific characterIds for collision with / presence within trigger areas ('hitboxes' in RWR)
 // and takes action appropriate for the game type that is being played
@@ -97,7 +99,7 @@ class HitboxHandler : Tracker {
 			uint closestTrigger;
 			for (uint i = 0; i < triggerList.size(); ++i) {
 				const XmlElement@ hitboxNode = triggerList[i];
-				float thisDistance = getPositionDistance(stringToVector3(hitboxNode.getStringAttribute("position")), stringToVector3(ctBase.getStringAttribute("position")));
+				float thisDistance = getPositionDistance2D(stringToVector3(hitboxNode.getStringAttribute("position")), stringToVector3(ctBase.getStringAttribute("position")));
 				_log("** SND: " + hitboxNode.getStringAttribute("id") + " is roughly " + int(thisDistance) + " units away from CT base: " + ctBase.getStringAttribute("id") , 1);
 				if (thisDistance < shortestDistance) {
 					shortestDistance = thisDistance;

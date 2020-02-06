@@ -181,7 +181,7 @@ class PlayerTracker : Tracker {
 			if (int(m_trackedPlayers.size()) < m_metagame.getUserSettings().m_maxPlayers) {
 				_log("** SND: Player " + connName + " has joined. " + (m_metagame.getUserSettings().m_maxPlayers - int(m_trackedPlayers.size() + 1)) + " seats left in server", 1);
 
-				if (key != "ID0") { // local player receives ID0
+				// if (key != "ID0") { // local player receives ID0
 					if (m_savedPlayers.exists(key)) {
 						SNDPlayer@ aPlayer;
 						@aPlayer = m_savedPlayers.get(key);
@@ -203,7 +203,9 @@ class PlayerTracker : Tracker {
 						aPlayer.m_xp = 0.2000;	// grant enough XP to allow VIP and 2 x hostage escorts
 						m_trackedPlayers.add(aPlayer);
 					}
-				}
+				// } else {
+				// 	_log("** SND: player with ID0 connected. Will not be tracked", 1);
+				// }
 			} else {
 				_log("** SND: Player " + connName + " (" + connHash + ") is attempting to join, but no room left in server", 1);
 			}
@@ -233,6 +235,39 @@ class PlayerTracker : Tracker {
 		string key = player.getStringAttribute("sid");
 		string playerCharId = player.getStringAttribute("character_id");
 		int pcIdint = player.getIntAttribute("character_id");
+
+		// In some cases, getCharacterInfo queries return a negative int for a character's id:
+		// sending: TagName=command class=make_query id=329.000     TagName=data class=character id=1.000
+		// waiting for response for the query...
+		// received: TagName=query_result query_id=329     TagName=character id=-1
+
+		// When this occurs, the commands to update RP and XP as well as the setPlayerInventory method
+		// will fail and the metagame will throw an index out of bounds exception.
+
+		// before we go too far, let's make sure the spawned player's reported character ID matches that stored by the metagame.
+		const XmlElement@ thisChar = getCharacterInfo(m_metagame, pcIdint);
+
+		// one way to know we have an issue is if the returned Character XML Element doesn't have a 'faction_id' attribute.
+		uint iter = 0;
+		while (!thisChar.hasAttribute("faction_id") && iter < 5) {
+			_log("** SND: WARNING! Failed to lookup Character ID " + pcIdint + ". Trying again...", 1);
+			sleep(2);
+			const XmlElement@ thisPlayer = getPlayerInfo(m_metagame, player.getIntAttribute("player_id"));
+			int newpcIdint = thisPlayer.getIntAttribute("character_id");
+			_log("** SND: Player lookup states character ID is " + newpcIdint, 1);
+			if (newpcIdint != pcIdint) {
+				_log("** SND: updating character_id for Player " + thisPlayer.getIntAttribute("player_id") + " from " + pcIdint + " to " + newpcIdint, 1);
+				pcIdint = newpcIdint;
+			}
+			const XmlElement@ thisChar = getCharacterInfo(m_metagame, pcIdint);
+			iter++;
+			if (iter == 4) {
+				_log("** SND: giving up on getCharacterInfo call for character " + pcIdint, 1);
+				return;
+			}
+		}
+		// great! we're OK to continue
+
 		if (m_trackedPlayers.exists(key)) { // must have connected to be in this dict
 			SNDPlayer@ spawnedPlayer;
 			@spawnedPlayer = m_trackedPlayers.get(key);

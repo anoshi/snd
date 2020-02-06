@@ -29,6 +29,7 @@ class VIPTracker : Tracker {
 		// m_metagame.getComms().send(trackCharDie);
 		// disable Commander orders to AI
 		m_metagame.disableCommanderAI();
+		m_metagame.setTrackPlayerDeaths(true);
 		m_started = true;
 	}
 
@@ -76,6 +77,7 @@ class VIPTracker : Tracker {
 		// spawn a vip (faction 0) very near the requested location.
 		string spawnCommand = "<command class='create_instance' instance_class='character' faction_id='0' position='" + pos.toString() + "' instance_key='vip' /></command>";
 		m_metagame.getComms().send(spawnCommand);
+		playSound(m_metagame, "vip.wav", 0);
 	}
 
 

@@ -28,6 +28,7 @@ class HostageTracker : Tracker {
 		// disable CommanderAI / orders
 		m_metagame.disableCommanderAI();
 		addHostages();
+		m_metagame.setTrackPlayerDeaths(true);
 		m_started = true;
 	}
 

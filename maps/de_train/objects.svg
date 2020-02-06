@@ -28,16 +28,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="11.313708"
-     inkscape:cx="1024.4282"
-     inkscape:cy="775.14857"
+     inkscape:zoom="1.9999999"
+     inkscape:cx="1021.7159"
+     inkscape:cy="879.01069"
      inkscape:document-units="px"
-     inkscape:current-layer="layer8"
+     inkscape:current-layer="layer30"
      showgrid="true"
      inkscape:window-width="1680"
      inkscape:window-height="951"
-     inkscape:window-x="1058"
-     inkscape:window-y="338"
+     inkscape:window-x="1060"
+     inkscape:window-y="335"
      inkscape:window-maximized="0"
      inkscape:snap-bbox="false"
      inkscape:object-nodes="true"
@@ -94,7 +94,7 @@
     <linearGradient
        id="linearGradient4456">
       <stop
-         style="stop-color:#e1e1e1;stop-opacity:1"
+         style="stop-color:#c8c8c8;stop-opacity:1"
          offset="0"
          id="stop4446" />
       <stop
@@ -7370,8 +7370,8 @@
        inkscape:collect="always"
        xlink:href="#linearGradient4456"
        id="linearGradient4444"
-       x1="1032.5511"
-       y1="1114.5865"
+       x1="1035.4252"
+       y1="1114.7291"
        x2="992.15668"
        y2="1114.604"
        gradientUnits="userSpaceOnUse"
@@ -7397,32 +7397,6 @@
          inkscape:collect="always"
          stdDeviation="0.90625"
          id="feGaussianBlur4329" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter4343"
-       x="-0.016561404"
-       width="1.0331228"
-       y="-0.043569231"
-       height="1.0871385">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.1475"
-         id="feGaussianBlur4345" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter4520"
-       x="-0.022557303"
-       width="1.0451146"
-       y="-0.089094675"
-       height="1.1781893">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="1.5684376"
-         id="feGaussianBlur4522" />
     </filter>
     <linearGradient
        gradientTransform="translate(171.68295,-2230.734)"
@@ -7902,7 +7876,7 @@
          id="tspan12925"
          x="3103.7859"
          y="648.68756"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif"> you needMake sure that both pathes have the same amount of nodes, </tspan><tspan
+         style="font-size:8px;line-height:1.25;font-family:sans-serif"> you need. Make sure that both paths have the same amount of nodes, </tspan><tspan
          sodipodi:role="line"
          id="tspan12927"
          x="3103.7859"
@@ -8285,7 +8259,8 @@
        id="rect9344-6-8"
        style="display:inline;fill:#656565;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;enable-background:new">
       <desc
-         id="desc9346-4-7">type = tree; name = TreeBirch; detail_texture = birch.png;</desc>
+         id="desc9346-4-7">type = tree; name = TreeBirch; 
+#detail_texture = birch.png;</desc>
     </rect>
     <flowRoot
        transform="translate(533.35345,-13.442302)"
@@ -14629,7 +14604,7 @@ visual_hitbox_size = 3.5 10 3.5;
        inkscape:label=""
        sodipodi:nodetypes="cc">
       <desc
-         id="desc7761">template = InvisibleWall2;</desc>
+         id="desc7761">template = BrickWall2;</desc>
     </path>
     <text
        id="text7763"
@@ -17192,23 +17167,23 @@ see_through = 0;</desc>
        x="1145.1251"
        y="1218" />
     <rect
-       style="display:inline;opacity:1;fill:#737373;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill;filter:url(#filter4520);enable-background:new"
+       style="display:inline;opacity:1;fill:#737373;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill;enable-background:new;"
        id="rect4325"
        width="166.875"
        height="52.149517"
        x="1040.1251"
        y="1226.625" />
     <path
-       style="opacity:1;fill:#c8c8c8;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill;"
-       d="m 1003.3845,1134.418 h 36.5044 v 49.4091 l -22.6275,-10e-5 -4e-4,14.275 4.508,-0.06 3e-4,8.5006 -18.3848,10e-5 z"
+       style="opacity:1;fill:#afafaf;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+       d="m 1003.3845,1137.418 h 35.3794 V 1181 h -21.5025 l -4e-4,17.102 4.508,-0.06 3e-4,8.5006 -18.3848,10e-5 z"
        id="rect4434"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccccc" />
     <rect
        style="opacity:1;fill:url(#linearGradient4444);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
        id="rect4436"
-       width="40.427769"
-       height="6.3034554"
+       width="43.553444"
+       height="6.3034668"
        x="1100.1017"
        y="-1008.3055"
        transform="rotate(89.648771)" />
@@ -17219,21 +17194,12 @@ see_through = 0;</desc>
        height="8.000001"
        x="1003.6251"
        y="1268.875" />
-    <rect
+    <path
        style="opacity:1;fill:#b9b9b9;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+       d="m 1002.625,1213.4473 v 55.4277 h 13.75 v -0.125 h 22.4199 l 0,-41.7148 h -22.4199 l 0,-13.5879 z"
        id="rect4492"
-       width="13.75"
-       height="55.428467"
-       x="1002.6251"
-       y="1213.4465" />
-    <rect
-       transform="translate(0,1024)"
-       style="display:inline;opacity:1;fill:#afafaf;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill;filter:url(#filter4343);enable-background:new"
-       id="rect4323"
-       width="21.375"
-       height="8.125"
-       x="1123.8751"
-       y="194.125" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccc" />
     <rect
        style="display:inline;opacity:1;fill:url(#linearGradient4309-3);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill;enable-background:new"
        id="rect4301-9"
@@ -17249,6 +17215,15 @@ see_through = 0;</desc>
        height="8.5392685"
        x="1021.7018"
        y="1198.0305" />
+    <rect
+       transform="rotate(90.629175)"
+       inkscape:label="#ladder"
+       y="-1160.3984"
+       x="1179.3496"
+       height="2.25"
+       width="6"
+       id="rect7651-10-7-5"
+       style="display:inline;opacity:0.79775277;fill:#2cffe7;fill-opacity:1;fill-rule:nonzero;stroke:none;enable-background:new" />
   </g>
   <g
      style="display:none"
@@ -17783,10 +17758,107 @@ capturable = 0;</desc>
       </rect>
     </g>
     <g
+       inkscape:groupmode="layer"
+       id="layer51"
+       inkscape:label="power lines">
+      <path
+         style="display:inline;opacity:0.92000002;fill:none;stroke:#9d7b00;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
+         d="m 904.10469,887.04548 80.66834,7.72252 12.63045,71.29299 -17.0779,69.96121 -57.19541,0.5493 -1.44574,64.3166 18.8644,12.102 -1.23557,46.9667 32.40421,1.0462 -1.46557,57.5238 21.78175,43.9554 15.57875,70.9579 -8.38022,70.643 4.87622,47.9855 45.5565,2.9306 48.6894,-46.2279 59.6917,-35.488 34.1384,-45.2707 14.9887,-51.0368 -0.071,-56.4782 8.4181,-23.4932 1.0165,-29.5047 -0.4628,-56.3995 -31.7444,-2.4924 -1.3985,-60.6082 30.8744,-40.2126 53.4389,-49.39811 46.6721,-37.31227 42.719,-31.47062 39.6859,-19.46946"
+         id="path6989-17-4-5-8-8-0-0-6-8-12-03-8-3-4-1-8-9-0-1-9-3-3"
+         inkscape:connector-curvature="0"
+         inkscape:label="post"
+         sodipodi:nodetypes="cccccccccccccccccccccccccccccc">
+        <desc
+           id="desc103044-8">post_template = post1_1;</desc>
+      </path>
+    </g>
+    <g
        style="display:inline"
        inkscape:label="foliage"
        id="layer21"
-       inkscape:groupmode="layer" />
+       inkscape:groupmode="layer">
+      <rect
+         style="display:inline;opacity:0.92000002;fill:#008000;fill-opacity:1;fill-rule:nonzero;stroke:none;enable-background:new"
+         id="rect14642-1-4-4-0"
+         width="2"
+         height="2"
+         x="1070.7502"
+         y="1099.7867"
+         inkscape:label="#mesh">
+        <title
+           id="title14646-7-8-0-5">bush2</title>
+        <desc
+           id="desc14644-4-8-6-2">template = bush2;</desc>
+      </rect>
+      <rect
+         style="display:inline;opacity:0.92000002;fill:#00ff00;fill-opacity:1;fill-rule:nonzero;stroke:#ff0000;stroke-width:0.60000002;stroke-miterlimit:4;stroke-dasharray:none;enable-background:new"
+         id="rect14642-1-94-7-1-2"
+         width="2"
+         height="2"
+         x="1074.3307"
+         y="1099.7152"
+         inkscape:label="#mesh">
+        <title
+           id="title14646-7-882-1-7">bush0</title>
+        <desc
+           id="desc14644-4-45-1-3">template = bush0;</desc>
+      </rect>
+      <rect
+         style="display:inline;opacity:0.92000002;fill:#008000;fill-opacity:1;fill-rule:nonzero;stroke:#00ff00;stroke-width:0.60000002;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+         id="rect14642-1-94-86-6-7"
+         width="2.6560073"
+         height="2.6560073"
+         x="1091.6093"
+         y="1111.7959"
+         inkscape:label="#mesh">
+        <title
+           id="title14646-7-882-77-1-9">bush3</title>
+        <desc
+           id="desc14644-4-45-22-4-8-0">template = bush3;</desc>
+      </rect>
+      <rect
+         inkscape:label="#mesh"
+         y="1382.5895"
+         x="-680.52673"
+         height="2.6560073"
+         width="2.6560073"
+         id="rect11363-6"
+         style="display:inline;opacity:0.92000002;fill:#008000;fill-opacity:1;fill-rule:nonzero;stroke:#00ff00;stroke-width:0.60000002;stroke-miterlimit:4;stroke-dasharray:0.60000002, 0.60000002;stroke-dashoffset:0;stroke-opacity:1;enable-background:new"
+         transform="rotate(-70.812516)">
+        <title
+           id="title11365-5">bush3_1</title>
+        <desc
+           id="desc11367-7">template = bush3_1;</desc>
+      </rect>
+      <rect
+         style="display:inline;opacity:0.92000002;fill:#008000;fill-opacity:1;fill-rule:nonzero;stroke:#00ff00;stroke-width:0.60000002;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+         id="rect14642-1-94-86-6-7-6"
+         width="2.6560073"
+         height="2.6560073"
+         x="1102.7443"
+         y="-1133.2445"
+         inkscape:label="#mesh"
+         transform="rotate(90.254215)">
+        <title
+           id="title14646-7-882-77-1-9-5">bush3</title>
+        <desc
+           id="desc14644-4-45-22-4-8-0-5">template = bush3;</desc>
+      </rect>
+      <rect
+         style="display:inline;opacity:0.92000002;fill:#00ff00;fill-opacity:1;fill-rule:nonzero;stroke:#ff0000;stroke-width:0.60000002;stroke-miterlimit:4;stroke-dasharray:none;enable-background:new"
+         id="rect14642-1-94-7-1-2-8"
+         width="2"
+         height="2"
+         x="-1088.2023"
+         y="-1100.5013"
+         inkscape:label="#mesh"
+         transform="rotate(179.78231)">
+        <title
+           id="title14646-7-882-1-7-1">bush0</title>
+        <desc
+           id="desc14644-4-45-1-3-4">template = bush0;</desc>
+      </rect>
+    </g>
     <g
        inkscape:groupmode="layer"
        id="layer46"
@@ -17803,8 +17875,8 @@ capturable = 0;</desc>
       <rect
          transform="rotate(90.170188)"
          inkscape:label="#ladder"
-         y="-1024.3521"
-         x="1185.527"
+         y="-1025.4125"
+         x="1185.4354"
          height="2.25"
          width="6"
          id="rect7651-10-7-4"
@@ -17844,17 +17916,7 @@ capturable = 0;</desc>
        inkscape:groupmode="layer">
       <path
          style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1179.3191,1188.1714 0.028,1.9759 h -68.5435 l -0.032,-2.002"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-0"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-2">template = InvisibleWall2;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1178.8486,1188.6391 2.3294,0.053 -0.094,37.637 -2.0019,0.039"
+         d="m 1178.8486,1189.3462 2.3294,0.053 -0.094,36.9299 -2.0019,0.039"
          id="wall37832-1-7-0-43-24-4-0-9-7-7-9"
          inkscape:connector-curvature="0"
          inkscape:label=""
@@ -17864,7 +17926,7 @@ capturable = 0;</desc>
       </path>
       <path
          style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1003.3855,1198.5686 1.9758,-0.035 0.2599,79.2409 -2.0019,0.039"
+         d="m 1003.3855,1198.5686 1.9758,-0.035 0.2599,84.4909 -2.0019,0.039"
          id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0"
          inkscape:connector-curvature="0"
          inkscape:label=""
@@ -17874,23 +17936,13 @@ capturable = 0;</desc>
       </path>
       <path
          style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1195.4653,1236.6776 2.3294,0.053 -0.094,40.274 -2.0019,0.039"
+         d="m 1195.4653,1237.4731 2.3294,0.053 -0.094,46.0192 -2.0019,0.039"
          id="wall37832-1-7-0-43-24-4-0-9-7-7-9-9"
          inkscape:connector-curvature="0"
          inkscape:label=""
          sodipodi:nodetypes="cccc">
         <desc
            id="desc37834-46-7-1-8-5-8-2-05-3-9-7-8">template = InvisibleWall2;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1007.1876,1095.3263 1.9758,-0.035 0.2599,102.3659 -2.0019,0.039"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-7-3-0">template = InvisibleWall2;</desc>
       </path>
       <path
          style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
@@ -17934,7 +17986,7 @@ capturable = 0;</desc>
       </path>
       <path
          style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1139.1312,1200.0291 0.028,1.9759 h -28.856 l -0.032,-2.002"
+         d="m 1180.4969,1200.0291 0.028,1.9759 -70.2217,0 -0.032,-2.002"
          id="wall37832-1-7-0-43-24-4-0-9-7-7-0-83-2"
          inkscape:connector-curvature="0"
          inkscape:label=""
@@ -17954,57 +18006,6 @@ capturable = 0;</desc>
       </path>
       <path
          style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1039.5687,1225.2791 0.028,1.9759 h -22.6685 l -0.032,-2.002"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-0-83-2-2-7"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-2-0-5-2-1">template = InvisibleWall2;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1039.4437,1267.4041 0.028,1.9759 h -22.6685 l -0.032,-2.002"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-0-83-2-2-7-5"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-2-0-5-2-1-2">template = StoneWall1;
-height=6.0</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1016.3394,1225.5603 1.9758,-0.035 0.2599,43.676 -2.0019,0.039"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-1"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-7-3-0-1">template = InvisibleWall2;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1037.1342,1225.5603 1.9758,-0.035 0.2599,43.676 -2.0019,0.039"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-1-0"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-7-3-0-1-1">template = InvisibleWall2;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1025.6194,1135.0507 1.9758,-0.035 0.2599,39.2566 -2.0019,0.039"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-1-8"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-7-3-0-1-7">template = InvisibleWall2;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
          d="m 1015.3662,1135.139 1.9758,-0.035 0.2599,39.2566 -2.0019,0.039"
          id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-1-8-6"
          inkscape:connector-curvature="0"
@@ -18012,16 +18013,6 @@ height=6.0</desc>
          sodipodi:nodetypes="cccc">
         <desc
            id="desc37834-46-7-1-8-5-8-2-05-3-9-7-3-0-1-7-0">template = InvisibleWall2;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1038.082,1131.0731 1.0919,-0.035 0.2599,42.8805 -1.118,0.039"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-1-8-0"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-7-3-0-1-7-9">template = InvisibleWall2;</desc>
       </path>
       <path
          style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
@@ -18035,16 +18026,6 @@ height=6.0</desc>
       </path>
       <path
          style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1140.5227,1129.2197 0.028,1.9759 h -10.5566 l -0.032,-2.002"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-0-83-2-2-3"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-2-0-5-2-9">template = InvisibleWall2;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
          d="m 1145.3878,1120.6541 0.028,1.9759 h -5.0566 l -0.032,-2.002"
          id="wall37832-1-7-0-43-24-4-0-9-7-7-0-83-2-2-3-1"
          inkscape:connector-curvature="0"
@@ -18052,26 +18033,6 @@ height=6.0</desc>
          sodipodi:nodetypes="cccc">
         <desc
            id="desc37834-46-7-1-8-5-8-2-05-3-9-2-0-5-2-9-9">template = InvisibleWall2;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1129.3813,1122.2369 1.9758,-0.035 0.2599,9.0659 -2.0019,0.039"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-8-0-7-8-51"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-7-3-0-4-0-5-5-3">template = InvisibleWall2;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1138.0045,1121.9869 1.9758,-0.035 0.2599,9.0659 -2.0019,0.039"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-8-0-7-8-51-9"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-7-3-0-4-0-5-5-3-7">template = InvisibleWall2;</desc>
       </path>
       <path
          style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
@@ -18104,41 +18065,18 @@ height=6.0</desc>
            id="desc37834-46-7-1-8-5-8-2-05-3-9-2-0-5-2-9-9-4">template = InvisibleWall2;</desc>
       </path>
       <path
-         style="display:inline;opacity:0.95999995;fill:#cfcec3;fill-opacity:1;stroke:#000000;stroke-width:0.37795275;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
-         d="m 1156.3859,1225.587 1.9758,-0.035 0.2599,42.8034 -2.0019,0.039"
+         style="display:inline;opacity:0.95999995;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.37795275;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+         d="m 1185.0687,1266.4039 -26.459,-0.023 -0.2364,-38.9864 h 8.4043"
          id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-4-5-1"
          inkscape:connector-curvature="0"
-         inkscape:label=""
          sodipodi:nodetypes="cccc">
         <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-7-3-0-2-5-6">template = StoneWall1;
-height=8.0;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#cfcec3;fill-opacity:1;stroke:#000000;stroke-width:0.37795275;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
-         d="m 1185.0687,1266.4041 0.028,1.9759 h -28.3123 l -0.032,-2.002"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-0-83-6-1"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-2-0-2-2">template = StoneWall1;
-height=8.0;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.95999995;fill:#cfcec3;fill-opacity:1;stroke:#000000;stroke-width:0.37795275;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
-         d="m 1166.7502,1225.4193 0.028,1.9759 h -10.7891 l -0.032,-2.002"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-0-83-2-2-3-1-9-0"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-2-0-5-2-9-9-4-4">template = StoneWall1;
+           id="desc4296">template = StoneWall1;
 height=8.0;</desc>
       </path>
       <path
          style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1109.88,1188.7225 1.9758,-0.035 0.2599,13.1428 -2.0019,0.039"
+         d="m 1109.88,1190.0483 1.9758,-0.035 0.2599,11.817 -2.0019,0.039"
          id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-8-0-7-8-51-9-1-8-6-5"
          inkscape:connector-curvature="0"
          inkscape:label=""
@@ -18158,7 +18096,7 @@ height=8.0;</desc>
       </path>
       <path
          style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1051.6325,1188.9574 1.9758,-0.035 0.2599,10.0955 -2.0019,0.039"
+         d="m 1051.6325,1190.1064 1.9758,-0.035 0.2599,7.8858 -2.0019,0.039"
          id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-8-0-7-8-51-9-1-8-6-5-5"
          inkscape:connector-curvature="0"
          inkscape:label=""
@@ -18195,36 +18133,6 @@ height=8.0;</desc>
          sodipodi:nodetypes="cccc">
         <desc
            id="desc37834-46-7-1-8-5-8-2-05-3-9-2-0-5-2-89-4-1">template = InvisibleWall2;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1023.3812,1183.1881 0.028,1.9759 h -7.5435 l -0.032,-2.002"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-0-83-2-2-26-1-7-9"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-2-0-5-2-89-4-1-3">template = InvisibleWall2;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1015.3803,1185.2994 1.9758,-0.035 0.2599,12.4119 -2.0019,0.039"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-8-0-7-8-51-9-1-8-6-5-6-8-1"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-7-3-0-4-0-5-5-3-7-8-5-7-3-3-8-1">template = InvisibleWall2;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1027.6505,1134.4345 0.028,1.9759 h -11.7935 l -0.032,-2.002"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-0-83-2-2-26-1-7-5"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-2-0-5-2-89-4-1-0">template = InvisibleWall2;</desc>
       </path>
       <path
          style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
@@ -18268,33 +18176,13 @@ height=8.0;</desc>
       </path>
       <path
          style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1126.6911,1211.2369 1.9758,-0.035 0.2599,6.4409 -2.0019,0.039"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-8-0-7-8-51-9-1-8-4"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-7-3-0-4-0-5-5-3-7-8-5-8">template = InvisibleWall2;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1137.314,1201.0493 1.9758,-0.035 0.2599,16.6284 -2.0019,0.039"
+         d="m 1137.314,1201.0493 1.9758,-0.035 0.2599,8.8502 -2.0019,0.039"
          id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-8-0-7-8-51-9-1-8-4-0"
          inkscape:connector-curvature="0"
          inkscape:label=""
          sodipodi:nodetypes="cccc">
         <desc
            id="desc37834-46-7-1-8-5-8-2-05-3-9-7-3-0-4-0-5-5-3-7-8-5-8-4">template = InvisibleWall2;</desc>
-      </path>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1008.6805,1195.695 0.028,1.9759 h -4.8366 l -0.032,-2.002"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-0-83-2-2-26-0"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-2-0-5-2-89-5">template = InvisibleWall2;</desc>
       </path>
       <path
          sodipodi:nodetypes="cc"
@@ -18329,8 +18217,8 @@ separator_at_end = 0;</desc>
          id="rect16633-4-8-7-6-9-9-5-7-48-6"
          width="3.411628"
          height="5.9932504"
-         x="-1111.6322"
-         y="1035.2942"
+         x="-1111.6288"
+         y="1035.7942"
          inkscape:label="#mesh"
          transform="rotate(-89.615172)"
          ry="0">
@@ -18344,8 +18232,8 @@ separator_at_end = 0;</desc>
          id="rect16633-4-8-7-6-9-9-5-7-48-3"
          width="3.411628"
          height="5.9932504"
-         x="-1041.6417"
-         y="-1119.6898"
+         x="-1042.1417"
+         y="-1119.6879"
          inkscape:label="#mesh"
          transform="rotate(-179.77602)"
          ry="0">
@@ -18354,16 +18242,6 @@ separator_at_end = 0;</desc>
         <desc
            id="desc16653-2-9-3-3-2-2-3-7-8">template = barbwire;</desc>
       </rect>
-      <path
-         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1012.7109,1206.2125 1.9758,-0.035 0.2599,11.2187 -2.0019,0.039"
-         id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-8-0-7-8-51-9-1-8-6-5-6-8-1-0"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         sodipodi:nodetypes="cccc">
-        <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-7-3-0-4-0-5-5-3-7-8-5-7-3-3-8-1-0">template = InvisibleWall2;</desc>
-      </path>
       <path
          style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
          d="m 1195.2803,1121.6681 2.3294,0.053 -0.094,107.8285 -2.0019,0.039"
@@ -18496,13 +18374,200 @@ separator_at_end = 0;</desc>
       </rect>
       <path
          style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
-         d="m 1088.3187,1092.5916 0.028,1.9759 h -11.7935 l -0.032,-2.002"
+         d="m 1088.7944,1093.6587 -11.6889,1.5676"
          id="wall37832-1-7-0-43-24-4-0-9-7-7-0-83-2-2-26-1-7-0"
+         inkscape:connector-curvature="0"
+         inkscape:label=""
+         sodipodi:nodetypes="cc">
+        <desc
+           id="desc37834-46-7-1-8-5-8-2-05-3-9-2-0-5-2-89-4-1-4">template = InvisibleWall2;</desc>
+      </path>
+      <path
+         style="display:inline;opacity:0.95999995;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.37795275;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+         d="m 1161.9106,1075.0436 -6.1875,-0.027 c 0.043,14.8801 -0.2351,24.4769 0,37.252 9.4925,-0.032 -3.3052,-0.014 6.1875,-0.014"
+         id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-4-5-1-3"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccc">
+        <desc
+           id="desc4296-9">template = StoneWall1;
+height=2.0;</desc>
+      </path>
+      <g
+         id="g4663">
+        <path
+           style="display:inline;fill:none;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
+           d="m 1039.5625,1226 19.8369,0 h 38.3005 26.0501"
+           id="path7943-7-4-7-5-5-4-5-0-8-1-9"
+           inkscape:connector-curvature="0"
+           inkscape:label="#path7943_platform"
+           sodipodi:nodetypes="cccc">
+          <desc
+             id="desc7945-4-0-2-6-8-7-8-0-8-3-9">type = end;
+height = 1.0;
+wall_template = DummyWall1;
+#wall_height = 1.0;
+top_material = terrain;
+separator_height = 0.2;
+base_wall_template = CliffWall2;
+climbable = 0;</desc>
+        </path>
+        <path
+           style="display:inline;fill:none;stroke:#0000ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
+           d="m 1039.5625,1219.0001 19.6901,-10e-5 h 39.4972 25.0002"
+           id="path7943-1-0-1-5-0-4-2-3-7-2-8-1"
+           inkscape:connector-curvature="0"
+           inkscape:label="#path7943_platform"
+           sodipodi:nodetypes="cccc">
+          <desc
+             id="desc7945-3-9-7-6-96-0-1-9-2-4-7-7">type = start;</desc>
+        </path>
+      </g>
+      <path
+         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
+         d="m 1197.5999,1275.2791 0.028,1.9759 h -193.356 l -0.032,-2.002"
+         id="wall37832-1-7-0-43-24-4-0-9-7-7-0-8-2"
          inkscape:connector-curvature="0"
          inkscape:label=""
          sodipodi:nodetypes="cccc">
         <desc
-           id="desc37834-46-7-1-8-5-8-2-05-3-9-2-0-5-2-89-4-1-4">template = InvisibleWall2;</desc>
+           id="desc37834-46-7-1-8-5-8-2-05-3-9-2-5-3">template = InvisibleWall2;</desc>
+      </path>
+      <path
+         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
+         d="m 1180.9182,1188.8818 0.028,1.9759 h -26.2055 l -0.032,-2.002"
+         id="wall37832-1-7-0-43-24-4-0-9-7-7-0-9"
+         inkscape:connector-curvature="0"
+         inkscape:label=""
+         sodipodi:nodetypes="cccc">
+        <desc
+           id="desc37834-46-7-1-8-5-8-2-05-3-9-2-54">template = InvisibleWall2;</desc>
+      </path>
+      <g
+         id="g4941"
+         transform="translate(0,0.79549516)">
+        <path
+           style="display:inline;fill:none;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
+           d="m 1112.6174,1198.1742 8.1749,-10e-5 7.0459,-4e-4 15.0292,5e-4"
+           id="path7943-7-4-7-5-5-4-5-0-8-1-5"
+           inkscape:connector-curvature="0"
+           inkscape:label="#path7943_platform"
+           sodipodi:nodetypes="cccc">
+          <desc
+             id="desc7945-4-0-2-6-8-7-8-0-8-3-5">type = deck_end; 
+height = 4.0; 
+wall_height = 0.6; 
+wall_template = StoneWallCastle1; 
+top_material = terrain; 
+separator_height = 0.4;
+climbable = 0;
+</desc>
+        </path>
+        <path
+           style="display:inline;fill:none;stroke:#0000ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
+           d="m 1112.6174,1189.9242 8.2134,10e-5 7.2159,-4e-4 14.8207,3e-4"
+           id="path7943-1-0-1-5-0-4-2-3-7-2-8-4"
+           inkscape:connector-curvature="0"
+           inkscape:label="#path7943_platform"
+           sodipodi:nodetypes="cccc">
+          <desc
+             id="desc7945-3-9-7-6-96-0-1-9-2-4-7-1">type = deck_start;</desc>
+        </path>
+      </g>
+      <path
+         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
+         d="m 1154.4856,1189.6057 1.9758,-0.035 0.2599,11.817 -2.0019,0.039"
+         id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-8-0-7-8-51-9-1-8-6-5-8"
+         inkscape:connector-curvature="0"
+         inkscape:label=""
+         sodipodi:nodetypes="cccc">
+        <desc
+           id="desc37834-46-7-1-8-5-8-2-05-3-9-7-3-0-4-0-5-5-3-7-8-5-7-3-8">template = InvisibleWall2;</desc>
+      </path>
+      <g
+         id="g4996"
+         transform="translate(0,-0.1767767)">
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:label="#path7943_platform"
+           inkscape:connector-curvature="0"
+           id="path7943-7-4-7-7-95-4-7-5"
+           d="m 1038.3324,1268.7638 0.072,-41.4452"
+           style="display:inline;fill:none;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new">
+          <desc
+             id="desc7945-4-0-2-7-4-8-9-2">type = deck_end;
+wall_template = InvisibleWall2;
+top_material = terrain;
+climbable = 0;
+height = 5;</desc>
+        </path>
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:label="#path7943_platform"
+           inkscape:connector-curvature="0"
+           id="path7943-1-0-1-5-4-1-8-5-2"
+           d="m 1016.7464,1268.5981 -0.051,-40.6384"
+           style="display:inline;fill:none;stroke:#0000ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new">
+          <desc
+             id="desc7945-3-9-7-6-9-0-2-5-6">type = deck_start;</desc>
+        </path>
+      </g>
+      <g
+         id="g5033">
+        <path
+           sodipodi:nodetypes="ccc"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:#cb0000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
+           d="m 1017.5339,1183.0004 23.358,-10e-4 -0.044,-48.207"
+           id="path20737-8-7"
+           inkscape:connector-curvature="0"
+           inkscape:label="#path20737_platform">
+          <desc
+             id="desc20739-4-8">type = end;
+wall_template = DummyWall1;
+base_wall_template = CliffWall2;
+top_material = terrain;
+climbable = 0;
+height = 5;</desc>
+        </path>
+        <path
+           sodipodi:nodetypes="ccc"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:#0000cb;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
+           d="m 1017.7829,1174.3389 -0.03,-8.0889 -0.034,-31.0886"
+           id="path20733-8-4"
+           inkscape:connector-curvature="0"
+           inkscape:label="#path20733_platform">
+          <desc
+             id="desc20735-3-1">type = start;</desc>
+        </path>
+      </g>
+      <path
+         style="display:inline;opacity:0.93000034;fill:#bebebe;fill-opacity:1;stroke:#bebebe;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
+         d="m 1013.2549,1206.9557 1.9758,-0.035 0.2599,9.6284 -2.0019,0.039"
+         id="wall37832-1-7-0-43-24-4-0-9-7-7-9-0-2-8-0-7-8-51-9-1-8-6-5-6-7"
+         inkscape:connector-curvature="0"
+         inkscape:label=""
+         sodipodi:nodetypes="cccc">
+        <desc
+           id="desc37834-46-7-1-8-5-8-2-05-3-9-7-3-0-4-0-5-5-3-7-8-5-7-3-3-1">template = InvisibleWall2;</desc>
+      </path>
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         inkscape:label=""
+         id="wall19-8-6-7-56-5-1-7-6-8"
+         d="m 1018.1548,1180.9522 0.031,17.1474"
+         style="display:inline;fill:none;stroke:#aa4400;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new">
+        <desc
+           id="desc29111-1-4-8-9-2-7">template = BrickWall2;</desc>
+      </path>
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         inkscape:label=""
+         id="wall19-8-6-7-56-5-1-7-6"
+         d="m 1060.4675,1131.3794 -22.7724,0.023"
+         style="display:inline;enable-background:new;fill:none;stroke:#00ffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+        <desc
+           id="desc29111-1-4-8-9-2">template = CorrugatedFence;</desc>
       </path>
     </g>
     <g
@@ -18756,7 +18821,7 @@ separator_at_end = 0;</desc>
          style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
          id="buildingrect27336"
          width="8.063427"
-         height="42.416645"
+         height="45.292336"
          x="-36.974247"
          y="1116.897"
          transform="rotate(-89.834597)"
@@ -18813,18 +18878,6 @@ separator_at_end = 0;</desc>
          transform="rotate(0.56397204)">
         <desc
            id="desc7569-7-1-1-0-37-49-2-04-2-4">template = hedgehog;</desc>
-      </rect>
-      <rect
-         style="display:inline;opacity:0.92000002;fill:#855e00;fill-opacity:1;stroke:none;enable-background:new"
-         id="mesh10-1-8-3"
-         width="4.961926"
-         height="4.9513106"
-         x="1140.0326"
-         y="145.66071"
-         inkscape:label="#mesh"
-         transform="rotate(0.56397204)">
-        <desc
-           id="desc7569-7-1-1-0-37-49-2-04-2-8">template = hedgehog;</desc>
       </rect>
       <rect
          style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
@@ -19017,10 +19070,10 @@ separator_at_end = 0;</desc>
       <rect
          style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
          id="buildingrect27336-1"
-         width="56.729385"
+         width="56.417068"
          height="14.892334"
-         x="-85.638313"
-         y="1157.3622"
+         x="-85.626404"
+         y="1161.4872"
          transform="rotate(-89.834597)"
          inkscape:label="#rect27336">
         <desc
@@ -19351,8 +19404,8 @@ see_through = 0;</desc>
          inkscape:label="#rect6406"
          y="-70.164612"
          x="-1116.5704"
-         height="10.635422"
-         width="30.197914"
+         height="10.394339"
+         width="29.513351"
          id="buildingrect6406-7-4-1-3-8-0-15-7-2-7-6-6-7-9"
          style="display:inline;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1;enable-background:new">
         <desc
@@ -19421,9 +19474,9 @@ see_through = 0;</desc>
       <rect
          style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
          id="buildingrect27336-9-2"
-         width="9.7875595"
-         height="61.128304"
-         x="-76.692986"
+         width="25.536411"
+         height="61.128296"
+         x="-92.441841"
          y="947.35522"
          transform="rotate(-89.834597)"
          inkscape:label="#rect27336">
@@ -19435,12 +19488,61 @@ see_through = 0;</desc>
          id="buildingrect27336-9-2-0"
          width="9.7875671"
          height="196.00638"
-         x="-260.46606"
-         y="1003.6664"
+         x="-261.70349"
+         y="1003.67"
          transform="rotate(-89.834597)"
          inkscape:label="#rect27336">
         <desc
-           id="desc27396-8-1-2">height=6; material = BuildingWhite3; offset = 0 0 0;</desc>
+           id="desc27396-8-1-2">height=4; material = BuildingWhite3; offset = 0 0 0;</desc>
+      </rect>
+      <rect
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
+         id="buildingrect27336-9-2-7"
+         width="24.044556"
+         height="32.628845"
+         x="-116.32968"
+         y="975.49274"
+         transform="rotate(-89.834597)"
+         inkscape:label="#rect27336">
+        <desc
+           id="desc27396-8-1-9">height=4; material = BuildingWhite3; offset = 0 0 0;</desc>
+      </rect>
+      <rect
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
+         id="buildingrect27336-9-2-3"
+         width="31.822618"
+         height="30.36002"
+         x="-124.19726"
+         y="946.76166"
+         transform="rotate(-89.834597)"
+         inkscape:label="#rect27336">
+        <desc
+           id="desc27396-8-1-8">height=6; material = BuildingWhite3; offset = 0 0 0;</desc>
+      </rect>
+      <rect
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
+         id="buildingrect27336-9-2-3-0"
+         width="54.972889"
+         height="30.889221"
+         x="-170.44653"
+         y="977.15155"
+         transform="rotate(-89.834597)"
+         inkscape:label="#rect27336">
+        <desc
+           id="desc27396-8-1-8-2">height=4; material = BuildingWhite3; offset = 0 0 0;</desc>
+      </rect>
+      <rect
+         transform="rotate(89.916269)"
+         inkscape:label="#mesh"
+         y="-1160.7662"
+         x="158.23035"
+         height="22"
+         width="5.4000001"
+         id="mesh14-07-6-5-8-6-5-3-2-9-0-1-8-8-6-8-9"
+         style="display:inline;fill:#4e7fd9;fill-opacity:1;stroke:none;enable-background:new">
+        <desc
+           id="desc7569-9-3-1-4-4-6-4-8-6-6-2-7-9-2-0-9-6-1-5-6-1">template = train boxcar;
+</desc>
       </rect>
     </g>
     <g
@@ -19485,9 +19587,8 @@ see_through = 0;</desc>
         <desc
            id="desc11945">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 8 8 16 16;
-offset = 0 0 0;
+texture0 = asphalt.png; 
+offset = 0 -2.0 0;
 </desc>
         <title
            id="title11947">stairs1</title>
@@ -19504,8 +19605,7 @@ offset = 0 0 0;
         <desc
            id="desc11945-3">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 8 8 16 16;
+texture0 = beton.png; 
 offset = 0 -1.40 0;
 </desc>
         <title
@@ -19523,8 +19623,7 @@ offset = 0 -1.40 0;
         <desc
            id="desc11945-3-8">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 8 8 16 16;
+texture0 = beton.png; 
 offset = 0 -1.40 0;
 </desc>
         <title
@@ -19542,8 +19641,7 @@ offset = 0 -1.40 0;
         <desc
            id="desc11945-3-8-6">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 8 8 16 16;
+texture0 = beton.png; 
 offset = 0 -1.40 0;
 </desc>
         <title
@@ -19561,15 +19659,14 @@ offset = 0 -1.40 0;
         <desc
            id="desc11945-3-8-6-2">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 8 8 16 16;
+texture0 = beton.png; 
 offset = 0 -1.40 0;
 </desc>
         <title
            id="title11947-8-0-0-6">stairs1</title>
       </rect>
       <rect
-         style="display:inline;opacity:0.92000002;fill:#563a16;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.95515919;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+         style="display:inline;opacity:0.92000002;fill:#563a16;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.05499995;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
          id="rect8111-3-89-7-5-1-8-2-9"
          width="3.3877919"
          height="10.269685"
@@ -19585,8 +19682,8 @@ offset = 0 -1.40 0;
       <rect
          transform="rotate(90.005823)"
          inkscape:label="#mesh"
-         y="-1187.4003"
-         x="1217.4753"
+         y="-1188.2845"
+         x="1220.8466"
          height="8"
          width="7.7539811"
          id="rect11943-3"
@@ -19594,18 +19691,16 @@ offset = 0 -1.40 0;
         <desc
            id="desc11945-7">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 8 8 16 16;
-offset = 0 -1.40 0;
-</desc>
+texture0 = asphalt.png; 
+offset = 0 -2.60 0;</desc>
         <title
            id="title11947-88">stairs1</title>
       </rect>
       <rect
          transform="rotate(90.005823)"
          inkscape:label="#mesh"
-         y="-1195.3702"
-         x="1217.4678"
+         y="-1196.2545"
+         x="1220.839"
          height="8"
          width="7.7539811"
          id="rect11943-3-3"
@@ -19613,9 +19708,8 @@ offset = 0 -1.40 0;
         <desc
            id="desc11945-7-8">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 8 8 16 16;
-offset = 0 -1.40 0;
+texture0 = asphalt.png; 
+offset = 0 -2.60 0;
 </desc>
         <title
            id="title11947-88-1">stairs1</title>
@@ -19741,56 +19835,18 @@ offset = 0 -1.40 0;
            id="desc7569-9-3-1-4-4-6-7-2">template = container_blue;</desc>
       </rect>
       <rect
-         style="display:inline;opacity:0.92000002;fill:#563a16;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.95515919;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+         style="display:inline;opacity:0.92000002;fill:#563a16;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.05499995;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
          id="rect8111-3-89-7-5-1-8-2-9-5"
          width="3.3877919"
          height="10.269685"
-         x="-1094.9558"
-         y="1076.6819"
+         x="-1093.8308"
+         y="1076.6827"
          inkscape:label="#mesh"
          transform="rotate(-90.045654)">
         <title
            id="title10616-4-5">bench</title>
         <desc
            id="desc8113-22-2-9-4-7-8-4-1-5">template =bench;</desc>
-      </rect>
-      <rect
-         transform="rotate(-0.0692117)"
-         inkscape:label="#mesh"
-         y="1127.6534"
-         x="1013.1318"
-         height="8"
-         width="7.7539811"
-         id="rect11943-1-4-4-3-7-8"
-         style="display:inline;fill:#ffff00;fill-opacity:1;fill-rule:nonzero;stroke:none;enable-background:new">
-        <desc
-           id="desc11945-3-8-6-2-9-0">name = stairs1;
-mesh_name = stairs1.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 8 8 16 16;
-offset = 0 -1.40 0;
-</desc>
-        <title
-           id="title11947-8-0-0-6-3-2">stairs1</title>
-      </rect>
-      <rect
-         transform="rotate(89.889614)"
-         inkscape:label="#mesh"
-         y="-1014.3204"
-         x="1132.285"
-         height="8"
-         width="7.7539811"
-         id="rect11943-1-4-4-3-7-4"
-         style="display:inline;fill:#ffff00;fill-opacity:1;fill-rule:nonzero;stroke:none;enable-background:new">
-        <desc
-           id="desc11945-3-8-6-2-9-8">name = stairs1;
-mesh_name = stairs1.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 8 8 16 16;
-offset = 0 -1.40 0;
-</desc>
-        <title
-           id="title11947-8-0-0-6-3-3">stairs1</title>
       </rect>
       <rect
          transform="rotate(0.30275572)"
@@ -19806,7 +19862,7 @@ offset = 0 -1.40 0;
 mesh_name = stairs1.mesh;
 texture0 = world_atlas1.png;
 texture0_atlas_cell = 8 8 16 16;
-offset = 0 -1.40 0;
+offset = 0 -1.80 0;
 </desc>
         <title
            id="title11947-8-0-0-6-7">stairs1</title>
@@ -19825,7 +19881,7 @@ offset = 0 -1.40 0;
 mesh_name = stairs1.mesh;
 texture0 = world_atlas1.png;
 texture0_atlas_cell = 8 8 16 16;
-offset = 0 -1.40 0;
+offset = 0 -2.00 0;
 </desc>
         <title
            id="title11947-8-0-0-6-3-9">stairs1</title>
@@ -19842,9 +19898,8 @@ offset = 0 -1.40 0;
         <desc
            id="desc11945-3-8-6-0-0">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 8 8 16 16;
-offset = 0 0 0;
+offset = 0 -1.8 0;
+texture0 = asphalt.png; 
 </desc>
         <title
            id="title11947-8-0-0-5-3">stairs1</title>
@@ -19861,9 +19916,8 @@ offset = 0 0 0;
         <desc
            id="desc11945-3-8-6-2-2-8">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 8 8 16 16;
-offset = 0 0 0;
+texture0 = asphalt.png; 
+offset = 0 -1.8 0;
 </desc>
         <title
            id="title11947-8-0-0-6-7-6">stairs1</title>
@@ -19880,9 +19934,8 @@ offset = 0 0 0;
         <desc
            id="desc11945-3-8-6-2-9-7-7">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 8 8 16 16;
-offset = 0 0 0;
+texture0 = asphalt.png; 
+offset = 0 -1.80 0;
 </desc>
         <title
            id="title11947-8-0-0-6-3-9-6">stairs1</title>
@@ -20045,7 +20098,7 @@ offset = 0 0 0;
 mesh_name = stairs1.mesh;
 texture0 = world_atlas1.png;
 texture0_atlas_cell = 8 8 16 16;
-offset = 0 -1.20 0;
+offset = 0 -1.80 0;
 </desc>
         <title
            id="title11947-8-0-0-6-3-9-2">stairs1</title>
@@ -20129,8 +20182,8 @@ offset = 0 -1.20 0;
          id="craterect10748-4-29-6-8-48-7-1-7-4-8-5-71"
          width="4"
          height="4"
-         x="-1094.1167"
-         y="1157.0099"
+         x="-1095.4388"
+         y="1154.6554"
          inkscape:label="#rect10748"
          transform="rotate(-89.765408)" />
       <rect
@@ -20468,7 +20521,7 @@ offset = 0 -1.20 0;
       <rect
          inkscape:label="#rect10748"
          y="1100.7495"
-         x="1149.765"
+         x="1148.8275"
          height="4.404551"
          width="4.9310479"
          id="generic_node1-7-90-0-4-7-39-9-7"
@@ -20701,16 +20754,6 @@ collision_model_type = -1; </desc>
        id="layer3"
        inkscape:groupmode="layer">
       <path
-         sodipodi:nodetypes="cccccc"
-         inkscape:connector-curvature="0"
-         inkscape:label=""
-         id="wall19-8-6-7-56-5-1"
-         d="m 1116.4037,1131.532 12.1802,-0.1261 -0.059,-7.5595 -31.2853,0.111 0.1745,7.4429 h 10.3483"
-         style="display:inline;fill:none;stroke:#00ffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new">
-        <desc
-           id="desc29111-1-4-8">template = CorrugatedFence;</desc>
-      </path>
-      <path
          sodipodi:nodetypes="cc"
          inkscape:connector-curvature="0"
          inkscape:label=""
@@ -20721,14 +20764,14 @@ collision_model_type = -1; </desc>
            id="desc29111-1-4-8-9">template = CorrugatedFence;</desc>
       </path>
       <path
-         sodipodi:nodetypes="cc"
+         sodipodi:nodetypes="ccc"
          inkscape:connector-curvature="0"
          inkscape:label=""
-         id="wall19-8-6-7-56-5-1-7-6"
-         d="m 1060.4675,1131.3794 -22.7724,0.023"
+         id="wall19-8-6-7-56-5-1-7-6-0"
+         d="m 1145.5128,1122.9816 2e-4,7.8273 -42.2348,-3e-4"
          style="display:inline;fill:none;stroke:#00ffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new">
         <desc
-           id="desc29111-1-4-8-9-2">template = CorrugatedFence;</desc>
+           id="desc29111-1-4-8-9-2-3">template = CorrugatedFence;</desc>
       </path>
     </g>
     <g
@@ -20987,8 +21030,8 @@ no_collision_side2;
          id="rect9322-1-3-77-1-6-1-5-1-8"
          width="6.3042655"
          height="10.138712"
-         x="-1171.0546"
-         y="-1105.5928"
+         x="-1175.1796"
+         y="-1105.5804"
          inkscape:label="#mesh"
          transform="rotate(-179.82859)">
         <title
@@ -21001,8 +21044,8 @@ no_collision_side2;
          id="rect9322-1-3-77-1-6-1-5-1-8-8"
          width="6.3042655"
          height="10.138712"
-         x="-1171.2037"
-         y="-1066.7896"
+         x="-1175.3287"
+         y="-1066.7772"
          inkscape:label="#mesh"
          transform="rotate(-179.82859)">
         <title
