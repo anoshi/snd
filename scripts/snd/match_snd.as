@@ -28,7 +28,8 @@ class Match {
 	const XmlElement@ getStartGameCommand(GameModeSND@ metagame) const {
 		XmlElement command("command");
 		command.setStringAttribute("class", "start_game");
-		command.setStringAttribute("savegame", m_metagame.getUserSettings().m_savegame);
+		//command.setStringAttribute("savegame", m_metagame.getUserSettings().m_savegame);
+		command.setStringAttribute("savegame", "_default");
 		command.setIntAttribute("vehicles", 1);
 		command.setIntAttribute("max_soldiers", m_maxSoldiers);
 		command.setFloatAttribute("soldier_capacity_variance", m_soldierCapacityVariance);

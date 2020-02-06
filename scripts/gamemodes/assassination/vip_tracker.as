@@ -29,6 +29,7 @@ class VIPTracker : Tracker {
 		// m_metagame.getComms().send(trackCharDie);
 		// disable Commander orders to AI
 		m_metagame.disableCommanderAI();
+		addVIP();
 		m_metagame.setTrackPlayerDeaths(true);
 		m_started = true;
 	}
@@ -36,52 +37,42 @@ class VIPTracker : Tracker {
 	///////////////////
 	// VIP LIFECYCLE //
 	///////////////////
-	// -----------------------------------------------------------
-    protected void handlePlayerSpawnEvent(const XmlElement@ event) {
-		// TagName=player_spawn
-		// TagName=player
-		// aim_target=0 0 0
-		// character_id=74
-		// color=0.595 0.476 0 1
-		// faction_id=0
-		// ip=117.20.69.32
-		// name=ANOSHI
-		// player_id=2
-		// port=30664
-		// profile_hash=ID<10_numbers>
-		// sid=ID<8_numbers>
-
-		// Triggers VIP spawn near the first player on CT side. Could be improved, but works for single-player test, plus cbf.
-		_log("** SND: VIPTracker::handlePlayerSpawnEvent", 1);
+	// --------------------------------------------
+	protected void addVIP() {
+		_log("** SND: Adding VIP", 1);
 		if (inPlay) {
 			return;
 		} else {
-			const XmlElement@ player = event.getFirstElementByTagName("player");
-			int factionId = player.getIntAttribute("faction_id");
-			if (factionId == 0) {
-				int charId = player.getIntAttribute("character_id");
-				const XmlElement@ vipFriend = getCharacterInfo(m_metagame, charId);
-				string playerPos = vipFriend.getStringAttribute("position");
-				addVIP(playerPos);
-				inPlay = true;
-				_log("** SND: VIP has spawned near player " + charId + " (" + player.getStringAttribute('name') + ") at position: " + playerPos, 1);
+			// from all players, get the characterIds for all counter-terrorists only
+			array<const XmlElement@> players = getPlayers(m_metagame);
+			array<int> ctPlayerIds = m_metagame.getFactionPlayerCharacterIds(0); // counter terrorsts are faction 0
+			int charId = -1; // will store the character_id of who the VIP spawns next to
+			if (ctPlayerIds.length() > 0) {
+				// choose a counter terrorist at random
+				uint i = rand(0, ctPlayerIds.length() - 1);
+				charId = ctPlayerIds[i];
+			} else {
+				_log("** SND: No counter terrorists! Maybe single player? Giving a terrorist the VIP.", 1);
+				uint i = rand(0, players.length() - 1);
+				// get a specific player's character
+				const XmlElement@ player = players[i];
+				charId = player.getIntAttribute("character_id");
 			}
+			const XmlElement@ vipFriend = getCharacterInfo(m_metagame, charId);
+			string playerPos = vipFriend.getStringAttribute("position");
+			Vector3 pos = stringToVector3(playerPos);
+			pos.m_values[0] += 5.0;
+			_log("** SND: Spawning VIP", 1);
+			// spawn a vip (faction 0) very near the requested location.
+			string spawnCommand = "<command class='create_instance' instance_class='character' faction_id='0' position='" + pos.toString() + "' instance_key='vip' /></command>";
+			m_metagame.getComms().send(spawnCommand);
+			playSound(m_metagame, "vip.wav", 0);
+			inPlay = true;
+			_log("** SND: VIP has spawned near player " + charId + " at position: " + playerPos, 1);
 		}
 	}
 
 	// --------------------------------------------
-	protected void addVIP(string position) {
-		Vector3 pos = stringToVector3(position);
-		pos.m_values[0] += 5.0;
-		_log("** SND: Spawning VIP", 1);
-		// spawn a vip (faction 0) very near the requested location.
-		string spawnCommand = "<command class='create_instance' instance_class='character' faction_id='0' position='" + pos.toString() + "' instance_key='vip' /></command>";
-		m_metagame.getComms().send(spawnCommand);
-		playSound(m_metagame, "vip.wav", 0);
-	}
-
-
-// --------------------------------------------
 	protected string getVIPPosition() {
 		if (inPlay) {
 			// gets and returns current location of the VIP
