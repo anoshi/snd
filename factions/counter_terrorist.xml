@@ -71,7 +71,7 @@
 	<!--  hostage  -->
 	<!-- ///////// -->
 	<soldier name="hostage" spawn_score="0.00">
-		<character filename="default_male.character" />
+		<character filename="hostage.character" />
 		<ai filename="hostage.ai" />
 		<model filename="soldier_hostage.xml" />
 		<resources clear_weapons="1" clear_vehicles="1" clear_calls="1" />
@@ -98,7 +98,7 @@
 	<!--    VIP    -->
 	<!-- ///////// -->
 	<soldier name="vip" spawn_score="0.00">
-		<character filename="default_male.character" />
+		<character filename="common_male.character" />
 		<ai filename="vip.ai" />
 		<model filename="soldier_vip.xml" />
 		<resources filename="vip.resources" />

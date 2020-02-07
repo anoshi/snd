@@ -11,6 +11,8 @@ class HostageTracker : Tracker {
 
 	protected int activeHostages; 		// when m_metagame.getTrackedCharIds().length() == 0, all hostages are accounted for
 
+	protected float hostageCheckTimer = 20.0;	// initial delay at round start before starting hostage location checks
+	protected float CHECK_IN_INTERVAL = 8.0; 	// how often to check proximity of hostages to start markers
 	// --------------------------------------------
 	HostageTracker(GameModeSND@ metagame) {
 		@m_metagame = @metagame;
@@ -150,6 +152,35 @@ class HostageTracker : Tracker {
 	// 	int deadCharId = deadChar.getIntAttribute("id");
 	// }
 
+	// joined squad (automatically run via update method)
+	// --------------------------------------------
+	protected void checkProximityToHostageMarkers() {
+		array<Vector3> hostageStartPositions = m_metagame.getTargetLocations();
+		array<Faction@> allFactions = m_metagame.getFactions();
+
+		for (uint i = 0; i < hostageStartPositions.length(); ++i) {
+			bool keepMarker = false; // if we don't find a hostage near the marker, we will be removing the marker
+
+			// get all faction 0 (CT) characters within 40 units of hostage start location
+			array<const XmlElement@> chars = getCharactersNearPosition(m_metagame, hostageStartPositions[i], 0, 40.0f);
+			for (uint j = 0; j < chars.length(); ++j) {
+				const XmlElement@ aChar = getCharacterInfo(m_metagame, chars[j].getIntAttribute("id"));
+				if (aChar.getStringAttribute("soldier_group_name") == "hostage") {
+					keepMarker = true;
+					break;
+				}
+			}
+			if (keepMarker == false) {
+				// remove relevant marker from view
+				for (uint f = 0; f < allFactions.length(); ++f) {
+					string hostageMarkerCmd = "<command class='set_marker' id='" + (3395 + (2 * i) + f) + "' enabled='" + (keepMarker ? 1 : 0) + "' atlas_index='1' faction_id='" + f + "' show_in_game_view='0' show_in_map_view='0' show_at_screen_edge='0' />";
+					m_metagame.getComms().send(hostageMarkerCmd);
+				}
+			}
+		}
+	}
+
+	// escaped
 	// --------------------------------------------
 	protected void handleHitboxEvent(const XmlElement@ event) {
 		if (activeHostages > 0) {
@@ -228,5 +259,10 @@ class HostageTracker : Tracker {
 
 	// --------------------------------------------
 	void update(float time) {
+		hostageCheckTimer -= time;
+		if (hostageCheckTimer <= 0.0) {
+			checkProximityToHostageMarkers();
+			hostageCheckTimer = CHECK_IN_INTERVAL;
+		}
 	}
 }
