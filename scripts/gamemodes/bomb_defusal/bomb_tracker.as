@@ -221,8 +221,8 @@ class BombTracker : Tracker {
 			// where were the wire cutters used?
 			string snipPosition = event.getStringAttribute("position");
 			// confirm the person who's used the wire cutters is immediately adjacent to the bomb
-			if (checkRange2D(stringToVector3(snipPosition), stringToVector3(bombPosition), 2.0)) {
-				_log("** SND: wire cutters used within 2.0 units of bomb location", 1);
+			if (checkRange2D(stringToVector3(snipPosition), stringToVector3(bombPosition), 4.0)) {
+				_log("** SND: wire cutters used within 4.0 units of bomb location", 1);
 				_log("** SND: The bomb has been defused", 1);
 				string rewardBombDefuser = "<command class='rp_reward' character_id='" + event.getIntAttribute("character_id") + "' reward='300'></command>";
 				m_metagame.getComms().send(rewardBombDefuser);
