@@ -31,7 +31,7 @@ class VIPTracker : Tracker {
 		// disable Commander orders to AI
 		m_metagame.disableCommanderAI();
 		m_metagame.setNumExtracted(0);
-		addVIP();
+		addVIP(); // inPlay = true
 		m_metagame.setTrackPlayerDeaths(true);
 		m_started = true;
 	}
@@ -207,6 +207,12 @@ class VIPTracker : Tracker {
 		// TagName=character_die
 		// character_id=4
 
+		// TagName=character
+		// ...
+		// id=10
+		// ...
+		// soldier_group_name=vip
+
 		sleep(2); // allow some time to pass in case handleCharacterKillEvent method is (still) handling the VIP death;
 
 		if (vipKilled) {
@@ -223,21 +229,15 @@ class VIPTracker : Tracker {
 	}
 
 	// --------------------------------------------
-	protected void handleHitboxEvent(const XmlElement@ event) {
-		if (inPlay) {
-			sleep(2); // allow hitbox_handler.as to process this event first
-			_log("** SND: vip_tracker checking number of VIPs still being tracked", 1);
-			if (m_metagame.getNumExtracted() > 0) {
-				_log("** SND: The VIP has escaped. End round", 1);
-				array<int> ctIds = m_metagame.getFactionPlayerCharacterIds(0);
-				for (uint j = 0; j < ctIds.length() ; ++j) {
-					string vipRescuedReward = "<command class='rp_reward' character_id='" + ctIds[j] + "' reward='" + 2500 + "'></command>";
-					m_metagame.getComms().send(vipRescuedReward);
-					m_metagame.addRP(ctIds[j], 2500);
-				}
-				winRound(0);
-			}
+	protected void vipEscaped() {
+		_log("** SND: The VIP has escaped. End round", 1);
+		array<int> ctIds = m_metagame.getFactionPlayerCharacterIds(0);
+		for (uint j = 0; j < ctIds.length() ; ++j) {
+			string vipRescuedReward = "<command class='rp_reward' character_id='" + ctIds[j] + "' reward='" + 2500 + "'></command>";
+			m_metagame.getComms().send(vipRescuedReward);
+			m_metagame.addRP(ctIds[j], 2500);
 		}
+		winRound(0);
 	}
 
 	// --------------------------------------------
@@ -286,8 +286,12 @@ class VIPTracker : Tracker {
 		if (inPlay) {
 			vipPosUpdateTimer -= time;
 			if (vipPosUpdateTimer < 0.0) {
-			markVIPPosition(getVIPPosition());
-			vipPosUpdateTimer = VIP_POS_UPDATE_TIME;
+				if (m_metagame.getNumExtracted() > 0) {
+					vipEscaped();
+				} else {
+				markVIPPosition(getVIPPosition());
+				vipPosUpdateTimer = VIP_POS_UPDATE_TIME;
+				}
 			}
 		}
 	}

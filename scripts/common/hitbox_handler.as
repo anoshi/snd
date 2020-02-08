@@ -277,11 +277,13 @@ class HitboxHandler : Tracker {
 				sendFactionMessage(m_metagame, -1, m_stageType == 'hr' ? 'A hostage has been rescued!' : 'VIP has escaped!');
 				// increment rescued count
 				m_metagame.addNumExtracted(1);
+				_log("** SND: Number Extracted: " + m_metagame.getNumExtracted(), 1);
 				// clear hitbox checking, stop tracking character
 				clearTriggerAreaAssociations(m_metagame, "character", instanceId, m_trackedTriggerAreas);
 				m_metagame.removeTrackedCharId(instanceId);
 				m_trackedCharIds.removeAt(m_trackedCharIds.find(instanceId));
 				_log("** SND: stopped tracking character id: " + instanceId, 1);
+
 				array<Faction@> allFactions = m_metagame.getFactions();
 				for (uint f = 0; f < allFactions.length(); ++f) {
 					playSound(m_metagame, m_stageType == 'hr' ? 'rescued.wav' : '', f);
@@ -315,9 +317,9 @@ class HitboxHandler : Tracker {
 				}
 				// TODOs:
 				// remove hostage from play
-				// kill (ignore character kill/die if id not in tracked chars) then make disappear by applying invisivest?
-				// requires death sounds to be disabled for hostages!
-				// have an invincible 4-man vehicle sitting at the extraction point, inviting the AI to take refuge?
+					// kill (ignore character kill/die if id not in tracked chars) then make disappear by applying invisivest?
+						// requires death sounds to be disabled for hostages!
+					// have an invincible 4-man vehicle sitting at the extraction point, inviting the AI to take refuge?
 				// meh, ignore for now
 			}
 		}
