@@ -29,6 +29,7 @@ class HostageTracker : Tracker {
 		// m_metagame.getComms().send(trackCharDie);
 		// disable CommanderAI / orders
 		m_metagame.disableCommanderAI();
+		m_metagame.setNumExtracted(0);
 		addHostages();
 		m_metagame.setTrackPlayerDeaths(true);
 		m_started = true;
@@ -119,6 +120,8 @@ class HostageTracker : Tracker {
 		}
 		int hostageCharId = target.getIntAttribute("id");
 		_log("** SND: Hostage (id: " + hostageCharId + ") was killed!", 1);
+		// stop tracking the hostage
+		m_metagame.removeTrackedCharId(hostageCharId);
 		// penalise killer
 		const XmlElement@ killer = event.getFirstElementByTagName("killer");
 		int pKillerId = killer.getIntAttribute("player_id");
@@ -134,23 +137,55 @@ class HostageTracker : Tracker {
 				playSound(m_metagame, "hosdown.wav", i);
 			}
 		}
-		// stop tracking the hostage
-		m_metagame.removeTrackedCharId(hostageCharId);
+		// all hostages accounted for?
 		activeHostages = m_metagame.getTrackedCharIds().length();
 		if (activeHostages <= 0) {
-			winRound(1);
+			if (m_metagame.getNumExtracted() > 2) {
+				winRound(0);
+			} else {
+				winRound(1);
+			}
 		}
 	}
 
 	// died (confirm otherwise)
 	// --------------------------------------------
-	// protected void handleCharacterDieEvent(const XmlElement@ event) {
-	// 	// TagName=character_die
-	// 	// character_id=4
+	protected void handleCharacterDieEvent(const XmlElement@ event) {
+		// TagName=character_die
+		// character_id=4
 
-	// 	const XmlElement@ deadChar = event.getFirstElementByTagName("character");
-	// 	int deadCharId = deadChar.getIntAttribute("id");
-	// }
+		// TagName=character
+		// ...
+		// id=10
+		// ...
+		// ...
+		// soldier_group_name=hostage
+
+		sleep(2); // allow some time to pass in case handleCharacterKillEvent method is (still) handling the hostage's death;
+
+		const XmlElement@ deadChar = event.getFirstElementByTagName("character");
+		if (deadChar.getStringAttribute("soldier_group_name") == 'hostage') {
+			int hostageCharId = deadChar.getIntAttribute("id");
+			array<int> hostageIds = m_metagame.getTrackedCharIds();
+			if (hostageIds.find(hostageCharId) < 0) { // no longer tracked?
+				_log("** SND: hostage was killed. Not processed by handleCharacterDieEvent method");
+				return;
+			} else {
+				sendFactionMessage(m_metagame, -1, "A Hostage has died");
+				// stop tracking the hostage
+				m_metagame.removeTrackedCharId(hostageCharId);
+				// all hostages accounted for?
+				activeHostages = m_metagame.getTrackedCharIds().length();
+				if (activeHostages <= 0) {
+					if (m_metagame.getNumExtracted() > 2) {
+						winRound(0);
+					} else {
+						winRound(1);
+					}
+				}
+			}
+		}
+	}
 
 	// joined squad (automatically run via update method)
 	// --------------------------------------------
@@ -161,8 +196,8 @@ class HostageTracker : Tracker {
 		for (uint i = 0; i < hostageStartPositions.length(); ++i) {
 			bool keepMarker = false; // if we don't find a hostage near the marker, we will be removing the marker
 
-			// get all faction 0 (CT) characters within 40 units of hostage start location
-			array<const XmlElement@> chars = getCharactersNearPosition(m_metagame, hostageStartPositions[i], 0, 40.0f);
+			// get all faction 0 (CT) characters within 35 units of hostage start location
+			array<const XmlElement@> chars = getCharactersNearPosition(m_metagame, hostageStartPositions[i], 0, 35.0f);
 			for (uint j = 0; j < chars.length(); ++j) {
 				const XmlElement@ aChar = getCharacterInfo(m_metagame, chars[j].getIntAttribute("id"));
 				if (aChar.getStringAttribute("soldier_group_name") == "hostage") {
@@ -243,6 +278,7 @@ class HostageTracker : Tracker {
 			}
 		}
 		m_metagame.setTrackPlayerDeaths(false);
+		m_metagame.setNumExtracted(0);
 	}
 
 	// --------------------------------------------

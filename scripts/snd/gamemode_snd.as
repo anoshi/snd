@@ -188,6 +188,11 @@ class GameModeSND : Metagame {
 	}
 
 	// --------------------------------------------
+	void setNumExtracted(int num) {
+		numExtracted = num;
+	}
+
+	// --------------------------------------------
 	void addTrackedCharId(int charId) {
 		// Trackers call this method to add a character ID to the list of tracked character IDs
 		trackedCharIds.insertLast(charId);
@@ -261,16 +266,9 @@ class GameModeSND : Metagame {
 		// 5 : armour
 
 		const XmlElement@ thisChar = getCharacterInfo(this, characterId);
-		uint iter = 0;
-		while (thisChar.getIntAttribute("id") != characterId && iter < 5) {
-			_log("** SND: getCharacterInfo returned a negative characterId. Retrying ...", 1);
-			sleep(2);
-			const XmlElement@ thisChar = getCharacterInfo(this, characterId);
-			iter++;
-			if (iter == 4) {
-				_log("** SND: giving up on getCharacterInfo call for character " + characterId, 1);
-				return;
-			}
+		if (thisChar.getIntAttribute("id") != characterId) {
+			_log("** SND: WARNING! getCharacterInfo returned a non-matching characterId. Character " + characterId + " will have no equipment this round!", 1);
+			return;
 		}
 
 		int faction = thisChar.getIntAttribute("faction_id");

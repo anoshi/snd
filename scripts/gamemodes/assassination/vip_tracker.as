@@ -8,6 +8,7 @@ class VIPTracker : Tracker {
 	protected GameModeSND@ m_metagame;
 	protected bool m_started = false;
 	protected bool inPlay = false; 		// when m_metagame.getTrackedCharIds().length() == 0, the vip has escaped or been killed
+	protected bool vipKilled = false;	// used to differentiate between the VIP being assassinated or dying in another manner
 	protected int theVIPId;				// the characterId of the VIP.
 
 	protected float VIP_POS_UPDATE_TIME = 5.0;	// how often the position of the VIP is checked
@@ -25,10 +26,11 @@ class VIPTracker : Tracker {
 		m_metagame.getComms().send(trackCharSpawn);
 		string trackCharKill = "<command class='set_metagame_event' name='character_kill' enabled='1' />";
 		m_metagame.getComms().send(trackCharKill);
-		// string trackCharDie = "<command class='set_metagame_event' name='character_die' enabled='1' />";
-		// m_metagame.getComms().send(trackCharDie);
+		string trackCharDie = "<command class='set_metagame_event' name='character_die' enabled='1' />";
+		m_metagame.getComms().send(trackCharDie);
 		// disable Commander orders to AI
 		m_metagame.disableCommanderAI();
+		m_metagame.setNumExtracted(0);
 		addVIP();
 		m_metagame.setTrackPlayerDeaths(true);
 		m_started = true;
@@ -169,6 +171,7 @@ class VIPTracker : Tracker {
 		}
 		int vipCharId = target.getIntAttribute("id");
 		_log("** SND: VIP (id: " + vipCharId + ") was killed!", 1);
+		vipKilled = true;
 		// stop tracking the vip
 		m_metagame.removeTrackedCharId(vipCharId);
 
@@ -200,18 +203,24 @@ class VIPTracker : Tracker {
 
 	// died (confirm otherwise)
 	// --------------------------------------------
-	// protected void handleCharacterDieEvent(const XmlElement@ event) {
-	// 	// TagName=character_die
-	// 	// character_id=4
+	protected void handleCharacterDieEvent(const XmlElement@ event) {
+		// TagName=character_die
+		// character_id=4
 
-	// 	const XmlElement@ eventChar = event.getFirstElementByTagName("character");
-	// 	int deadCharId = eventChar.getIntAttribute("id");
-	// 	const XmlElement@ deadChar = getCharacterInfo(m_metagame, deadCharId);
-	// 	if (deadChar.getStringAttribute("soldier_group_name") == 'vip') {
-	// 		sendFactionMessage(m_metagame, -1, "The VIP did not survive the mission");
-	// 		winRound(-(deadChar.getIntAttribute("faction_id"))+1);
-	// 	}
-	// }
+		sleep(2); // allow some time to pass in case handleCharacterKillEvent method is (still) handling the VIP death;
+
+		if (vipKilled) {
+			return;
+		} else {
+			const XmlElement@ eventChar = event.getFirstElementByTagName("character");
+			int deadCharId = eventChar.getIntAttribute("id");
+			const XmlElement@ deadChar = getCharacterInfo(m_metagame, deadCharId);
+			if (deadChar.getStringAttribute("soldier_group_name") == 'vip') {
+				sendFactionMessage(m_metagame, -1, "The VIP did not survive the mission");
+				winRound(-(deadChar.getIntAttribute("faction_id"))+1);
+			}
+		}
+	}
 
 	// --------------------------------------------
 	protected void handleHitboxEvent(const XmlElement@ event) {
@@ -257,6 +266,7 @@ class VIPTracker : Tracker {
 			}
 		}
 		m_metagame.setTrackPlayerDeaths(false);
+		m_metagame.setNumExtracted(0);
 	}
 
 	// --------------------------------------------
