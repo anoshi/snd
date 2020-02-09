@@ -203,6 +203,7 @@ class BombTracker : Tracker {
 					markBombPosition(getBombPosition(), bombFaction, false);
 					m_metagame.addScore(bombFaction, 2);
 					bombIsArmed = true;
+					m_metagame.setMatchEndOverride(); // bomb must be defused or detonate (or timer runs out) to meet a win condition this round
 					break;
 				} else {
 					_log("** SND: bomb not planted within 5.0 units of " + validLocs[i].toString() + ". Checking next targetLocation.", 1);
@@ -320,6 +321,7 @@ class BombTracker : Tracker {
 			}
 		}
 		bombInPlay = false;
+		m_metagame.setMatchEndOverride(bombIsArmed); // false
 	}
 
 	// -----------------------------

@@ -242,7 +242,7 @@ class HostageTracker : Tracker {
 	// --------------------------------------------
 	protected void checkSquadSizes() {
 		array<int> ctIds = m_metagame.getFactionPlayerCharacterIds(0);
-		for (int i = 0; i < ctIds.length(); ++i) {
+		for (uint i = 0; i < ctIds.length(); ++i) {
 			const XmlElement@ ct = getCharacterInfo(m_metagame, ctIds[i]);
 			if (ct.getIntAttribute("squad_size") > 0) { // actually want only if squad size has increased, but this will only play a sound to units who have a hostage anyway
 				playSoundAtLocation(m_metagame, joinWavs[rand(0, joinWavs.length() -1)], 0, stringToVector3(ct.getStringAttribute("position")));

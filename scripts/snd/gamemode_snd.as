@@ -20,6 +20,8 @@ class GameModeSND : Metagame {
 
 	protected bool trackPlayerDeaths = true;
 
+	protected bool matchEndOverride = false; // used to stop 'set_match_status' commands from being issued (if they query the bool to observe the override...)
+
 	protected string m_tournamentName = "";
 
 	// --------------------------------------------
@@ -151,6 +153,17 @@ class GameModeSND : Metagame {
 	bool getTrackPlayerDeaths() {
 		_log("** SND: got trackPlayerDeaths: (" + trackPlayerDeaths + ")", 1);
 		return trackPlayerDeaths;
+	}
+
+	// --------------------------------------------
+	void setMatchEndOverride(bool enabled=true) {
+		matchEndOverride = enabled;
+	}
+
+	// --------------------------------------------
+	bool getMatchEndOverride() {
+		_log("** SND: Match End requested. " + (matchEndOverride ? 'Blocked' : 'Allowed'), 1);
+		return matchEndOverride;
 	}
 
 	// --------------------------------------------

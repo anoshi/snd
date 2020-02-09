@@ -540,6 +540,11 @@ class PlayerTracker : Tracker {
 				// we're not. Bail.
 				return;
 			}
+			// next, check if the current match type has issued a match end override condition (e.g. bomb planted and must be defused or detonate)
+			if (m_metagame.getMatchEndOverride()) {
+				// it has, no attrition ending allowed for this round, bail.
+				return;
+			}
 			_log("** SND: faction " + faction + " has run out of live players. Lose round!", 1);
 			string winLoseCmd = "";
 			array<Faction@> allFactions = m_metagame.getFactions();
