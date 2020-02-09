@@ -27,7 +27,7 @@
     <sound class="impact" fileref="rifle_drop.wav" />
 
     <model filename="mp9.xml" />
-    <hud_icon filename="hud_steyr_tmp.png" />
+    <hud_icon filename="hud_tmp.png" />
 
     <projectile file="bullet.projectile">
       <result class="hit" kill_probability="0.36" kill_decay_start_time="0.24" kill_decay_end_time="0.36" />

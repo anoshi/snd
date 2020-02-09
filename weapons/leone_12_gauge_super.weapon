@@ -30,7 +30,7 @@
     <sound class="impact" fileref="rifle_drop.wav" />
     <model filename="benelli_m3.xml" />
 
-    <hud_icon filename="hud_pepperdust.png" />
+    <hud_icon filename="hud_m3.png" />
 
     <weak_hand_hold offset="0.2" />
     <projectile file="bullet.projectile">

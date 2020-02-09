@@ -31,7 +31,7 @@
     <sound class="impact" fileref="rifle_drop.wav" />
     <model filename="m249.xml" />
 
-    <hud_icon filename="hud_m240.png" />
+    <hud_icon filename="hud_m249.png" />
 
     <stance state_key="running" accuracy="0.1" />
     <stance state_key="walking" accuracy="0.5" />

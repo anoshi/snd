@@ -39,7 +39,7 @@
     <sound key="cycle" fileref="p250_cycle.wav" volume="0.5" />
     <model filename="sigp.xml" />
 
-    <hud_icon filename="hud_glock17.png" />
+    <hud_icon filename="hud_p228.png" />
 
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.1" />

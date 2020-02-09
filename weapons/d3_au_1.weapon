@@ -34,7 +34,7 @@
     <sound class="impact" fileref="rifle_drop.wav" />
 
     <model filename="g3.xml" />
-    <hud_icon filename="hud_vss_vintorez.png" />
+    <hud_icon filename="hud_g3sg1.png" />
 
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.3" />

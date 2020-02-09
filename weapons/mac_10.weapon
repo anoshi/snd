@@ -40,7 +40,7 @@
     <sound class="impact" fileref="rifle_drop.wav" />
 
     <model filename="mac10.xml" />
-    <hud_icon filename="hud_uzi_mini.png" />
+    <hud_icon filename="hud_mac10.png" />
 
     <projectile file="bullet.projectile">
         <result class="hit" kill_probability="0.45" kill_decay_start_time="0.28" kill_decay_end_time="0.40" />

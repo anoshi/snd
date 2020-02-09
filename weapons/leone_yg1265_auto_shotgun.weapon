@@ -29,7 +29,7 @@
     <sound class="impact" fileref="rifle_drop.wav" />
     <model filename="xm1014.xml" />
 
-    <hud_icon filename="hud_benelli_m4.png" />
+    <hud_icon filename="hud_xm1014.png" />
 
     <weak_hand_hold offset="0.2" />
     <projectile file="bullet.projectile">
