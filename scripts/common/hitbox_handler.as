@@ -252,22 +252,10 @@ class HitboxHandler : Tracker {
 		string instanceType = event.getStringAttribute("instance_type");
 		int instanceId = event.getIntAttribute("instance_id");
 
-		// is it a trigger area hitbox? If not, this is not the handler you are looking for...
-		if (!startsWith(hitboxId, "hitbox_trigger_")) {
+		// is it a trigger area hitbox, for this stage type? If not, this is not the handler you are looking for...
+		if (!startsWith(hitboxId, "hitbox_trigger_" + m_stageType)) {
 			return;
 		}
-
-		// we can split this out based on the hitboxId (hitbox_trigger_<stageType>_exit...) if desired. below works for 2 game modes.
-
-		// // get details about the hitbox that has been entered
-		// const array<const XmlElement@> list = getTriggerAreasList();
-		// for (uint i = 0; i < list.size(); ++i) {
-		// 	_log("** SND looping through triggerAreasList. Looking for " + hitboxId, 1);
-		// 	const XmlElement@ thisArea = list[i];
-		// 	if (thisArea.getStringAttribute("id") == hitboxId) {
-		// 		_log("** SND trigger area found! " + hitboxId + " has position: " + thisArea.getStringAttribute("position"), 1);
-		// 	}
-		// }
 
 		// in Hostage Rescue and Assassination, we only track the delivery of character instance types
 		if (instanceType == "character") {
@@ -315,12 +303,6 @@ class HitboxHandler : Tracker {
 					m_metagame.getComms().send(rewardHostageRescuer);
 					m_metagame.addRP(ctId, (1000 / nearCTs.length()));
 				}
-				// TODOs:
-				// remove hostage from play
-					// kill (ignore character kill/die if id not in tracked chars) then make disappear by applying invisivest?
-						// requires death sounds to be disabled for hostages!
-					// have an invincible 4-man vehicle sitting at the extraction point, inviting the AI to take refuge?
-				// meh, ignore for now
 			}
 		}
 	}
