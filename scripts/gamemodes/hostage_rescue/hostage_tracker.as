@@ -2,6 +2,7 @@
 #include "log.as"
 #include "helpers.as"
 #include "query_helpers.as"
+#include "snd_helpers.as"
 
 // --------------------------------------------
 class HostageTracker : Tracker {
@@ -12,6 +13,9 @@ class HostageTracker : Tracker {
 	protected int numHostages;			// how many hostages are spawned this round
 	protected int knownExtracted;		// how many extracted hostages this tracker is aware of
 	protected int activeHostages; 		// when m_metagame.getTrackedCharIds().length() == 0, all hostages are accounted for
+	array<Vector3> activeHostageStartPositions;
+	array<int> activeHostageMarkers;	// horribly dodgy way to deal with an issue I introduced when dynamically altering the above array's contents
+	array<string> joinWavs = {"getouttahere.wav", "illfollow.wav", "letsdoit.wav", "letsgo.wav", "letshurry.wav", "letsmove.wav", "okletsgo.wav", "youlead.wav"};
 
 	protected float hostageCheckTimer = 20.0;	// initial delay at round start before starting hostage location checks
 	protected float CHECK_IN_INTERVAL = 8.0; 	// how often to check proximity of hostages to start markers
@@ -44,11 +48,14 @@ class HostageTracker : Tracker {
 	// --------------------------------------------
 	protected void addHostages() {
 		array<Vector3> hostageStartPositions = m_metagame.getTargetLocations();
+		activeHostageStartPositions = hostageStartPositions; // maintained later in checkProximityToHostageMarkers
 		_log("** SND: Spawning hostages", 1);
 		for (uint i = 0; i < hostageStartPositions.length(); ++i) {
 			// spawn a hostage (faction 0) at each location.
 			string spawnCommand = "<command class='create_instance' instance_class='character' faction_id='0' position='" + hostageStartPositions[i].toString() + "' instance_key='hostage' /></command>";
 			m_metagame.getComms().send(spawnCommand);
+			// populate marker tracking array
+			activeHostageMarkers.insertLast(i);
 		}
 		numHostages = hostageStartPositions.length();
 		activeHostages = numHostages;
@@ -200,17 +207,16 @@ class HostageTracker : Tracker {
 		}
 	}
 
-	// joined squad (automatically run via update method)
+	// no longer at start location (died, joined squad, etc.) auto-run via udpate method
 	// --------------------------------------------
 	protected void checkProximityToHostageMarkers() {
-		array<Vector3> hostageStartPositions = m_metagame.getTargetLocations();
 		array<Faction@> allFactions = m_metagame.getFactions();
 
-		for (uint i = 0; i < hostageStartPositions.length(); ++i) {
+		for (uint i = 0; i < activeHostageStartPositions.length(); ++i) {
 			bool keepMarker = false; // if we don't find a hostage near the marker, we will be removing the marker
 
 			// get all faction 0 (CT) characters within 40 units of hostage start location
-			array<const XmlElement@> chars = getCharactersNearPosition(m_metagame, hostageStartPositions[i], 0, 40.0f);
+			array<const XmlElement@> chars = getCharactersNearPosition(m_metagame, activeHostageStartPositions[i], 0, 40.0f);
 			for (uint j = 0; j < chars.length(); ++j) {
 				const XmlElement@ aChar = getCharacterInfo(m_metagame, chars[j].getIntAttribute("id"));
 				if (aChar.getStringAttribute("soldier_group_name") == "hostage") {
@@ -221,9 +227,26 @@ class HostageTracker : Tracker {
 			if (keepMarker == false) {
 				// remove relevant marker from view
 				for (uint f = 0; f < allFactions.length(); ++f) {
-					string hostageMarkerCmd = "<command class='set_marker' id='" + (3395 + (2 * i) + f) + "' enabled='" + (keepMarker ? 1 : 0) + "' atlas_index='1' faction_id='" + f + "' show_in_game_view='0' show_in_map_view='0' show_at_screen_edge='0' />";
+					string hostageMarkerCmd = "<command class='set_marker' id='" + (3395 + (2 * activeHostageMarkers[i]) + f) + "' enabled='" + (keepMarker ? 1 : 0) + "' atlas_index='1' faction_id='" + f + "' show_in_game_view='0' show_in_map_view='0' show_at_screen_edge='0' />";
 					m_metagame.getComms().send(hostageMarkerCmd);
 				}
+				activeHostageStartPositions.removeAt(i);
+				activeHostageMarkers.removeAt(i);
+				i--; // we just removed that element, moving everything else forward by one in the array.
+				checkSquadSizes();
+			}
+		}
+	}
+
+	// joined (counter terrorist) squad
+	// --------------------------------------------
+	protected void checkSquadSizes() {
+		array<int> ctIds = m_metagame.getFactionPlayerCharacterIds(0);
+		for (int i = 0; i < ctIds.length(); ++i) {
+			const XmlElement@ ct = getCharacterInfo(m_metagame, ctIds[i]);
+			if (ct.getIntAttribute("squad_size") > 0) { // actually want only if squad size has increased, but this will only play a sound to units who have a hostage anyway
+				playSoundAtLocation(m_metagame, joinWavs[rand(0, joinWavs.length() -1)], 0, stringToVector3(ct.getStringAttribute("position")));
+				// TODO: if we do implement this correctly, award 150 RP to the CT who picked up the hostage (once-off payment per hostage)
 			}
 		}
 	}

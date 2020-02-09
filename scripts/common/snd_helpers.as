@@ -12,3 +12,14 @@ bool checkRange2D(const Vector3@ pos1, const Vector3@ pos2, float range) {
 	float length = getPositionDistance2D(pos1, pos2);
 	return length <= range;
 }
+
+// --------------------------------------------
+void playSoundAtLocation(const Metagame@ metagame, string filename, int factionId, const Vector3@ position, float volume=1.0) {
+	XmlElement command("command");
+	command.setStringAttribute("class", "play_sound");
+	command.setStringAttribute("filename", filename);
+	command.setIntAttribute("faction_id", factionId);
+	command.setFloatAttribute("volume", volume);
+	command.setStringAttribute("position", position.toString());
+	metagame.getComms().send(command);
+}
