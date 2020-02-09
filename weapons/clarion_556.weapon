@@ -30,7 +30,7 @@
     <sound class="impact" fileref="rifle_drop.wav" />
     <model filename="famasf1.xml" />
 
-    <hud_icon filename="hud_famasg1.png" />
+    <hud_icon filename="hud_famas.png" />
 
     <weak_hand_hold offset="0.0" />
     <projectile file="bullet.projectile">

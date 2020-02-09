@@ -40,7 +40,7 @@
     <sound key="cycle" fileref="deagle_cycle.wav" volume="0.8" />
     <model filename="deagle.xml" />
 
-    <hud_icon filename="hud_desert_eagle.png" />
+    <hud_icon filename="hud_deserteagle.png" />
 
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.1" />

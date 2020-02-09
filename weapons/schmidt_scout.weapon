@@ -30,7 +30,7 @@
     <sound class="impact" fileref="rifle_drop.wav" />
     <model filename="scout.xml" />
 
-    <hud_icon filename="hud_m24a2.png" />
+    <hud_icon filename="hud_scout.png" />
 
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.3" />
