@@ -29,10 +29,8 @@ class MapRotatorSNDAll : MapRotatorSND {
 		// ------------------------------------------------------------------------------------------------
 		{
 			Stage@ stage = createStage();
-			//stage.m_mapInfo.m_name = "Islet of Eflen";
-			//stage.m_mapInfo.m_path = "media/packages/snd/maps/pvp1";
-			stage.m_mapInfo.m_name = "de_train";
-			stage.m_mapInfo.m_path = "media/packages/snd/maps/de_train";
+			stage.m_mapInfo.m_name = "Islet of Eflen";
+			stage.m_mapInfo.m_path = "media/packages/snd/maps/pvp1";
 			stage.m_mapIndex = 13;
 
 			stage.m_includeLayers.insertLast("bases.default");
@@ -59,8 +57,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
-					// faction.m_ownedBases.insertLast("Heel Quarter");
-					faction.m_ownedBases.insertLast("North West");
+					faction.m_ownedBases.insertLast("Heel Quarter");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -68,8 +65,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				}
 				{
 					Faction@ faction = Faction(m_factionConfigs[1]);
-					// faction.m_ownedBases.insertLast("East Coast");
-					faction.m_ownedBases.insertLast("South East");
+					faction.m_ownedBases.insertLast("East Coast");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -98,8 +94,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
-					// faction.m_ownedBases.insertLast("East Coast");
-					faction.m_ownedBases.insertLast("South East");
+					faction.m_ownedBases.insertLast("East Coast");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -107,8 +102,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				}
 				{
 					Faction@ faction = Faction(m_factionConfigs[1]);
-					// faction.m_ownedBases.insertLast("Heel Quarter");
-					faction.m_ownedBases.insertLast("North West");
+					faction.m_ownedBases.insertLast("Heel Quarter");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -134,8 +128,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
-					// faction.m_ownedBases.insertLast("Heel Quarter");
-					faction.m_ownedBases.insertLast("North West");
+					faction.m_ownedBases.insertLast("Heel Quarter");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -143,8 +136,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				}
 				{
 					Faction@ faction = Faction(m_factionConfigs[1]);
-					// faction.m_ownedBases.insertLast("East Coast");
-					faction.m_ownedBases.insertLast("South East");
+					faction.m_ownedBases.insertLast("East Coast");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -170,8 +162,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
-					// faction.m_ownedBases.insertLast("East Coast");
-					faction.m_ownedBases.insertLast("South East");
+					faction.m_ownedBases.insertLast("East Coast");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -179,8 +170,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				}
 				{
 					Faction@ faction = Faction(m_factionConfigs[1]);
-					// faction.m_ownedBases.insertLast("Heel Quarter");
-					faction.m_ownedBases.insertLast("North West");
+					faction.m_ownedBases.insertLast("Heel Quarter");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -206,8 +196,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
-					// faction.m_ownedBases.insertLast("East Coast");
-					faction.m_ownedBases.insertLast("South East");
+					faction.m_ownedBases.insertLast("East Coast");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -215,8 +204,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				}
 				{
 					Faction@ faction = Faction(m_factionConfigs[1]);
-					// faction.m_ownedBases.insertLast("Heel Quarter");
-					faction.m_ownedBases.insertLast("North West");
+					faction.m_ownedBases.insertLast("Heel Quarter");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -241,8 +229,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
-					// faction.m_ownedBases.insertLast("Heel Quarter");
-					faction.m_ownedBases.insertLast("North West");
+					faction.m_ownedBases.insertLast("Heel Quarter");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -250,8 +237,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				}
 				{
 					Faction@ faction = Faction(m_factionConfigs[1]);
-					// faction.m_ownedBases.insertLast("East Coast");
-					faction.m_ownedBases.insertLast("South East");
+					faction.m_ownedBases.insertLast("East Coast");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -276,8 +262,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
-					// faction.m_ownedBases.insertLast("East Coast");
-					faction.m_ownedBases.insertLast("South East");
+					faction.m_ownedBases.insertLast("East Coast");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -285,8 +270,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				}
 				{
 					Faction@ faction = Faction(m_factionConfigs[1]);
-					// faction.m_ownedBases.insertLast("Heel Quarter");
-					faction.m_ownedBases.insertLast("North West");
+					faction.m_ownedBases.insertLast("Heel Quarter");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -311,10 +295,8 @@ class MapRotatorSNDAll : MapRotatorSND {
 		// ------------------------------------------------------------------------------------------------
 		{
 			Stage@ stage = createStage();
-			//stage.m_mapInfo.m_name = "Islet of Eflen";
-			//stage.m_mapInfo.m_path = "media/packages/snd/maps/pvp1";
-			stage.m_mapInfo.m_name = "de_train";
-			stage.m_mapInfo.m_path = "media/packages/snd/maps/de_train";
+			stage.m_mapInfo.m_name = "Islet of Eflen";
+			stage.m_mapInfo.m_path = "media/packages/snd/maps/pvp1";
 			stage.m_mapIndex = 13;
 
 			stage.m_includeLayers.insertLast("bases.default");
@@ -343,8 +325,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
-					// faction.m_ownedBases.insertLast("Heel Quarter");
-					faction.m_ownedBases.insertLast("North West");
+					faction.m_ownedBases.insertLast("Heel Quarter");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -352,8 +333,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				}
 				{
 					Faction@ faction = Faction(m_factionConfigs[1]);
-					// faction.m_ownedBases.insertLast("East Coast");
-					faction.m_ownedBases.insertLast("South East");
+					faction.m_ownedBases.insertLast("East Coast");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -381,8 +361,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
-					// faction.m_ownedBases.insertLast("East Coast");
-					faction.m_ownedBases.insertLast("South East");
+					faction.m_ownedBases.insertLast("East Coast");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -390,8 +369,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				}
 				{
 					Faction@ faction = Faction(m_factionConfigs[1]);
-					// faction.m_ownedBases.insertLast("Heel Quarter");
-					faction.m_ownedBases.insertLast("North West");
+					faction.m_ownedBases.insertLast("Heel Quarter");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -417,8 +395,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
-					// faction.m_ownedBases.insertLast("East Coast");
-					faction.m_ownedBases.insertLast("South East");
+					faction.m_ownedBases.insertLast("East Coast");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -426,8 +403,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				}
 				{
 					Faction@ faction = Faction(m_factionConfigs[1]);
-					// faction.m_ownedBases.insertLast("Heel Quarter");
-					faction.m_ownedBases.insertLast("North West");
+					faction.m_ownedBases.insertLast("Heel Quarter");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -452,8 +428,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
-					// faction.m_ownedBases.insertLast("Heel Quarter");
-					faction.m_ownedBases.insertLast("North West");
+					faction.m_ownedBases.insertLast("Heel Quarter");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -461,8 +436,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				}
 				{
 					Faction@ faction = Faction(m_factionConfigs[1]);
-					// faction.m_ownedBases.insertLast("East Coast");
-					faction.m_ownedBases.insertLast("South East");
+					faction.m_ownedBases.insertLast("East Coast");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -488,8 +462,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
-					// faction.m_ownedBases.insertLast("East Coast");
-					faction.m_ownedBases.insertLast("South East");
+					faction.m_ownedBases.insertLast("East Coast");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -497,8 +470,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				}
 				{
 					Faction@ faction = Faction(m_factionConfigs[1]);
-					// faction.m_ownedBases.insertLast("Heel Quarter");
-					faction.m_ownedBases.insertLast("North West");
+					faction.m_ownedBases.insertLast("Heel Quarter");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -524,8 +496,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
-					// faction.m_ownedBases.insertLast("East Coast");
-					faction.m_ownedBases.insertLast("South East");
+					faction.m_ownedBases.insertLast("East Coast");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -533,8 +504,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				}
 				{
 					Faction@ faction = Faction(m_factionConfigs[1]);
-					// faction.m_ownedBases.insertLast("Heel Quarter");
-					faction.m_ownedBases.insertLast("North West");
+					faction.m_ownedBases.insertLast("Heel Quarter");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
@@ -560,8 +530,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
-					// faction.m_ownedBases.insertLast("Heel Quarter");
-					faction.m_ownedBases.insertLast("North West");
+					faction.m_ownedBases.insertLast("Heel Quarter");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;
