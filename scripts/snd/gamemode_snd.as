@@ -20,6 +20,8 @@ class GameModeSND : Metagame {
 
 	protected bool trackPlayerDeaths = true;
 
+	protected bool matchEndOverride = false; // used to stop 'set_match_status' commands from being issued (if they query the bool to observe the override...)
+
 	protected string m_tournamentName = "";
 
 	// --------------------------------------------
@@ -51,19 +53,7 @@ class GameModeSND : Metagame {
 
 	// --------------------------------------------
 	void save() {
-		_log("** SND: saving metagame!", 1);
-
-		XmlElement commandRoot("command");
-		commandRoot.setStringAttribute("class", "save_data");
-
-		XmlElement root("Search_and_Destroy");
-		XmlElement@ settings = m_userSettings.toXmlElement("settings");
-		root.appendChild(settings);
-
-		commandRoot.appendChild(root);
-
-		getComms().send(commandRoot);
-		_log("** SND: finished saving game settings", 1);
+		_log("** SND: saves to snd_players.xml!", 1);
 	}
 
 	// --------------------------------------------
@@ -166,6 +156,17 @@ class GameModeSND : Metagame {
 	}
 
 	// --------------------------------------------
+	void setMatchEndOverride(bool enabled=true) {
+		matchEndOverride = enabled;
+	}
+
+	// --------------------------------------------
+	bool getMatchEndOverride() {
+		_log("** SND: Match End requested. " + (matchEndOverride ? 'Blocked' : 'Allowed'), 1);
+		return matchEndOverride;
+	}
+
+	// --------------------------------------------
 	void setTargetLocations(array<Vector3> v3array) {
 		// Trackers call this method to store target locations on the current map
 		targetLocations = v3array;
@@ -197,6 +198,11 @@ class GameModeSND : Metagame {
 	// --------------------------------------------
 	int getNumExtracted() {
 		return numExtracted;
+	}
+
+	// --------------------------------------------
+	void setNumExtracted(int num) {
+		numExtracted = num;
 	}
 
 	// --------------------------------------------
@@ -273,6 +279,11 @@ class GameModeSND : Metagame {
 		// 5 : armour
 
 		const XmlElement@ thisChar = getCharacterInfo(this, characterId);
+		if (thisChar.getIntAttribute("id") != characterId) {
+			_log("** SND: WARNING! getCharacterInfo returned a non-matching characterId. Character " + characterId + " will have no equipment this round!", 1);
+			return;
+		}
+
 		int faction = thisChar.getIntAttribute("faction_id");
 
 		// assign / override equipment to player character

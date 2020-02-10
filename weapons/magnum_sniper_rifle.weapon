@@ -21,16 +21,17 @@
     <animation key="recoil" ref="27" />
     <animation key="cycle" ref="30" />
     <animation state_key="reload" animation_key="reloading, psg90" />
-    <sound key="fire" fileref="psg90_shot.wav" volume="0.8" />
-    <sound key="cycle" fileref="sniper_cycle.wav" />
-    <sound key="magazine_out" fileref="sniper_clip_out.wav" />
-    <sound key="magazine_in" fileref="sniper_clip_in.wav" />
-    <sound key="cycle_out" fileref="sniper_cycle_out.wav" />
-    <sound key="cycle_in" fileref="sniper_cycle_in.wav" />
+    <sound key="fire" fileref="awp_01.wav" volume="0.8" />
+    <sound key="fire" fileref="awp_02.wav" volume="0.8" />
+    <sound key="cycle" fileref="awp_cycle.wav" />
+    <sound key="magazine_out" fileref="awp_clipout.wav" />
+    <sound key="magazine_in" fileref="awp_clipin.wav" />
+    <sound key="cycle_out" fileref="awp_boltback.wav" />
+    <sound key="cycle_in" fileref="awp_boltforward.wav" />
     <sound class="impact" fileref="rifle_drop.wav" />
     <model filename="awp.xml" />
 
-    <hud_icon filename="hud_psg90.png" />
+    <hud_icon filename="hud_awp.png" />
 
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.3" />

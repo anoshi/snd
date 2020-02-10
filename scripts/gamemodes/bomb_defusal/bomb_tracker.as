@@ -3,6 +3,8 @@
 #include "helpers.as"
 #include "query_helpers.as"
 
+#include "snd_helpers.as"
+
 // --------------------------------------------
 class BombTracker : Tracker {
 	protected GameModeSND@ m_metagame;
@@ -28,6 +30,7 @@ class BombTracker : Tracker {
 	void start() {
 		_log("** SND: starting BombTracker tracker", 1);
 		addBomb();
+		m_metagame.setTrackPlayerDeaths(true);
 		m_started = true;
 	}
 
@@ -172,8 +175,8 @@ class BombTracker : Tracker {
 			// check if the bomb was placed in a valid targetLocation
 			array<Vector3> validLocs = m_metagame.getTargetLocations();
 			for (uint i = 0; i < validLocs.length(); ++i) {
-				if (checkRange(stringToVector3(bombPosition), validLocs[i], 15.0)) {
-					_log("** SND: bomb has been planted within 15 units of " + validLocs[i].toString() + ".", 1);
+				if (checkRange2D(stringToVector3(bombPosition), validLocs[i], 5.0)) {
+					_log("** SND: bomb has been planted within 5.0 units of " + validLocs[i].toString() + ".", 1);
 					array<int> planterTeamCharIds = m_metagame.getFactionPlayerCharacterIds(bombOwnerFaction);
 					for (uint j = 0; j < planterTeamCharIds.length() ; ++j) {
 						string rewardPlanterTeamChar = "<command class='rp_reward' character_id='" + planterTeamCharIds[j] + "' reward='800'></command>";
@@ -200,9 +203,10 @@ class BombTracker : Tracker {
 					markBombPosition(getBombPosition(), bombFaction, false);
 					m_metagame.addScore(bombFaction, 2);
 					bombIsArmed = true;
+					m_metagame.setMatchEndOverride(); // bomb must be defused or detonate (or timer runs out) to meet a win condition this round
 					break;
 				} else {
-					_log("** SND: bomb not planted within 15 units of " + validLocs[i].toString() + ". Checking next targetLocation.", 1);
+					_log("** SND: bomb not planted within 5.0 units of " + validLocs[i].toString() + ". Checking next targetLocation.", 1);
 				}
 			}
 			if (!bombIsArmed) {
@@ -218,8 +222,8 @@ class BombTracker : Tracker {
 			// where were the wire cutters used?
 			string snipPosition = event.getStringAttribute("position");
 			// confirm the person who's used the wire cutters is immediately adjacent to the bomb
-			if (checkRange(stringToVector3(snipPosition), stringToVector3(bombPosition), 2.0)) {
-				_log("** SND: wire cutters used within 2 units of bomb location", 1);
+			if (checkRange2D(stringToVector3(snipPosition), stringToVector3(bombPosition), 4.0)) {
+				_log("** SND: wire cutters used within 4.0 units of bomb location", 1);
 				_log("** SND: The bomb has been defused", 1);
 				string rewardBombDefuser = "<command class='rp_reward' character_id='" + event.getIntAttribute("character_id") + "' reward='300'></command>";
 				m_metagame.getComms().send(rewardBombDefuser);
@@ -317,6 +321,7 @@ class BombTracker : Tracker {
 			}
 		}
 		bombInPlay = false;
+		m_metagame.setMatchEndOverride(bombIsArmed); // false
 	}
 
 	// -----------------------------

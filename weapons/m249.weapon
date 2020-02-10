@@ -7,8 +7,8 @@
     sustained_fire_grow_step="0.8"
     sustained_fire_diminish_rate="0.8"
     magazine_size="100"
-    can_shoot_standing="0"
-    can_shoot_crouching="0"
+    can_shoot_standing="1"
+    can_shoot_crouching="1"
     suppressed="0"
     name="M249"
     class="0"
@@ -24,18 +24,28 @@
     <animation state_key="walking" animation_key="walking, heavy weapon" />
     <animation state_key="walking_backwards" animation_key="walking backwards, heavy weapon" />
 
-    <sound key="fire" fileref="m240_shot.wav" pitch_variety="0.06" volume="0.7" />
-    <sound key="magazine_out" fileref="mg_clip_out.wav" />
-    <sound key="magazine_in" fileref="mg_clip_in.wav" />
-    <sound key="cycle" fileref="rifle_chamber.wav" />
+    <sound key="fire" fileref="m249_01.wav" pitch_variety="0.06" volume="0.7" />
+    <sound key="magazine_out" fileref="m249_boxout.wav" />
+    <sound key="magazine_in" fileref="m249_boxin.wav" />
+    <sound key="cycle" fileref="m249_pump.wav" />
     <sound class="impact" fileref="rifle_drop.wav" />
     <model filename="m249.xml" />
 
-    <hud_icon filename="hud_m240.png" />
+    <hud_icon filename="hud_m249.png" />
+
+    <stance state_key="running" accuracy="0.1" />
+    <stance state_key="walking" accuracy="0.5" />
+    <stance state_key="crouch_moving" accuracy="0.1" />
+    <stance state_key="prone_moving" accuracy="0.1" />
+
+    <stance state_key="standing" accuracy="0.45" />
+    <stance state_key="crouching" accuracy="0.55" />
+    <stance state_key="prone" accuracy="0.95" />
+    <stance state_key="over_wall" accuracy="0.9" />
 
     <weak_hand_hold offset="0.4" />
     <projectile file="bullet.projectile">
         <result class="hit" kill_probability="0.65" kill_decay_start_time="0.35" kill_decay_end_time="0.70" />
     </projectile>
-    <modifier class="speed" value="-0.1" />
+    <modifier class="speed" value="-0.2" />
 </weapon>

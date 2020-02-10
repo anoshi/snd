@@ -18,14 +18,17 @@
     <animation key="recoil" ref="13" />
     <animation key="recoil" ref="14" />
     <animation state_key="reload" animation_key="reloading, aks74u" />
-    <sound key="fire" fileref="aks74u_shot.wav" />
-    <sound key="magazine_out" fileref="rifle_clip_out.wav" />
-    <sound key="magazine_in" fileref="rifle_clip_in.wav" />
-    <sound key="cycle" fileref="rifle_chamber.wav" />
+    <sound key="fire" fileref="galil_01.wav" />
+    <sound key="fire" fileref="galil_02.wav" />
+    <sound key="fire" fileref="galil_03.wav" />
+    <sound key="fire" fileref="galil_04.wav" />
+    <sound key="magazine_out" fileref="galil_clipout.wav" />
+    <sound key="magazine_in" fileref="galil_clipin.wav" />
+    <sound key="cycle" fileref="galil_cycle.wav" />
     <sound class="impact" fileref="rifle_drop.wav" />
     <model filename="galil.xml" />
 
-    <hud_icon filename="hud_aks74u.png" />
+    <hud_icon filename="hud_galil.png" />
 
     <projectile file="bullet.projectile">
         <result class="hit" kill_probability="0.6" kill_decay_start_time="0.38" kill_decay_end_time="0.52" />

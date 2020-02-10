@@ -21,16 +21,16 @@
     <animation key="recoil" ref="27" />
     <animation key="cycle" ref="30" />
     <animation key="reload" ref="35" />
-    <sound key="fire" fileref="m24a2_shot.wav" volume="0.9" />
-    <sound key="cycle" fileref="sniper_cycle.wav" />
-    <sound key="magazine_out" fileref="sniper_clip_out.wav" />
-    <sound key="magazine_in" fileref="sniper_clip_in.wav" />
-    <sound key="cycle_out" fileref="sniper_cycle_out.wav" />
-    <sound key="cycle_in" fileref="sniper_cycle_in.wav" />
+    <sound key="fire" fileref="ssg08_01.wav" volume="0.9" />
+    <sound key="cycle" fileref="ssg08_cycle.wav" volume="0.6" />
+    <sound key="magazine_out" fileref="ssg08_clipout.wav" />
+    <sound key="magazine_in" fileref="ssg08_clipin.wav" />
+    <sound key="cycle_out" fileref="ssg08_boltback.wav" volume="0.6" />
+    <sound key="cycle_in" fileref="ssg08_boltforward.wav" volume="0.6" />
     <sound class="impact" fileref="rifle_drop.wav" />
     <model filename="scout.xml" />
 
-    <hud_icon filename="hud_m24a2.png" />
+    <hud_icon filename="hud_scout.png" />
 
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.3" />

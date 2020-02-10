@@ -37,10 +37,10 @@
     <sound key="fire" fileref="glock_02.wav" pitch_variety="0.05" volume="0.75" />
     <sound key="magazine_out" fileref="glock_clipout.wav" />
     <sound key="magazine_in" fileref="glock_clipin.wav" volume="0.5" />
-    <sound key="cycle" fileref="pistol_chamber.wav" volume="0.5" />
+    <sound key="cycle" fileref="glock_cycle.wav" volume="0.5" />
     <model filename="glock.xml" />
 
-    <hud_icon filename="hud_beretta_m9.png" />
+    <hud_icon filename="hud_glock18.png" />
 
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.1" />

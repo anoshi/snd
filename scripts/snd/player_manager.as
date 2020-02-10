@@ -25,7 +25,7 @@ class SNDPlayer {
 	float m_xp;
 
 	// --------------------------------------------
-	SNDPlayer(string username, string hash, string sid, string ip, int id, string pri="", string sec="", string gren="", int grenNum="", string arm="") {
+	SNDPlayer(string username, string hash, string sid, string ip, int id, string pri="", string sec="", string gren="", int grenNum=0, string arm="") {
 		m_username = username;
 		m_hash = hash;
 		m_sid = sid;
@@ -196,14 +196,16 @@ class PlayerTracker : Tracker {
 						m_savedPlayers.remove(aPlayer);
 					} else {
 						// assign stock starter kit
-						SNDPlayer@ aPlayer = SNDPlayer(connName, connHash, key, connIp, connId, "", "some_secondary.weapon", "he_gren.weapon", 0, "");
+						SNDPlayer@ aPlayer = SNDPlayer(connName, connHash, key, connIp, connId);
 						_log("** SND: Unknown/new player " + aPlayer.m_username + " joining server", 1);
 						// set RP and XP for new players
 						aPlayer.m_rp = 800;		// starting cash for CS rounds
 						aPlayer.m_xp = 0.2000;	// grant enough XP to allow VIP and 2 x hostage escorts
 						m_trackedPlayers.add(aPlayer);
 					}
-				//}
+				// } else {
+				// 	_log("** SND: player with ID0 connected. Will not be tracked", 1);
+				// }
 			} else {
 				_log("** SND: Player " + connName + " (" + connHash + ") is attempting to join, but no room left in server", 1);
 			}
@@ -230,30 +232,59 @@ class PlayerTracker : Tracker {
 
 		const XmlElement@ player = event.getFirstElementByTagName("player");
 
-		string key = player.getStringAttribute("sid");
-		string playerCharId = player.getStringAttribute("character_id");
-		int pcIdint = player.getIntAttribute("character_id");
-		if (m_trackedPlayers.exists(key)) { // must have connected to be in this dict
-			SNDPlayer@ spawnedPlayer;
-			@spawnedPlayer = m_trackedPlayers.get(key);
-			// associate player's dynamic character_id with their sid.
-			cidTosid.set(playerCharId, key);
-			spawnedPlayer.m_charId = pcIdint;
-			_log("** SND: spawned player cidTosid check: " + spawnedPlayer.m_sid + ": " + spawnedPlayer.m_charId + ", character_id: " + playerCharId);
-			// boost charcter's RP and XP to fall in line with saved stats
-			_log("** SND: Grant " + spawnedPlayer.m_rp + " RP and " + spawnedPlayer.m_xp + " XP to " + spawnedPlayer.m_username, 1);
-			string setCharRP = "<command class='rp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_rp + "'></command>";
-			m_metagame.getComms().send(setCharRP);
-			string setCharXP = "<command class='xp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_xp + "'></command>";
-			m_metagame.getComms().send(setCharXP);
-			// load up saved inventory
-			m_metagame.setPlayerInventory(pcIdint, false, spawnedPlayer.m_primary, spawnedPlayer.m_secondary, spawnedPlayer.m_grenade, spawnedPlayer.m_grenNum, spawnedPlayer.m_armour);
-		} else {
-			_log("** SND: Player spawned, but not registered as having connected. Doing nothing...", 1);
-		}
+		if (player !is null) {
+			string key = player.getStringAttribute("sid");
+			string hash = player.getStringAttribute("profile_hash");
+			string playerCharId = player.getStringAttribute("character_id");
+			int pcIdint = player.getIntAttribute("character_id");
 
-		// increment live player count for faction
-		updateFactionPlayerCounts(player.getIntAttribute("faction_id"), 1);
+			// In some cases, getCharacterInfo queries return a negative int for a character's id:
+			// sending: TagName=command class=make_query id=329.000     TagName=data class=character id=1.000
+			// waiting for response for the query...
+			// received: TagName=query_result query_id=329     TagName=character id=-1
+
+			// When this occurs, the commands to update RP and XP as well as the setPlayerInventory method
+			// will fail and the metagame will throw an index out of bounds exception. Terminal!
+
+			// before we go too far, let's make sure the spawned player's reported character ID matches that stored by the metagame.
+			const XmlElement@ thisChar = getCharacterInfo(m_metagame, pcIdint);
+
+			// one way to know we have an issue is if the returned Character XML Element doesn't have a 'faction_id' attribute.
+			if (!thisChar.hasAttribute("faction_id")) {
+				_log("** SND: WARNING! Failed to lookup Character ID " + pcIdint + ". giving up on getCharacterInfo...", 1);
+				// Remove player from m_trackedPlayers; we will notice additional connect and spawn events for this player shortly...
+				if (m_trackedPlayers.exists(key)) {
+					SNDPlayer@ noGoPlayer;
+					@noGoPlayer = m_trackedPlayers.get(key);
+					m_savedPlayers.add(noGoPlayer);
+					m_trackedPlayers.remove(noGoPlayer);
+					return; // break out - the PlayerSpawnEvent has been recorded or handled incorrectly
+				}
+			}
+			// great! we're OK to continue
+
+			if (m_trackedPlayers.exists(key)) { // must have connected to be in this dict
+				SNDPlayer@ spawnedPlayer;
+				@spawnedPlayer = m_trackedPlayers.get(key);
+				// associate player's dynamic character_id with their sid.
+				cidTosid.set(playerCharId, key);
+				spawnedPlayer.m_charId = pcIdint;
+				_log("** SND: spawned player cidTosid check: " + spawnedPlayer.m_sid + ": " + spawnedPlayer.m_charId + ", character_id: " + playerCharId);
+				// boost charcter's RP and XP to fall in line with saved stats
+				_log("** SND: Grant " + spawnedPlayer.m_rp + " RP and " + spawnedPlayer.m_xp + " XP to " + spawnedPlayer.m_username, 1);
+				string setCharRP = "<command class='rp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_rp + "'></command>";
+				m_metagame.getComms().send(setCharRP);
+				string setCharXP = "<command class='xp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_xp + "'></command>";
+				m_metagame.getComms().send(setCharXP);
+				// load up saved inventory
+				m_metagame.setPlayerInventory(pcIdint, false, spawnedPlayer.m_primary, spawnedPlayer.m_secondary, spawnedPlayer.m_grenade, spawnedPlayer.m_grenNum, spawnedPlayer.m_armour);
+			} else {
+				_log("** SND: Player spawned, but not registered as having connected. Doing nothing...", 1);
+			}
+
+			// increment live player count for faction
+			updateFactionPlayerCounts(player.getIntAttribute("faction_id"), 1);
+		}
 	}
 
 	// --------------------------------------------
@@ -502,11 +533,16 @@ class PlayerTracker : Tracker {
 	protected void updateFactionPlayerCounts(uint faction, int num) {
 		if (factionPlayers[faction] + num > 0) {
 			factionPlayers[faction] += num;
-			_log("** SND: faction " + faction + " has " + num + " players alive", 1);
+			_log("** SND: faction " + faction + " has " + factionPlayers[faction] + " players alive", 1);
 		} else {
 			// first check we're still tracking character deaths
 			if (!m_metagame.getTrackPlayerDeaths()) {
 				// we're not. Bail.
+				return;
+			}
+			// next, check if the current match type has issued a match end override condition (e.g. bomb planted and must be defused or detonate)
+			if (m_metagame.getMatchEndOverride()) {
+				// it has, no attrition ending allowed for this round, bail.
 				return;
 			}
 			_log("** SND: faction " + faction + " has run out of live players. Lose round!", 1);

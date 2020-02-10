@@ -21,13 +21,15 @@
     <animation state_key="recoil" ref="27" />
     <animation state_key="cycle" ref="28" />
     <animation state_key="reload" ref="29" />
-    <sound key="fire" fileref="benelli_m4_shot.wav" volume="0.8" />
-    <sound key="cycle" fileref="mossberg500_cycle.wav" />
-    <sound key="reload_one" fileref="mossberg500_reload.wav" />
+    <sound key="fire" fileref="xm1014_01.wav" volume="0.7" />
+    <sound key="cycle" fileref="xm1014_pump.wav" />
+    <sound key="reload_one" fileref="xm1014_insertshell_01.wav" />
+    <sound key="reload_one" fileref="xm1014_insertshell_02.wav" />
+    <sound key="reload_one" fileref="xm1014_insertshell_03.wav" />
     <sound class="impact" fileref="rifle_drop.wav" />
     <model filename="xm1014.xml" />
 
-    <hud_icon filename="hud_benelli_m4.png" />
+    <hud_icon filename="hud_xm1014.png" />
 
     <weak_hand_hold offset="0.2" />
     <projectile file="bullet.projectile">

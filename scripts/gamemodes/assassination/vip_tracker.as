@@ -8,6 +8,7 @@ class VIPTracker : Tracker {
 	protected GameModeSND@ m_metagame;
 	protected bool m_started = false;
 	protected bool inPlay = false; 		// when m_metagame.getTrackedCharIds().length() == 0, the vip has escaped or been killed
+	protected bool vipKilled = false;	// used to differentiate between the VIP being assassinated or dying in another manner
 	protected int theVIPId;				// the characterId of the VIP.
 
 	protected float VIP_POS_UPDATE_TIME = 5.0;	// how often the position of the VIP is checked
@@ -25,61 +26,55 @@ class VIPTracker : Tracker {
 		m_metagame.getComms().send(trackCharSpawn);
 		string trackCharKill = "<command class='set_metagame_event' name='character_kill' enabled='1' />";
 		m_metagame.getComms().send(trackCharKill);
-		// string trackCharDie = "<command class='set_metagame_event' name='character_die' enabled='1' />";
-		// m_metagame.getComms().send(trackCharDie);
+		string trackCharDie = "<command class='set_metagame_event' name='character_die' enabled='1' />";
+		m_metagame.getComms().send(trackCharDie);
 		// disable Commander orders to AI
 		m_metagame.disableCommanderAI();
+		m_metagame.setNumExtracted(0);
+		addVIP(); // inPlay = true
+		m_metagame.setTrackPlayerDeaths(true);
 		m_started = true;
 	}
 
 	///////////////////
 	// VIP LIFECYCLE //
 	///////////////////
-	// -----------------------------------------------------------
-    protected void handlePlayerSpawnEvent(const XmlElement@ event) {
-		// TagName=player_spawn
-		// TagName=player
-		// aim_target=0 0 0
-		// character_id=74
-		// color=0.595 0.476 0 1
-		// faction_id=0
-		// ip=117.20.69.32
-		// name=ANOSHI
-		// player_id=2
-		// port=30664
-		// profile_hash=ID<10_numbers>
-		// sid=ID<8_numbers>
-
-		// Triggers VIP spawn near the first player on CT side. Could be improved, but works for single-player test, plus cbf.
-		_log("** SND: VIPTracker::handlePlayerSpawnEvent", 1);
+	// --------------------------------------------
+	protected void addVIP() {
+		_log("** SND: Adding VIP", 1);
 		if (inPlay) {
 			return;
 		} else {
-			const XmlElement@ player = event.getFirstElementByTagName("player");
-			int factionId = player.getIntAttribute("faction_id");
-			if (factionId == 0) {
-				int charId = player.getIntAttribute("character_id");
-				const XmlElement@ vipFriend = getCharacterInfo(m_metagame, charId);
-				string playerPos = vipFriend.getStringAttribute("position");
-				addVIP(playerPos);
-				inPlay = true;
-				_log("** SND: VIP has spawned near player " + charId + " (" + player.getStringAttribute('name') + ") at position: " + playerPos, 1);
+			// from all players, get the characterIds for all counter-terrorists only
+			array<const XmlElement@> players = getPlayers(m_metagame);
+			array<int> ctPlayerIds = m_metagame.getFactionPlayerCharacterIds(0); // counter terrorsts are faction 0
+			int charId = -1; // will store the character_id of who the VIP spawns next to
+			if (ctPlayerIds.length() > 0) {
+				// choose a counter terrorist at random
+				uint i = rand(0, ctPlayerIds.length() - 1);
+				charId = ctPlayerIds[i];
+			} else {
+				_log("** SND: No counter terrorists! Maybe single player? Giving a terrorist the VIP.", 1);
+				uint i = rand(0, players.length() - 1);
+				// get a specific player's character
+				const XmlElement@ player = players[i];
+				charId = player.getIntAttribute("character_id");
 			}
+			const XmlElement@ vipFriend = getCharacterInfo(m_metagame, charId);
+			string playerPos = vipFriend.getStringAttribute("position");
+			Vector3 pos = stringToVector3(playerPos);
+			pos.m_values[0] += 5.0;
+			_log("** SND: Spawning VIP", 1);
+			// spawn a vip (faction 0) very near the requested location.
+			string spawnCommand = "<command class='create_instance' instance_class='character' faction_id='0' position='" + pos.toString() + "' instance_key='vip' /></command>";
+			m_metagame.getComms().send(spawnCommand);
+			playSound(m_metagame, "vip.wav", 0);
+			inPlay = true;
+			_log("** SND: VIP has spawned near player " + charId + " at position: " + playerPos, 1);
 		}
 	}
 
 	// --------------------------------------------
-	protected void addVIP(string position) {
-		Vector3 pos = stringToVector3(position);
-		pos.m_values[0] += 5.0;
-		_log("** SND: Spawning VIP", 1);
-		// spawn a vip (faction 0) very near the requested location.
-		string spawnCommand = "<command class='create_instance' instance_class='character' faction_id='0' position='" + pos.toString() + "' instance_key='vip' /></command>";
-		m_metagame.getComms().send(spawnCommand);
-	}
-
-
-// --------------------------------------------
 	protected string getVIPPosition() {
 		if (inPlay) {
 			// gets and returns current location of the VIP
@@ -176,6 +171,7 @@ class VIPTracker : Tracker {
 		}
 		int vipCharId = target.getIntAttribute("id");
 		_log("** SND: VIP (id: " + vipCharId + ") was killed!", 1);
+		vipKilled = true;
 		// stop tracking the vip
 		m_metagame.removeTrackedCharId(vipCharId);
 
@@ -207,35 +203,41 @@ class VIPTracker : Tracker {
 
 	// died (confirm otherwise)
 	// --------------------------------------------
-	// protected void handleCharacterDieEvent(const XmlElement@ event) {
-	// 	// TagName=character_die
-	// 	// character_id=4
+	protected void handleCharacterDieEvent(const XmlElement@ event) {
+		// TagName=character_die
+		// character_id=4
 
-	// 	const XmlElement@ eventChar = event.getFirstElementByTagName("character");
-	// 	int deadCharId = eventChar.getIntAttribute("id");
-	// 	const XmlElement@ deadChar = getCharacterInfo(m_metagame, deadCharId);
-	// 	if (deadChar.getStringAttribute("soldier_group_name") == 'vip') {
-	// 		sendFactionMessage(m_metagame, -1, "The VIP did not survive the mission");
-	// 		winRound(-(deadChar.getIntAttribute("faction_id"))+1);
-	// 	}
-	// }
+		// TagName=character
+		// ...
+		// id=10
+		// ...
+		// soldier_group_name=vip
 
-	// --------------------------------------------
-	protected void handleHitboxEvent(const XmlElement@ event) {
-		if (inPlay) {
-			sleep(2); // allow hitbox_handler.as to process this event first
-			_log("** SND: vip_tracker checking number of VIPs still being tracked", 1);
-			if (m_metagame.getNumExtracted() > 0) {
-				_log("** SND: The VIP has escaped. End round", 1);
-				array<int> ctIds = m_metagame.getFactionPlayerCharacterIds(0);
-				for (uint j = 0; j < ctIds.length() ; ++j) {
-					string vipRescuedReward = "<command class='rp_reward' character_id='" + ctIds[j] + "' reward='" + 2500 + "'></command>";
-					m_metagame.getComms().send(vipRescuedReward);
-					m_metagame.addRP(ctIds[j], 2500);
-				}
-				winRound(0);
+		sleep(2); // allow some time to pass in case handleCharacterKillEvent method is (still) handling the VIP death;
+
+		if (vipKilled) {
+			return;
+		} else {
+			const XmlElement@ eventChar = event.getFirstElementByTagName("character");
+			int deadCharId = eventChar.getIntAttribute("id");
+			const XmlElement@ deadChar = getCharacterInfo(m_metagame, deadCharId);
+			if (deadChar.getStringAttribute("soldier_group_name") == 'vip') {
+				sendFactionMessage(m_metagame, -1, "The VIP did not survive the mission");
+				winRound(-(deadChar.getIntAttribute("faction_id"))+1);
 			}
 		}
+	}
+
+	// --------------------------------------------
+	protected void vipEscaped() {
+		_log("** SND: The VIP has escaped. End round", 1);
+		array<int> ctIds = m_metagame.getFactionPlayerCharacterIds(0);
+		for (uint j = 0; j < ctIds.length() ; ++j) {
+			string vipRescuedReward = "<command class='rp_reward' character_id='" + ctIds[j] + "' reward='" + 2500 + "'></command>";
+			m_metagame.getComms().send(vipRescuedReward);
+			m_metagame.addRP(ctIds[j], 2500);
+		}
+		winRound(0);
 	}
 
 	// --------------------------------------------
@@ -263,6 +265,8 @@ class VIPTracker : Tracker {
 				playSound(m_metagame, "terwin.wav", f);
 			}
 		}
+		m_metagame.setTrackPlayerDeaths(false);
+		m_metagame.setNumExtracted(0);
 	}
 
 	// --------------------------------------------
@@ -282,8 +286,12 @@ class VIPTracker : Tracker {
 		if (inPlay) {
 			vipPosUpdateTimer -= time;
 			if (vipPosUpdateTimer < 0.0) {
-			markVIPPosition(getVIPPosition());
-			vipPosUpdateTimer = VIP_POS_UPDATE_TIME;
+				if (m_metagame.getNumExtracted() > 0) {
+					vipEscaped();
+				} else {
+				markVIPPosition(getVIPPosition());
+				vipPosUpdateTimer = VIP_POS_UPDATE_TIME;
+				}
 			}
 		}
 	}

@@ -23,16 +23,18 @@
     <animation key="cycle" ref="30" />
     <animation key="reload" ref="35" />
 
-    <sound key="fire" fileref="scarssr_shot.wav" pitch_variety="0.05" volume="1.10" />
-    <sound key="cycle" fileref="sniper_cycle.wav" />
-    <sound key="magazine_out" fileref="sniper_clip_out.wav" />
-    <sound key="magazine_in" fileref="sniper_clip_in.wav" />
-    <sound key="cycle_out" fileref="sniper_cycle_out.wav" />
-    <sound key="cycle_in" fileref="sniper_cycle_in.wav" />
+    <sound key="fire" fileref="scar20_01.wav" pitch_variety="0.05" volume="0.80" />
+    <sound key="fire" fileref="scar20_02.wav" pitch_variety="0.05" volume="0.80" />
+    <sound key="fire" fileref="scar20_03.wav" pitch_variety="0.05" volume="0.80" />
+    <sound key="cycle" fileref="scar20_cycle.wav" />
+    <sound key="magazine_out" fileref="scar20_clipout.wav" />
+    <sound key="magazine_in" fileref="scar20_clipin.wav" />
+    <sound key="cycle_out" fileref="scar20_boltback.wav" />
+    <sound key="cycle_in" fileref="scar20_boltforward.wav" />
     <sound class="impact" fileref="rifle_drop.wav" />
 
     <model filename="sg550.xml" />
-    <hud_icon filename="hud_scarssr.png" />
+    <hud_icon filename="hud_sg550.png" />
 
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.3" />

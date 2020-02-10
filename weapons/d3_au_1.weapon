@@ -23,16 +23,18 @@
     <animation key="cycle" ref="30" />
     <animation key="reload" ref="35" />
 
-    <sound key="fire" fileref="scarssr_shot.wav" pitch_variety="0.05" volume="1.10" />
-    <sound key="cycle" fileref="sniper_cycle.wav" />
-    <sound key="magazine_out" fileref="sniper_clip_out.wav" />
-    <sound key="magazine_in" fileref="sniper_clip_in.wav" />
-    <sound key="cycle_out" fileref="sniper_cycle_out.wav" />
-    <sound key="cycle_in" fileref="sniper_cycle_in.wav" />
+    <sound key="fire" fileref="g3sg1_01.wav" pitch_variety="0.05" volume="0.90" />
+    <sound key="fire" fileref="g3sg1_02.wav" pitch_variety="0.05" volume="0.90" />
+    <sound key="fire" fileref="g3sg1_03.wav" pitch_variety="0.05" volume="0.90" />
+    <sound key="cycle" fileref="g3sg1_cycle.wav" />
+    <sound key="magazine_out" fileref="g3sg1_clipout.wav" />
+    <sound key="magazine_in" fileref="g3sg1_clipin.wav" />
+    <sound key="cycle_out" fileref="g3sg1_slideback.wav" />
+    <sound key="cycle_in" fileref="g3sg1_slideforward.wav" />
     <sound class="impact" fileref="rifle_drop.wav" />
 
     <model filename="g3.xml" />
-    <hud_icon filename="hud_vss_vintorez.png" />
+    <hud_icon filename="hud_g3sg1.png" />
 
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.3" />
@@ -54,6 +56,6 @@
     <stance state_key="prone_moving" accuracy="0.1" />
     <stance state_key="over_wall" accuracy="0.9" />
 
-    <modifier class="speed" value="-0.08" />
+    <modifier class="speed" value="-0.2" />
 
 </weapon>

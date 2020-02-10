@@ -33,19 +33,19 @@
     <animation state_key="prone_still" animation_key="prone_still, pistol" />
     <animation state_key="walking_backwards" animation_key="walking backwards, pistol" />
 
-    <sound key="fire" fileref="beretta_93r_shot.wav" pitch_variety="0.02" volume="0.75" />
-    <sound key="magazine_out" fileref="pistol_clip_out.wav" />
-    <sound key="magazine_in" fileref="pistol_clip_in.wav" volume="0.5" />
-    <sound key="cycle" fileref="pistol_chamber.wav" volume="0.5" />
+    <sound key="fire" fileref="fiveseven_01.wav" pitch_variety="0.02" volume="0.75" />
+    <sound key="magazine_out" fileref="fiveseven_clipout.wav" />
+    <sound key="magazine_in" fileref="fiveseven_clipin.wav" volume="0.5" />
+    <sound key="cycle" fileref="fiveseven_cycle.wav" volume="0.5" />
     <model filename="five-seven.xml" />
 
-    <hud_icon filename="hud_glock17.png" />
+    <hud_icon filename="hud_fiveseven.png" />
 
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.1" />
     <projectile file="bullet.projectile">
         <result class="hit"
-		kill_probability=".50"
+		kill_probability="0.70"
 		kill_decay_start_time="0.32"
 		kill_decay_end_time="0.38" />
     </projectile>

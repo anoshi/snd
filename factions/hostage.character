@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<character filename="common.character">
+	<sound key="death" fileref="hpain1.wav" volume="0.55" />
+	<sound key="death" fileref="hpain2.wav" volume="0.55" />
+	<sound key="death" fileref="hpain3.wav" volume="0.55" />
+	<sound key="death" fileref="hpain4.wav" volume="0.55" />
+	<sound key="death" fileref="hpain5.wav" volume="0.55" />
+	<sound key="death" fileref="hpain6.wav" volume="0.55" />
+
+	<!-- comments -->
+	<comment key="We surrender!" text="" />
+	<comment key="We surrender!" text="" />
+	<comment key="We surrender!" text="Don't shoot!" />
+
+	<comment key="I'm outta here" text="" />
+	<comment key="I'm outta here" text="Let's get the hell outta here" />
+
+	<comment key="All quiet here" text="" />
+	<comment key="All quiet here" text="" />
+	<comment key="All quiet here" text="" />
+	<comment key="All quiet here" text="Let's get the hell outta here" />
+	<comment key="All quiet here" text="I'm ready let's do it" />
+	<comment key="All quiet here" text="Let's hurry" />
+
+	<comment key="Move out" text="" />
+	<comment key="Move out" text="" />
+	<comment key="Move out" text="" />
+	<comment key="Move out" text="OK Let's go" />
+	<comment key="Move out" text="Let's move" />
+	<comment key="Move out" text="You lead the way" />
+  	<comment key="Move out" text="I'll follow you" />
+</character>

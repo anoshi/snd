@@ -15,20 +15,22 @@ void main(dictionary@ inputData) {
 
 	// override some of the default user settings and add gamemode-specific settings we can query later.
 
-	settings.m_startServerCommand = """
-	<command class='start_server'
-		server_name='Search and Destroy'
-		server_port='1234'
-		comment='PvP'
-		url=''
-		register_in_serverlist='1'
-		mode='snd'
-		persistency='match'
-		max_players='30'>
-		<client_faction id="0" />
-		<client_faction id="1" />
-	</command>
-	""";
+	settings.m_startServerCommand = "";
+
+	// settings.m_startServerCommand = """
+	// <command class='start_server'
+	// 	server_name='Search and Destroy'
+	// 	server_port='25565'
+	// 	comment='PvP'
+	// 	url=''
+	// 	register_in_serverlist='1'
+	// 	mode='snd'
+	// 	persistency='forever'
+	// 	max_players='16'>
+	// 	<client_faction id="0" />
+	// 	<client_faction id="1" />
+	// </command>
+	// """;
 
 	settings.print();
 

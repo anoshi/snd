@@ -538,7 +538,8 @@ class MapRotatorSNDAll : MapRotatorSND {
 				}
 				{
 					Faction@ faction = Faction(m_factionConfigs[1]);
-					faction.m_ownedBases.insertLast("East Coast");
+					// faction.m_ownedBases.insertLast("East Coast");
+					faction.m_ownedBases.insertLast("South East");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;

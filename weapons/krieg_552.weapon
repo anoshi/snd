@@ -10,7 +10,7 @@
     can_shoot_standing="1"
     suppressed="0"
     name="Krieg 552"
-    class="4"
+    class="0"
     burst_shots="1"
     projectile_speed="100.0"
     barrel_offset="0.2"
@@ -20,10 +20,13 @@
     <animation key="recoil" ref="13" />
     <animation key="recoil" ref="14" />
     <animation state_key="reload" animation_key="reloading, sg552" />
-    <sound key="fire" fileref="sg552_shot.wav" pitch_variety="0.05" volume="0.65"/>
-    <sound key="magazine_out" fileref="rifle_clip_out.wav" />
-    <sound key="magazine_in" fileref="rifle_clip_in.wav" />
-    <sound key="cycle" fileref="rifle_chamber.wav" />
+    <sound key="fire" fileref="sg556_01.wav" pitch_variety="0.05" volume="0.8"/>
+    <sound key="fire" fileref="sg556_02.wav" pitch_variety="0.05" volume="0.8"/>
+    <sound key="fire" fileref="sg556_03.wav" pitch_variety="0.05" volume="0.8"/>
+    <sound key="fire" fileref="sg556_04.wav" pitch_variety="0.05" volume="0.8"/>
+    <sound key="magazine_out" fileref="sg556_clipout.wav" />
+    <sound key="magazine_in" fileref="sg556_clipin.wav" />
+    <sound key="cycle" fileref="sg556_cycle.wav" />
     <sound class="impact" fileref="rifle_drop.wav" />
     <model filename="sg552.xml" />
 

@@ -47,6 +47,7 @@ class WarmupSubStage : SubStage {
 		string sender = event.getStringAttribute("player_name");
 		int senderId = event.getIntAttribute("player_id");
 		if (checkCommand(message, "start")) {
+			_log("** SND: Manual start requested by " + sender, 1);
 			// start happens by ending this substage
 			end();
 		}

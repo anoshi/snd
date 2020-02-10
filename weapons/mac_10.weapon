@@ -31,14 +31,16 @@
     <animation state_key="prone_still" animation_key="prone_still, pistol" />
     <animation state_key="walking_backwards" animation_key="walking backwards, pistol" />
 
-    <sound key="fire" fileref="mini_uzi_shot.wav" volume="0.8" />
-    <sound key="magazine_out" fileref="pistol_clip_out.wav" />
-    <sound key="magazine_in" fileref="pistol_clip_in.wav" volume="0.4" />
-    <sound key="cycle" fileref="pistol_chamber.wav" volume="0.45" />
+    <sound key="fire" fileref="mac10_01.wav" volume="0.8" />
+    <sound key="fire" fileref="mac10_02.wav" volume="0.8" />
+    <sound key="fire" fileref="mac10_03.wav" volume="0.8" />
+    <sound key="magazine_out" fileref="mac10_clipout.wav" />
+    <sound key="magazine_in" fileref="mac10_clipin.wav" volume="0.4" />
+    <sound key="cycle" fileref="mac10_cycle.wav" volume="0.45" />
     <sound class="impact" fileref="rifle_drop.wav" />
 
     <model filename="mac10.xml" />
-    <hud_icon filename="hud_uzi_mini.png" />
+    <hud_icon filename="hud_mac10.png" />
 
     <projectile file="bullet.projectile">
         <result class="hit" kill_probability="0.45" kill_decay_start_time="0.28" kill_decay_end_time="0.40" />

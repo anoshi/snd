@@ -21,10 +21,10 @@
 
     <animation state_key="celebrate_shoot" animation_key="celebrating, shooting" />
 
-    <sound key="fire" fileref="ak47_shot.wav" pitch_variety="0.06" />
-    <sound key="magazine_out" fileref="rifle_clip_out.wav" />
-    <sound key="magazine_in" fileref="rifle_clip_in.wav" />
-    <sound key="cycle" fileref="rifle_chamber.wav" />
+    <sound key="fire" fileref="ak47_01.wav" pitch_variety="0.06" />
+    <sound key="magazine_out" fileref="ak47_clipout.wav" />
+    <sound key="magazine_in" fileref="ak47_clipin.wav" />
+    <sound key="cycle" fileref="ak47_cycle.wav" />
     <sound class="impact" fileref="rifle_drop.wav" />
     <model filename="ak47.xml" />
 

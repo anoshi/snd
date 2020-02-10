@@ -17,14 +17,17 @@
     <animation key="recoil" ref="13" />
     <animation key="recoil" ref="14" />
     <animation state_key="reload" animation_key="reloading, pistol" />
-    <sound key="fire" fileref="supp_smg2.wav" pitch_variety="0.03" volume="0.35"/>
-    <sound key="magazine_out" fileref="rifle_clip_out.wav" />
-    <sound key="magazine_in" fileref="rifle_clip_in.wav" />
-    <sound key="cycle" fileref="rifle_chamber.wav" />
+    <sound key="fire" fileref="mp9_01.wav" pitch_variety="0.03" volume="0.35"/>
+    <sound key="fire" fileref="mp9_02.wav" pitch_variety="0.03" volume="0.35"/>
+    <sound key="fire" fileref="mp9_03.wav" pitch_variety="0.03" volume="0.35"/>
+    <sound key="fire" fileref="mp9_04.wav" pitch_variety="0.03" volume="0.35"/>
+    <sound key="magazine_out" fileref="mp9_clipout.wav" />
+    <sound key="magazine_in" fileref="mp9_clipin.wav" />
+    <sound key="cycle" fileref="mp9_cycle.wav" />
     <sound class="impact" fileref="rifle_drop.wav" />
 
     <model filename="mp9.xml" />
-    <hud_icon filename="hud_steyr_tmp.png" />
+    <hud_icon filename="hud_tmp.png" />
 
     <projectile file="bullet.projectile">
       <result class="hit" kill_probability="0.36" kill_decay_start_time="0.24" kill_decay_end_time="0.36" />

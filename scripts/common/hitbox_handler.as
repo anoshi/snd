@@ -5,6 +5,8 @@
 #include "announce_task.as"
 #include "query_helpers.as"
 // --------------------------------------------
+#include "snd_helpers.as" // checkPositionDistance2D
+
 
 // This tracker monitors specific characterIds for collision with / presence within trigger areas ('hitboxes' in RWR)
 // and takes action appropriate for the game type that is being played
@@ -97,7 +99,7 @@ class HitboxHandler : Tracker {
 			uint closestTrigger;
 			for (uint i = 0; i < triggerList.size(); ++i) {
 				const XmlElement@ hitboxNode = triggerList[i];
-				float thisDistance = getPositionDistance(stringToVector3(hitboxNode.getStringAttribute("position")), stringToVector3(ctBase.getStringAttribute("position")));
+				float thisDistance = getPositionDistance2D(stringToVector3(hitboxNode.getStringAttribute("position")), stringToVector3(ctBase.getStringAttribute("position")));
 				_log("** SND: " + hitboxNode.getStringAttribute("id") + " is roughly " + int(thisDistance) + " units away from CT base: " + ctBase.getStringAttribute("id") , 1);
 				if (thisDistance < shortestDistance) {
 					shortestDistance = thisDistance;
@@ -250,22 +252,10 @@ class HitboxHandler : Tracker {
 		string instanceType = event.getStringAttribute("instance_type");
 		int instanceId = event.getIntAttribute("instance_id");
 
-		// is it a trigger area hitbox? If not, this is not the handler you are looking for...
-		if (!startsWith(hitboxId, "hitbox_trigger_")) {
+		// is it a trigger area hitbox, for this stage type? If not, this is not the handler you are looking for...
+		if (!startsWith(hitboxId, "hitbox_trigger_" + m_stageType)) {
 			return;
 		}
-
-		// we can split this out based on the hitboxId (hitbox_trigger_<stageType>_exit...) if desired. below works for 2 game modes.
-
-		// // get details about the hitbox that has been entered
-		// const array<const XmlElement@> list = getTriggerAreasList();
-		// for (uint i = 0; i < list.size(); ++i) {
-		// 	_log("** SND looping through triggerAreasList. Looking for " + hitboxId, 1);
-		// 	const XmlElement@ thisArea = list[i];
-		// 	if (thisArea.getStringAttribute("id") == hitboxId) {
-		// 		_log("** SND trigger area found! " + hitboxId + " has position: " + thisArea.getStringAttribute("position"), 1);
-		// 	}
-		// }
 
 		// in Hostage Rescue and Assassination, we only track the delivery of character instance types
 		if (instanceType == "character") {
@@ -275,11 +265,13 @@ class HitboxHandler : Tracker {
 				sendFactionMessage(m_metagame, -1, m_stageType == 'hr' ? 'A hostage has been rescued!' : 'VIP has escaped!');
 				// increment rescued count
 				m_metagame.addNumExtracted(1);
+				_log("** SND: Number Extracted: " + m_metagame.getNumExtracted(), 1);
 				// clear hitbox checking, stop tracking character
 				clearTriggerAreaAssociations(m_metagame, "character", instanceId, m_trackedTriggerAreas);
 				m_metagame.removeTrackedCharId(instanceId);
 				m_trackedCharIds.removeAt(m_trackedCharIds.find(instanceId));
 				_log("** SND: stopped tracking character id: " + instanceId, 1);
+
 				array<Faction@> allFactions = m_metagame.getFactions();
 				for (uint f = 0; f < allFactions.length(); ++f) {
 					playSound(m_metagame, m_stageType == 'hr' ? 'rescued.wav' : '', f);
@@ -311,12 +303,6 @@ class HitboxHandler : Tracker {
 					m_metagame.getComms().send(rewardHostageRescuer);
 					m_metagame.addRP(ctId, (1000 / nearCTs.length()));
 				}
-				// TODOs:
-				// remove hostage from play
-				// kill (ignore character kill/die if id not in tracked chars) then make disappear by applying invisivest?
-				// requires death sounds to be disabled for hostages!
-				// have an invincible 4-man vehicle sitting at the extraction point, inviting the AI to take refuge?
-				// meh, ignore for now
 			}
 		}
 	}
