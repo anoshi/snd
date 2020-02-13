@@ -19,7 +19,7 @@ class BombTracker : Tracker {
 	protected float BOMB_POS_UPDATE_TIME = 5.0;	// how often the position of the bomb is checked
 	protected float bombPosUpdateTimer = 0.0;	// the time remaining until the next update
 
-	protected float bombTimer = 45.0;	// when bombIsArmed, the timer starts.
+	protected float bombTimer = 60.0;	// when bombIsArmed, the timer starts.
 
 	// --------------------------------------------
 	BombTracker(GameModeSND@ metagame) {
