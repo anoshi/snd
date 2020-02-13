@@ -141,14 +141,16 @@ class HostageTracker : Tracker {
 			m_metagame.removeTrackedCharId(hostageCharId);
 			// penalise killer
 			const XmlElement@ killer = event.getFirstElementByTagName("killer");
-			int pKillerId = killer.getIntAttribute("player_id");
-			int killerCharId = killer.getIntAttribute("id");
-			if (pKillerId >= 0) {
-				string penaliseHostageKiller = "<command class='rp_reward' character_id='" + killerCharId + "' reward='-1200'></command>";
-				m_metagame.getComms().send(penaliseHostageKiller);
-				m_metagame.addRP(killerCharId, -1200);
-				sendFactionMessage(m_metagame, -1, "A hostage has been executed!");
-				m_metagame.addScore(killer.getIntAttribute("faction_id"), -1);
+			if (killer !is null) {
+				int pKillerId = killer.getIntAttribute("player_id");
+				int killerCharId = killer.getIntAttribute("id");
+				if (pKillerId >= 0) {
+					string penaliseHostageKiller = "<command class='rp_reward' character_id='" + killerCharId + "' reward='-1200'></command>";
+					m_metagame.getComms().send(penaliseHostageKiller);
+					m_metagame.addRP(killerCharId, -1200);
+					sendFactionMessage(m_metagame, -1, "A hostage has been executed!");
+					m_metagame.addScore(killer.getIntAttribute("faction_id"), -1);
+				}
 				array<Faction@> allFactions = m_metagame.getFactions();
 				for (uint i = 0; i < allFactions.length(); ++i) {
 					playSound(m_metagame, "hosdown.wav", i);

@@ -23,7 +23,7 @@ class HitboxHandler : Tracker {
 	protected bool m_started = false;
 
 	protected float TRACKED_CHAR_CHECK_TIME = 5.0; 	// how often to check the list of tracked characters
-	protected float nextCheck = 5.0;				// countdown timer start value (allow some time to get ready for tracking)
+	protected float nextCheck = 15.0;				// countdown timer start value (allow some time to get ready for tracking)
 
 	// ----------------------------------------------------
 	HitboxHandler(GameModeSND@ metagame, string stageType) {
@@ -35,6 +35,7 @@ class HitboxHandler : Tracker {
 	void start() {
 		_log("** SND: starting HitboxHandler tracker", 1);
 		m_trackedTriggerAreas.clear();
+		m_trackedCharIds.clear();
 		determineTriggerAreasList();
 		m_started = true;
 	}
@@ -162,7 +163,7 @@ class HitboxHandler : Tracker {
 		_log("** SND: Activating Hitbox tracking for character id:" + charId, 1);
 		m_trackedCharIds.insertLast(charId);
 		// remove any existing associations (char : hitbox)
-		clearTriggerAreaAssociations(m_metagame, "character", charId, m_trackedTriggerAreas);
+			//clearTriggerAreaAssociations(m_metagame, "character", charId, m_trackedTriggerAreas);
 		// get current Trigger Areas list and associate charId with each trigger area in the list
 		const array<const XmlElement@> list = getTriggerAreasList();
 		if (list !is null) {

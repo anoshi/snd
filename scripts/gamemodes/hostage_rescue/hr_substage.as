@@ -65,13 +65,13 @@ class HostageRescue : SubStage {
 		@m_targetLocations = TargetLocations(m_metagame, "hr", positions);
 		addTracker(m_targetLocations);
 
-		// track the hostages
-		@m_hostageTracker = HostageTracker(m_metagame);
-		addTracker(m_hostageTracker);
-
 		// track hostage presence in extraction points
 		@m_hitboxHandler = HitboxHandler(m_metagame, "hr");
 		addTracker(m_hitboxHandler);
+
+		// track the hostages
+		@m_hostageTracker = HostageTracker(m_metagame);
+		addTracker(m_hostageTracker);
 
 		SubStage::startMatch();
 

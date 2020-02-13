@@ -40,13 +40,13 @@ class Assassination : SubStage {
 		@m_playerTracker = PlayerTracker(m_metagame);
 		addTracker(m_playerTracker);
 
-		// track the vip
-		@m_vipTracker = VIPTracker(m_metagame);
-		addTracker(m_vipTracker);
-
 		// prepare vip and extraction points
 		@m_hitboxHandler = HitboxHandler(m_metagame, "as");
 		addTracker(m_hitboxHandler);
+
+		// track the vip
+		@m_vipTracker = VIPTracker(m_metagame);
+		addTracker(m_vipTracker);
 
 		SubStage::startMatch();
 

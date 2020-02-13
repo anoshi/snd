@@ -176,29 +176,32 @@ class VIPTracker : Tracker {
 		m_metagame.removeTrackedCharId(vipCharId);
 
 		const XmlElement@ killer = event.getFirstElementByTagName("killer");
-		int pKillerId = killer.getIntAttribute("player_id");
-		int killerCharId = killer.getIntAttribute("id");
-		if (pKillerId >= 0) {
-			if (killer.getIntAttribute("faction_id") == target.getIntAttribute("faction_id")) {
-				// teamkill, penalise!
-				string penaliseVIPTeamKiller = "<command class='rp_reward' character_id='" + killerCharId + "' reward='-3500'></command>";
-				m_metagame.getComms().send(penaliseVIPTeamKiller);
-				m_metagame.addRP(killerCharId, -3500);
-			} else {
-				// Terrorist / enemy killed VIP. Winner
-				string rewardVIPKiller = "<command class='rp_reward' character_id='" + killerCharId + "' reward='500'></command>";
-				m_metagame.getComms().send(rewardVIPKiller);
-				m_metagame.addRP(killerCharId, 500);
-				array<int> tIds = m_metagame.getFactionPlayerCharacterIds(killer.getIntAttribute("faction_id"));
-				for (uint i = 0; i < tIds.length() ; ++i) {
-					string vipKilledReward = "<command class='rp_reward' character_id='" + tIds[i] + "' reward='" + 2000 + "'></command>";
-					m_metagame.getComms().send(vipKilledReward);
-					m_metagame.addRP(tIds[i], 2000);
+		if (killer !is null) {
+			int pKillerId = killer.getIntAttribute("player_id");
+			int killerCharId = killer.getIntAttribute("id");
+			if (pKillerId >= 0) {
+				if (killer.getIntAttribute("faction_id") == target.getIntAttribute("faction_id")) {
+					// teamkill, penalise!
+					string penaliseVIPTeamKiller = "<command class='rp_reward' character_id='" + killerCharId + "' reward='-3500'></command>";
+					m_metagame.getComms().send(penaliseVIPTeamKiller);
+					m_metagame.addRP(killerCharId, -3500);
+				} else {
+					// Terrorist / enemy killed VIP. Winner
+					string rewardVIPKiller = "<command class='rp_reward' character_id='" + killerCharId + "' reward='500'></command>";
+					m_metagame.getComms().send(rewardVIPKiller);
+					m_metagame.addRP(killerCharId, 500);
+					array<int> tIds = m_metagame.getFactionPlayerCharacterIds(killer.getIntAttribute("faction_id"));
+					for (uint i = 0; i < tIds.length() ; ++i) {
+						string vipKilledReward = "<command class='rp_reward' character_id='" + tIds[i] + "' reward='" + 2000 + "'></command>";
+						m_metagame.getComms().send(vipKilledReward);
+						m_metagame.addRP(tIds[i], 2000);
+					}
 				}
+				winRound(-(target.getIntAttribute("faction_id")) +1);
+				sendFactionMessage(m_metagame, -1, "The VIP has been assassinated!");
 			}
-			winRound(-(target.getIntAttribute("faction_id")) +1);
 		}
-		sendFactionMessage(m_metagame, -1, "The VIP has been assassinated!");
+		// else allow handleCharacterDieEvent to manage it.
 	}
 
 	// died (confirm otherwise)

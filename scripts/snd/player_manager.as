@@ -338,31 +338,33 @@ class PlayerTracker : Tracker {
 		const XmlElement@ playerKiller = event.getFirstElementByTagName("killer");
 		const XmlElement@ playerTarget = event.getFirstElementByTagName("target");
 
-		int factionId = playerKiller.getIntAttribute("faction_id");
-		int pKillerId = playerKiller.getIntAttribute("player_id");
-		int pKillerCharId = playerKiller.getIntAttribute("character_id");
-		_log("** SND: Player scores: " + playerKiller.getStringAttribute("name") + ", faction " + factionId);
+		if (playerKiller !is null) {
+			int factionId = playerKiller.getIntAttribute("faction_id");
+			int pKillerId = playerKiller.getIntAttribute("player_id");
+			int pKillerCharId = playerKiller.getIntAttribute("character_id");
+			_log("** SND: Player scores: " + playerKiller.getStringAttribute("name") + ", faction " + factionId);
 
-		if (playerKiller.getStringAttribute("profile_hash") == playerTarget.getStringAttribute("profile_hash")) {
-			// killed self
-			_log("** SND: Player " + pKillerId + " committed suicide. Decrement score", 1);
-			// no cash penalty for suicide, just score
-			m_metagame.addScore(factionId, -1);
-		} else if (playerKiller.getIntAttribute("faction_id") == playerTarget.getIntAttribute("faction_id")) {
-			// killed teammate
-			_log("** SND: Player " + pKillerId+ " killed a friendly unit. Cash penalty and decrement score", 1);
-			string penaliseTeamKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='-3300'></command>";
-			m_metagame.getComms().send(penaliseTeamKills);
-			m_metagame.addRP(pKillerCharId, -3300);
-			m_metagame.addScore(factionId, -1);
-		} else if (playerKiller.getIntAttribute("player_id") != playerTarget.getIntAttribute("player_id")) {
-			// killed player on other team
-			_log("** SND: Player " + pKillerId + " killed an enemy unit. Cash reward and increase score", 1);
-			playSound(m_metagame, "enemydown.wav", factionId);
-			string rewardEnemyKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='300'></command>";
-			m_metagame.getComms().send(rewardEnemyKills);
-			m_metagame.addRP(pKillerCharId, 300);
-			m_metagame.addScore(factionId, 2);
+			if (playerKiller.getStringAttribute("profile_hash") == playerTarget.getStringAttribute("profile_hash")) {
+				// killed self
+				_log("** SND: Player " + pKillerId + " committed suicide. Decrement score", 1);
+				// no cash penalty for suicide, just score
+				m_metagame.addScore(factionId, -1);
+			} else if (playerKiller.getIntAttribute("faction_id") == playerTarget.getIntAttribute("faction_id")) {
+				// killed teammate
+				_log("** SND: Player " + pKillerId+ " killed a friendly unit. Cash penalty and decrement score", 1);
+				string penaliseTeamKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='-3300'></command>";
+				m_metagame.getComms().send(penaliseTeamKills);
+				m_metagame.addRP(pKillerCharId, -3300);
+				m_metagame.addScore(factionId, -1);
+			} else if (playerKiller.getIntAttribute("player_id") != playerTarget.getIntAttribute("player_id")) {
+				// killed player on other team
+				_log("** SND: Player " + pKillerId + " killed an enemy unit. Cash reward and increase score", 1);
+				playSound(m_metagame, "enemydown.wav", factionId);
+				string rewardEnemyKills = "<command class='rp_reward' character_id='" + pKillerCharId + "' reward='300'></command>";
+				m_metagame.getComms().send(rewardEnemyKills);
+				m_metagame.addRP(pKillerCharId, 300);
+				m_metagame.addScore(factionId, 2);
+			}
 		}
 	}
 
