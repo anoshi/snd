@@ -171,12 +171,12 @@ class VIPTracker : Tracker {
 		}
 		int vipCharId = target.getIntAttribute("id");
 		_log("** SND: VIP (id: " + vipCharId + ") was killed!", 1);
-		vipKilled = true;
 		// stop tracking the vip
 		m_metagame.removeTrackedCharId(vipCharId);
 
 		const XmlElement@ killer = event.getFirstElementByTagName("killer");
 		if (killer !is null) {
+			vipKilled = true;
 			int pKillerId = killer.getIntAttribute("player_id");
 			int killerCharId = killer.getIntAttribute("id");
 			if (pKillerId >= 0) {
