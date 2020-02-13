@@ -163,7 +163,7 @@ class HitboxHandler : Tracker {
 		_log("** SND: Activating Hitbox tracking for character id:" + charId, 1);
 		m_trackedCharIds.insertLast(charId);
 		// remove any existing associations (char : hitbox)
-			//clearTriggerAreaAssociations(m_metagame, "character", charId, m_trackedTriggerAreas);
+		clearTriggerAreaAssociations(m_metagame, "character", charId, m_trackedTriggerAreas);
 		// get current Trigger Areas list and associate charId with each trigger area in the list
 		const array<const XmlElement@> list = getTriggerAreasList();
 		if (list !is null) {
