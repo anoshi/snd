@@ -390,6 +390,11 @@ class PlayerTracker : Tracker {
 		// skip die event processing if disconnected
 		if (event.getBoolAttribute("combat") == false) return;
 
+		// if not tracking player deaths (e.g. round ended), bail
+		if (!m_metagame.getTrackPlayerDeaths()) {
+			return;
+		}
+
 		// enforce no respawning (1 life per round)
 		array<Faction@> allFactions = m_metagame.getFactions();
 		for (uint i = 0; i < allFactions.length(); ++i) {
@@ -547,6 +552,11 @@ class PlayerTracker : Tracker {
 				// it has, no attrition ending allowed for this round, bail.
 				return;
 			}
+
+			// otherwise, we have come to a win/lose event.
+			// stop tracking further player deaths
+			m_metagame.setTrackPlayerDeaths(false);
+
 			_log("** SND: faction " + faction + " has run out of live players. Lose round!", 1);
 			string winLoseCmd = "";
 			array<Faction@> allFactions = m_metagame.getFactions();

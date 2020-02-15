@@ -40,13 +40,13 @@ class Assassination : SubStage {
 		@m_playerTracker = PlayerTracker(m_metagame);
 		addTracker(m_playerTracker);
 
-		// prepare vip and extraction points
-		@m_hitboxHandler = HitboxHandler(m_metagame, "as");
-		addTracker(m_hitboxHandler);
-
 		// track the vip
 		@m_vipTracker = VIPTracker(m_metagame);
 		addTracker(m_vipTracker);
+
+		// prepare vip and extraction points
+		@m_hitboxHandler = HitboxHandler(m_metagame, "as");
+		addTracker(m_hitboxHandler);
 
 		SubStage::startMatch();
 
@@ -76,6 +76,7 @@ class Assassination : SubStage {
 			// in CS (vip rescue game mode), Terrorists win if clock runs out.
 			winner = winCondition.getIntAttribute("faction_id");
 			if (winner == -1) {
+				_log("** SND: AS stage, T win by timeout", 1);
 				winner = 1; // terrorists
 			}
 		} else {

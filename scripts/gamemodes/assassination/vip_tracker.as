@@ -69,6 +69,7 @@ class VIPTracker : Tracker {
 			string spawnCommand = "<command class='create_instance' instance_class='character' faction_id='0' position='" + pos.toString() + "' instance_key='vip' /></command>";
 			m_metagame.getComms().send(spawnCommand);
 			playSound(m_metagame, "vip.wav", 0);
+			markVIPPosition(pos.toString());
 			inPlay = true;
 			_log("** SND: VIP has spawned near player " + charId + " at position: " + playerPos, 1);
 		}
@@ -93,8 +94,6 @@ class VIPTracker : Tracker {
 			// marks the current location of the VIP on screen, screen-edge, and/or map overlay
 			// by default, only counter terrorists (faction 0) are alerted to the VIP's location. Pass a faction_id as the int to override
 			_log("** SND: Marking location of vip", 1);
-
-			// mark for friendlies only
 			string vipMarkerCmd = "<command class='set_marker' id='8008' enabled='" + (enabled ? 1 : 0) + "' atlas_index='4' faction_id='" + faction + "' text='' position='" + position + "' color='#FFFFFF' size='1.0' show_in_game_view='1' show_in_map_view='1' show_at_screen_edge='1' />";
 			m_metagame.getComms().send(vipMarkerCmd);
 			_log("** SND: Updated vip location marker!", 1);

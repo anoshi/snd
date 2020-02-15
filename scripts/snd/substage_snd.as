@@ -53,7 +53,13 @@ abstract class SubStage : Tracker {
 
 		sendFactionMessage(m_metagame, -1, m_displayName + " starts!");
 
-		// clear game's score display
+		// reset the list of tracked character Ids
+		array<int> trackedCharIds = m_metagame.getTrackedCharIds();
+		for (uint i = 0; i < trackedCharIds.length; ++i) {
+			m_metagame.removeTrackedCharId(trackedCharIds[i]);
+		}
+
+		// reset game's score display
 		m_metagame.resetScores();
 		_log("** SND: Scoreboard Reset", 1);
 		m_winner = -1;

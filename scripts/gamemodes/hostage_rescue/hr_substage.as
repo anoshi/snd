@@ -65,13 +65,13 @@ class HostageRescue : SubStage {
 		@m_targetLocations = TargetLocations(m_metagame, "hr", positions);
 		addTracker(m_targetLocations);
 
-		// track hostage presence in extraction points
-		@m_hitboxHandler = HitboxHandler(m_metagame, "hr");
-		addTracker(m_hitboxHandler);
-
 		// track the hostages
 		@m_hostageTracker = HostageTracker(m_metagame);
 		addTracker(m_hostageTracker);
+
+		// track hostage presence in extraction points
+		@m_hitboxHandler = HitboxHandler(m_metagame, "hr");
+		addTracker(m_hitboxHandler);
 
 		SubStage::startMatch();
 
@@ -101,6 +101,7 @@ class HostageRescue : SubStage {
 			// in CS (hostage rescue game mode), Terrorists win if clock runs out.
 			winner = winCondition.getIntAttribute("faction_id");
 			if (winner == -1) {
+				_log("** SND: HR stage, T win by timeout", 1);
 				winner = 1; // terrorists
 			}
 		} else {
