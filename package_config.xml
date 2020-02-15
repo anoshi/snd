@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package
   name="Search and Destroy"
-  description="Plant the bomb or find the bomb. You'll work it out."
+  description="PVP: Demolition | Hostage Rescue | VIP Assassination"
   show_in_campaign_menu="1"
   campaign_entry_script="start_snd.as"
   image="snd_campaign.png">
