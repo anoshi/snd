@@ -101,9 +101,12 @@ class BombTracker : Tracker {
 					array<const XmlElement@> pInv = playerInv.getElementsByTagName("item");
 					// element '1' is the secondary weapon slot, the only place the bomb could be and not be detected by events.
 					if (pInv[1].getStringAttribute("key") == "bomb.weapon") {
-						bombCarrier = playerCharId;
-						bombFaction = players[i].getIntAttribute("faction_id");
-						break;
+						if (pInv[1].getIntAttribute("amount") > 0) {
+							bombCarrier = playerCharId;
+							bombFaction = players[i].getIntAttribute("faction_id");
+							_log("** SND: Character " + bombCarrier + " has the bomb equipped.", 1);
+							break;
+						}
 					}
 				}
 				if (bombCarrier == -1) {
@@ -115,7 +118,6 @@ class BombTracker : Tracker {
 			const XmlElement@ bomberLoc = getCharacterInfo(m_metagame, bombCarrier);
 			string position = bomberLoc.getStringAttribute("position");
 			bombPosition = position;
-			_log("** SND: Character " + bombCarrier + " is carrying the bomb at " + bombPosition + ".", 1);
 			return bombPosition;
 		} else {
 			_log("** SND: can't locate bomb carrier or bomb :-(", 1);
@@ -286,6 +288,7 @@ class BombTracker : Tracker {
 					_log("** SND: Bomb (" + itemKey + ") dropped onto ground", 1);
 					// bad idea! Now everyone gets to find out where the bomb is
 					bombCarrier = -1;
+					sendFactionMessage(m_metagame, -1, "BOMB DROPPED. LOCATION COMPROMISED!");
 					markBombPosition(bombPosition);
 					holdBombUpdate = 3;
 					break;
