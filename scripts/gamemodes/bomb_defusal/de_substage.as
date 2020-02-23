@@ -95,6 +95,7 @@ class BombDefusal : SubStage {
 			// in CS (demolition game mode), Counter Terrorists win if clock runs out and bomb has not been planted.
 			winner = winCondition.getIntAttribute("faction_id");
 			if (winner == -1) {
+				_log("** SND: DE stage, CT win by timeout", 1);
 				winner = 0; // counter terrorists
 			}
 		} else {

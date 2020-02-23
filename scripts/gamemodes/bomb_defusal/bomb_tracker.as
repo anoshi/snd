@@ -11,7 +11,8 @@ class BombTracker : Tracker {
 	protected bool m_started = false;
 	protected bool bombIsArmed = false; // a correctly planted and located bomb is automatically armed
 	protected bool bombInPlay = false;  // should only ever be 1 bomb in play
-	protected int bombCarrier = -1;	    // and one (or no) character_id carrying it
+	protected int holdBombUpdate = -1;	// when dropped on ground, hold off position updates for this many update cycles
+	protected int bombCarrier = -1;	    // the character_id of who is carrying the bomb
 	protected int bombFaction = -1;     // the faction_id of the current bombCarrier
 	protected int bombOwnerFaction = -1;// the faction_id of the faction who start the round with the bomb
 	protected string bombPosition = ""; // xxx.xxx yyy.yyy zzz.zzz
@@ -19,7 +20,7 @@ class BombTracker : Tracker {
 	protected float BOMB_POS_UPDATE_TIME = 5.0;	// how often the position of the bomb is checked
 	protected float bombPosUpdateTimer = 0.0;	// the time remaining until the next update
 
-	protected float bombTimer = 45.0;	// when bombIsArmed, the timer starts.
+	protected float bombTimer = 60.0;	// when bombIsArmed, the timer starts.
 
 	// --------------------------------------------
 	BombTracker(GameModeSND@ metagame) {
@@ -87,6 +88,7 @@ class BombTracker : Tracker {
 			// gets and returns current location of the bombCarrier
 			// relies on bombCarrier int to be updated when the bomb changes hands, is dropped, etc.
 			// see handleItemDropEvent method
+
 			if (bombCarrier == -1) {
 				_log("** SND: nobody had the bomb at last check. It's either on the ground or someone has it equipped", 1);
 				// confirm noone has picked up the bomb directly to secondary weapon slot, which is not tracked
@@ -99,23 +101,27 @@ class BombTracker : Tracker {
 					array<const XmlElement@> pInv = playerInv.getElementsByTagName("item");
 					// element '1' is the secondary weapon slot, the only place the bomb could be and not be detected by events.
 					if (pInv[1].getStringAttribute("key") == "bomb.weapon") {
-						_log("** SND: Found who has the bomb. Updating bomb holder and location info", 1);
-						bombCarrier = playerCharId;
-						bombFaction = players[i].getIntAttribute("faction_id");
-						break;
+						if (pInv[1].getIntAttribute("amount") > 0) {
+							bombCarrier = playerCharId;
+							bombFaction = players[i].getIntAttribute("faction_id");
+							_log("** SND: Character " + bombCarrier + " has the bomb equipped.", 1);
+							break;
+						}
 					}
 				}
-				_log("** SND: noone has the bomb, must be on the ground...", 1);
-				return bombPosition; // unchanged
-			} else {
-				const XmlElement@ bomberLoc = getCharacterInfo(m_metagame, bombCarrier);
-				string position = bomberLoc.getStringAttribute("position");
-				bombPosition = position;
-				return position;
+				if (bombCarrier == -1) {
+					_log("** SND: noone has the bomb, must be on the ground still...", 1);
+					return bombPosition;
+				}
 			}
+			// We know who has the bomb, provide that character's position
+			const XmlElement@ bomberLoc = getCharacterInfo(m_metagame, bombCarrier);
+			string position = bomberLoc.getStringAttribute("position");
+			bombPosition = position;
+			return bombPosition;
 		} else {
 			_log("** SND: can't locate bomb carrier or bomb :-(", 1);
-			return "0 0 0";
+			return "0 0 0"; // return a string out of necessity. This method will run again soon and hopefully will find the bomb then :-)
 		}
 	}
 
@@ -213,6 +219,7 @@ class BombTracker : Tracker {
 				// Some goofball planted the bomb in the wrong place. Give them another chance...
 				addItemToBackpack("bomb.weapon", bombCarrier);
 				// probably worth berating the player via notice / message as well.
+				sendFactionMessage(m_metagame, bombFaction, "You can't plant the bomb there...");
 			}
 		} else if (vehKey == "bomb_defused.vehicle") {
 			// sanity / no point checking if bomb hasn't been planted
@@ -281,14 +288,16 @@ class BombTracker : Tracker {
 					_log("** SND: Bomb (" + itemKey + ") dropped onto ground", 1);
 					// bad idea! Now everyone gets to find out where the bomb is
 					bombCarrier = -1;
-					markBombPosition(getBombPosition());
+					sendFactionMessage(m_metagame, -1, "BOMB DROPPED. LOCATION COMPROMISED!");
+					markBombPosition(bombPosition);
+					holdBombUpdate = 3;
 					break;
 				case 1:
 					_log("** SND: Bomb (" + itemKey + ") sold to armoury", 1);
 					addItemToBackpack("bomb.weapon", bombCarrier);
 				case 2:
 					_log("** SND: Bomb dropped into backpack", 1);
-					markBombPosition(getBombPosition(), bombFaction);
+					markBombPosition(bombPosition, bombFaction);
 					break;
 				default: // shouldn't ever get here, but sanity
 					_log("** SND: WARNING! Bomb was dropped in target_container_type_id: " + event.getIntAttribute("target_container_type_id") + ". Not tracked!", 1);
@@ -321,6 +330,7 @@ class BombTracker : Tracker {
 			}
 		}
 		bombInPlay = false;
+		m_metagame.setTrackPlayerDeaths(false);
 		m_metagame.setMatchEndOverride(bombIsArmed); // false
 	}
 
@@ -351,7 +361,13 @@ class BombTracker : Tracker {
 		if (bombInPlay) {
 			bombPosUpdateTimer -= time;
 			if ((bombPosUpdateTimer < 0.0) && (!bombIsArmed)) {
-				markBombPosition(getBombPosition(), bombFaction);
+				// when the bomb is dropped on the ground, we tell all players where this occurred, for a few updates
+				if (holdBombUpdate > 0) {
+					_log("** SND: Bomb position update postponed for next " + holdBombUpdate + " checks", 1);
+					holdBombUpdate--;
+				} else {
+					markBombPosition(getBombPosition(), bombFaction);
+				}
 				bombPosUpdateTimer = BOMB_POS_UPDATE_TIME;
 			}
 			if (bombIsArmed) {

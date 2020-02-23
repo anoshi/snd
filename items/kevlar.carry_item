@@ -37,9 +37,9 @@
         <inventory encumbrance="4" price="1" />
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
 
-	<!-- death -> wound -->
-        <modifier class="projectile_blast_result" input_character_state="death" output_character_state="wound" />
-        <modifier class="projectile_hit_result" input_character_state="death" output_character_state="wound" />
+	<!-- death -> stun -->
+        <modifier class="projectile_blast_result" input_character_state="death" output_character_state="stun" />
+        <modifier class="projectile_hit_result" input_character_state="death" output_character_state="stun" />
         <modifier class="speed" value="-0.05" />
     </carry_item>
 </carry_items>

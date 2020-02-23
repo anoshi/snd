@@ -16,7 +16,7 @@
 	<!-- Sub Machine Guns -->
 	<weapon key="km_sub_machine_gun.weapon" />
 	<weapon key="km_ump_45.weapon" />
-	<weapon key="p90.weapon" />
+	<weapon key="es_c90.weapon" />
 
 	<!-- Shotguns -->
 	<weapon key="leone_12_gauge_super.weapon" />

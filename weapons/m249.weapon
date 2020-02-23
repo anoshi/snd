@@ -15,14 +15,18 @@
     projectile_speed="100.0"
   />
 
-    <animation key="recoil" ref="12" />
-    <animation key="recoil" ref="13" />
-    <animation key="recoil" ref="14" />
+    <animation state_key="recoil" animation_key="recoil, hip fire" />
+    <animation state_key="recoil" animation_key="recoil2, hip fire" />
+    <animation state_key="recoil" animation_key="recoil3, hip fire" />
+    <animation key="recoil" stance_key="over_wall" ref="12" />
+    <animation key="recoil" stance_key="over_wall" ref="13" />
+    <animation key="recoil" stance_key="over_wall" ref="14" />
+    <animation state_key="hold" animation_key="hold, lmg" />
     <animation key="reload" ref="33" />
-    <animation key="hold" ref="32" />
     <animation key="hold_on_wall" ref="1" />
-    <animation state_key="walking" animation_key="walking, heavy weapon" />
-    <animation state_key="walking_backwards" animation_key="walking backwards, heavy weapon" />
+    <animation state_key="walking" animation_key="walking, hip fire" />
+    <animation state_key="crouching" animation_key="crouch, hold, hip fire" />
+    <animation state_key="crouch_moving" animation_key="crouching forwards, hip fire" />
 
     <sound key="fire" fileref="m249_01.wav" pitch_variety="0.06" volume="0.7" />
     <sound key="magazine_out" fileref="m249_boxout.wav" />
@@ -39,7 +43,7 @@
     <stance state_key="prone_moving" accuracy="0.1" />
 
     <stance state_key="standing" accuracy="0.45" />
-    <stance state_key="crouching" accuracy="0.55" />
+    <stance state_key="crouching" accuracy="0.65" />
     <stance state_key="prone" accuracy="0.95" />
     <stance state_key="over_wall" accuracy="0.9" />
 

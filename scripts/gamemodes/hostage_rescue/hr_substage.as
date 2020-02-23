@@ -101,6 +101,7 @@ class HostageRescue : SubStage {
 			// in CS (hostage rescue game mode), Terrorists win if clock runs out.
 			winner = winCondition.getIntAttribute("faction_id");
 			if (winner == -1) {
+				_log("** SND: HR stage, T win by timeout", 1);
 				winner = 1; // terrorists
 			}
 		} else {

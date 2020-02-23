@@ -16,7 +16,7 @@
 	<!-- Shotguns -->
 
 	<!-- Assault Rifles-->
-	<weapon key="maverick_m4A1_carbine.weapon" />
+	<weapon key="maverick_m4a1_carbine.weapon" />
 	<weapon key="bullpup.weapon" />
 	<weapon key="clarion_556.weapon" />
 

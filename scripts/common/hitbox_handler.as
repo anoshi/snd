@@ -18,12 +18,13 @@ class HitboxHandler : Tracker {
 
 	protected array<const XmlElement@> m_triggerAreas;
 	protected array<string> m_trackedTriggerAreas;
+
 	protected array<int> m_trackedCharIds;
+	protected float TRACKED_CHAR_CHECK_TIME = 5.0; 	// how often to check the metagame's list of tracked characters
+	protected float nextCheck = 15.0;				// countdown timer start value (allow some time to get ready for tracking)
+
 
 	protected bool m_started = false;
-
-	protected float TRACKED_CHAR_CHECK_TIME = 5.0; 	// how often to check the list of tracked characters
-	protected float nextCheck = 5.0;				// countdown timer start value (allow some time to get ready for tracking)
 
 	// ----------------------------------------------------
 	HitboxHandler(GameModeSND@ metagame, string stageType) {
@@ -35,7 +36,9 @@ class HitboxHandler : Tracker {
 	void start() {
 		_log("** SND: starting HitboxHandler tracker", 1);
 		m_trackedTriggerAreas.clear();
+		m_trackedCharIds.clear();
 		determineTriggerAreasList();
+		m_metagame.setNumExtracted(0);
 		m_started = true;
 	}
 
@@ -320,8 +323,8 @@ class HitboxHandler : Tracker {
 	// --------------------------------------------
 	void update(float time) {
 
+		// observe the metagame's trackedCharIds array and maintain a copy of it just for this tracker
 		nextCheck -= time;
-
 		if (nextCheck <= 0.0) {
 			array<int> ids = m_metagame.getTrackedCharIds();
 			for (uint i = 0; i < ids.size(); ++i) {

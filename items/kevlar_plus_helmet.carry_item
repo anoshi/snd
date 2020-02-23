@@ -85,9 +85,9 @@
 
 	<!-- death or wound -> stun only -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="death" />
-        <modifier class="projectile_blast_result" input_character_state="wound" output_character_state="wound" />
-        <modifier class="projectile_hit_result" input_character_state="death" output_character_state="wound" />
-        <modifier class="projectile_hit_result" input_character_state="wound" output_character_state="wound" />
+        <modifier class="projectile_blast_result" input_character_state="wound" output_character_state="stun" />
+        <modifier class="projectile_hit_result" input_character_state="death" output_character_state="stun" />
+        <modifier class="projectile_hit_result" input_character_state="wound" output_character_state="stun" />
         <modifier class="speed" value="-0.08" />
     </carry_item>
 

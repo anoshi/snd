@@ -69,6 +69,7 @@ class VIPTracker : Tracker {
 			string spawnCommand = "<command class='create_instance' instance_class='character' faction_id='0' position='" + pos.toString() + "' instance_key='vip' /></command>";
 			m_metagame.getComms().send(spawnCommand);
 			playSound(m_metagame, "vip.wav", 0);
+			markVIPPosition(pos.toString());
 			inPlay = true;
 			_log("** SND: VIP has spawned near player " + charId + " at position: " + playerPos, 1);
 		}
@@ -93,8 +94,6 @@ class VIPTracker : Tracker {
 			// marks the current location of the VIP on screen, screen-edge, and/or map overlay
 			// by default, only counter terrorists (faction 0) are alerted to the VIP's location. Pass a faction_id as the int to override
 			_log("** SND: Marking location of vip", 1);
-
-			// mark for friendlies only
 			string vipMarkerCmd = "<command class='set_marker' id='8008' enabled='" + (enabled ? 1 : 0) + "' atlas_index='4' faction_id='" + faction + "' text='' position='" + position + "' color='#FFFFFF' size='1.0' show_in_game_view='1' show_in_map_view='1' show_at_screen_edge='1' />";
 			m_metagame.getComms().send(vipMarkerCmd);
 			_log("** SND: Updated vip location marker!", 1);
@@ -171,34 +170,37 @@ class VIPTracker : Tracker {
 		}
 		int vipCharId = target.getIntAttribute("id");
 		_log("** SND: VIP (id: " + vipCharId + ") was killed!", 1);
-		vipKilled = true;
 		// stop tracking the vip
 		m_metagame.removeTrackedCharId(vipCharId);
 
 		const XmlElement@ killer = event.getFirstElementByTagName("killer");
-		int pKillerId = killer.getIntAttribute("player_id");
-		int killerCharId = killer.getIntAttribute("id");
-		if (pKillerId >= 0) {
-			if (killer.getIntAttribute("faction_id") == target.getIntAttribute("faction_id")) {
-				// teamkill, penalise!
-				string penaliseVIPTeamKiller = "<command class='rp_reward' character_id='" + killerCharId + "' reward='-3500'></command>";
-				m_metagame.getComms().send(penaliseVIPTeamKiller);
-				m_metagame.addRP(killerCharId, -3500);
-			} else {
-				// Terrorist / enemy killed VIP. Winner
-				string rewardVIPKiller = "<command class='rp_reward' character_id='" + killerCharId + "' reward='500'></command>";
-				m_metagame.getComms().send(rewardVIPKiller);
-				m_metagame.addRP(killerCharId, 500);
-				array<int> tIds = m_metagame.getFactionPlayerCharacterIds(killer.getIntAttribute("faction_id"));
-				for (uint i = 0; i < tIds.length() ; ++i) {
-					string vipKilledReward = "<command class='rp_reward' character_id='" + tIds[i] + "' reward='" + 2000 + "'></command>";
-					m_metagame.getComms().send(vipKilledReward);
-					m_metagame.addRP(tIds[i], 2000);
+		if (killer !is null) {
+			vipKilled = true;
+			int pKillerId = killer.getIntAttribute("player_id");
+			int killerCharId = killer.getIntAttribute("id");
+			if (pKillerId >= 0) {
+				if (killer.getIntAttribute("faction_id") == target.getIntAttribute("faction_id")) {
+					// teamkill, penalise!
+					string penaliseVIPTeamKiller = "<command class='rp_reward' character_id='" + killerCharId + "' reward='-3500'></command>";
+					m_metagame.getComms().send(penaliseVIPTeamKiller);
+					m_metagame.addRP(killerCharId, -3500);
+				} else {
+					// Terrorist / enemy killed VIP. Winner
+					string rewardVIPKiller = "<command class='rp_reward' character_id='" + killerCharId + "' reward='500'></command>";
+					m_metagame.getComms().send(rewardVIPKiller);
+					m_metagame.addRP(killerCharId, 500);
+					array<int> tIds = m_metagame.getFactionPlayerCharacterIds(killer.getIntAttribute("faction_id"));
+					for (uint i = 0; i < tIds.length() ; ++i) {
+						string vipKilledReward = "<command class='rp_reward' character_id='" + tIds[i] + "' reward='" + 2000 + "'></command>";
+						m_metagame.getComms().send(vipKilledReward);
+						m_metagame.addRP(tIds[i], 2000);
+					}
 				}
+				winRound(-(target.getIntAttribute("faction_id")) +1);
+				sendFactionMessage(m_metagame, -1, "The VIP has been assassinated!");
 			}
-			winRound(-(target.getIntAttribute("faction_id")) +1);
 		}
-		sendFactionMessage(m_metagame, -1, "The VIP has been assassinated!");
+		// else allow handleCharacterDieEvent to manage it.
 	}
 
 	// died (confirm otherwise)
