@@ -49,6 +49,7 @@
 	<vehicle key="mobile_armory.vehicle" />
 	<vehicle key="radar_truck.vehicle" />
 	<vehicle key="radar_tower.vehicle" />
+	<vehicle key="radio_jammer.vehicle" />
 	<vehicle key="gas_tank.vehicle" />
 	<vehicle key="water_tower.vehicle" />
 	<vehicle key="mortar_ammunition_crates.vehicle" />
@@ -88,7 +89,9 @@
 	<vehicle key="deco_pickup_blue.vehicle" />
 	<vehicle key="deco_pickup_green.vehicle" />
 	<vehicle key="deco_pickup_khaki.vehicle" />
+	<vehicle key="deployable_mg.vehicle" />
 	<vehicle key="dumpster.vehicle" />
+	<vehicle key="heli_extraction.vehicle" />
 	<vehicle key="tractor.vehicle" />
 	<vehicle key="flare_checkpoint.vehicle" />
 	<!-- end RWR vehicles -->

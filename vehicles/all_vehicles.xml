@@ -10,9 +10,10 @@
 	<vehicle file="mobile_armory.vehicle" soldier_capacity_offset="0" />
 	<vehicle file="radar_tower.vehicle" protectors="0" soldier_capacity_offset="0" />
 	<vehicle file="radar_truck.vehicle" soldier_capacity_offset="0" />
-	<vehicle file="gas_tank.vehicle" />
-	<vehicle file="water_tower.vehicle" />
-	<vehicle file="mortar_ammunition_crates.vehicle" />
+	<vehicle file="radio_jammer.vehicle" protectors="0" soldier_capacity_offset="0" />
+	<vehicle file="gas_tank.vehicle" protectors="0" soldier_capacity_offset="0" />
+	<vehicle file="water_tower.vehicle" protectors="0" soldier_capacity_offset="0" />
+	<vehicle file="mortar_ammunition_crates.vehicle" protectors="0" soldier_capacity_offset="0" />
 	<vehicle file="para_spawn.vehicle" />
 	<vehicle file="deco_car1_brown.vehicle" />
 	<vehicle file="deco_car1_blue.vehicle" />
@@ -49,7 +50,9 @@
 	<vehicle file="deco_pickup_blue.vehicle" />
 	<vehicle file="deco_pickup_green.vehicle" />
 	<vehicle file="deco_pickup_khaki.vehicle" />
+	<vehicle file="deployable_mg.vehicle" protectors="0" soldier_capacity_offset="0" />
 	<vehicle file="dumpster.vehicle" />
+	<vehicle file="heli_extraction.vehicle" protectors="0" soldier_capacity_offset="0" />
 	<vehicle file="tractor.vehicle" />
 	<vehicle file="flare_checkpoint.vehicle" />
 	<!-- end RWR vehicles -->
