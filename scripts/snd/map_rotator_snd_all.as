@@ -16,8 +16,6 @@ class MapRotatorSNDAll : MapRotatorSND {
 	protected void setupStages() {
 		setupPlaylist1();
 		setupPlaylist2();
-		// setupPlaylist3();
-		// setupPlaylist4();
 	}
 
 	/////////////////////////////////////////
@@ -33,11 +31,12 @@ class MapRotatorSNDAll : MapRotatorSND {
 			stage.m_mapInfo.m_path = "media/packages/snd/maps/pvp1";
 			stage.m_mapIndex = 13;
 
-			stage.m_includeLayers.insertLast("bases.default");
+			stage.m_includeLayers.insertLast("bases.snd");
 			stage.m_includeLayers.insertLast("layer1.hostageLocations");
 			stage.m_includeLayers.insertLast("layer2.hostageLocations");
 			stage.m_includeLayers.insertLast("layer1.targetLocations");
 			stage.m_includeLayers.insertLast("layer2.targetLocations");
+			stage.m_includeLayers.insertLast("layer3.snd");
 
 			stage.m_factionConfigs.insertLast(m_factionConfigs[0]);
 			stage.m_factionConfigs.insertLast(m_factionConfigs[1]);
@@ -81,7 +80,6 @@ class MapRotatorSNDAll : MapRotatorSND {
 
 			// ASSASSINATION
 			{
-				// the map has declared some additional stuff for the substage, matched with a tag
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = Assassination(stage, maxTime);
 				substage.m_mapViewOverlayFilename = "pvp1_overlay_as.png";
@@ -115,7 +113,6 @@ class MapRotatorSNDAll : MapRotatorSND {
 
 			// HOSTAGE RESCUE
 			{
-				// the map has declared some additional stuff for the substage, matched with a tag
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = HostageRescue(stage, maxTime);
 				substage.m_mapViewOverlayFilename = "pvp1_overlay_hr.png";
@@ -159,7 +156,6 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_playerAiCompensation = 0;
         		match.m_playerAiReduction = 2;
 				match.m_baseCaptureSystem = "none";
-
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
 					faction.m_ownedBases.insertLast("East Coast");
@@ -183,7 +179,6 @@ class MapRotatorSNDAll : MapRotatorSND {
 
 			// ASSASSINATION
 			{
-				// the map has declared some additional stuff for the substage, matched with a tag
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = Assassination(stage, maxTime);
 				substage.m_mapViewOverlayFilename = "pvp1_overlay_as.png";
@@ -299,16 +294,15 @@ class MapRotatorSNDAll : MapRotatorSND {
 			stage.m_mapInfo.m_path = "media/packages/snd/maps/pvp1";
 			stage.m_mapIndex = 13;
 
-			stage.m_includeLayers.insertLast("bases.default");
+			stage.m_includeLayers.insertLast("bases.snd");
 			stage.m_includeLayers.insertLast("layer1.targetLocations");
 			stage.m_includeLayers.insertLast("layer2.targetLocations");
 			stage.m_includeLayers.insertLast("layer1.hostageLocations");
 			stage.m_includeLayers.insertLast("layer2.hostageLocations");
+			stage.m_includeLayers.insertLast("layer3.snd");
 
 			stage.m_factionConfigs.insertLast(m_factionConfigs[0]);
 			stage.m_factionConfigs.insertLast(m_factionConfigs[1]);
-			// neutral/bots too
-			//stage.m_factionConfigs.insertLast(m_factionConfigs[2]);
 
 			// first is the warmup substage
 			{
@@ -459,7 +453,6 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_playerAiCompensation = 0;
         		match.m_playerAiReduction = 2;
 				match.m_baseCaptureSystem = "none";
-
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
 					faction.m_ownedBases.insertLast("East Coast");
@@ -483,7 +476,6 @@ class MapRotatorSNDAll : MapRotatorSND {
 
 			// ASSASSINATION
 			{
-				// the map has declared some additional stuff for the substage, matched with a tag
 				float maxTime = m_metagame.getUserSettings().m_sndMaxTime;
 				SubStage@ substage = Assassination(stage, maxTime);
 				substage.m_mapViewOverlayFilename = "pvp1_overlay_as.png";
@@ -538,8 +530,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				}
 				{
 					Faction@ faction = Faction(m_factionConfigs[1]);
-					// faction.m_ownedBases.insertLast("East Coast");
-					faction.m_ownedBases.insertLast("South East");
+					faction.m_ownedBases.insertLast("East Coast");
 					faction.m_overCapacity = 0;             // spawn this many more units at start than capacity offset
 					faction.m_capacityOffset = 0;           // reserve this many units of maxSoldiers for this faction
 					faction.m_capacityMultiplier = 0.0001;

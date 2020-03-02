@@ -78,4 +78,15 @@
 		</attribute_config>
 	</soldier>
 
+	<!-- ////////////////// -->
+	<!-- static crate group -->
+	<!-- ////////////////// -->
+	<soldier name="crate" spawn_score="0.0">
+		<resources file="empty_crate.resources" />
+
+		<attribute_config class="xp">
+			<attribute weight="1.0" min="1.0" max="2.0" />
+		</attribute_config>
+	</soldier>
+
 </faction>

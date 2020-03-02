@@ -180,4 +180,5 @@
 
 	<!-- Vehicular -->
 	<weapon file="humvee_mg.weapon" /><!-- humvee on the pvp1 map -->
+	<weapon file="deployable_mg.weapon" /><!-- deployable MGs on copehill down map -->
 </weapons>
