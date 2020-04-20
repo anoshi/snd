@@ -8396,11 +8396,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="1230.6572"
-     inkscape:cy="1074.1958"
+     inkscape:zoom="0.70710681"
+     inkscape:cx="-3366.5948"
+     inkscape:cy="1904.7858"
      inkscape:document-units="px"
-     inkscape:current-layer="g5257"
+     inkscape:current-layer="layer29"
      showgrid="true"
      inkscape:window-width="1680"
      inkscape:window-height="951"
@@ -8423,10 +8423,8 @@
        visible="true"
        enabled="true"
        snapvisiblegridlinesonly="true"
-       spacingx="68.2667"
-       spacingy="68.2667"
-       originx="0"
-       originy="0" />
+       spacingx="68.2667px"
+       spacingy="68.2667px" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -8459,18 +8457,15 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot9399"
-       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        transform="translate(-209.51287,-7.782697)"><flowRegion
-         id="flowRegion9401"
-         style="font-family:sans-serif"><rect
+         id="flowRegion9401"><rect
            id="rect9404"
            width="290.92395"
            height="92.934036"
            x="-1066.7211"
-           y="-182.41685"
-           style="font-family:sans-serif" /></flowRegion><flowPara
-         id="flowPara9406"
-         style="font-size:40px;line-height:1.25;font-family:sans-serif">buildings</flowPara></flowRoot>    <rect
+           y="-182.41685" /></flowRegion><flowPara
+         id="flowPara9406">buildings</flowPara></flowRoot>    <rect
        style="fill:#656565;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new"
        id="rect9344-6-8"
        width="77.781746"
@@ -8484,18 +8479,15 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot9399-4-1"
-       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;enable-background:new;font-family:Sans"
        transform="translate(-921.99722,-2.628452)"><flowRegion
-         id="flowRegion9401-6-2"
-         style="font-family:sans-serif"><rect
+         id="flowRegion9401-6-2"><rect
            id="rect9404-7-7"
            width="290.92395"
            height="92.934036"
            x="-1066.7211"
-           y="-182.41685"
-           style="font-family:sans-serif" /></flowRegion><flowPara
-         id="flowPara9406-3-9"
-         style="font-size:40px;line-height:1.25;font-family:sans-serif">trees</flowPara></flowRoot>    <rect
+           y="-182.41685" /></flowRegion><flowPara
+         id="flowPara9406-3-9">trees</flowPara></flowRoot>    <rect
        style="fill:#848989;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new"
        id="rect9344-60"
        width="77.781746"
@@ -8504,20 +8496,20 @@
        y="-20.951645"
        inkscape:label="#material">
       <desc
-         id="desc9346-8">name = BuildingWhite1;
-color = stroke;
-color_variance = 0.0 0.0 0.3;
-# plain;
-detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125  0.0078125; detail_texture_scale = 3 3;
-1st_floor_1 = apartment1_1st_floor;
-1st_floor_2 = apartment1_1st_floor_empty; 1st_floor_3 = apartment1_1st_floor;
-1st_floor_4 = apartment1_1st_floor_empty; other_floor_1 = apartment1;
-other_floor_2 = apartment1;
-other_floor_3 = apartment1;
-other_floor_4 = apartment1;
-roof_color = fill;
-roof_color_variance = 0.0 0.0 0.2;
-roof_texture = wall_atlas1.png;
+         id="desc9346-8">name = BuildingWhite1; 
+color = stroke; 
+color_variance = 0.0 0.0 0.3; 
+# plain; 
+detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125  0.0078125; detail_texture_scale = 3 3; 
+1st_floor_1 = apartment1_1st_floor; 
+1st_floor_2 = apartment1_1st_floor_empty; 1st_floor_3 = apartment1_1st_floor; 
+1st_floor_4 = apartment1_1st_floor_empty; other_floor_1 = apartment1; 
+other_floor_2 = apartment1; 
+other_floor_3 = apartment1; 
+other_floor_4 = apartment1; 
+roof_color = fill; 
+roof_color_variance = 0.0 0.0 0.2; 
+roof_texture = wall_atlas1.png; 
 roof_texture_atlas_cell = 1 0 2 2;
 roof_texture_scale = 8.0 8.0;</desc>
     </rect>
@@ -8530,26 +8522,23 @@ roof_texture_scale = 8.0 8.0;</desc>
        y="132.63548"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-8">name = BuildingWhite2; color = stroke; color_variance = 0.02 0.2 0.2; # brick; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 0 8 8 0.0078125 0.0078125;
-detail_texture_scale = 3 3; detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; 1st_floor_1 = apartment1_1st_floor; 1st_floor_2 = apartment1_1st_floor; 1st_floor_3 = apartment1_1st_floor; 1st_floor_4 = apartment1_1st_floor; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0 0.1 0.1; roof_texture = wall_atlas1.png;
+         id="desc9346-8-8">name = BuildingWhite2; color = stroke; color_variance = 0.02 0.2 0.2; # brick; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 0 8 8 0.0078125 0.0078125; 
+detail_texture_scale = 3 3; detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; 1st_floor_1 = apartment1_1st_floor; 1st_floor_2 = apartment1_1st_floor; 1st_floor_3 = apartment1_1st_floor; 1st_floor_4 = apartment1_1st_floor; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0 0.1 0.1; roof_texture = wall_atlas1.png; 
 roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <flowRoot
        xml:space="preserve"
        id="flowRoot9399-4-1-5"
-       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;enable-background:new;font-family:Sans"
        transform="translate(-1143.1298,-0.121373)"
        inkscape:label="#flowRoot9399-4-1-5"><flowRegion
-         id="flowRegion9401-6-2-4"
-         style="font-family:sans-serif"><rect
+         id="flowRegion9401-6-2-4"><rect
            id="rect9404-7-7-2"
            width="139.55893"
            height="147.0719"
            x="-1066.7211"
-           y="-182.41685"
-           style="font-family:sans-serif" /></flowRegion><flowPara
-         id="flowPara9406-3-9-3"
-         style="font-size:40px;line-height:1.25;font-family:sans-serif">general settings</flowPara></flowRoot>    <rect
+           y="-182.41685" /></flowRegion><flowPara
+         id="flowPara9406-3-9-3">general settings</flowPara></flowRoot>    <rect
        style="fill:#ffd6b0;fill-opacity:1;fill-rule:nonzero;stroke:#13639f;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.94117647;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new"
        id="rect9344-6-8-0"
        width="77.781746"
@@ -8558,13 +8547,13 @@ roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
        y="2.1844208"
        inkscape:label="#general">
       <desc
-         id="desc9346-4-7-4">day_color = fill;
+         id="desc9346-4-7-4">day_color = fill; 
 night_color = stroke;
-night_color = stroke;
-name = Islet of Eflen;
+night_color = stroke; 
+name = Islet of Eflen; 
 description = pure pvp map;
-randomize_faction_index=1;
-flip = 1;
+randomize_faction_index=1; 
+flip = 1; 
 visible_in_menu = 0;
 show_base_names_in_map_view = 0;</desc>
     </rect>
@@ -8577,23 +8566,21 @@ show_base_names_in_map_view = 0;</desc>
        y="58.142471"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-7-4-7">name = BuildingShop1; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8  0.0078125 0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = shop1; 1st_floor_2 = shop1; 1st_floor_3 = shop1; 1st_floor_4 = shop1; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png;
+         id="desc9346-8-7-4-7">name = BuildingShop1; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8  0.0078125 0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = shop1; 1st_floor_2 = shop1; 1st_floor_3 = shop1; 1st_floor_4 = shop1; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png; 
 roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <flowRoot
        xml:space="preserve"
        id="flowRoot9399-4-1-5-4-3"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;enable-background:new;font-family:Sans"
        transform="translate(-1598.3335,61.78415)"
        inkscape:label="#flowRoot9399-4-1-5"><flowRegion
-   id="flowRegion9401-6-2-4-0-8"
-   style="font-family:sans-serif"><rect
+   id="flowRegion9401-6-2-4-0-8"><rect
      id="rect9404-7-7-2-9-4"
      width="138.45407"
      height="95.143745"
      x="-1066.7211"
-     y="-182.41685"
-     style="font-family:sans-serif" /></flowRegion>building</flowRoot>    <rect
+     y="-182.41685" /></flowRegion>building</flowRoot>    <rect
        style="fill:#276287;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new"
        id="rect9344-6-8-0-1-2-9"
        width="77.781746"
@@ -8635,7 +8622,7 @@ roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
        y="57.067078"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-7-4-7-8">name = BuildingShop1End; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = shop1; 1st_floor_2 = shop1; 1st_floor_3 = shop1; 1st_floor_4 = shop1; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png;
+         id="desc9346-8-7-4-7-8">name = BuildingShop1End; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = shop1; 1st_floor_2 = shop1; 1st_floor_3 = shop1; 1st_floor_4 = shop1; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png; 
 roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <rect
@@ -8691,29 +8678,29 @@ roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
        y="333.91885"
        inkscape:label="#material">
       <desc
-         id="desc9346-0">name = BuildingHouse;
-color = stroke;
-color_variance = 0.01 0.1 0.1;
-# panel side;
+         id="desc9346-0">name = BuildingHouse; 
+color = stroke; 
+color_variance = 0.01 0.1 0.1; 
+# panel side; 
 detail_texture = wall_atlas1.png;
-detail_texture_atlas_cell = 0 1 8 8 0.0078125 0.0078125;
-detail_texture_scale = 3 3;
-detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10;
-atlas_texture = building_atlas2.png;
-1st_floor_1 = house;
-1st_floor_2 = house;
-1st_floor_3 = house;
-1st_floor_4 = house;
-other_floor_1 = house;
-other_floor_2 = house;
-other_floor_3 = house;
-other_floor_4 = house;
+detail_texture_atlas_cell = 0 1 8 8 0.0078125 0.0078125; 
+detail_texture_scale = 3 3; 
+detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; 
+atlas_texture = building_atlas2.png; 
+1st_floor_1 = house; 
+1st_floor_2 = house; 
+1st_floor_3 = house; 
+1st_floor_4 = house; 
+other_floor_1 = house; 
+other_floor_2 = house; 
+other_floor_3 = house; 
+other_floor_4 = house; 
 roof_color = fill;
-roof_color_variance = 0.01 0.1 0.1;
-roof_texture = wall_atlas1.png;
+roof_color_variance = 0.01 0.1 0.1; 
+roof_texture = wall_atlas1.png; 
 roof_texture_atlas_cell = 0 4 8 8 0.0078125 0.03125;
-roof_texture_scale = 1.5 1.5;
-#roof_texture_rect = 0 0 1 1;
+roof_texture_scale = 1.5 1.5; 
+#roof_texture_rect = 0 0 1 1; 
 roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_texture_scale = 15 15;</desc>
     </rect>
     <rect
@@ -8736,24 +8723,24 @@ roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_t
        y="-21.878139"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-0">name = BuildingRoofStory1;
-color = stroke;
-color_variance = 0.0 0.0 0.3;
-# plain;
-detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125;
+         id="desc9346-8-0">name = BuildingRoofStory1; 
+color = stroke; 
+color_variance = 0.0 0.0 0.3; 
+# plain; 
+detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125; 
 detail_texture_scale = 3 3;
- 1st_floor_1 = empty;
-1st_floor_2 = empty;
-1st_floor_3 = empty;
-1st_floor_4 = empty;
-other_floor_1 = empty;
-other_floor_2 = empty;
-other_floor_3 = empty;
-other_floor_4 = empty;
-roof_color = fill;
-roof_color_variance = 0.0 0.0 0.2;
-roof_texture = wall_atlas1.png;
-roof_texture_atlas_cell = 1 0 2 2;
+ 1st_floor_1 = empty; 
+1st_floor_2 = empty; 
+1st_floor_3 = empty; 
+1st_floor_4 = empty; 
+other_floor_1 = empty; 
+other_floor_2 = empty; 
+other_floor_3 = empty; 
+other_floor_4 = empty; 
+roof_color = fill; 
+roof_color_variance = 0.0 0.0 0.2; 
+roof_texture = wall_atlas1.png; 
+roof_texture_atlas_cell = 1 0 2 2; 
 roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <rect
@@ -8785,7 +8772,7 @@ roof_texture_scale = 8.0 8.0;</desc>
        id="rect9583-5"
        style="fill:#848989;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new">
       <desc
-         id="desc9585">name = BuildingWhite1Empty1stFloor; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8  0.0078125  0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = apartment1_1st_floor_really_empty; 1st_floor_2 = apartment1_1st_floor_really_empty; 1st_floor_3 = apartment1_1st_floor_really_empty; 1st_floor_4 = apartment1_1st_floor_really_empty; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png;
+         id="desc9585">name = BuildingWhite1Empty1stFloor; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8  0.0078125  0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = apartment1_1st_floor_really_empty; 1st_floor_2 = apartment1_1st_floor_really_empty; 1st_floor_3 = apartment1_1st_floor_really_empty; 1st_floor_4 = apartment1_1st_floor_really_empty; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png; 
 roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <rect
@@ -8808,7 +8795,7 @@ roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
        y="-23.942627"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-9">name = BuildingWhite1Busy; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = apartment1_1st_floor_busy; 1st_floor_2 = apartment1_1st_floor_busy; 1st_floor_3 = apartment1_1st_floor_busy; 1st_floor_4 = apartment1_1st_floor_busy; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png;
+         id="desc9346-8-9">name = BuildingWhite1Busy; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = apartment1_1st_floor_busy; 1st_floor_2 = apartment1_1st_floor_busy; 1st_floor_3 = apartment1_1st_floor_busy; 1st_floor_4 = apartment1_1st_floor_busy; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png; 
 roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <rect
@@ -8820,8 +8807,8 @@ roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
        y="58.333233"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-7-4-7-6">name = BuildingShop2; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125;
-detail_texture_scale = 3 3; atlas_texture = building_atlas3.png; 1st_floor_1 = shop1; 1st_floor_2 = shop1; 1st_floor_3 = shop1; 1st_floor_4 = shop1; other_floor_1 = apartment1_normal_windows; other_floor_2 = apartment1_normal_windows; other_floor_3 = apartment1_normal_windows; other_floor_4 = apartment1_normal_windows; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png;
+         id="desc9346-8-7-4-7-6">name = BuildingShop2; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125; 
+detail_texture_scale = 3 3; atlas_texture = building_atlas3.png; 1st_floor_1 = shop1; 1st_floor_2 = shop1; 1st_floor_3 = shop1; 1st_floor_4 = shop1; other_floor_1 = apartment1_normal_windows; other_floor_2 = apartment1_normal_windows; other_floor_3 = apartment1_normal_windows; other_floor_4 = apartment1_normal_windows; roof_color = fill; roof_color_variance = 0.0 0.0 0.2; roof_texture = wall_atlas1.png; 
 roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <rect
@@ -8844,9 +8831,9 @@ roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
        y="272.61041"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-3">name = BuildingWhite4; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125; detail_texture_scale = 3 3; atlas_texture = building_atlas3.png; 1st_floor_1 = apartment1_1st_floor; 1st_floor_2 = apartment1_1st_floor_really_empty; 1st_floor_3 = apartment1_1st_floor; 1st_floor_4 = apartment1_1st_floor_really_empty; other_floor_1 = apartment1_normal_windows; other_floor_2 = apartment1_normal_windows; other_floor_3 = apartment1_normal_windows; other_floor_4 = apartment1_normal_windows; roof_color = fill; roof_color_variance = 0.01 0.1 0.1;
-roof_texture = wall_atlas1.png;
-roof_texture_atlas_cell = 1 0 2 2;
+         id="desc9346-8-3">name = BuildingWhite4; color = stroke; color_variance = 0.0 0.0 0.3; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125; detail_texture_scale = 3 3; atlas_texture = building_atlas3.png; 1st_floor_1 = apartment1_1st_floor; 1st_floor_2 = apartment1_1st_floor_really_empty; 1st_floor_3 = apartment1_1st_floor; 1st_floor_4 = apartment1_1st_floor_really_empty; other_floor_1 = apartment1_normal_windows; other_floor_2 = apartment1_normal_windows; other_floor_3 = apartment1_normal_windows; other_floor_4 = apartment1_normal_windows; roof_color = fill; roof_color_variance = 0.01 0.1 0.1; 
+roof_texture = wall_atlas1.png; 
+roof_texture_atlas_cell = 1 0 2 2; 
 roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <rect
@@ -8863,17 +8850,15 @@ roof_texture_scale = 8.0 8.0;</desc>
     <flowRoot
        xml:space="preserve"
        id="flowRoot9399-4-1-5-0"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;enable-background:new;font-family:Sans"
        transform="translate(-1776.3801,10.654324)"
        inkscape:label="#flowRoot9399-4-1-5"><flowRegion
-   id="flowRegion9401-6-2-4-9"
-   style="font-family:sans-serif"><rect
+   id="flowRegion9401-6-2-4-9"><rect
      id="rect9404-7-7-2-4"
      width="139.62955"
      height="148.96194"
      x="-1066.7211"
-     y="-182.41685"
-     style="font-family:sans-serif" /></flowRegion>             terrai</flowRoot>    <rect
+     y="-182.41685" /></flowRegion>             terrai</flowRoot>    <rect
        style="fill:#aba392;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new"
        id="rect9344-6-8-0-17-5"
        width="77.781746"
@@ -8909,19 +8894,16 @@ roof_texture_scale = 8.0 8.0;</desc>
     <flowRoot
        xml:space="preserve"
        id="flowRoot9399-4-1-5-0-1"
-       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;enable-background:new;font-family:Sans"
        transform="translate(-1963.6001,11.007639)"
        inkscape:label="#flowRoot9399-4-1-5"><flowRegion
-   id="flowRegion9401-6-2-4-9-7"
-   style="font-family:sans-serif"><rect
+   id="flowRegion9401-6-2-4-9-7"><rect
      id="rect9404-7-7-2-4-4"
      width="144.04897"
      height="171.05904"
      x="-1066.7211"
-     y="-182.41685"
-     style="font-family:sans-serif" /></flowRegion>             surface c<flowPara
-   id="flowPara7278"
-   style="font-size:40px;line-height:1.25;font-family:sans-serif">onfig</flowPara></flowRoot>    <rect
+     y="-182.41685" /></flowRegion>             surface c<flowPara
+   id="flowPara7278">onfig</flowPara></flowRoot>    <rect
        style="fill:#7d6a52;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new"
        id="rect9344-6-8-0-17-9"
        width="77.781746"
@@ -8941,7 +8923,22 @@ roof_texture_scale = 8.0 8.0;</desc>
        y="151.97719"
        inkscape:label="#surface_config">
       <desc
-         id="desc7300-4-8">index = 2; step_sound = 18; step_sound = 19; step_sound = 20; step_sound = 21; step_sound = 22; step_sound_volume = 0.14; friction = 0.09; color = fill; step_dust_size = 0.8; tag = dirt;</desc>
+         id="desc7300-4-8">index = 2;
+step_sound = pl_dirt1.wav;
+step_sound = pl_dirt2.wav;
+step_sound = pl_dirt3.wav;
+step_sound = pl_dirt4.wav;
+#step_sound = 18;
+#step_sound = 19;
+#step_sound = 20;
+#step_sound = 21;
+#step_sound = 22;
+step_sound_volume = 1.0;
+#step_sound_volume = 0.14;
+friction = 0.09;
+color = fill;
+step_dust_size = 0.8;
+tag = dirt;</desc>
     </rect>
     <rect
        style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new"
@@ -8963,7 +8960,21 @@ roof_texture_scale = 8.0 8.0;</desc>
        y="222.49272"
        inkscape:label="#surface_config">
       <desc
-         id="desc7300-4-5">index = 3; step_sound = 23; step_sound = 24; step_sound = 25; step_sound = 26; step_sound = 27; step_sound_volume = 0.256; friction = 0.25; color = 0.32 0.32 0.32; tag = road;</desc>
+         id="desc7300-4-5">index = 3;
+step_sound = pl_step1.wav;
+step_sound = pl_step2.wav;
+step_sound = pl_step3.wav;
+step_sound = pl_step4.wav;
+#step_sound = 23;
+#step_sound = 24;
+#step_sound = 25;
+#step_sound = 26;
+#step_sound = 27;
+step_sound_volume = 1.0;
+#step_sound_volume = 0.256;
+friction = 0.25;
+color = 0.32 0.32 0.32;
+tag = road;</desc>
     </rect>
     <rect
        style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new"
@@ -9012,18 +9023,15 @@ roof_texture_scale = 8.0 8.0;</desc>
     <flowRoot
        xml:space="preserve"
        id="flowRoot9399-9-9"
-       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;enable-background:new;font-family:Sans"
        transform="translate(-747.53683,-5.704798)"><flowRegion
-         id="flowRegion9401-1-4"
-         style="font-family:sans-serif"><rect
+         id="flowRegion9401-1-4"><rect
            id="rect9404-6-8"
            width="290.92395"
            height="92.934036"
            x="-1066.7211"
-           y="-182.41685"
-           style="font-family:sans-serif" /></flowRegion><flowPara
-         id="flowPara9406-2-8"
-         style="font-size:40px;line-height:1.25;font-family:sans-serif">walls</flowPara></flowRoot>    <rect
+           y="-182.41685" /></flowRegion><flowPara
+         id="flowPara9406-2-8">walls</flowPara></flowRoot>    <rect
        style="fill:#938c7d;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new"
        id="rect9344-60-7-4"
        width="77.781746"
@@ -9054,11 +9062,11 @@ roof_texture_scale = 8.0 8.0;</desc>
        y="203.69458"
        inkscape:label="#wall_template">
       <desc
-         id="desc9346-8-2-1-6-2-7-7">name = BrickWall1;
-color = fill; depth = 0.6;
-height = 2.5;
-side_texture = wall_atlas1.png;
-side_texture_scale = 2.0 2.0;
+         id="desc9346-8-2-1-6-2-7-7">name = BrickWall1; 
+color = fill; depth = 0.6; 
+height = 2.5; 
+side_texture = wall_atlas1.png; 
+side_texture_scale = 2.0 2.0; 
 side_texture_atlas_cell = 2 0 8 8  0.0078125; side_cutout_texture = cutout.png; side_cutout_texture_channel = 1; side_cutout_texture_scale = 15 15; top_texture = wall_atlas1.png; top_texture_atlas_cell = 2 4 8 16  0.0078125 0.015625; top_texture_scale = 2.0 0.4; separator_side_texture = wall_atlas1.png; separator_side_texture_scale = 2.0 2.0; separator_side_texture_atlas_cell = 2 0 8 8  0.0078125; separator_top_texture = wall_atlas1.png; separator_top_texture_atlas_cell = 2 4 8 16  0.0078125 0.015625; separator_top_texture_scale = 0.5 0.5; separator_color = fill; separator_over_height = 0.1; separator_depth = 0.7;</desc>
     </rect>
     <rect
@@ -9086,18 +9094,15 @@ side_texture_atlas_cell = 2 0 8 8  0.0078125; side_cutout_texture = cutout.png; 
     <flowRoot
        xml:space="preserve"
        id="flowRoot9399-9-0"
-       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;enable-background:new;font-family:Sans"
        transform="translate(-494.29303,-3.441968)"><flowRegion
-         id="flowRegion9401-1-8"
-         style="font-family:sans-serif"><rect
+         id="flowRegion9401-1-8"><rect
            id="rect9404-6-3"
            width="290.92395"
            height="92.934036"
            x="-1066.7211"
-           y="-182.41685"
-           style="font-family:sans-serif" /></flowRegion><flowPara
-         id="flowPara7999"
-         style="font-size:40px;line-height:1.25;font-family:sans-serif">fences</flowPara></flowRoot>    <rect
+           y="-182.41685" /></flowRegion><flowPara
+         id="flowPara7999">fences</flowPara></flowRoot>    <rect
        style="fill:#848989;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new"
        id="rect9344-60-8"
        width="77.781746"
@@ -9106,10 +9111,10 @@ side_texture_atlas_cell = 2 0 8 8  0.0078125; side_cutout_texture = cutout.png; 
        y="-25.101543"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-6">name = BuildingWhite1Brick;
-color = stroke; color_variance = 0.0 0.0 0.3;
-# brick; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 0 8 8 0.0078125; detail_texture_scale = 3 3;
-detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; 1st_floor_1 = apartment1_1st_floor; 1st_floor_2 = apartment1_1st_floor_empty; 1st_floor_3 = apartment1_1st_floor; 1st_floor_4 = apartment1_1st_floor_empty; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2;roof_texture = wall_atlas1.png;
+         id="desc9346-8-6">name = BuildingWhite1Brick; 
+color = stroke; color_variance = 0.0 0.0 0.3; 
+# brick; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 0 8 8 0.0078125; detail_texture_scale = 3 3; 
+detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; 1st_floor_1 = apartment1_1st_floor; 1st_floor_2 = apartment1_1st_floor_empty; 1st_floor_3 = apartment1_1st_floor; 1st_floor_4 = apartment1_1st_floor_empty; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.0 0.2;roof_texture = wall_atlas1.png; 
 roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <rect
@@ -9121,8 +9126,8 @@ roof_texture_atlas_cell = 1 0 2 2; roof_texture_scale = 8.0 8.0;</desc>
        y="129.47144"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-8-4-1">name = BuildingWhite2RoofStory1; color = stroke; color_variance = 0.02 0.2 0.2; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = empty; 1st_floor_2 = empty; 1st_floor_3 = empty; 1st_floor_4 = empty; other_floor_1 = empty; other_floor_2 = empty; other_floor_3 = empty; other_floor_4 = empty; roof_color = fill; roof_color_variance = 0 0.1 0.1; roof_texture = wall_atlas1.png;
-roof_texture_atlas_cell = 1 0 2 2;
+         id="desc9346-8-8-4-1">name = BuildingWhite2RoofStory1; color = stroke; color_variance = 0.02 0.2 0.2; # plain; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 1 8 8 0.0078125 0.0078125; detail_texture_scale = 3 3; 1st_floor_1 = empty; 1st_floor_2 = empty; 1st_floor_3 = empty; 1st_floor_4 = empty; other_floor_1 = empty; other_floor_2 = empty; other_floor_3 = empty; other_floor_4 = empty; roof_color = fill; roof_color_variance = 0 0.1 0.1; roof_texture = wall_atlas1.png; 
+roof_texture_atlas_cell = 1 0 2 2; 
 roof_texture_scale = 8.0 8.0;</desc>
     </rect>
     <rect
@@ -9134,8 +9139,8 @@ roof_texture_scale = 8.0 8.0;</desc>
        y="203.92847"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-01-8">name = BuildingWhite3RoofStory1; color = stroke; color_variance = 0.01 0.1 0.1; # brick; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 0 8 8 0.0078125 0.0078125;
-detail_texture_scale = 3 3;
+         id="desc9346-8-01-8">name = BuildingWhite3RoofStory1; color = stroke; color_variance = 0.01 0.1 0.1; # brick; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 0 8 8 0.0078125 0.0078125; 
+detail_texture_scale = 3 3; 
 detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; 1st_floor_1 = apartment1_1st_floor; 1st_floor_2 = apartment1_1st_floor_empty; 1st_floor_3 = apartment1_1st_floor_empty; 1st_floor_4 = apartment1_1st_floor_empty; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.1 0.1; #roof_texture = concrete_roof.png; #roof_texture_scale = 8.0 8.0; roof_texture = wall_atlas1.png; roof_texture_atlas_cell = 2 1 8 8 0.015625 0.015625; roof_texture_scale = 3 3; roof_cutout_texture = cutout_2.png; roof_cutout_texture_scale = 20 20;</desc>
     </rect>
     <rect
@@ -9147,27 +9152,25 @@ detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cu
        y="203.24689"
        inkscape:label="#material">
       <desc
-         id="desc9346-8-01-8-8">name = BuildingWhite3Busy; color = stroke; color_variance = 0.01 0.1 0.1; # brick; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 0 8 8 0.0078125 0.0078125;
-detail_texture_scale = 3 3;
-detail_cutout_texture = cutout.png;
+         id="desc9346-8-01-8-8">name = BuildingWhite3Busy; color = stroke; color_variance = 0.01 0.1 0.1; # brick; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 2 0 8 8 0.0078125 0.0078125; 
+detail_texture_scale = 3 3; 
+detail_cutout_texture = cutout.png; 
 detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; 1st_floor_1 = apartment1_1st_floor_busy; 1st_floor_2 = apartment1_1st_floor_busy; 1st_floor_3 = apartment1_1st_floor_busy; 1st_floor_4 = apartment1_1st_floor_busy; other_floor_1 = apartment1; other_floor_2 = apartment1; other_floor_3 = apartment1; other_floor_4 = apartment1; roof_color = fill; roof_color_variance = 0.0 0.1 0.1; #roof_texture = concrete_roof.png; #roof_texture_scale = 8.0 8.0; roof_texture = wall_atlas1.png; roof_texture_atlas_cell = 1 2 4 4 0.004; roof_texture_scale = 5 5; roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_texture_scale = 30 30;</desc>
     </rect>
     <text
        id="text7600"
        y="937.42639"
        x="2801.322"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;enable-background:new;font-family:Sans"
        xml:space="preserve"><tspan
          y="937.42639"
          x="2801.322"
          id="tspan7602"
-         sodipodi:role="line"
-         style="font-size:40px;line-height:1.25;font-family:sans-serif">mesh</tspan><tspan
+         sodipodi:role="line">mesh</tspan><tspan
          y="987.42639"
          x="2801.322"
          sodipodi:role="line"
-         id="tspan25029"
-         style="font-size:40px;line-height:1.25;font-family:sans-serif">templates         </tspan></text>
+         id="tspan25029">templates         </tspan></text>
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
@@ -9278,13 +9281,13 @@ detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; 1st_floo
        id="mesh_template9-14"
        style="fill:#855e00;fill-opacity:1;stroke:none;display:inline;enable-background:new">
       <desc
-         id="desc7569-7-1-1-0-37-49-0-3">name = hedgehog;
+         id="desc7569-7-1-1-0-37-49-0-3">name = hedgehog; 
 mesh_name = hedgehog.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 7 0 64 64;
-collision_model_type = 1;
-collision_model_size = 1.2 1.2 1.2;
-penetrability = 0.4;
+texture0 = world_atlas1.png; 
+texture0_atlas_cell = 7 0 64 64; 
+collision_model_type = 1; 
+collision_model_size = 1.2 1.2 1.2; 
+penetrability = 0.4; 
 see_through = 1;</desc>
     </rect>
     <rect
@@ -9813,8 +9816,8 @@ see_through = 1;</desc>
        y="396.86087"
        inkscape:label="#material">
       <desc
-         id="desc9346-0-9">name = BuildingVilla; color = stroke; color_variance = 0.0 0.1 0.1; # panel side; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 0 1 8 8 0.0078125 0.0078125;
-detail_texture_scale = 3.0 3.0;
+         id="desc9346-0-9">name = BuildingVilla; color = stroke; color_variance = 0.0 0.1 0.1; # panel side; detail_texture = wall_atlas1.png; detail_texture_atlas_cell = 0 1 8 8 0.0078125 0.0078125; 
+detail_texture_scale = 3.0 3.0; 
 detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; detail_cutout_texture_scale = 10 10; atlas_texture = building_atlas2.png; 1st_floor_1 = house; 1st_floor_2 = house; 1st_floor_3 = house; 1st_floor_4 = house; other_floor_1 = house; other_floor_2 = house; other_floor_3 = house; other_floor_4 = house; roof_color = fill; roof_color_variance = 0.01 0.1 0.1; roof_texture = wall_atlas1.png;
 roof_texture_atlas_cell = 0 4 8 8 0.0078125 0.03125;
 roof_texture_scale = 1.5 1.5; #roof_texture_rect = 0 0 1 1; roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_texture_scale = 15 15;</desc>
@@ -10452,18 +10455,16 @@ roof_texture_scale = 1.5 1.5; #roof_texture_rect = 0 0 1 1; roof_cutout_texture 
        id="text7600-7-0"
        y="1458.2241"
        x="3086.6082"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;enable-background:new;font-family:Sans"
        xml:space="preserve"><tspan
          y="1458.2241"
          x="3086.6082"
          id="tspan7602-0-9"
-         sodipodi:role="line"
-         style="font-size:40px;line-height:1.25;font-family:sans-serif">rock</tspan><tspan
+         sodipodi:role="line">rock</tspan><tspan
          y="1508.2241"
          x="3086.6082"
          sodipodi:role="line"
-         id="tspan25033"
-         style="font-size:40px;line-height:1.25;font-family:sans-serif">templates         </tspan></text>
+         id="tspan25033">templates         </tspan></text>
     <rect
        inkscape:label=""
        y="-28.02486"
@@ -10477,19 +10478,16 @@ roof_texture_scale = 1.5 1.5; #roof_texture_rect = 0 0 1 1; roof_cutout_texture 
     </rect>
     <flowRoot
        transform="translate(318.214,-15.866803)"
-       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;enable-background:new;font-family:Sans"
        id="flowRoot9399-6"
        xml:space="preserve"><flowRegion
-         id="flowRegion9401-2"
-         style="font-family:sans-serif"><rect
+         id="flowRegion9401-2"><rect
            y="-182.41685"
            x="-1066.7211"
            height="92.934036"
            width="290.92395"
-           id="rect9404-1"
-           style="font-family:sans-serif" /></flowRegion><flowPara
-         id="flowPara8244"
-         style="font-size:40px;line-height:1.25;font-family:sans-serif">rocks</flowPara></flowRoot>    <rect
+           id="rect9404-1" /></flowRegion><flowPara
+         id="flowPara8244">rocks</flowPara></flowRoot>    <rect
        inkscape:label="#wall_template"
        y="469.24493"
        x="-1809.2227"
@@ -11664,18 +11662,16 @@ roof_texture_scale = 1.5 1.5; #roof_texture_rect = 0 0 1 1; roof_cutout_texture 
        id="text7600-7"
        y="929.94867"
        x="3097.1582"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;enable-background:new;font-family:Sans"
        xml:space="preserve"><tspan
          y="929.94867"
          x="3097.1582"
          id="tspan7602-0"
-         sodipodi:role="line"
-         style="font-size:40px;line-height:1.25;font-family:sans-serif">decal</tspan><tspan
+         sodipodi:role="line">decal</tspan><tspan
          y="979.94867"
          x="3097.1582"
          sodipodi:role="line"
-         id="tspan25031"
-         style="font-size:40px;line-height:1.25;font-family:sans-serif">templates         </tspan></text>
+         id="tspan25031">templates         </tspan></text>
     <rect
        transform="matrix(-0.00481598,-0.9999884,0.9999884,-0.00481598,0,0)"
        inkscape:label="#rect10748"
@@ -12224,19 +12220,19 @@ see_through = 1;</desc>
        id="rect9344-60-7-4-5-4-6-2-5-2"
        style="fill:url(#pattern8072);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new">
       <desc
-         id="desc9346-8-2-1-6-2-7-3-9-7">name = RuinWall1;
-#color = fill;
-depth = 0.8;
-height = 3.0;
-side_texture = none;
-#side_texture_scale = 2.0 1.25;
-#side_texture_atlas_cell = 0 1 4 4 0.015625; separator_side_texture = none; #separator_side_texture_scale = 0.2 1.0; #separator_side_texture_atlas_cell = 2 1 4 4 0.03125 0.015625;
-separator_top_texture = none; #separator_top_texture_scale = 0.2 1.0; #separator_top_texture_atlas_cell = 2 1 4 4 0.03125 0.03125;
-#separator_color = stroke;
-separator_over_height = 0.0;
-separator_depth = 0.0;
-penetrability = 0.0;
-see_through = 0;
+         id="desc9346-8-2-1-6-2-7-3-9-7">name = RuinWall1; 
+#color = fill; 
+depth = 0.8; 
+height = 3.0; 
+side_texture = none; 
+#side_texture_scale = 2.0 1.25; 
+#side_texture_atlas_cell = 0 1 4 4 0.015625; separator_side_texture = none; #separator_side_texture_scale = 0.2 1.0; #separator_side_texture_atlas_cell = 2 1 4 4 0.03125 0.015625; 
+separator_top_texture = none; #separator_top_texture_scale = 0.2 1.0; #separator_top_texture_atlas_cell = 2 1 4 4 0.03125 0.03125; 
+#separator_color = stroke; 
+separator_over_height = 0.0; 
+separator_depth = 0.0; 
+penetrability = 0.0; 
+see_through = 0; 
 climbable = 0;
 
 </desc>
@@ -12250,19 +12246,19 @@ climbable = 0;
        id="rect9344-60-7-4-5-4-6-2-5-2-3"
        style="fill:url(#pattern8068);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new">
       <desc
-         id="desc9346-8-2-1-6-2-7-3-9-7-3">name = RuinWall2;
-#color = fill;
-depth = 0.8;
-height = 3.0;
-side_texture = none;
-#side_texture_scale = 2.0 1.25;
-#side_texture_atlas_cell = 0 1 4 4 0.015625; separator_side_texture = none; #separator_side_texture_scale = 0.2 1.0; #separator_side_texture_atlas_cell = 2 1 4 4 0.03125 0.015625;
-separator_top_texture = none; #separator_top_texture_scale = 0.2 1.0; #separator_top_texture_atlas_cell = 2 1 4 4 0.03125 0.03125;
-#separator_color = stroke;
-separator_over_height = 0.0;
-separator_depth = 0.0;
-penetrability = 0.0;
-see_through = 0;
+         id="desc9346-8-2-1-6-2-7-3-9-7-3">name = RuinWall2; 
+#color = fill; 
+depth = 0.8; 
+height = 3.0; 
+side_texture = none; 
+#side_texture_scale = 2.0 1.25; 
+#side_texture_atlas_cell = 0 1 4 4 0.015625; separator_side_texture = none; #separator_side_texture_scale = 0.2 1.0; #separator_side_texture_atlas_cell = 2 1 4 4 0.03125 0.015625; 
+separator_top_texture = none; #separator_top_texture_scale = 0.2 1.0; #separator_top_texture_atlas_cell = 2 1 4 4 0.03125 0.03125; 
+#separator_color = stroke; 
+separator_over_height = 0.0; 
+separator_depth = 0.0; 
+penetrability = 0.0; 
+see_through = 0; 
 climbable = 1;
 
 </desc>
@@ -12309,8 +12305,8 @@ cord_offset4 = +1.5 0 0;
       <desc
          id="desc11579-7">name = post1_3;
 mesh_name = post1_3.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 11 16 32 32;
+texture0 = world_atlas1.png; 
+texture0_atlas_cell = 11 16 32 32; 
 collision_model_type = 0;
 collision_model_size =0.4 8.5 0.4;</desc>
     </rect>
@@ -12325,8 +12321,8 @@ collision_model_size =0.4 8.5 0.4;</desc>
       <desc
          id="desc11579-0">name = post1_4;
 mesh_name = post1_4.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 11 16 32 32;
+texture0 = world_atlas1.png; 
+texture0_atlas_cell = 11 16 32 32; 
 collision_model_type = 0;
 collision_model_size =0.4 10.0 0.4;</desc>
     </rect>
@@ -12379,24 +12375,24 @@ cord_offset3 = +0.5 0 0;
        y="-3.5644996"
        inkscape:label="#wall_template">
       <desc
-         id="desc9346-8-2-4-2">name = SandbagWall1;
-color = fill;
-depth = 0.6;
-height = 1.325;
-side_texture = wall_atlas1.png;
-side_texture_scale = 2.65 2.65;
-side_texture_atlas_cell = 1 0 8 8 0.0078125;
-top_texture = wall_atlas1.png;
-top_texture_atlas_cell = 1 8 8 16 0.0078125 0.015625;
+         id="desc9346-8-2-4-2">name = SandbagWall1; 
+color = fill; 
+depth = 0.6; 
+height = 1.325; 
+side_texture = wall_atlas1.png; 
+side_texture_scale = 2.65 2.65; 
+side_texture_atlas_cell = 1 0 8 8 0.0078125; 
+top_texture = wall_atlas1.png; 
+top_texture_atlas_cell = 1 8 8 16 0.0078125 0.015625; 
 top_texture_scale = 2.65 2.65;
-separator_side_texture = wall_atlas1.png;
+separator_side_texture = wall_atlas1.png; 
 separator_side_texture_scale = 0.6 2.65;
-separator_side_texture_atlas_cell = 6 3 16 8 0.015625 0.0078125;
-separator_top_texture = wall_atlas1.png;
-separator_top_texture_scale = 0.6 0.6;
-separator_top_texture_atlas_cell = 6 5 16 16  0.015625  0.015625;
-separator_color = #938c7d;
-separator_over_height = 0.1;
+separator_side_texture_atlas_cell = 6 3 16 8 0.015625 0.0078125; 
+separator_top_texture = wall_atlas1.png; 
+separator_top_texture_scale = 0.6 0.6; 
+separator_top_texture_atlas_cell = 6 5 16 16  0.015625  0.015625; 
+separator_color = #938c7d; 
+separator_over_height = 0.1; 
 separator_depth = 0.7;</desc>
     </rect>
     <rect
@@ -12442,13 +12438,13 @@ visual_hitbox_size = 3.5 15 3.5;
        id="rect9036-2-2-4-2-83-1"
        style="fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new">
       <desc
-         id="desc9040-4-3-2-0-75-7">name = parasol_blue;
-mesh_name = parasol.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 4 0 32 32;
-collision_model_type = 0;
-penetrability = 0.2;
-see_through = 1;
+         id="desc9040-4-3-2-0-75-7">name = parasol_blue; 
+mesh_name = parasol.mesh; 
+texture0 = world_atlas1.png; 
+texture0_atlas_cell = 4 0 32 32; 
+collision_model_type = 0; 
+penetrability = 0.2; 
+see_through = 1; 
 collision_model_size = 0.1 2.0 0.1;
 
 visual_hitbox_size = 2 2 2;
@@ -12463,13 +12459,13 @@ visual_hitbox_size = 2 2 2;
        id="rect9036-2-2-4-2-83-1-8"
        style="fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new">
       <desc
-         id="desc9040-4-3-2-0-75-7-8">name = parasol_yellow;
-mesh_name = parasol.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 4 1 32 32;
-collision_model_type = 0;
-penetrability = 0.2;
-see_through = 1;
+         id="desc9040-4-3-2-0-75-7-8">name = parasol_yellow; 
+mesh_name = parasol.mesh; 
+texture0 = world_atlas1.png; 
+texture0_atlas_cell = 4 1 32 32; 
+collision_model_type = 0; 
+penetrability = 0.2; 
+see_through = 1; 
 collision_model_size = 0.1 2.0 0.1;
 
 visual_hitbox_size = 2 2 2;
@@ -12484,13 +12480,13 @@ visual_hitbox_size = 2 2 2;
        id="rect9036-2-2-4-2-83-1-2"
        style="fill:#0e5500;fill-opacity:0.79607843;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new">
       <desc
-         id="desc9040-4-3-2-0-75-7-4">name = parasol_green;
-mesh_name = parasol.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 5 0 32 32;
-collision_model_type = 0;
-penetrability = 0.2;
-see_through = 1;
+         id="desc9040-4-3-2-0-75-7-4">name = parasol_green; 
+mesh_name = parasol.mesh; 
+texture0 = world_atlas1.png; 
+texture0_atlas_cell = 5 0 32 32; 
+collision_model_type = 0; 
+penetrability = 0.2; 
+see_through = 1; 
 collision_model_size = 0.1 2.0 0.1;
 
 visual_hitbox_size = 2 2 2;
@@ -12505,13 +12501,13 @@ visual_hitbox_size = 2 2 2;
        id="rect9036-2-2-4-2-83-16"
        style="fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new">
       <desc
-         id="desc9040-4-3-2-0-75-8">name = parasol_red;
-mesh_name = parasol.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 5 1 32 32;
-collision_model_type = 0;
-penetrability = 0.2;
-see_through = 1;
+         id="desc9040-4-3-2-0-75-8">name = parasol_red; 
+mesh_name = parasol.mesh; 
+texture0 = world_atlas1.png; 
+texture0_atlas_cell = 5 1 32 32; 
+collision_model_type = 0; 
+penetrability = 0.2; 
+see_through = 1; 
 collision_model_size = 0.1 2.0 0.1;
 
 visual_hitbox_size = 2 2 2;
@@ -12524,20 +12520,17 @@ visual_hitbox_size = 2 2 2;
        d="m 2801.0343,-92.623015 0,341.413975"
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;enable-background:new" />
     <flowRoot
-       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;enable-background:new;font-family:Sans"
        id="flowRoot20701"
        xml:space="preserve"
        transform="translate(119.78434,-955.4629)"><flowRegion
-         id="flowRegion20703"
-         style="font-family:sans-serif"><rect
+         id="flowRegion20703"><rect
            y="805.8125"
            x="2617.1875"
            height="53.125"
            width="343.75"
-           id="rect20705"
-           style="font-family:sans-serif" /></flowRegion><flowPara
-         id="flowPara20707"
-         style="font-size:40px;line-height:1.25;font-family:sans-serif">vehicles</flowPara></flowRoot>    <rect
+           id="rect20705" /></flowRegion><flowPara
+         id="flowPara20707">vehicles</flowPara></flowRoot>    <rect
        style="fill:#007cff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:11.99999957, 11.99999957;stroke-dashoffset:4.59999989;display:inline;enable-background:new"
        id="spawn1-3-7"
        width="3.982286"
@@ -12550,34 +12543,29 @@ visual_hitbox_size = 2 2 2;
          id="desc7082-7-40">type = vehicle; key = jeep.vehicle;</desc>
     </rect>
     <flowRoot
-       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        id="flowRoot20792"
        xml:space="preserve"
        transform="translate(-79.606493,12.071995)"><flowRegion
-         id="flowRegion20794"
-         style="font-family:sans-serif"><rect
-           style="font-size:10px;font-family:sans-serif"
+         id="flowRegion20794"><rect
+           style="font-size:10px"
            y="935.89062"
            x="2466.0156"
            height="43.75"
            width="83.203125"
            id="rect20796" /></flowRegion><flowPara
-         id="flowPara20798"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif"> </flowPara></flowRoot>    <flowRoot
+         id="flowPara20798" /></flowRoot>    <flowRoot
        transform="translate(384.22961,-1006.2359)"
-       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        id="flowRoot20800"
        xml:space="preserve"><flowRegion
-         id="flowRegion20802"
-         style="font-family:sans-serif"><rect
+         id="flowRegion20802"><rect
            y="915.57812"
            x="2471.0938"
            height="11.71875"
            width="75.390625"
-           id="rect20804"
-           style="font-family:sans-serif" /></flowRegion><flowPara
-         id="flowPara20806"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif">jeep</flowPara></flowRoot>    <rect
+           id="rect20804" /></flowRegion><flowPara
+         id="flowPara20806">jeep</flowPara></flowRoot>    <rect
        style="fill:#007cff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:11.9999997, 11.9999997;stroke-dashoffset:4.59999991;display:inline;enable-background:new"
        id="spawn1-70-1-4-9-1-9"
        width="3.982286"
@@ -12591,19 +12579,16 @@ visual_hitbox_size = 2 2 2;
     </rect>
     <flowRoot
        transform="translate(201.77319,-1002.9174)"
-       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;enable-background:new"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;enable-background:new;font-family:Sans"
        id="flowRoot20829"
        xml:space="preserve"><flowRegion
-         id="flowRegion20831"
-         style="font-family:sans-serif"><rect
+         id="flowRegion20831"><rect
            y="932.64954"
            x="2652.479"
            height="14.363107"
            width="79.549515"
-           id="rect20833"
-           style="font-family:sans-serif" /></flowRegion><flowPara
-         id="flowPara20835"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif">armored truck</flowPara></flowRoot>    <rect
+           id="rect20833" /></flowRegion><flowPara
+         id="flowPara20835">armored truck</flowPara></flowRoot>    <rect
        style="fill:#007cff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:11.99999989, 11.99999989;stroke-dashoffset:4.59999994;display:inline;enable-background:new"
        id="spawn1-1-1-1-8"
        width="3.982286"
@@ -12616,20 +12601,17 @@ visual_hitbox_size = 2 2 2;
          id="desc7082-740-7-7-8">type = vehicle; key = apc.vehicle;</desc>
     </rect>
     <flowRoot
-       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        id="flowRoot20891"
        xml:space="preserve"
        transform="translate(201.02648,-993.3453)"><flowRegion
-         id="flowRegion20893"
-         style="font-family:sans-serif"><rect
+         id="flowRegion20893"><rect
            y="942.53125"
            x="2652.3438"
            height="14.0625"
            width="61.71875"
-           id="rect20895"
-           style="font-family:sans-serif" /></flowRegion><flowPara
-         id="flowPara20897"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif">APC</flowPara></flowRoot>    <rect
+           id="rect20895" /></flowRegion><flowPara
+         id="flowPara20897">APC</flowPara></flowRoot>    <rect
        transform="matrix(0.99999791,0.00204503,-0.00204503,0.99999791,0,0)"
        inkscape:label=""
        y="80.788483"
@@ -12645,24 +12627,22 @@ visual_hitbox_size = 2 2 2;
        id="text20941"
        y="93.113174"
        x="2851.0195"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="93.113174"
          x="2851.0195"
          id="tspan20943"
-         sodipodi:role="line"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif">rubber boat</tspan></text>
+         sodipodi:role="line">rubber boat</tspan></text>
     <text
        id="text20966"
        y="1061.6345"
        x="2568.8311"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="1061.6345"
          x="2568.8311"
          id="tspan20968"
-         sodipodi:role="line"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif"> </tspan></text>
+         sodipodi:role="line" /></text>
     <rect
        transform="matrix(0.99999242,-0.00389299,0.00389299,0.99999242,0,0)"
        inkscape:label=""
@@ -12679,13 +12659,12 @@ visual_hitbox_size = 2 2 2;
        id="text43065"
        y="-21.473503"
        x="2852.1245"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="-21.473503"
          x="2852.1245"
          id="tspan43067"
-         sodipodi:role="line"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif">tank</tspan></text>
+         sodipodi:role="line">tank</tspan></text>
     <rect
        transform="matrix(0.99999227,0.00393194,-0.00393194,0.99999227,0,0)"
        inkscape:label=""
@@ -12696,20 +12675,19 @@ visual_hitbox_size = 2 2 2;
        id="spawn1-1-4-2-1-1-0-6-2-4"
        style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:12.00000088, 12.00000088;stroke-dashoffset:4.6000004;display:inline;enable-background:new">
       <desc
-         id="desc7082-7-0-45-7-9-2-8-8-1">type = vehicle;
+         id="desc7082-7-0-45-7-9-2-8-8-1">type = vehicle; 
 key = cargo_truck.vehicle;</desc>
     </rect>
     <text
        id="text43090"
        y="153.24353"
        x="2848.4988"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="153.24353"
          x="2848.4988"
          id="tspan43092"
-         sodipodi:role="line"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif">cargo truck</tspan></text>
+         sodipodi:role="line">cargo truck</tspan></text>
     <rect
        transform="matrix(0.99986984,-0.01613386,0.01613386,0.99986984,0,0)"
        inkscape:label=""
@@ -12727,13 +12705,12 @@ key = transport_truck.vehicle;</desc>
        id="text68585"
        y="1.236707"
        x="2851.71"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="1.236707"
          x="2851.71"
          id="tspan68587"
-         sodipodi:role="line"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif">transport truck</tspan></text>
+         sodipodi:role="line">transport truck</tspan></text>
     <rect
        transform="matrix(0.99981242,0.01936828,-0.01936828,0.99981242,0,0)"
        inkscape:label=""
@@ -12751,13 +12728,12 @@ key = patrol_ship.vehicle;</desc>
        id="text68610"
        y="113.553"
        x="2851.8481"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="113.553"
          x="2851.8481"
          id="tspan68612"
-         sodipodi:role="line"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif">patrol ship</tspan></text>
+         sodipodi:role="line">patrol ship</tspan></text>
     <rect
        transform="matrix(0.99999999,-1.4879119e-4,1.4879119e-4,0.99999999,0,0)"
        inkscape:label=""
@@ -12774,13 +12750,12 @@ key = patrol_ship.vehicle;</desc>
        id="text82319"
        y="196.27882"
        x="2849.0859"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="196.27882"
          x="2849.0859"
          id="tspan82321"
-         sodipodi:role="line"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif">TOW</tspan></text>
+         sodipodi:role="line">TOW</tspan></text>
     <rect
        transform="matrix(-0.00976398,0.99995233,-0.99995233,-0.00976398,0,0)"
        rx="4.1992183"
@@ -12801,13 +12776,12 @@ key = radar_tower.vehicle;
        id="text107814"
        y="234.02406"
        x="2849.9146"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="234.02406"
          x="2849.9146"
          id="tspan107816"
-         sodipodi:role="line"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif">radar tower</tspan></text>
+         sodipodi:role="line">radar tower</tspan></text>
     <rect
        transform="matrix(0.99986984,-0.01613386,0.01613386,0.99986984,0,0)"
        inkscape:label=""
@@ -12825,24 +12799,22 @@ key = radar_truck.vehicle;</desc>
        id="text107839"
        y="23.549391"
        x="2852.4006"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="23.549391"
          x="2852.4006"
          id="tspan107841"
-         sodipodi:role="line"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif">radar truck</tspan></text>
+         sodipodi:role="line">radar truck</tspan></text>
     <text
        id="text107843"
        y="-119.69811"
        x="3063.9514"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="-119.69811"
          x="3063.9514"
          id="tspan107845"
-         sodipodi:role="line"
-         style="font-size:40px;line-height:1.25;font-family:sans-serif">spawn, base</tspan></text>
+         sodipodi:role="line">spawn, base</tspan></text>
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
@@ -12861,13 +12833,12 @@ key = radar_truck.vehicle;</desc>
        id="text133353"
        y="-82.240463"
        x="3248.2146"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="-82.240463"
          x="3248.2146"
          id="tspan133355"
-         sodipodi:role="line"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif">spawn point</tspan></text>
+         sodipodi:role="line">spawn point</tspan></text>
     <rect
        transform="matrix(-0.00117959,0.9999993,-0.9999993,-0.00117959,0,0)"
        style="opacity:0.72566373;fill:#ffff00;fill-opacity:1;stroke:none;display:inline;enable-background:new"
@@ -12884,13 +12855,12 @@ key = radar_truck.vehicle;</desc>
        id="text133378"
        y="-33.046696"
        x="3247.3386"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="-33.046696"
          x="3247.3386"
          id="tspan133380"
-         sodipodi:role="line"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif">base</tspan></text>
+         sodipodi:role="line">base</tspan></text>
     <rect
        inkscape:label="#rect11324_base"
        y="-17.319855"
@@ -12919,502 +12889,456 @@ key = radar_truck.vehicle;</desc>
        id="text133430"
        y="-1.7293699"
        x="3246.3733"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="-1.7293699"
          x="3246.3733"
          id="tspan133432"
-         sodipodi:role="line"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif">base (map view)</tspan></text>
+         sodipodi:role="line">base (map view)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="-2387.5898"
        y="-61.166668"
        id="text7311"><tspan
          sodipodi:role="line"
          id="tspan7313"
          x="-2387.5898"
-         y="-61.166668"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif"> </tspan></text>
+         y="-61.166668" /></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="-2405.2676"
        y="-95.417145"
        id="text7315"><tspan
          sodipodi:role="line"
          id="tspan7317"
          x="-2405.2676"
-         y="-95.417145"
-         style="font-size:40px;line-height:1.25;font-family:sans-serif">texture</tspan><tspan
+         y="-95.417145">texture</tspan><tspan
          sodipodi:role="line"
          x="-2405.2676"
          y="-45.417145"
-         id="tspan7319"
-         style="font-size:40px;line-height:1.25;font-family:sans-serif">groups</tspan></text>
+         id="tspan7319">groups</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2438.4131"
        y="1362.7142"
        id="text25035"><tspan
          sodipodi:role="line"
          id="tspan25037"
          x="2438.4131"
-         y="1362.7142"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif"> </tspan></text>
+         y="1362.7142" /></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2432.7507"
        y="1362.2999"
        id="text25039"><tspan
          sodipodi:role="line"
          id="tspan25041"
          x="2432.7507"
-         y="1362.2999"
-         style="font-size:10px;line-height:1.25;font-family:sans-serif"> </tspan></text>
+         y="1362.2999" /></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2746.3911"
        y="1021.6695"
        id="text25043"><tspan
          sodipodi:role="line"
          id="tspan25045"
          x="2746.3911"
-         y="1021.6695"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">plants</tspan></text>
+         y="1021.6695">plants</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2746.2529"
        y="1061.7203"
        id="text25047"><tspan
          sodipodi:role="line"
          id="tspan25049"
          x="2746.2529"
-         y="1061.7203"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">bushes</tspan></text>
+         y="1061.7203">bushes</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2750.8105"
        y="1124.5591"
        id="text25051"><tspan
          sodipodi:role="line"
          x="2750.8105"
          y="1124.5591"
-         id="tspan25055"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">cars</tspan></text>
+         id="tspan25055">cars</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2753.4106"
        y="1186.9176"
        id="text25059"><tspan
          sodipodi:role="line"
          id="tspan25061"
          x="2753.4106"
-         y="1186.9176"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">containers</tspan></text>
+         y="1186.9176">containers</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2752.9531"
        y="1210.8224"
        id="text25063"><tspan
          sodipodi:role="line"
          id="tspan25065"
          x="2752.9531"
-         y="1210.8224"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">world statue</tspan></text>
+         y="1210.8224">world statue</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2753.3992"
        y="1235.7587"
        id="text25067"><tspan
          sodipodi:role="line"
          id="tspan25069"
          x="2753.3992"
-         y="1235.7587"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">parasols</tspan></text>
+         y="1235.7587">parasols</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2755.1628"
        y="1255.5642"
        id="text25071"><tspan
          sodipodi:role="line"
          id="tspan25073"
          x="2755.1628"
-         y="1255.5642"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">sunchairs</tspan></text>
+         y="1255.5642">sunchairs</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2755.7822"
        y="1273.9906"
        id="text25075"><tspan
          sodipodi:role="line"
          id="tspan25077"
          x="2755.7822"
-         y="1273.9906"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">hedgehog + barrier</tspan></text>
+         y="1273.9906">hedgehog + barrier</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2757.4639"
        y="1293.9497"
        id="text25079"><tspan
          sodipodi:role="line"
          id="tspan25081"
          x="2757.4639"
-         y="1293.9497"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">pipe</tspan></text>
+         y="1293.9497">pipe</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2757.606"
        y="1312.8613"
        id="text25083"><tspan
          sodipodi:role="line"
          id="tspan25085"
          x="2757.606"
-         y="1312.8613"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">tent</tspan></text>
+         y="1312.8613">tent</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2756.2722"
        y="1329.0388"
        id="text25087"><tspan
          sodipodi:role="line"
          id="tspan25089"
          x="2756.2722"
-         y="1329.0388"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">windmill</tspan></text>
+         y="1329.0388">windmill</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2755.9014"
        y="1346.5304"
        id="text25091"><tspan
          sodipodi:role="line"
          id="tspan25093"
          x="2755.9014"
-         y="1346.5304"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">enclosure</tspan></text>
+         y="1346.5304">enclosure</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2755.0056"
        y="1362.0883"
        id="text25095"><tspan
          sodipodi:role="line"
          id="tspan25097"
          x="2755.0056"
-         y="1362.0883"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">enclosure_a</tspan></text>
+         y="1362.0883">enclosure_a</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2756.0586"
        y="1382.2661"
        id="text25099"><tspan
          sodipodi:role="line"
          id="tspan25101"
          x="2756.0586"
-         y="1382.2661"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">gas tank</tspan></text>
+         y="1382.2661">gas tank</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2755.8816"
        y="1406.3792"
        id="text25103"><tspan
          sodipodi:role="line"
          id="tspan25105"
          x="2755.8816"
-         y="1406.3792"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">bench</tspan></text>
+         y="1406.3792">bench</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2755.1003"
        y="1425.5198"
        id="text25107"><tspan
          sodipodi:role="line"
          id="tspan25109"
          x="2755.1003"
-         y="1425.5198"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">street lantern</tspan></text>
+         y="1425.5198">street lantern</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2755.491"
        y="1443.4885"
        id="text25111"><tspan
          sodipodi:role="line"
          id="tspan25113"
          x="2755.491"
-         y="1443.4885"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">street light</tspan></text>
+         y="1443.4885">street light</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2756.2722"
        y="1462.2385"
        id="text25115"><tspan
          sodipodi:role="line"
          id="tspan25117"
          x="2756.2722"
-         y="1462.2385"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">ventilator</tspan></text>
+         y="1462.2385">ventilator</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2756.0769"
        y="1482.5511"
        id="text25119"><tspan
          sodipodi:role="line"
          id="tspan25121"
          x="2756.0769"
-         y="1482.5511"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">palm tree</tspan></text>
+         y="1482.5511">palm tree</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2396.4841"
        y="1922.6094"
        id="text25123"><tspan
          sodipodi:role="line"
          id="tspan25125"
          x="2396.4841"
-         y="1922.6094"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif"> </tspan></text>
+         y="1922.6094" /></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2756.7021"
        y="1510.5162"
        id="text25127"><tspan
          sodipodi:role="line"
          id="tspan25129"
          x="2756.7021"
-         y="1510.5162"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">church</tspan></text>
+         y="1510.5162">church</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2756.2722"
        y="1539.9729"
        id="text25131"><tspan
          sodipodi:role="line"
          id="tspan25133"
          x="2756.2722"
-         y="1539.9729"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">buddha</tspan></text>
+         y="1539.9729">buddha</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2755.491"
        y="1558.7229"
        id="text25135"><tspan
          sodipodi:role="line"
          id="tspan25137"
          x="2755.491"
-         y="1558.7229"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">obelisk</tspan></text>
+         y="1558.7229">obelisk</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2757.0535"
        y="1577.8635"
        id="text25139"><tspan
          sodipodi:role="line"
          id="tspan25141"
          x="2757.0535"
-         y="1577.8635"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">venus</tspan></text>
+         y="1577.8635">venus</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2756.6628"
        y="1597.3948"
        id="text25143"><tspan
          sodipodi:role="line"
          id="tspan25145"
          x="2756.6628"
-         y="1597.3948"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">lighthouse</tspan></text>
+         y="1597.3948">lighthouse</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2757.4441"
        y="1630.9885"
        id="text25147"><tspan
          sodipodi:role="line"
          id="tspan25149"
          x="2757.4441"
-         y="1630.9885"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">stash</tspan></text>
+         y="1630.9885">stash</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2757.0535"
        y="1660.2854"
        id="text25151"><tspan
          sodipodi:role="line"
          id="tspan25153"
          x="2757.0535"
-         y="1660.2854"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">armory</tspan></text>
+         y="1660.2854">armory</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2757.7158"
        y="1744.9346"
        id="text25159"><tspan
          sodipodi:role="line"
          id="tspan25161"
          x="2757.7158"
-         y="1744.9346"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">bushes</tspan></text>
+         y="1744.9346">bushes</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2757.4397"
        y="1780.5662"
        id="text25163"><tspan
          sodipodi:role="line"
          id="tspan25165"
          x="2757.4397"
-         y="1780.5662"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">chairset</tspan></text>
+         y="1780.5662">chairset</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2757.1633"
        y="1807.0828"
        id="text25167"><tspan
          sodipodi:role="line"
          id="tspan25169"
          x="2757.1633"
-         y="1807.0828"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">electric posts</tspan></text>
+         y="1807.0828">electric posts</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="3060.7224"
        y="1017.1711"
        id="text25171"><tspan
          sodipodi:role="line"
          id="tspan25173"
          x="3060.7224"
-         y="1017.1711"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">clover</tspan></text>
+         y="1017.1711">clover</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="3061.5513"
        y="1031.5341"
        id="text25175"><tspan
          sodipodi:role="line"
          id="tspan25177"
          x="3061.5513"
-         y="1031.5341"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">flower</tspan></text>
+         y="1031.5341">flower</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="3061.2747"
        y="1058.8793"
        id="text25179"><tspan
          sodipodi:role="line"
          id="tspan25181"
          x="3061.2747"
-         y="1058.8793"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">pavement</tspan></text>
+         y="1058.8793">pavement</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="3061.5508"
        y="1087.8817"
        id="text25187"><tspan
          sodipodi:role="line"
          id="tspan25189"
          x="3061.5508"
-         y="1087.8817"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">roof title</tspan></text>
+         y="1087.8817">roof title</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="3060.1697"
        y="1073.5186"
        id="text25191"><tspan
          sodipodi:role="line"
          id="tspan25193"
          x="3060.1697"
-         y="1073.5186"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">pavement title</tspan></text>
+         y="1073.5186">pavement title</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="3060.4937"
        y="1181.6427"
        id="text25195"><tspan
          sodipodi:role="line"
          id="tspan25197"
          x="3060.4937"
-         y="1181.6427"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">manhole</tspan></text>
+         y="1181.6427">manhole</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="3061.2273"
        y="1133.3656"
        id="text25199"><tspan
          sodipodi:role="line"
          id="tspan25201"
          x="3061.2273"
-         y="1133.3656"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">cracks</tspan></text>
+         y="1133.3656">cracks</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="3060.2778"
        y="1233.3582"
        id="text25203"><tspan
          sodipodi:role="line"
          id="tspan25205"
          x="3060.2778"
-         y="1233.3582"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">parking line</tspan></text>
+         y="1233.3582">parking line</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="3061.8403"
        y="1259.5299"
        id="text25207"><tspan
          sodipodi:role="line"
          id="tspan25209"
          x="3061.8403"
-         y="1259.5299"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">road line</tspan></text>
+         y="1259.5299">road line</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="3059.8872"
        y="1207.9675"
        id="text25211"><tspan
          sodipodi:role="line"
          id="tspan25213"
          x="3059.8872"
-         y="1207.9675"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">burned ground</tspan></text>
+         y="1207.9675">burned ground</tspan></text>
     <rect
        inkscape:label="#mesh"
        y="1540.2812"
@@ -13538,92 +13462,84 @@ key = radar_truck.vehicle;</desc>
     </rect>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="3068.3816"
        y="1559.1136"
        id="text25488"><tspan
          sodipodi:role="line"
          id="tspan25490"
          x="3068.3816"
-         y="1559.1136"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">small rock</tspan></text>
+         y="1559.1136">small rock</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="3067.6006"
        y="1615.3636"
        id="text25492"><tspan
          sodipodi:role="line"
          id="tspan25494"
          x="3067.6006"
-         y="1615.3636"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">medium rock</tspan></text>
+         y="1615.3636">medium rock</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="3070.7256"
        y="1670.8323"
        id="text25496"><tspan
          sodipodi:role="line"
          id="tspan25498"
          x="3070.7256"
-         y="1670.8323"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">big rock</tspan></text>
+         y="1670.8323">big rock</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="3072.2881"
        y="1732.5511"
        id="text25500"><tspan
          sodipodi:role="line"
          id="tspan25502"
          x="3072.2881"
-         y="1732.5511"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">stone</tspan></text>
+         y="1732.5511">stone</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="3070.7253"
        y="1764.5823"
        id="text25504"><tspan
          sodipodi:role="line"
          id="tspan25506"
          x="3070.7253"
-         y="1764.5823"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">huge rock</tspan></text>
+         y="1764.5823">huge rock</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="3073.0691"
        y="1798.176"
        id="text25508"><tspan
          sodipodi:role="line"
          id="tspan25510"
          x="3073.0691"
-         y="1798.176"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">sets</tspan></text>
+         y="1798.176">sets</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="2756.6628"
        y="1702.4729"
        id="text25155"><tspan
          sodipodi:role="line"
          id="tspan25157"
          x="2756.6628"
-         y="1702.4729"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">camo net</tspan></text>
+         y="1702.4729">camo net</tspan></text>
     <text
        id="text5935"
        y="1307.2596"
        x="3061.8403"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="1307.2596"
          x="3061.8403"
          sodipodi:role="line"
-         id="tspan5939"
-         style="font-size:8px;line-height:1.25;font-family:sans-serif">tennis court</tspan></text>
+         id="tspan5939">tennis court</tspan></text>
     <rect
        style="fill:#0de300;fill-opacity:1;fill-rule:evenodd;stroke:none"
        id="decal_template_tennis_court"
@@ -13655,21 +13571,21 @@ key = radar_truck.vehicle;</desc>
        y="199.74619"
        inkscape:label="#wall_template">
       <desc
-         id="desc9346-8-2-1-6-2-7-2-7">name = TennisNet;
-color = fill;
-depth = -1.0;
-height = 1.0;
-side_texture = fence_atlas1.png;
-side_texture_scale = 1.0 0.625;
-side_texture_atlas_cell = 0 1 4 4 0.015625; separator_side_texture = wall_atlas1.png; separator_side_texture_scale = 0.2 1.0; separator_side_texture_atlas_cell = 6 3 8 4 0.03125 0.015625;
-separator_top_texture = wall_atlas1.png; separator_top_texture_scale = 0.2 1.0; separator_top_texture_atlas_cell = 6 5 8 8 0.03125 0.03125;
-separator_color = stroke;
-separator_over_height = 0.0;
-separator_depth = 0.2;
-penetrability = 1.0;
-see_through = 1;
+         id="desc9346-8-2-1-6-2-7-2-7">name = TennisNet; 
+color = fill; 
+depth = -1.0; 
+height = 1.0; 
+side_texture = fence_atlas1.png; 
+side_texture_scale = 1.0 0.625; 
+side_texture_atlas_cell = 0 1 4 4 0.015625; separator_side_texture = wall_atlas1.png; separator_side_texture_scale = 0.2 1.0; separator_side_texture_atlas_cell = 6 3 8 4 0.03125 0.015625; 
+separator_top_texture = wall_atlas1.png; separator_top_texture_scale = 0.2 1.0; separator_top_texture_atlas_cell = 6 5 8 8 0.03125 0.03125; 
+separator_color = stroke; 
+separator_over_height = 0.0; 
+separator_depth = 0.2; 
+penetrability = 1.0; 
+see_through = 1; 
 climb_type = 0;
-hack1 = 1;
+hack1 = 1; 
 </desc>
     </rect>
     <rect
@@ -13711,20 +13627,20 @@ hack1 = 1;</desc>
        y="670.75806"
        inkscape:label="#wall_template">
       <desc
-         id="desc9346-8-2-1-6-4-2">name = PoolWall;
-color = fill;
-depth = 0.6;
-height = 1.1;
-side_texture = wall_atlas1.png;
-side_texture_scale = 5.0 5.0;
-side_texture_atlas_cell = 2 3 8 8 0.0078125; #side_cutout_texture = cutout.png; #detail_cutout_texture_channel = 1; #side_cutout_texture_scale = 20 20;
-top_texture = wall_atlas1.png;
-top_texture_atlas_cell = 0 4 8 16 0.0078125 0.015625; top_texture_scale = 2.0 0.4;
-# plain;
-separator_side_texture = wall_atlas1.png; separator_side_texture_atlas_cell = 2 1 8 8 0.0078125; separator_texture_scale = 3 3;
-# plain;
-separator_top_texture = wall_atlas1.png; separator_top_texture_atlas_cell = 2 1 8 8 0.0078125; separator_top_texture_scale = 3 3; separator_color = fill;
-separator_over_height = 0.0;
+         id="desc9346-8-2-1-6-4-2">name = PoolWall; 
+color = fill; 
+depth = 0.6; 
+height = 1.1; 
+side_texture = wall_atlas1.png; 
+side_texture_scale = 5.0 5.0; 
+side_texture_atlas_cell = 2 3 8 8 0.0078125; #side_cutout_texture = cutout.png; #detail_cutout_texture_channel = 1; #side_cutout_texture_scale = 20 20; 
+top_texture = wall_atlas1.png; 
+top_texture_atlas_cell = 0 4 8 16 0.0078125 0.015625; top_texture_scale = 2.0 0.4; 
+# plain; 
+separator_side_texture = wall_atlas1.png; separator_side_texture_atlas_cell = 2 1 8 8 0.0078125; separator_texture_scale = 3 3; 
+# plain; 
+separator_top_texture = wall_atlas1.png; separator_top_texture_atlas_cell = 2 1 8 8 0.0078125; separator_top_texture_scale = 3 3; separator_color = fill; 
+separator_over_height = 0.0; 
 separator_depth = 0.6;</desc>
     </rect>
     <rect
@@ -13736,26 +13652,26 @@ separator_depth = 0.6;</desc>
        y="468.25342"
        inkscape:label="#material">
       <desc
-         id="desc9346-0-1">name = BuildingHouse2;
-color = fill;
-# panel side;
+         id="desc9346-0-1">name = BuildingHouse2; 
+color = fill; 
+# panel side; 
 detail_texture = wall_atlas1.png;
 detail_texture_atlas_cell = 0 1 8 8 0.0078125;
-detail_texture_scale = 3 3;
-detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1;
-detail_cutout_texture_scale = 10 10;
-1st_floor_1 = house2_1st_floor;
-1st_floor_2 = house2_1st_floor;
-1st_floor_3 = house2_1st_floor;
-1st_floor_4 = house2_1st_floor;
-other_floor_1 = apartment1;
-other_floor_2 = apartment1;
-other_floor_3 = apartment1;
-other_floor_4 = apartment1;
-roof_color = stroke;
-roof_texture = wall_atlas1.png;
+detail_texture_scale = 3 3; 
+detail_cutout_texture = cutout.png; detail_cutout_texture_channel = 1; 
+detail_cutout_texture_scale = 10 10; 
+1st_floor_1 = house2_1st_floor; 
+1st_floor_2 = house2_1st_floor; 
+1st_floor_3 = house2_1st_floor; 
+1st_floor_4 = house2_1st_floor; 
+other_floor_1 = apartment1; 
+other_floor_2 = apartment1; 
+other_floor_3 = apartment1; 
+other_floor_4 = apartment1; 
+roof_color = stroke; 
+roof_texture = wall_atlas1.png; 
 roof_texture_atlas_cell = 0 4 8 8;
-roof_texture_scale = 3 3;
+roof_texture_scale = 3 3; 
 roof_cutout_texture = cutout.png; roof_cutout_texture_channel = 1; roof_cutout_texture_scale = 15 15;</desc>
     </rect>
     <rect
@@ -13855,36 +13771,11 @@ cord_offset1 = 0 0 0;
       <desc
          id="desc11579-7-1">name = post1_1;
 mesh_name = post1_1.mesh;
-texture0 = world_atlas1.png;
-texture0_atlas_cell = 11 16 32 32;
+texture0 = world_atlas1.png; 
+texture0_atlas_cell = 11 16 32 32; 
 collision_model_type = 0;
 collision_model_size =0.4 8.5 0.4;</desc>
     </rect>
-  </g>
-  <g
-     inkscape:label="safezones_overlay_th"
-     id="g7918"
-     inkscape:groupmode="layer"
-     style="display:none">
-    <path
-       id="path7920"
-       d="M -69.71875,-102.21875 V 2094.2188 H 2157.6875 V -102.21875 Z m 612.78125,866.125 h 896.5937 V 1338.0625 H 543.0625 Z"
-       style="display:inline;fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.80000007;stroke-opacity:1;enable-background:new"
-       inkscape:connector-curvature="0">
-      <desc
-         id="desc7922">tag = danger;</desc>
-    </path>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:Impact;-inkscape-font-specification:'Impact Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;enable-background:new"
-       x="503.55646"
-       y="657.83514"
-       id="text26607-9-1"><tspan
-         sodipodi:role="line"
-         id="tspan26679"
-         x="503.55646"
-         y="657.83514"
-         style="font-size:200px;line-height:1.25">TEDDY HUNT</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -13892,8 +13783,8 @@ collision_model_size =0.4 8.5 0.4;</desc>
      inkscape:label="safezones_overlay_tdm"
      style="display:none">
     <path
-       style="display:inline;fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.80000007;stroke-opacity:1;enable-background:new"
-       d="M -69.71875,-102.21875 V 2094.2188 H 2157.6875 V -102.21875 Z m 612.78125,866.125 h 896.5937 V 1338.0625 H 543.0625 Z"
+       style="fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:1.80000007;display:inline;enable-background:new"
+       d="m -69.71875,-102.21875 0,2196.43755 2227.40625,0 0,-2196.43755 -2227.40625,0 z m 612.78125,866.125 896.5937,0 0,574.15625 -896.5937,0 0,-574.15625 z"
        id="path26126"
        inkscape:connector-curvature="0">
       <desc
@@ -13903,13 +13794,36 @@ collision_model_size =0.4 8.5 0.4;</desc>
        id="text26138"
        y="671.19049"
        x="275.77399"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:Impact;-inkscape-font-specification:'Sans Bold';letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;enable-background:new"
+       style="font-size:200px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;display:inline;enable-background:new;font-family:Impact;-inkscape-font-specification:Sans Bold"
        xml:space="preserve"><tspan
          y="671.19049"
          x="275.77399"
          id="tspan26140"
+         sodipodi:role="line">TEAM DEATHMATCH</tspan></text>
+  </g>
+  <g
+     inkscape:label="safezones_overlay_th"
+     id="g7918"
+     inkscape:groupmode="layer"
+     style="display:none">
+    <path
+       id="path7920"
+       d="m -69.71875,-102.21875 0,2196.43755 2227.40625,0 0,-2196.43755 -2227.40625,0 z m 612.78125,866.125 896.5937,0 0,574.15625 -896.5937,0 0,-574.15625 z"
+       style="fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:1.80000007;display:inline;enable-background:new"
+       inkscape:connector-curvature="0">
+      <desc
+         id="desc7922">tag = danger;</desc>
+    </path>
+    <text
+       xml:space="preserve"
+       style="font-size:200px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;display:inline;enable-background:new;font-family:Impact;-inkscape-font-specification:Impact Bold"
+       x="503.55646"
+       y="657.83514"
+       id="text26607-9-1"><tspan
          sodipodi:role="line"
-         style="font-size:200px;line-height:1.25">TEAM DEATHMATCH</tspan></text>
+         id="tspan26679"
+         x="503.55646"
+         y="657.83514">TEDDY HUNT</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -13917,8 +13831,8 @@ collision_model_size =0.4 8.5 0.4;</desc>
      inkscape:label="safezones_overlay_koth"
      style="display:none">
     <path
-       style="display:inline;fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.80000007;stroke-opacity:1;enable-background:new"
-       d="M -69.71875,-102.21875 V 2094.2188 H 2157.6875 V -102.21875 Z m 612.78125,866.125 h 896.5937 V 1338.0625 H 543.0625 Z"
+       style="fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:1.80000007;display:inline;enable-background:new"
+       d="m -69.71875,-102.21875 0,2196.43755 2227.40625,0 0,-2196.43755 -2227.40625,0 z m 612.78125,866.125 896.5937,0 0,574.15625 -896.5937,0 0,-574.15625 z"
        id="path7930"
        inkscape:connector-curvature="0">
       <desc
@@ -13926,90 +13840,14 @@ collision_model_size =0.4 8.5 0.4;</desc>
     </path>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:Impact;-inkscape-font-specification:'Impact Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;enable-background:new"
+       style="font-size:200px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;display:inline;enable-background:new;font-family:Impact;-inkscape-font-specification:Impact Bold"
        x="341.78024"
        y="663.46173"
        id="text26607-9-1-9"><tspan
          sodipodi:role="line"
          id="tspan26702"
          x="341.78024"
-         y="663.46173"
-         style="font-size:200px;line-height:1.25">KING OF THE HILL</tspan></text>
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer27"
-     inkscape:label="safezones_overlay_hr"
-     style="display:none">
-    <path
-       style="display:inline;fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.80000007;stroke-opacity:1;enable-background:new"
-       d="M -67.185143,-110.87894 V 2085.5587 H 2160.2212 V -110.87894 Z M 545.59611,755.2461 h 896.59379 v 574.1563 H 545.59611 Z"
-       id="path26126-7"
-       inkscape:connector-curvature="0">
-      <desc
-         id="desc7916-9">tag = danger;</desc>
-    </path>
-    <text
-       id="text26138-3"
-       y="639.30011"
-       x="315.63306"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:Impact;-inkscape-font-specification:'Sans Bold';letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;enable-background:new"
-       xml:space="preserve"><tspan
-         y="639.30011"
-         x="315.63306"
-         id="tspan26140-8"
-         sodipodi:role="line"
-         style="font-size:200px;line-height:1.25">HOSTAGE RESCUE</tspan></text>
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer57"
-     inkscape:label="safezones_overlay_de"
-     style="display:none">
-    <path
-       style="display:inline;fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.80000007;stroke-opacity:1;enable-background:new"
-       d="M -67.185147,-122.19265 V 2074.2449 H 2160.2212 V -122.19265 Z m 612.781247,866.125 h 896.5938 V 1318.0886 H 545.5961 Z"
-       id="path7930-3"
-       inkscape:connector-curvature="0">
-      <desc
-         id="desc7932-9">tag = danger;</desc>
-    </path>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:Impact;-inkscape-font-specification:'Impact Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;enable-background:new"
-       x="506.31387"
-       y="643.48785"
-       id="text26607-9-1-9-0"><tspan
-         sodipodi:role="line"
-         id="tspan26702-5"
-         x="506.31387"
-         y="643.48785"
-         style="font-size:200px;line-height:1.25">DEMOLITION</tspan></text>
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer65"
-     inkscape:label="safezones_overlay_as"
-     style="display:none">
-    <path
-       id="path7920-0"
-       d="M -70.013569,-113.70737 V 2082.7303 H 2157.3927 V -113.70737 Z m 612.781249,866.125 H 1439.3614 V 1326.574 H 542.76768 Z"
-       style="display:inline;fill:#000000;fill-opacity:0.50196078;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.80000007;stroke-opacity:1;enable-background:new"
-       inkscape:connector-curvature="0">
-      <desc
-         id="desc7922-2">tag = danger;</desc>
-    </path>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:Impact;-inkscape-font-specification:'Impact Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;enable-background:new"
-       x="363.26163"
-       y="646.34656"
-       id="text26607-9-1-4"><tspan
-         sodipodi:role="line"
-         id="tspan26679-8"
-         x="363.26163"
-         y="646.34656"
-         style="font-size:200px;line-height:1.25">ASSASSINATION</tspan></text>
+         y="663.46173">KING OF THE HILL</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -15359,8 +15197,8 @@ collision_model_size =0.4 8.5 0.4;</desc>
      inkscape:label="bases.default"
      style="display:none">
     <rect
-       transform="rotate(-89.932414)"
-       style="display:inline;opacity:0.72566373;fill:#ffff00;fill-opacity:1;stroke:none;enable-background:new"
+       transform="matrix(0.00117959,-0.9999993,0.9999993,0.00117959,0,0)"
+       style="opacity:0.72566373;fill:#ffff00;fill-opacity:1;stroke:none;display:inline;enable-background:new"
        id="rect4874-8-1-8-6"
        width="47.918999"
        height="46.835667"
@@ -15373,8 +15211,8 @@ collision_model_size =0.4 8.5 0.4;</desc>
          id="desc4876-3-1-3-8">name=East Coast; faction_index=0; capturable =0;</desc>
     </rect>
     <rect
-       transform="rotate(-89.932414)"
-       style="display:inline;opacity:0.72566373;fill:#ffff00;fill-opacity:1;stroke:none;enable-background:new"
+       transform="matrix(0.00117959,-0.9999993,0.9999993,0.00117959,0,0)"
+       style="opacity:0.72566373;fill:#ffff00;fill-opacity:1;stroke:none;display:inline;enable-background:new"
        id="rect4874-8-1-8-8"
        width="58.385815"
        height="50.266582"
@@ -15387,8 +15225,8 @@ collision_model_size =0.4 8.5 0.4;</desc>
          id="desc4876-3-1-3-2">name=Heel Quarter; faction_index=1; capturable =0;</desc>
     </rect>
     <rect
-       transform="rotate(-89.932414)"
-       style="display:inline;opacity:0.72566373;fill:#ffff00;fill-opacity:1;stroke:none;enable-background:new"
+       transform="matrix(0.00117959,-0.9999993,0.9999993,0.00117959,0,0)"
+       style="opacity:0.72566373;fill:#ffff00;fill-opacity:1;stroke:none;display:inline;enable-background:new"
        id="rect4874-8-1-8-6-9"
        width="78.678955"
        height="77.950302"
@@ -15402,10 +15240,10 @@ collision_model_size =0.4 8.5 0.4;</desc>
     </rect>
   </g>
   <g
-     style="display:inline"
+     inkscape:groupmode="layer"
+     id="layer27"
      inkscape:label="bases.snd"
-     id="g5257"
-     inkscape:groupmode="layer">
+     style="display:inline">
     <rect
        inkscape:transform-center-y="-33.80981"
        inkscape:transform-center-x="-212.73151"
@@ -15414,11 +15252,11 @@ collision_model_size =0.4 8.5 0.4;</desc>
        x="-1012.6863"
        height="46.835667"
        width="47.918999"
-       id="rect5247"
-       style="display:inline;opacity:0.72566373;fill:#ffff00;fill-opacity:1;stroke:none;enable-background:new"
-       transform="rotate(-89.932414)">
+       id="rect11806"
+       style="display:inline;enable-background:new;opacity:0.72566372999999995;fill:#ffff00;fill-opacity:1;stroke:none"
+       transform="matrix(0.00117959,-0.9999993,0.9999993,0.00117959,0,0)">
       <desc
-         id="desc5245">name=; faction_index=0; capturable =0;</desc>
+         id="desc11808">name=; faction_index=0; capturable =0;</desc>
     </rect>
     <rect
        inkscape:transform-center-y="-37.657593"
@@ -15428,11 +15266,11 @@ collision_model_size =0.4 8.5 0.4;</desc>
        x="-1014.6279"
        height="50.266582"
        width="58.385815"
-       id="rect5251"
-       style="display:inline;opacity:0.72566373;fill:#ffff00;fill-opacity:1;stroke:none;enable-background:new"
-       transform="rotate(-89.932414)">
+       id="rect11810"
+       style="display:inline;enable-background:new;opacity:0.72566372999999995;fill:#ffff00;fill-opacity:1;stroke:none"
+       transform="matrix(0.00117959,-0.9999993,0.9999993,0.00117959,0,0)">
       <desc
-         id="desc5249">name=; faction_index=1; capturable =0;</desc>
+         id="desc11812">name=; faction_index=1; capturable =0;</desc>
     </rect>
   </g>
   <g
@@ -15515,7 +15353,7 @@ collision_model_size =0.4 8.5 0.4;</desc>
      inkscape:label="map_view_decoration"
      style="display:none">
     <path
-       style="display:inline;fill:#ffffff;stroke:#000000;stroke-width:1.69248509px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
+       style="fill:#ffffff;stroke:#000000;stroke-width:1.69248509px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;enable-background:new"
        d="m 1173.6108,1133.4836 6.6073,3.2389 8.7758,7.183 27.3009,3.1378 12.5438,-2.7499 20.5128,-15.7296 5.9625,0.2574 13.6503,-7.8195 -5.5623,-10.9569 17.8392,-3.3458 -1.1048,-9.9136 3.9122,-13.0921 6.9146,-0.094 0.064,-11.5904 3.9292,-18.2317 8.2883,-13.5069 4.1603,-17.8818 -3.2754,-32.88437 15.2324,-6.3116 10.0807,-12.6071 5.1122,-18.3199 10.6641,-15.2667 -2.1035,-34.5001 -27.0928,-39.0986 -59.6578,-24.14705 -23.6258,64.73291 -13.0432,-1.93416 -14.0158,-0.7411 -22.2739,0.577 -15.1975,5.7253 -17.5303,-3.2868 -3.878,4.2887 -12.032,-1.6156 -6.7813,1.3971 -8.5976,5.4976 -7.9464,-4.7606 -8.4823,3.9516 -8.1099,-1.374 -6.6325,6.5684 -13.9295,0.7835 -10.5891,9.1584 -7.955,1.1567 -15.5408,-7.67217 -10.7834,-7.6898 -9.546,-19.4199 -18.1638,-3.0052 -20.8154,0.8839 -5.56698,16.27723 -4.54592,15.50777"
        id="path7943-7-4-7-7-1-2-6"
        inkscape:connector-curvature="0"
@@ -15524,7 +15362,7 @@ collision_model_size =0.4 8.5 0.4;</desc>
        inkscape:transform-center-x="-136.73395"
        inkscape:transform-center-y="-26.87045" />
     <path
-       style="display:inline;fill:#ffffff;stroke:#000000;stroke-width:1.69248509px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
+       style="fill:#ffffff;stroke:#000000;stroke-width:1.69248509px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;enable-background:new"
        d="m 954.25122,925.79783 -9.3844,-13.0772 -15.8765,-1.113 -14.7182,-3.1987 -11.158,1.6352 -22.0986,-3.842 -5.5095,2.7033 -9.3711,0.3087 -4.0488,-2.4541 -34.5563,0.7805 -17.0248,-7.4891 -24.3355,4.5806 -24.8924,-1.7135 -16.175,8.5952 -23.3949,7.7857 -4.9244,15.9987 -12.3091,13.0591 -1.9764,24.6339 2.1522,4.3661 9.7532,8.089"
        id="path7943-7-4-7-7-1-2-6-1"
        inkscape:connector-curvature="0"
@@ -15541,7 +15379,7 @@ collision_model_size =0.4 8.5 0.4;</desc>
        inkscape:transform-center-x="338.99609"
        inkscape:transform-center-y="19.6869" />
     <path
-       style="display:inline;fill:none;stroke:#000000;stroke-width:1.69248509px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
+       style="fill:none;stroke:#000000;stroke-width:1.69248509px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;enable-background:new"
        d="m 714.27792,999.53963 -6.5166,4.18827 -1.9645,7.4341 -3.7316,9.7819 -1.403,8.2714 2.7711,7.248 -3.5169,5.8724 0.1708,7.3015 -10.5309,0.8736 -9.468,3.8693 -5.3294,-2.6747 -2.678,-1.5247 -7.337,-1.0334 -10.3594,2.0471 -5.1487,27.2433"
        id="path7943-7-4-7-7-1-2-6-1-8"
        inkscape:connector-curvature="0"
@@ -15555,7 +15393,7 @@ collision_model_size =0.4 8.5 0.4;</desc>
        inkscape:connector-curvature="0"
        id="path34248"
        d="m 1149.6628,1098.6668 8.7488,31.2257 -1.0573,4.398 -10.5273,4.5364 -11.6689,0.055 -12.9316,-3.0694 -34.8256,6.2906 -29.3499,-3.1998 -19.4608,-1.5463 -14.5287,0.028 -11.6876,1.4788 -18.70758,-6.5883 -16.5101,-0.1 -14.6056,-5.742 -15.6525,-3.9177 -16.0528,-1.434 -7.8188,4.1985 -10.6598,-2.8278 -15.5857,5.9134 -33.9435,-0.8946 -12.054,-11.6101"
-       style="display:inline;fill:#ffffff;stroke:none;enable-background:new"
+       style="fill:#ffffff;stroke:none;display:inline;enable-background:new"
        inkscape:transform-center-x="19.406349"
        inkscape:transform-center-y="96.388835" />
     <path
@@ -15567,12 +15405,12 @@ collision_model_size =0.4 8.5 0.4;</desc>
        inkscape:transform-center-x="193.98754"
        inkscape:transform-center-y="129.55244" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1.70000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:1.70000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 1275.2671,965.77307 69.2964,-28.63782"
        id="path23901"
        inkscape:connector-curvature="0" />
     <path
-       style="display:inline;fill:none;stroke:#000000;stroke-width:1.70000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+       style="fill:none;stroke:#000000;stroke-width:1.70000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline;enable-background:new"
        d="m 1226.6018,922.88141 6.3914,-18.94274"
        id="path23901-7"
        inkscape:connector-curvature="0"
@@ -15585,7 +15423,7 @@ collision_model_size =0.4 8.5 0.4;</desc>
     <path
        inkscape:transform-center-y="96.388835"
        inkscape:transform-center-x="19.406349"
-       style="display:inline;fill:none;stroke:#000000;stroke-width:1.69248509px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
+       style="fill:none;stroke:#000000;stroke-width:1.69248509px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;enable-background:new"
        d="m 1158.4116,1129.8925 -1.0573,4.398 -10.5273,4.5364 -11.6689,0.055 -12.9316,-3.0694 -34.8256,6.2906 -29.3499,-3.1998 -19.4608,-1.5463 -14.5287,0.028 -11.6876,1.4788 -18.70758,-6.5883 -16.5101,-0.1 -14.6056,-5.742 -15.6525,-3.9177 -16.0528,-1.434 -7.8188,4.1985 -10.6598,-2.8278 -15.5857,5.9134 -33.9435,-0.8946"
        id="path93495"
        inkscape:connector-curvature="0"
@@ -15598,7 +15436,65 @@ collision_model_size =0.4 8.5 0.4;</desc>
        inkscape:connector-curvature="0"
        id="path93497"
        d="m 862.89682,1127.1204 -9.7227,11.8441 -9.1924,5.6568 -3.5355,6.1872 -9.1924,5.3033 -5.3033,7.0711 -7.0711,4.773 -8.3085,8.4852 -4.4194,7.0711 -7.7782,6.364"
-       style="fill:#ffffff;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="fill:#ffffff;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       xml:space="preserve"
+       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:97.00000286%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;opacity:0.7;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;filter:url(#filter4081-1-5-4-8-5-6-4-8-7-1-4);enable-background:new;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="750.70361"
+       y="1288.3441"
+       id="text8384-23-5-2-9"><tspan
+         sodipodi:role="line"
+         id="tspan18919"
+         x="750.70361"
+         y="1288.3441">RESORT</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:97.00000286%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;opacity:0.7;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;filter:url(#filter4081-1-5-4-8-5-6-4-8-7-1-4-7);enable-background:new;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="753.50842"
+       y="855.74939"
+       id="text8384-23-5-2-9-2"><tspan
+         sodipodi:role="line"
+         id="tspan19061"
+         x="757.66858"
+         y="855.74939">HEEL </tspan><tspan
+         sodipodi:role="line"
+         id="tspan19063"
+         x="753.50842"
+         y="884.84937">QUARTER</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:97.00000286%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;opacity:0.7;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;filter:url(#filter4081-1-5-4-8-5-6-4-8-7-1-4-6);enable-background:new;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="946.54858"
+       y="1202.9386"
+       id="text8384-23-5-2-9-22"><tspan
+         sodipodi:role="line"
+         id="tspan18989"
+         x="946.54858"
+         y="1202.9386">MUSEUM</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:97.00000286%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;opacity:0.7;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;filter:url(#filter4081-1-5-4-8-5-6-4-8-7-1-4-7-6);enable-background:new;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="1250.907"
+       y="1191.5433"
+       id="text8384-23-5-2-9-2-6"><tspan
+         sodipodi:role="line"
+         id="tspan19065"
+         x="1255.0671"
+         y="1191.5433">EAST </tspan><tspan
+         sodipodi:role="line"
+         id="tspan19067"
+         x="1250.907"
+         y="1220.6433">COAST</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:97.00000286%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;opacity:0.7;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;filter:url(#filter4081-1-5-4-8-5-6-4-8-7-1-4-6-8);enable-background:new;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="1137.8197"
+       y="857.1637"
+       id="text8384-23-5-2-9-22-9"><tspan
+         sodipodi:role="line"
+         id="tspan19059"
+         x="1137.8197"
+         y="857.1637">PORT</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -15612,16 +15508,16 @@ collision_model_size =0.4 8.5 0.4;</desc>
        height="42.894306"
        width="41.929371"
        id="rect91118-7"
-       style="display:inline;opacity:0.5;fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:4.99999987, 4.99999987;stroke-dashoffset:5;stroke-opacity:1;enable-background:new"
-       transform="rotate(-179.91022)"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.99999987, 4.99999987;stroke-dashoffset:5;display:inline;enable-background:new"
+       transform="matrix(-0.99999877,-0.00156698,0.00156698,-0.99999877,0,0)"
        inkscape:transform-center-x="-212.79499"
        inkscape:transform-center-y="-33.699633">
       <desc
          id="desc91120-7">name=East Coast;</desc>
     </rect>
     <rect
-       transform="rotate(-179.91022)"
-       style="display:inline;opacity:0.5;fill:none;stroke:#ffffff;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:4.99999985, 4.99999985;stroke-dashoffset:0;stroke-opacity:1;enable-background:new"
+       transform="matrix(-0.99999877,-0.00156698,0.00156698,-0.99999877,0,0)"
+       style="opacity:0.5;fill:none;stroke:#ffffff;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.99999985, 4.99999985;stroke-dashoffset:0;display:inline;enable-background:new"
        id="rect91923-1"
        width="42.131607"
        height="43.113319"
@@ -15640,16 +15536,16 @@ collision_model_size =0.4 8.5 0.4;</desc>
        height="52.972527"
        width="45.182354"
        id="rect91118-6"
-       style="display:inline;opacity:0.5;fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:4.99999981, 4.99999981;stroke-dashoffset:5;stroke-opacity:1;enable-background:new"
-       transform="rotate(-179.91022)"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.99999981, 4.99999981;stroke-dashoffset:5;display:inline;enable-background:new"
+       transform="matrix(-0.99999877,-0.00156698,0.00156698,-0.99999877,0,0)"
        inkscape:transform-center-x="258.7637"
        inkscape:transform-center-y="-37.685129">
       <desc
          id="desc91120-0">name=Chairisence;</desc>
     </rect>
     <rect
-       transform="rotate(-179.91022)"
-       style="display:inline;opacity:0.5;fill:none;stroke:#ffffff;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:4.9999998, 4.9999998;stroke-dashoffset:0;stroke-opacity:1;enable-background:new"
+       transform="matrix(-0.99999877,-0.00156698,0.00156698,-0.99999877,0,0)"
+       style="opacity:0.5;fill:none;stroke:#ffffff;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.9999998, 4.9999998;stroke-dashoffset:0;display:inline;enable-background:new"
        id="rect91923-4"
        width="45.549488"
        height="53.109642"
@@ -15668,16 +15564,16 @@ collision_model_size =0.4 8.5 0.4;</desc>
        height="73.653412"
        width="72.867744"
        id="rect91118-7-1"
-       style="display:inline;opacity:0.5;fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:4.99999985, 4.99999985;stroke-dashoffset:5;stroke-opacity:1;enable-background:new"
-       transform="rotate(-179.91022)"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.99999985, 4.99999985;stroke-dashoffset:5;display:inline;enable-background:new"
+       transform="matrix(-0.99999877,-0.00156698,0.00156698,-0.99999877,0,0)"
        inkscape:transform-center-x="35.098804"
        inkscape:transform-center-y="55.878366">
       <desc
          id="desc91120-7-7">name=Obelisk;</desc>
     </rect>
     <rect
-       transform="rotate(-179.91022)"
-       style="display:inline;opacity:0.5;fill:none;stroke:#ffffff;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:4.99999983, 4.99999983;stroke-dashoffset:0;stroke-opacity:1;enable-background:new"
+       transform="matrix(-0.99999877,-0.00156698,0.00156698,-0.99999877,0,0)"
+       style="opacity:0.5;fill:none;stroke:#ffffff;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.99999983, 4.99999983;stroke-dashoffset:0;display:inline;enable-background:new"
        id="rect91923-1-4"
        width="73.023529"
        height="73.818184"
@@ -15691,24 +15587,24 @@ collision_model_size =0.4 8.5 0.4;</desc>
     </rect>
   </g>
   <g
-     style="display:inline"
+     style="display:none"
      inkscape:label="map_view_bases"
      id="g69424"
      inkscape:groupmode="layer">
     <path
-       style="display:inline;fill:#77aed5;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;enable-background:new"
+       style="fill:#77aed5;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new"
        d="m 675.84375,1208.9688 c -2.97946,7.4897 -4.75714,15.2008 -7.21875,22.875 10.326,3.107 20.62983,6.2878 30.96875,9.3437 1.50854,-4.7142 2.89659,-9.3765 4.15625,-14.125 -7.49756,-2.0402 -15.00287,-4.0521 -22.5,-6.0937 -0.92712,-3.6817 2.80975,-7.5932 1.8125,-10.7188 -2.35754,0.2462 -5.99203,-3.6096 -7.21875,-1.2812 z"
        id="path6848"
        inkscape:connector-curvature="0" />
     <path
-       style="display:inline;fill:none;stroke:#666666;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+       style="fill:none;stroke:#666666;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline;enable-background:new"
        d="m 700.08552,1242.0253 4.773,-15.2028 -23.1578,-6.1872 2.8284,-10.4298 -9.0156,-2.6517 -7.2478,24.7488 z"
        id="path34252"
        inkscape:connector-curvature="0"
        inkscape:transform-center-x="337.44179"
        inkscape:transform-center-y="200.79344" />
     <rect
-       style="display:inline;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;enable-background:new"
+       style="fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new"
        id="rect7895"
        width="25"
        height="51.999996"
@@ -15721,12 +15617,138 @@ collision_model_size =0.4 8.5 0.4;</desc>
        height="69.823204"
        width="73.707664"
        id="rect91118-7-2"
-       style="display:inline;opacity:0.5;fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:4.99999985, 4.99999985;stroke-dashoffset:5;stroke-opacity:1;enable-background:new"
-       transform="rotate(-179.91022)"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.99999985, 4.99999985;stroke-dashoffset:4.99999998;display:inline;enable-background:new"
+       transform="matrix(-0.99999877,-0.00156698,0.00156698,-0.99999877,0,0)"
        inkscape:transform-center-x="-212.79499"
        inkscape:transform-center-y="-33.699633">
       <desc
          id="desc91120-7-45">name=East Coast;</desc>
+    </rect>
+    <rect
+       transform="matrix(-0.99999877,-0.00156698,0.00156698,-0.99999877,0,0)"
+       style="opacity:0.5;fill:none;stroke:#ffffff;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.99999983, 4.99999983;stroke-dashoffset:0;display:inline;enable-background:new"
+       id="rect91923-1-5"
+       width="73.707664"
+       height="69.823204"
+       x="-1259.2504"
+       y="-1089.559"
+       inkscape:label="#rect11324_base"
+       inkscape:transform-center-x="-212.94434"
+       inkscape:transform-center-y="-33.684088">
+      <desc
+         id="desc91925-2-1">name=East Coast;</desc>
+    </rect>
+    <rect
+       inkscape:label="#rect11324_base"
+       y="-1014.313"
+       x="-812.92029"
+       height="58.35828"
+       width="71.154457"
+       id="rect91118-6-7"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.99999979, 4.99999979;stroke-dashoffset:4.99999998;display:inline;enable-background:new"
+       transform="matrix(-0.99999877,-0.00156698,0.00156698,-0.99999877,0,0)"
+       inkscape:transform-center-x="258.7637"
+       inkscape:transform-center-y="-37.685129">
+      <desc
+         id="desc91120-0-1">name=Chairisence;</desc>
+    </rect>
+    <rect
+       transform="matrix(-0.99999877,-0.00156698,0.00156698,-0.99999877,0,0)"
+       style="opacity:0.5;fill:none;stroke:#ffffff;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.99999978, 4.99999978;stroke-dashoffset:0;display:inline;enable-background:new"
+       id="rect91923-4-1"
+       width="71.154457"
+       height="58.35828"
+       x="-812.92029"
+       y="-1014.313"
+       inkscape:label="#rect11324_base"
+       inkscape:transform-center-x="258.68778"
+       inkscape:transform-center-y="-37.739774">
+      <desc
+         id="desc91925-9-5">name=Chairisence;</desc>
+    </rect>
+    <rect
+       inkscape:label="#rect11324_base"
+       y="-1096.0773"
+       x="-1047.4128"
+       height="94.069603"
+       width="93.270599"
+       id="rect91118-7-1-2"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.99999983, 4.99999983;stroke-dashoffset:4.99999998;display:inline;enable-background:new"
+       transform="matrix(-0.99999877,-0.00156698,0.00156698,-0.99999877,0,0)"
+       inkscape:transform-center-x="35.098804"
+       inkscape:transform-center-y="55.878366">
+      <desc
+         id="desc91120-7-7-7">name=Obelisk;</desc>
+    </rect>
+    <rect
+       transform="matrix(-0.99999877,-0.00156698,0.00156698,-0.99999877,0,0)"
+       style="opacity:0.5;fill:none;stroke:#ffffff;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.99999981, 4.99999981;stroke-dashoffset:0;display:inline;enable-background:new"
+       id="rect91923-1-4-6"
+       width="93.270599"
+       height="94.069603"
+       x="-1047.4128"
+       y="-1096.0773"
+       inkscape:label="#rect11324_base"
+       inkscape:transform-center-x="34.676641"
+       inkscape:transform-center-y="55.921031">
+      <desc
+         id="desc91925-2-0-1">name=Obelisk;</desc>
+    </rect>
+    <rect
+       inkscape:label="#rect11324_base"
+       y="-931.59149"
+       x="-1310.5979"
+       height="47.901264"
+       width="46.855553"
+       id="rect91118-7-17"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.99999983, 4.99999983;stroke-dashoffset:4.99999996;display:inline;enable-background:new"
+       transform="matrix(-0.99999877,-0.00156698,0.00156698,-0.99999877,0,0)"
+       inkscape:transform-center-x="-212.79499"
+       inkscape:transform-center-y="-33.699633">
+      <desc
+         id="desc91120-7-4">name=East Coast;</desc>
+    </rect>
+    <rect
+       transform="matrix(-0.99999877,-0.00156698,0.00156698,-0.99999877,0,0)"
+       style="opacity:0.5;fill:none;stroke:#ffffff;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.99999981, 4.99999981;stroke-dashoffset:0;display:inline;enable-background:new"
+       id="rect91923-1-0"
+       width="46.855385"
+       height="47.901245"
+       x="-1310.5979"
+       y="-931.59149"
+       inkscape:label="#rect11324_base"
+       inkscape:transform-center-x="-212.94434"
+       inkscape:transform-center-y="-33.684088">
+      <desc
+         id="desc91925-2-9">name=East Coast;</desc>
+    </rect>
+    <rect
+       inkscape:label="#rect11324_base"
+       y="-1198.5756"
+       x="-732.97784"
+       height="58.366024"
+       width="50.289001"
+       id="rect91118-7-4"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.99999983, 4.99999983;stroke-dashoffset:4.99999996;display:inline;enable-background:new"
+       transform="matrix(-0.99999877,-0.00156698,0.00156698,-0.99999877,0,0)"
+       inkscape:transform-center-x="-212.79499"
+       inkscape:transform-center-y="-33.699633">
+      <desc
+         id="desc91120-7-8">name=East Coast;</desc>
+    </rect>
+    <rect
+       transform="matrix(-0.99999877,-0.00156698,0.00156698,-0.99999877,0,0)"
+       style="opacity:0.5;fill:none;stroke:#ffffff;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.99999981, 4.99999981;stroke-dashoffset:0;display:inline;enable-background:new"
+       id="rect91923-1-8"
+       width="50.289112"
+       height="58.365829"
+       x="-732.97784"
+       y="-1198.5756"
+       inkscape:label="#rect11324_base"
+       inkscape:transform-center-x="-212.94434"
+       inkscape:transform-center-y="-33.684088">
+      <desc
+         id="desc91925-2-2">name=East Coast;</desc>
     </rect>
   </g>
   <g
@@ -18056,10 +18078,10 @@ key = radar_truck.vehicle;</desc>
          id="rect7651-13-5-8-33-8-6-9-8-2-3-4-1-4-3-1-4-2-2-7-4-1-6-5-4"
          style="opacity:0.79775277;fill:#2cffe7;fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline;enable-background:new" />
       <rect
-         transform="matrix(0.53436185,0.84525583,-0.84525583,0.53436185,0,0)"
+         transform="matrix(0.76334225,-0.64599428,0.64599428,0.76334225,0,0)"
          inkscape:label="#ladder"
-         y="-477.25555"
-         x="1619.2957"
+         y="1668.1705"
+         x="218.66788"
          height="2.25"
          width="6"
          id="rect7651-13-5-8-33-8-6-9-8-2-3-4-1-4-3-1-4-2-2-7-4-1-6-2-0"
@@ -20229,7 +20251,7 @@ key = radar_truck.vehicle;</desc>
         <desc
            id="desc127677-6">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = world_atlas1.png;
+texture0 = world_atlas1.png; 
 texture0_atlas_cell = 8 8 16 16;
 offset = 0 -1.05 0;
 </desc>
@@ -20246,7 +20268,7 @@ offset = 0 -1.05 0;
            d="m 672.639,1217.0358 3.0089,-9.6896 8.6226,2.5884 -2.8881,10.6474 23.2591,6.0819 -4.6135,15.2444 -32.0795,-9.7545"
            style="fill:none;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;enable-background:new">
           <desc
-             id="desc7945-4-0-2-6-8-7-20">type = end; wall = farm; #sidewall = none; wall_template = PoolWall; wall_height = 0.1;
+             id="desc7945-4-0-2-6-8-7-20">type = end; wall = farm; #sidewall = none; wall_template = PoolWall; wall_height = 0.1; 
 height = 0;
 separator_size = 0;
 separator_height = 0.05;
@@ -20277,7 +20299,7 @@ no_collision_side1;</desc>
            style="fill:none;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;enable-background:new">
           <desc
              id="desc7945-4-0-2-6-8-7-20-17-7">type = end; wall = farm; #sidewall = none; wall_template = PoolWall; wall_height = 0.1;
-height = 0;
+height = 0; 
 top_material = terrain;
 wall_merge = 1;
 no_collision_side2;
@@ -20304,9 +20326,9 @@ no_collision_side1;</desc>
            d="m 680.8876,1220.434 -3.9191,-1.7953 -4.3208,-0.5475"
            style="fill:none;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;enable-background:new">
           <desc
-             id="desc7945-4-0-2-7-4-8">type = end;
+             id="desc7945-4-0-2-7-4-8">type = end; 
 wall_template = InvisibleWall1;
-base_wall_template = InvisibleWall1;
+base_wall_template = InvisibleWall1; 
 mode = bridge;
 wall_height = 0;
 no_collision_side1;
@@ -20563,12 +20585,12 @@ top_material = none;</desc>
            d="m 1237.9531,1067.0441 -4.0081,4.3083 0.041,6.427 5.1025,3.2319"
            style="fill:none;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;enable-background:new">
           <desc
-             id="desc7945-4-0-2-6-8-7-8-0-8">type = deck_end;
-height = 1.0;
-wall_template = PlatformFence1;
-wall_height = 1.0;
-top_material = terrain;
-separator_height = 0.2;
+             id="desc7945-4-0-2-6-8-7-8-0-8">type = deck_end; 
+height = 1.0; 
+wall_template = PlatformFence1; 
+wall_height = 1.0; 
+top_material = terrain; 
+separator_height = 0.2; 
 base_wall_template = BrickWall1;</desc>
         </path>
         <path
@@ -21516,7 +21538,7 @@ base_wall_template = BrickWall1;</desc>
          id="spawn1-70-1-4-9-17-2-25-2-6-1-9"
          style="fill:#ffd5d5;fill-opacity:1;stroke:#ff00ff;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:11.99999985, 11.99999985;stroke-dashoffset:4.59999986;display:inline;enable-background:new">
         <desc
-           id="desc7082-9-7-0-4-4-3-3-9-2-1-8">type = vehicle;
+           id="desc7082-9-7-0-4-4-3-3-9-2-1-8">type = vehicle; 
 key = mobile_armory.vehicle;</desc>
       </rect>
       <rect
@@ -21553,7 +21575,7 @@ key = mobile_armory.vehicle;</desc>
          id="spawn1-70-1-4-9-17-2-25-2-6-1-9-4"
          style="fill:#ffd5d5;fill-opacity:1;stroke:#ff00ff;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:11.99999985, 11.99999985;stroke-dashoffset:4.59999986;display:inline;enable-background:new">
         <desc
-           id="desc7082-9-7-0-4-4-3-3-9-2-1-8-0">type = vehicle;
+           id="desc7082-9-7-0-4-4-3-3-9-2-1-8-0">type = vehicle; 
 key = mobile_armory.vehicle;</desc>
       </rect>
     </g>
@@ -21947,7 +21969,7 @@ key = mobile_armory.vehicle;</desc>
          inkscape:label=""
          transform="matrix(0.47845581,0.87811163,-0.87811163,0.47845581,0,0)">
         <desc
-           id="desc16523">type = vehicle;
+           id="desc16523">type = vehicle; 
 key = mobile_armory.vehicle;</desc>
       </rect>
       <rect
@@ -21986,7 +22008,7 @@ tag = jeep;</desc>
          inkscape:label=""
          transform="matrix(-0.01669783,-0.99986058,0.99986058,-0.01669783,0,0)">
         <desc
-           id="desc16523-7">type = vehicle;
+           id="desc16523-7">type = vehicle; 
 key = mobile_armory.vehicle;</desc>
       </rect>
     </g>
@@ -22494,7 +22516,7 @@ key = mobile_armory.vehicle;</desc>
          id="spawn1-70-1-4-9-17-2-25-2-6-1-9-2"
          style="fill:#ffd5d5;fill-opacity:1;stroke:#ff00ff;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:11.99999981, 11.99999981;stroke-dashoffset:4.59999984;display:inline;enable-background:new">
         <desc
-           id="desc7082-9-7-0-4-4-3-3-9-2-1-8-1">type = vehicle;
+           id="desc7082-9-7-0-4-4-3-3-9-2-1-8-1">type = vehicle; 
 key = mobile_armory.vehicle;</desc>
       </rect>
       <rect
@@ -22507,22 +22529,8 @@ key = mobile_armory.vehicle;</desc>
          id="spawn1-70-1-4-9-17-2-25-2-6-1-9-4-6"
          style="fill:#ffd5d5;fill-opacity:1;stroke:#ff00ff;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:11.99999993, 11.99999993;stroke-dashoffset:4.5999999;display:inline;enable-background:new">
         <desc
-           id="desc7082-9-7-0-4-4-3-3-9-2-1-8-0-8">type = vehicle;
+           id="desc7082-9-7-0-4-4-3-3-9-2-1-8-0-8">type = vehicle; 
 key = mobile_armory.vehicle;</desc>
-      </rect>
-      <rect
-         transform="rotate(90.76769)"
-         inkscape:label=""
-         y="-772.21655"
-         x="1103.0469"
-         height="6.6684999"
-         width="5.7888808"
-         id="spawn2_8-1-0"
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4.00000126, 4.00000126;stroke-dashoffset:7.00000238;stroke-opacity:1;enable-background:new"
-         inkscape:transform-center-x="-0.15403042"
-         inkscape:transform-center-y="-0.085528379">
-        <desc
-           id="desc9788-45-3-6-1-6-7-2-09-4-7-2-82-2-4-4-2-4-7-5-1-7-0-2-6-0-2-5">type = vehicle; key = deco_car2_blue.vehicle;</desc>
       </rect>
     </g>
     <g
@@ -23551,7 +23559,7 @@ key = mobile_armory.vehicle;</desc>
          inkscape:label="#mesh"
          transform="matrix(0.81724347,-0.57629256,0.57629256,0.81724347,0,0)">
         <desc
-           id="desc47103">name = dock_crane; mesh_name = dock_crane.mesh;
+           id="desc47103">name = dock_crane; mesh_name = dock_crane.mesh; 
 texture0 = world_atlas1.png; texture0_atlas_cell = 4 5 8 8;
 collision_model_type = -1; </desc>
       </rect>
@@ -24859,11 +24867,11 @@ material = BuildingHouse2; offset = 0 0.2 0;</desc>
          inkscape:label="#mesh"
          transform="matrix(0.20687797,-0.97836675,0.97836675,0.20687797,0,0)">
         <desc
-           id="desc22679-6-3-0">name = construction_part_1;
+           id="desc22679-6-3-0">name = construction_part_1; 
 mesh_name = construction_part_1.mesh;
 texture0 = world_atlas1.png; texture0_atlas_cell = 4 3 8 8;
-collision_model_type = 1;
-collision_model_size = 10.0 0.25 1.0;
+collision_model_type = 1; 
+collision_model_size = 10.0 0.25 1.0; 
 walkable = 1; </desc>
       </rect>
       <rect
@@ -24876,11 +24884,11 @@ walkable = 1; </desc>
          inkscape:label="#mesh"
          transform="matrix(-0.10893433,-0.99404895,0.99404895,-0.10893433,0,0)">
         <desc
-           id="desc22679-6-3-0-6">name = construction_part_1;
+           id="desc22679-6-3-0-6">name = construction_part_1; 
 mesh_name = construction_part_1.mesh;
 texture0 = world_atlas1.png; texture0_atlas_cell = 4 3 8 8;
-collision_model_type = 1;
-collision_model_size = 10.0 0.25 1.0;
+collision_model_type = 1; 
+collision_model_size = 10.0 0.25 1.0; 
 walkable = 1; </desc>
       </rect>
       <rect
@@ -24990,50 +24998,6 @@ walkable = 1; </desc>
          rx="1.410445">
         <desc
            id="desc9040-4-3-2-0-7-3-1-5-3">template = parasol_yellow;</desc>
-      </rect>
-      <rect
-         inkscape:label=""
-         y="-1115.5265"
-         x="509.45117"
-         height="4"
-         width="4"
-         id="item_supply2-2-4-11-6-4-2-2"
-         style="display:inline;fill:#de8787;fill-opacity:1;enable-background:new"
-         transform="rotate(118.69103)"
-         inkscape:transform-center-x="2.6376188"
-         inkscape:transform-center-y="5.2588484">
-        <desc
-           id="desc33018-1-8-2-4">type = weapon_rack;</desc>
-      </rect>
-      <rect
-         style="display:inline;fill:#69c044;fill-opacity:1;stroke:#000000;stroke-width:1.20000005;enable-background:new"
-         id="mesh3-9-9-5-4-6-2-55-9-0-1-3-7-8"
-         width="7.1999998"
-         height="9.6000004"
-         x="1127.2378"
-         y="460.71567"
-         inkscape:label="#mesh"
-         transform="rotate(30.744331)"
-         inkscape:transform-center-x="-0.082297843"
-         inkscape:transform-center-y="0.15792756">
-        <title
-           id="title33916-4-7-5-9-3-3">armory</title>
-        <desc
-           id="desc6851-7-7-1-6-4-05-7-9">template = armory;</desc>
-      </rect>
-      <rect
-         transform="rotate(-160.73088)"
-         inkscape:label=""
-         y="-402.02521"
-         x="-1477.5465"
-         height="6.6684999"
-         width="5.7888808"
-         id="spawn4_4-9-2"
-         style="display:inline;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4.0000009, 4.0000009;stroke-dashoffset:7.00000191;stroke-opacity:1;enable-background:new"
-         inkscape:transform-center-x="0.34203044"
-         inkscape:transform-center-y="-0.14203432">
-        <desc
-           id="desc9788-45-3-6-1-6-7-2-09-4-7-2-82-2-4-4-2-4-7-5-1-5-4-3-6-4-3-2">type = vehicle; key = deco_pickup_red.vehicle;</desc>
       </rect>
     </g>
     <g
@@ -26802,22 +26766,22 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          height="4"
          width="4"
          id="item_supply2-2-4-11-6-4"
-         style="display:inline;fill:#de8787;fill-opacity:1;enable-background:new"
-         transform="rotate(177.89687)"
+         style="fill:#de8787;fill-opacity:1;display:inline;enable-background:new"
+         transform="matrix(-0.99932639,0.0366983,-0.0366983,-0.99932639,0,0)"
          inkscape:transform-center-x="5.8677515"
          inkscape:transform-center-y="0.42663047">
         <desc
            id="desc33018-1-8">type = weapon_rack;</desc>
       </rect>
       <rect
-         style="display:inline;fill:#69c044;fill-opacity:1;stroke:#000000;stroke-width:1.20000005;enable-background:new"
+         style="fill:#69c044;fill-opacity:1;stroke:#000000;stroke-width:1.20000005;display:inline;enable-background:new"
          id="mesh3-9-9-5-4-6-2-55-9-0-1-3"
          width="7.1999998"
          height="9.6000004"
          x="1178.4501"
          y="-727.37341"
          inkscape:label="#mesh"
-         transform="rotate(89.950178)"
+         transform="matrix(8.6955783e-4,0.99999962,-0.99999962,8.6955783e-4,0,0)"
          inkscape:transform-center-x="0.093391188"
          inkscape:transform-center-y="0.15148088">
         <title
@@ -26832,22 +26796,22 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          height="4"
          width="4"
          id="item_supply2-2-4-11-6-4-2-2"
-         style="display:inline;fill:#de8787;fill-opacity:1;enable-background:new"
-         transform="rotate(-152.99397)"
+         style="fill:#de8787;fill-opacity:1;display:inline;enable-background:new"
+         transform="matrix(-0.89095873,-0.45408428,0.45408428,-0.89095873,0,0)"
          inkscape:transform-center-x="5.3340547"
          inkscape:transform-center-y="-2.4818414">
         <desc
            id="desc33018-1-8-2-4">type = weapon_rack;</desc>
       </rect>
       <rect
-         style="display:inline;fill:#69c044;fill-opacity:1;stroke:#000000;stroke-width:1.20000005;enable-background:new"
+         style="fill:#69c044;fill-opacity:1;stroke:#000000;stroke-width:1.20000005;display:inline;enable-background:new"
          id="mesh3-9-9-5-4-6-2-55-9-0-1-3-7-8"
          width="7.1999998"
          height="9.6000004"
          x="493.4252"
          y="-1123.8889"
          inkscape:label="#mesh"
-         transform="rotate(119.05933)"
+         transform="matrix(-0.48571506,0.8741172,-0.8741172,-0.48571506,0,0)"
          inkscape:transform-center-x="0.15543179"
          inkscape:transform-center-y="0.086932268">
         <title
@@ -26862,22 +26826,22 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          height="4"
          width="4"
          id="item_supply2-2-4-11-6-4-2"
-         style="display:inline;fill:#de8787;fill-opacity:1;enable-background:new"
-         transform="rotate(-1.8929781)"
+         style="fill:#de8787;fill-opacity:1;display:inline;enable-background:new"
+         transform="matrix(0.99945427,-0.03303269,0.03303269,0.99945427,0,0)"
          inkscape:transform-center-x="-5.8691977"
          inkscape:transform-center-y="-0.40504077">
         <desc
            id="desc33018-1-8-2">type = weapon_rack;</desc>
       </rect>
       <rect
-         style="display:inline;fill:#69c044;fill-opacity:1;stroke:#000000;stroke-width:1.20000005;enable-background:new"
+         style="fill:#69c044;fill-opacity:1;stroke:#000000;stroke-width:1.20000005;display:inline;enable-background:new"
          id="mesh3-9-9-5-4-6-2-55-9-0-1-3-7"
          width="7.1999998"
          height="9.6000004"
          x="-1029.6849"
          y="1267.1172"
          inkscape:label="#mesh"
-         transform="rotate(-89.839672)"
+         transform="matrix(0.00279825,-0.99999608,0.99999608,0.00279825,0,0)"
          inkscape:transform-center-x="-0.094070599"
          inkscape:transform-center-y="-0.15116111">
         <title
@@ -26892,22 +26856,22 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          height="4"
          width="4"
          id="item_supply2-2-4-11-6-4-2-7"
-         style="display:inline;fill:#de8787;fill-opacity:1;enable-background:new"
-         transform="rotate(-25.153007)"
+         style="fill:#de8787;fill-opacity:1;display:inline;enable-background:new"
+         transform="matrix(0.90517596,-0.42503703,0.42503703,0.90517596,0,0)"
          inkscape:transform-center-x="-5.2322"
          inkscape:transform-center-y="-2.6899075">
         <desc
            id="desc33018-1-8-2-9">type = weapon_rack;</desc>
       </rect>
       <rect
-         style="display:inline;fill:#69c044;fill-opacity:1;stroke:#000000;stroke-width:1.20000005;enable-background:new"
+         style="fill:#69c044;fill-opacity:1;stroke:#000000;stroke-width:1.20000005;display:inline;enable-background:new"
          id="mesh3-9-9-5-4-6-2-55-9-0-1-3-7-3"
          width="7.1999998"
          height="9.6000004"
          x="-1383.6381"
          y="834.83606"
          inkscape:label="#mesh"
-         transform="rotate(-113.0997)"
+         transform="matrix(-0.3923323,-0.91982355,0.91982355,-0.3923323,0,0)"
          inkscape:transform-center-x="-0.026743116"
          inkscape:transform-center-y="-0.17598694">
         <title
@@ -26922,7 +26886,7 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
        inkscape:label="spawnpoints"
        style="display:inline">
       <rect
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
+         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          id="rect4878-8-6-42-7-9-6-45"
          width="2.2977724"
          height="2.0679491"
@@ -26931,9 +26895,9 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="279.21469"
          inkscape:transform-center-y="-0.11346347"
-         transform="scale(-1)" />
+         transform="scale(-1,-1)" />
       <rect
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
+         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          id="rect4878-8-6-42-7-9-6-8"
          width="2.2977724"
          height="2.0679491"
@@ -26942,9 +26906,9 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="232.96469"
          inkscape:transform-center-y="-43.050902"
-         transform="scale(-1)" />
+         transform="scale(-1,-1)" />
       <rect
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
+         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-5"
          width="2.2977724"
          height="2.0679491"
@@ -26953,9 +26917,9 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-222.85196"
          inkscape:transform-center-y="-40.771971"
-         transform="scale(-1)" />
+         transform="scale(-1,-1)" />
       <rect
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
+         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-9"
          width="2.2977724"
          height="2.0679491"
@@ -26964,9 +26928,9 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-192.77262"
          inkscape:transform-center-y="-94.335326"
-         transform="scale(-1)" />
+         transform="scale(-1,-1)" />
       <rect
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
+         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1"
          width="2.2977724"
          height="2.0679491"
@@ -26975,9 +26939,9 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-239.46904"
          inkscape:transform-center-y="-2.9417105"
-         transform="scale(-1)" />
+         transform="scale(-1,-1)" />
       <rect
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
+         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62"
          width="2.2977724"
          height="2.0679491"
@@ -26986,9 +26950,9 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-217.7255"
          inkscape:transform-center-y="-8.7752677"
-         transform="scale(-1)" />
+         transform="scale(-1,-1)" />
       <rect
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
+         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-8"
          width="2.2977724"
          height="2.0679491"
@@ -26997,9 +26961,9 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="239.65353"
          inkscape:transform-center-y="-3.7957755"
-         transform="scale(-1)" />
+         transform="scale(-1,-1)" />
       <rect
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
+         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-6"
          width="2.2977724"
          height="2.0679491"
@@ -27008,9 +26972,9 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="279.24606"
          inkscape:transform-center-y="-72.753905"
-         transform="scale(-1)" />
+         transform="scale(-1,-1)" />
       <rect
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
+         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7"
          width="2.2977724"
          height="2.0679491"
@@ -27019,9 +26983,9 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-282.60245"
          inkscape:transform-center-y="-125.62475"
-         transform="scale(-1)" />
+         transform="scale(-1,-1)" />
       <rect
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
+         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-4"
          width="2.2977724"
          height="2.0679491"
@@ -27030,9 +26994,9 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="338.94443"
          inkscape:transform-center-y="166.94074"
-         transform="scale(-1)" />
+         transform="scale(-1,-1)" />
       <rect
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
+         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-4-3"
          width="2.2977724"
          height="2.0679491"
@@ -27041,9 +27005,9 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="338.94443"
          inkscape:transform-center-y="166.94074"
-         transform="scale(-1)" />
+         transform="scale(-1,-1)" />
       <rect
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
+         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-4-3-8"
          width="2.2977724"
          height="2.0679491"
@@ -27052,9 +27016,9 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="338.94443"
          inkscape:transform-center-y="166.94074"
-         transform="scale(-1)" />
+         transform="scale(-1,-1)" />
       <rect
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
+         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-1-7-17"
          width="2.2977724"
          height="2.0679491"
@@ -27063,9 +27027,9 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-282.60245"
          inkscape:transform-center-y="-125.62475"
-         transform="scale(-1)" />
+         transform="scale(-1,-1)" />
       <rect
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
+         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-98"
          width="2.2977724"
          height="2.0679491"
@@ -27074,9 +27038,9 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-259.44389"
          inkscape:transform-center-y="-70.338134"
-         transform="scale(-1)" />
+         transform="scale(-1,-1)" />
       <rect
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
+         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-98-9"
          width="2.2977724"
          height="2.0679491"
@@ -27085,9 +27049,9 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="-259.44389"
          inkscape:transform-center-y="-70.338134"
-         transform="scale(-1)" />
+         transform="scale(-1,-1)" />
       <rect
-         style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;enable-background:new"
+         style="fill:#0000ff;fill-opacity:1;stroke:none;display:inline;enable-background:new"
          id="rect4878-8-6-42-7-9-6-62-6-1"
          width="2.2977724"
          height="2.0679491"
@@ -27096,7 +27060,7 @@ collision_model_type = -1; collision_model_size = 6.0 3.0 3.0; offset = 0 -3 0; 
          inkscape:label="#spawnrect10748"
          inkscape:transform-center-x="307.87106"
          inkscape:transform-center-y="-47.878905"
-         transform="scale(-1)" />
+         transform="scale(-1,-1)" />
     </g>
   </g>
   <g
