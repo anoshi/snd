@@ -12,7 +12,7 @@
         <modifier class="projectile_hit_result" input_character_state="wound" output_character_state="none" />
         <modifier class="projectile_hit_result" input_character_state="stun" output_character_state="none" consumes_item="0" />
         <modifier class="melee_hit_result" input_character_state="death" output_character_state="none" />
-        <modifier class="hit_success_probability" value="-1.8" />
+        <modifier class="hit_success_probability" value="-3.1" />
         <modifier class="speed" value="-0.08" />
     </carry_item>
 
@@ -28,7 +28,7 @@
         <modifier class="projectile_hit_result" input_character_state="wound" output_character_state="none" />
         <modifier class="projectile_hit_result" input_character_state="stun" output_character_state="none" consumes_item="0" />
         <modifier class="melee_hit_result" input_character_state="death" output_character_state="none" />
-        <modifier class="hit_success_probability" value="-1.8" />
+        <modifier class="hit_success_probability" value="-3.1" />
         <modifier class="speed" value="-0.08" />
     </carry_item>
 
@@ -44,7 +44,7 @@
         <modifier class="projectile_hit_result" input_character_state="wound" output_character_state="none" />
         <modifier class="projectile_hit_result" input_character_state="stun" output_character_state="none" consumes_item="0" />
         <modifier class="melee_hit_result" input_character_state="death" output_character_state="none" />
-        <modifier class="hit_success_probability" value="-1.8" />
+        <modifier class="hit_success_probability" value="-3.1" />
         <modifier class="speed" value="-0.08" />
     </carry_item>
 
@@ -59,11 +59,11 @@
         <modifier class="projectile_hit_result" input_character_state="death" output_character_state="none" />
         <modifier class="projectile_hit_result" input_character_state="wound" output_character_state="none" />
         <modifier class="melee_hit_result" input_character_state="death" output_character_state="stun" />
-        <modifier class="hit_success_probability" value="-1.8" />
+        <modifier class="hit_success_probability" value="-3.1" />
         <modifier class="speed" value="-0.08" />
     </carry_item>
 
-    <carry_item key="kevlar_plus_helmet_0" name="Kevlar+Helmet, 20%" slot="1" transform_on_consume="std_armour" time_to_live_out_in_the_open="60.0">
+    <carry_item key="kevlar_plus_helmet_0" name="Kevlar+Helmet, 20%" slot="1" transform_on_consume="kev_plus_helmet_health" time_to_live_out_in_the_open="60.0">
         <hud_icon filename="hud_kevlar_plus_helmet_20.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="5" price="2" />
@@ -74,7 +74,75 @@
         <modifier class="projectile_hit_result" input_character_state="death" output_character_state="none" />
         <modifier class="projectile_hit_result" input_character_state="wound" output_character_state="none" />
         <modifier class="melee_hit_result" input_character_state="death" output_character_state="stun" />
-        <modifier class="hit_success_probability" value="-1.8" />
+        <modifier class="hit_success_probability" value="-3.1" />
         <modifier class="speed" value="-0.08" />
     </carry_item>
+
+    <carry_item key="kev_plus_helmet_health" name="100% Health" slot="1" transform_on_consume="kev_plus_helmet_health_3" time_to_live_out_in_the_open="0.0" draggable="0">
+        <hud_icon filename="hud_health_100.png" />
+        <capacity value="1" source="rank" source_value="0.0" />
+        <inventory encumbrance="0" price="0" />
+        <commonness value="0.0" in_stock="0" can_respawn_with="1" />
+        <!-- blast -> stun, hit -> none -->
+        <modifier class="projectile_blast_result" input_character_state="death" output_character_state="stun" />
+        <modifier class="projectile_blast_result" input_character_state="wound" output_character_state="stun" />
+        <modifier class="projectile_hit_result" input_character_state="death" output_character_state="none" />
+        <modifier class="projectile_hit_result" input_character_state="wound" output_character_state="none" />
+        <modifier class="projectile_hit_result" input_character_state="stun" output_character_state="stun" consumes_item="0" />
+        <modifier class="speed" value="+0.00" />
+    </carry_item>
+
+    <carry_item key="kev_plus_helmet_health_3" name="80% Health" slot="1" transform_on_consume="kev_plus_helmet_health_2" time_to_live_out_in_the_open="0.0" draggable="0">
+        <hud_icon filename="hud_health_80.png" />
+        <capacity value="1" source="rank" source_value="0.0" />
+        <inventory encumbrance="0" price="0" />
+        <commonness value="0.0" in_stock="0" can_respawn_with="0" />
+        <!-- blast -> stun, hit -> none -->
+        <modifier class="projectile_blast_result" input_character_state="death" output_character_state="stun" />
+        <modifier class="projectile_blast_result" input_character_state="wound" output_character_state="stun" />
+        <modifier class="projectile_hit_result" input_character_state="death" output_character_state="none" />
+        <modifier class="projectile_hit_result" input_character_state="wound" output_character_state="none" />
+        <modifier class="projectile_hit_result" input_character_state="stun" output_character_state="stun" consumes_item="0" />
+        <modifier class="speed" value="+0.00" />
+    </carry_item>
+
+    <carry_item key="kev_plus_helmet_health_2" name="60% Health" slot="1" transform_on_consume="kev_plus_helmet_health_1" time_to_live_out_in_the_open="0.0" draggable="0">
+        <hud_icon filename="hud_health_60.png" />
+        <capacity value="1" source="rank" source_value="0.0" />
+        <inventory encumbrance="0" price="0" />
+        <commonness value="0.0" in_stock="0" can_respawn_with="0" />
+        <!-- blast -> stun, hit -> none -->
+        <modifier class="projectile_blast_result" input_character_state="death" output_character_state="stun" />
+        <modifier class="projectile_blast_result" input_character_state="wound" output_character_state="stun" />
+        <modifier class="projectile_hit_result" input_character_state="death" output_character_state="none" />
+        <modifier class="projectile_hit_result" input_character_state="wound" output_character_state="none" />
+        <modifier class="projectile_hit_result" input_character_state="stun" output_character_state="stun" consumes_item="0" />
+        <modifier class="speed" value="+0.00" />
+    </carry_item>
+
+    <carry_item key="kev_plus_helmet_health_1" name="40% Health" slot="1" transform_on_consume="kev_plus_helmet_health_0" time_to_live_out_in_the_open="0.0" draggable="0">
+        <hud_icon filename="hud_health_40.png" />
+        <capacity value="1" source="rank" source_value="0.0" />
+        <inventory encumbrance="0" price="0" />
+        <commonness value="0.0" in_stock="0" can_respawn_with="0" />
+        <!-- blast -> stun, hit -> none -->
+        <modifier class="projectile_blast_result" input_character_state="death" output_character_state="stun" />
+        <modifier class="projectile_blast_result" input_character_state="wound" output_character_state="stun" />
+        <modifier class="projectile_hit_result" input_character_state="death" output_character_state="none" />
+        <modifier class="projectile_hit_result" input_character_state="wound" output_character_state="none" />
+        <modifier class="projectile_hit_result" input_character_state="stun" output_character_state="stun" consumes_item="0" />
+        <modifier class="speed" value="+0.00" />
+    </carry_item>
+
+    <carry_item key="kev_plus_helmet_health_0" name="20% Health" slot="1" time_to_live_out_in_the_open="0.0" draggable="0">
+        <hud_icon filename="hud_health_20.png" />
+        <capacity value="1" source="rank" source_value="0.0" />
+        <inventory encumbrance="0" price="0" />
+        <commonness value="0.0" in_stock="0" can_respawn_with="0" />
+        <!-- blast or hit -> stun -->
+        <modifier class="projectile_blast_result" input_character_state="death" output_character_state="stun" />
+        <modifier class="projectile_hit_result" input_character_state="death" output_character_state="stun" />
+        <modifier class="speed" value="+0.00" />
+    </carry_item>
+
 </carry_items>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<weapon key="bandage.weapon" on_ground_up="1 0 0" radius="0.45" time_to_live_out_in_the_open="60.0">
-    <tag name="bandage" />
+<weapon key="medi_shot.weapon" on_ground_up="1 0 0" radius="0.45" time_to_live_out_in_the_open="60.0" drop_count_factor_on_death="1.0">
+    <tag name="medishot" />
     <specification magazine_size="1"
     can_shoot_standing="0"
     can_shoot_crouching="1"
     carry_in_two_hands="0"
-    name="Bandage"
+    name="Medi-Shot"
     class="5"
     untransform_equipment_class="vest"
-    untransform_count="3"
+    untransform_count="2"
     consume="1"
     sight_range_modifier="1"
     slot="1" />
@@ -27,7 +27,7 @@
 
     <model filename="bandage.mesh" texture_filename="bandage.png" />
 
-    <hud_icon filename="hud_bandage.png" />
-    <modifier class="speed" value="+0.00" />
+    <hud_icon filename="hud_medi_shot.png" />
+    <modifier class="speed" value="+0.10" />
 
 </weapon>

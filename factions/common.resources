@@ -6,7 +6,8 @@
 	<weapon key="bomb.weapon" />
 	<weapon key="wire_cutters.weapon" />
 	<weapon key="defusal_kit.weapon" />
-	<weapon key="bandage.weapon" />
+	<weapon key="medi_shot.weapon" />
+	<weapon key="medi_shot_free.weapon" />
 
 	<!-- Pistols -->
 	<weapon key="9x19mm_sidearm.weapon" />

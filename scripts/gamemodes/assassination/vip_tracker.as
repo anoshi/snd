@@ -263,12 +263,6 @@ class VIPTracker : Tracker {
 				}
 			}
 			m_metagame.getComms().send(winLoseCmd);
-			// sound byte to advise which team won
-			if (faction == 0) {
-				playSound(m_metagame, "ctwin.wav", f);
-			} else if (faction == 1) {
-				playSound(m_metagame, "terwin.wav", f);
-			}
 		}
 		m_metagame.setTrackPlayerDeaths(false);
 		m_metagame.setNumExtracted(0);

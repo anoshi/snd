@@ -533,8 +533,8 @@ class PlayerTracker : Tracker {
 							} else { aPlayer.m_primary = ""; }
 							break;
 						case 1:
-							// prevent bandage stockpiling, lose pistol if not equipped (worst case you get a free one at round start)
-							if (pInv[k].getIntAttribute("amount") > 0 && invItem != "bandage.weapon") {
+							// prevent medi_shot stockpiling, lose pistol if not equipped (worst case you get a free one at round start)
+							if (pInv[k].getIntAttribute("amount") > 0 && invItem != "medi_shot.weapon") {
 								aPlayer.m_secondary = invItem;
 							} else { aPlayer.m_secondary = ""; }
 							break;

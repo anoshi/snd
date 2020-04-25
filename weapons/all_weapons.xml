@@ -16,6 +16,10 @@
 		<capacity value="1" source="rank" source_value="0.0" />
 		<inventory encumbrance="0.00" price="200.0" />
 	</weapon>
+	<weapon file="medi_shot.weapon">
+		<capacity value="1" source="rank" source_value="0.0" />
+		<inventory encumbrance="0.00" price="200.0" />
+	</weapon>
 
 	<!-- Free kit if no secondary equipped -->
 	<weapon file="9x19mm_sidearm_free.weapon">
@@ -28,9 +32,10 @@
 		<capacity value="1" source="rank" source_value="0.0" />
 		<inventory encumbrance="5.00" price="0.0" />
 	</weapon>
-	<weapon file="bandage.weapon">
-		<capacity value="4" source="rank" source_value="0.0" />
-		<inventory encumbrance="0.00" price="200.0" />
+	<weapon file="medi_shot_free.weapon">
+		<commonness value="0.0" can_respawn_with="0" in_stock="0" />
+		<capacity value="3" source="rank" source_value="0.0" />
+		<inventory encumbrance="0.00" price="0.0" />
 	</weapon>
 
 	<!-- 1 KG = 5.0 encumbrance -->

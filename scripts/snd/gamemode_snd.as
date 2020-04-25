@@ -337,9 +337,9 @@ class GameModeSND : Metagame {
 
 		}
 
-		// always get bandages at start of round
-		for (int bn = 0; bn < m_userSettings.m_initialBandages; ++bn) {
-			string addBand = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='bandage.weapon' /></command>";
+		// always get medi_shots at start of round
+		for (int bn = 0; bn < m_userSettings.m_initialMediShots; ++bn) {
+			string addBand = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='medi_shot_free.weapon' /></command>";
 			getComms().send(addBand);
 		}
 	}
