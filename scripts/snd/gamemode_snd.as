@@ -18,8 +18,8 @@ class GameModeSND : Metagame {
 	protected array<int> trackedCharIds;		// Ids of characters being tracked against collisions with hitboxes
 	protected int numExtracted = 0;				// the number of hostages safely rescued
 
+	protected bool isFirstSubStage = false;		// player inventories, XP, and RP are reset to defaults on first stage of rotation
 	protected bool trackPlayerDeaths = true;
-
 	protected bool matchEndOverride = false; // used to stop 'set_match_status' commands from being issued (if they query the bool to observe the override...)
 
 	protected string m_tournamentName = "";
@@ -53,7 +53,7 @@ class GameModeSND : Metagame {
 
 	// --------------------------------------------
 	void save() {
-		_log("** SND: saves to snd_players.xml!", 1);
+		_log("** SND: save called, but SND only saves to snd_players.xml!", 1);
 	}
 
 	// --------------------------------------------
@@ -142,6 +142,16 @@ class GameModeSND : Metagame {
 	// --------------------------------------------
 	void addXP(int charId, float xp) {
 		// nothing yet grants XP bonuses.
+	}
+
+	// --------------------------------------------
+	void setIsFirstSubStage(bool firstSubStage=true) {
+		isFirstSubStage = firstSubStage;
+	}
+
+	// --------------------------------------------
+	bool getIsFirstSubStage() {
+		return isFirstSubStage;
 	}
 
 	// --------------------------------------------
@@ -269,14 +279,14 @@ class GameModeSND : Metagame {
 	}
 
 	// -----------------------------
-	void setPlayerInventory(int characterId, bool newPlayer=false, string pri="", string sec="", string gren="", int grenNum=0, string arm="") {
+	void setPlayerInventory(int characterId, bool newPlayer=true, string pri="", string sec="", string gren="", int grenNum=0, string arm="") {
 		// container_type_ids (slot=[0-5])
 		// 0 : primary weapon (cannot add directly, put in backpack instead)
 		// 1 : secondary weapon
-		// 2 : grenade
-		// 3 : ?
-		// 4 : armour
-		// 5 : armour
+		// 2 : equipped grenade / accessory
+		// 3 : backpack accessory
+		// 4 : equipped armour
+		// 5 :  armour
 
 		const XmlElement@ thisChar = getCharacterInfo(this, characterId);
 		if (thisChar.getIntAttribute("id") != characterId) {
@@ -289,9 +299,11 @@ class GameModeSND : Metagame {
 		// assign / override equipment to player character
 		if (newPlayer) {
 			// give the character appropriate starting kit for their faction
-			_log("** SND: Equipping new player (id: " + characterId + ") with " + (faction == 0 ? 'Counter Terrorist' : 'Terrorist') + " starting gear", 1);
+			_log("** SND: Equipping player (id: " + characterId + ") with " + (faction == 0 ? 'Counter Terrorist' : 'Terrorist') + " starting gear", 1);
 			string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon') + "' /></command>";
 			getComms().send(addSec);
+			string addArm = "<command class='update_inventory' character_id='" + characterId + "' container_type_id='4'><item class='carry_item' key='std_armour' /></command>";
+			getComms().send(addArm);
 		} else {
 			_log("** SND: Updating inventory for player (character_id: " + characterId + ")", 1);
 			// primary into backpack, cannot override slot
@@ -299,6 +311,7 @@ class GameModeSND : Metagame {
 				string addPri = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + pri + "' /></command>";
 				getComms().send(addPri);
 			}
+			// secondary into backpack, cannot override slot
 			if (sec != '') {
 				string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + sec + "' /></command>";
 				getComms().send(addSec);
@@ -311,14 +324,23 @@ class GameModeSND : Metagame {
 				string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon') + "' /></command>";
 				getComms().send(addSec);
 			}
+			// grenades - direct equip
 			for (int gn = 0; gn < grenNum; ++gn) {
 				string addGren = "<command class='update_inventory' character_id='" + characterId + "' container_type_id='2'><item class='grenade' key='" + gren + "' /></command>";
 				getComms().send(addGren);
 			}
+			// armour - direct equip
 			if (arm != '') {
 				string addArm = "<command class='update_inventory' character_id='" + characterId + "' container_type_id='4'><item class='carry_item' key='" + arm + "' /></command>";
 				getComms().send(addArm);
 			}
+
+		}
+
+		// always get bandages at start of round
+		for (int bn = 0; bn < m_userSettings.m_initialBandages; ++bn) {
+			string addBand = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='bandage.weapon' /></command>";
+			getComms().send(addBand);
 		}
 	}
 

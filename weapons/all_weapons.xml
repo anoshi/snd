@@ -28,6 +28,10 @@
 		<capacity value="1" source="rank" source_value="0.0" />
 		<inventory encumbrance="5.00" price="0.0" />
 	</weapon>
+	<weapon file="bandage.weapon">
+		<capacity value="4" source="rank" source_value="0.0" />
+		<inventory encumbrance="0.00" price="200.0" />
+	</weapon>
 
 	<!-- 1 KG = 5.0 encumbrance -->
 

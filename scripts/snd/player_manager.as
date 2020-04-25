@@ -17,7 +17,7 @@ class SNDPlayer {
 
 	string m_primary = "";
 	string m_secondary = "";
-	string m_grenade = "";
+	string m_gren = "";
 	int m_grenNum = 0;
 	string m_armour = "";
 
@@ -25,7 +25,7 @@ class SNDPlayer {
 	float m_xp;
 
 	// --------------------------------------------
-	SNDPlayer(string username, string hash, string sid, string ip, int id, string pri="", string sec="", string gren="", int grenNum=0, string arm="") {
+	SNDPlayer(string username, string hash, string sid, string ip, int id, string pri="", string sec="", string gren="", int grenNum=0, string arm="std_armour") {
 		m_username = username;
 		m_hash = hash;
 		m_sid = sid;
@@ -33,7 +33,7 @@ class SNDPlayer {
 		m_playerId = id;
 		m_primary = pri;
 		m_secondary = sec;
-		m_grenade = gren;
+		m_gren = gren;
 		m_grenNum = grenNum;
 		m_armour = arm;
 	}
@@ -102,14 +102,11 @@ class SNDPlayerStore {
 			savedPlayer.setStringAttribute("hash", player.m_hash);
 			savedPlayer.setStringAttribute("sid", player.m_sid);
 			savedPlayer.setStringAttribute("ip", player.m_ip);
-			if (player.m_rp > 16000) { // m_metagame.getUserSettings().m_maxRp, but no metagame here
-				player.m_rp = 16000;
-			}
 			savedPlayer.setIntAttribute("rp", player.m_rp);
 			savedPlayer.setFloatAttribute("xp", player.m_xp);
 			savedPlayer.setStringAttribute("primary", player.m_primary);
 			savedPlayer.setStringAttribute("secondary", player.m_secondary);
-			savedPlayer.setStringAttribute("grenade", player.m_grenade);
+			savedPlayer.setStringAttribute("gren", player.m_gren);
 			savedPlayer.setIntAttribute("gren_num", player.m_grenNum);
 			savedPlayer.setStringAttribute("armour", player.m_armour);
 			root.appendChild(savedPlayer);
@@ -199,8 +196,7 @@ class PlayerTracker : Tracker {
 						SNDPlayer@ aPlayer = SNDPlayer(connName, connHash, key, connIp, connId);
 						_log("** SND: Unknown/new player " + aPlayer.m_username + " joining server", 1);
 						// set RP and XP for new players
-						aPlayer.m_rp = 800;		// starting cash for CS rounds
-						aPlayer.m_xp = 0.2000;	// grant enough XP to allow VIP and 2 x hostage escorts
+						assignDefaults(aPlayer);
 						m_trackedPlayers.add(aPlayer);
 					}
 				// } else {
@@ -266,18 +262,30 @@ class PlayerTracker : Tracker {
 			if (m_trackedPlayers.exists(key)) { // must have connected to be in this dict
 				SNDPlayer@ spawnedPlayer;
 				@spawnedPlayer = m_trackedPlayers.get(key);
+				bool defaultKit = false;
 				// associate player's dynamic character_id with their sid.
 				cidTosid.set(playerCharId, key);
 				spawnedPlayer.m_charId = pcIdint;
 				_log("** SND: spawned player cidTosid check: " + spawnedPlayer.m_sid + ": " + spawnedPlayer.m_charId + ", character_id: " + playerCharId);
-				// boost charcter's RP and XP to fall in line with saved stats
-				_log("** SND: Grant " + spawnedPlayer.m_rp + " RP and " + spawnedPlayer.m_xp + " XP to " + spawnedPlayer.m_username, 1);
-				string setCharRP = "<command class='rp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_rp + "'></command>";
-				m_metagame.getComms().send(setCharRP);
-				string setCharXP = "<command class='xp_reward' character_id='" + playerCharId + "' reward='" + spawnedPlayer.m_xp + "'></command>";
-				m_metagame.getComms().send(setCharXP);
-				// load up saved inventory
-				m_metagame.setPlayerInventory(pcIdint, false, spawnedPlayer.m_primary, spawnedPlayer.m_secondary, spawnedPlayer.m_grenade, spawnedPlayer.m_grenNum, spawnedPlayer.m_armour);
+				if (!m_metagame.getIsFirstSubStage()) {
+					// match character's RP and XP to saved stats
+					// but subtract default/initial RP and XP values, which are applied on spawn.
+					const UserSettings@ settings = m_metagame.getUserSettings();
+					_log("** SND: Grant " + spawnedPlayer.m_rp + " RP and " + spawnedPlayer.m_xp + " XP to " + spawnedPlayer.m_username, 1);
+					string setCharRP = "<command class='rp_reward' character_id='" + playerCharId + "' reward='" + (spawnedPlayer.m_rp - settings.m_initialRp) + "'></command>";
+					m_metagame.getComms().send(setCharRP);
+					string setCharXP = "<command class='xp_reward' character_id='" + playerCharId + "' reward='" + (spawnedPlayer.m_xp - settings.m_initialXp) + "'></command>";
+					m_metagame.getComms().send(setCharXP);
+
+				} else {
+					_log("** SND: First round of rotation. Assigning Defaults", 1);
+					// reset XP, RP, and inventory every first round of rotation
+					defaultKit = true;
+					assignDefaults(spawnedPlayer);
+				}
+
+				m_metagame.setPlayerInventory(pcIdint, defaultKit, spawnedPlayer.m_primary, spawnedPlayer.m_secondary, spawnedPlayer.m_gren, spawnedPlayer.m_grenNum, spawnedPlayer.m_armour);
+
 			} else {
 				_log("** SND: Player spawned, but not registered as having connected. Doing nothing...", 1);
 			}
@@ -414,7 +422,7 @@ class PlayerTracker : Tracker {
 			// empty that player's inventory
 			deadPlayerObj.m_primary = "";
 			deadPlayerObj.m_secondary = "";
-			deadPlayerObj.m_grenade = "";
+			deadPlayerObj.m_gren = "";
 			deadPlayerObj.m_grenNum = 0;
 			deadPlayerObj.m_armour = "";
 		}
@@ -475,6 +483,8 @@ class PlayerTracker : Tracker {
 					aPlayer.m_rp += int(rpRewards[rewardChar]);
 					if (aPlayer.m_rp > m_metagame.getUserSettings().m_maxRp) {
 						aPlayer.m_rp = m_metagame.getUserSettings().m_maxRp;
+					} else if (aPlayer.m_rp < 0) {
+							aPlayer.m_rp = 0;
 					}
 					_log("** SND: " + aPlayer.m_username + " RP now at: " + aPlayer.m_rp, 1);
 				} else {
@@ -485,8 +495,22 @@ class PlayerTracker : Tracker {
 	}
 
 	// ----------------------------------------------------
+	protected void assignDefaults(SNDPlayer@ aPlayer) {
+		_log("** SND: granting player " + aPlayer.m_username + " starting kit", 1);
+		const UserSettings@ settings = m_metagame.getUserSettings();
+		aPlayer.m_primary = "";
+		aPlayer.m_secondary = "";
+		aPlayer.m_gren = "";
+		aPlayer.m_grenNum = 0;
+		aPlayer.m_armour = settings.m_initialArmour;
+		aPlayer.m_rp = settings.m_initialRp;
+		aPlayer.m_xp = settings.m_initialXp;
+	}
+
+	// ----------------------------------------------------
 	protected void updateSavedInventory(int charId) {
-		// save inventory
+		// note we are not recording items in the backpack to prevent stockpiling of resources between rounds
+		// may consider implementing at a later date, but the effort outweighs the benefit
 		_log("** SND: Updating saved inventory for character id " + charId, 1);
 		string scharId = "" + charId + "";
 		string key = string(cidTosid[scharId]);
@@ -510,16 +534,17 @@ class PlayerTracker : Tracker {
 							} else { aPlayer.m_primary = ""; }
 							break;
 						case 1:
-							if (pInv[k].getIntAttribute("amount") > 0) {
+							// prevent bandage stockpiling, lose pistol if not equipped (worst case you get a free one at round start)
+							if (pInv[k].getIntAttribute("amount") > 0 && invItem != "bandage.weapon") {
 								aPlayer.m_secondary = invItem;
 							} else { aPlayer.m_secondary = ""; }
 							break;
 						case 2:
 							if (pInv[k].getIntAttribute("amount") > 0) {
-								aPlayer.m_grenade = invItem;
+								aPlayer.m_gren = invItem;
 								aPlayer.m_grenNum = pInv[k].getIntAttribute("amount");
 							} else {
-								aPlayer.m_grenade = "";
+								aPlayer.m_gren = "";
 								aPlayer.m_grenNum = 0;
 							}
 							break;
@@ -658,11 +683,11 @@ class PlayerTracker : Tracker {
 					string ip = loadPlayer.getStringAttribute("ip");
 					string primary = loadPlayer.getStringAttribute("primary");
 					string secondary = loadPlayer.getStringAttribute("secondary");
-					string grenade = loadPlayer.getStringAttribute("grenade");
+					string gren = loadPlayer.getStringAttribute("gren_1");
 					int grenNum = loadPlayer.getIntAttribute("gren_num");
 					string armour = loadPlayer.getStringAttribute("armour");
 
-					SNDPlayer player(username, hash, sid, ip, -1, primary, secondary, grenade, grenNum, armour);
+					SNDPlayer player(username, hash, sid, ip, -1, primary, secondary, gren, grenNum, armour);
 					player.m_rp = loadPlayer.getIntAttribute("rp");
 					player.m_xp = loadPlayer.getFloatAttribute("xp");
 

@@ -153,6 +153,9 @@ class Stage {
 			m_mapRotator.stageEnded();
 		} else {
 			_log("next substage: " + m_currentSubStageIndex);
+			// if index is 1, reset all player's XP and RP to starting values
+			bool isFirstSubStage = m_currentSubStageIndex == 1;
+			m_metagame.setIsFirstSubStage(isFirstSubStage);
 			start();
 		}
 	}

@@ -31,6 +31,6 @@
     <hud_icon filename="hud_galil.png" />
 
     <projectile file="bullet.projectile">
-        <result class="hit" kill_probability="0.6" kill_decay_start_time="0.38" kill_decay_end_time="0.52" />
+        <result class="hit" kill_probability="3.0" kill_decay_start_time="0.38" kill_decay_end_time="0.52" />
     </projectile>
 </weapon>

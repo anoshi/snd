@@ -2,19 +2,19 @@
 <weapon file="base_primary_shotgun.weapon" key="leone_yg1265_auto_shotgun.weapon">
   <tag name="shotgun" />
   <specification
-    retrigger_time="0.166"
+    retrigger_time="0.250"
     accuracy_factor="0.8"
-    sustained_fire_grow_step="2.0"
+    sustained_fire_grow_step="3.0"
     sustained_fire_diminish_rate="0.6"
     magazine_size="7"
     can_shoot_standing="1"
     suppressed="0"
     name="Leone YG1265 Auto Shotgun"
-    class="4"
+    class="0"
     reload_one_at_a_time="1"
     sight_range_modifier="1.0"
     projectile_speed="86.0"
-    projectiles_per_shot="5"
+    projectiles_per_shot="7"
     burst_shots="1"
   />
 
@@ -33,7 +33,7 @@
 
     <weak_hand_hold offset="0.2" />
     <projectile file="bullet.projectile">
-        <result class="hit" kill_probability="0.65" kill_decay_start_time="0.25" kill_decay_end_time="0.32" />
+        <result class="hit" kill_probability="1.5" kill_decay_start_time="0.25" kill_decay_end_time="0.32" />
     </projectile>
 
     <modifier class="speed" value="+0.0" />

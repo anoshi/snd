@@ -6,6 +6,7 @@
 	<weapon key="bomb.weapon" />
 	<weapon key="wire_cutters.weapon" />
 	<weapon key="defusal_kit.weapon" />
+	<weapon key="bandage.weapon" />
 
 	<!-- Pistols -->
 	<weapon key="9x19mm_sidearm.weapon" />
@@ -33,6 +34,7 @@
 	<weapon key="m249.weapon" />
 
 	<!-- ALL CARRY ITEMS -->
+	<carry_item key="std_armour" enabled="1" />
 	<carry_item key="kevlar.carry_item" enabled="1" />
 	<carry_item key="kevlar_plus_helmet.carry_item" enabled="1" />
 	<carry_item key="vip_armour.carry_item" enabled="0" />

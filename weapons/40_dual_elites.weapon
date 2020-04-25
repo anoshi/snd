@@ -10,7 +10,7 @@
         can_shoot_standing="1"
         suppressed="0"
         carry_in_two_hands="0"
-        name=".40 DUAL ELITES"
+        name=".40 Dual Elites"
         class="0"
         reload_one_at_a_time="0"
         sight_range_modifier="1.0"
@@ -53,7 +53,7 @@
     <weak_hand_hold offset="0.1" />
     <projectile file="bullet.projectile">
         <result class="hit"
-		kill_probability="0.45"
+		kill_probability="3.8"
 		kill_decay_start_time="0.26"
 		kill_decay_end_time="0.35" />
     </projectile>

@@ -30,7 +30,7 @@
     <animation state_key="changing_weapon_in" 	animation_key="change weapon in, single hand carry" />
 
     <sound class="impact" fileref="sandbag_drop.wav" />
-    <sound key="effect" fileref="wire_cutters.wav" />
+    <sound key="effect" fileref="defusal_kit.wav" />
 
     <model filename="snd_snipsdefuse.xml" />
 
@@ -38,7 +38,6 @@
 
     <hud_icon filename="hud_snd_snipsdefuse.png" />
     <commonness value="0.0" can_respawn_with="0" in_stock="1" />
-    <inventory encumbrance="10.0" price="400.0" />
 
     <modifier class="speed" value="+0.00" />
 </weapon>

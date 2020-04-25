@@ -14,7 +14,7 @@
     reload_one_at_a_time="1"
     sight_range_modifier="1.0"
     projectile_speed="90.0"
-    projectiles_per_shot="6"
+    projectiles_per_shot="8"
   />
 
     <animation key="recoil" ref="27" />
@@ -34,7 +34,7 @@
 
     <weak_hand_hold offset="0.2" />
     <projectile file="bullet.projectile">
-      <result class="hit" kill_probability="0.62" kill_decay_start_time="0.24" kill_decay_end_time="0.29" />
+      <result class="hit" kill_probability="1.6" kill_decay_start_time="0.24" kill_decay_end_time="0.29" />
     </projectile>
 
     <modifier class="speed" value="-0.02" />

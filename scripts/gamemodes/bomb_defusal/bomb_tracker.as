@@ -21,6 +21,7 @@ class BombTracker : Tracker {
 	protected float bombPosUpdateTimer = 0.0;	// the time remaining until the next update
 
 	protected float bombTimer = 60.0;	// when bombIsArmed, the timer starts.
+	protected int lastBeepTime = 61; 	// floored bombTimer value when last beep loop sfx was triggered
 
 	// --------------------------------------------
 	BombTracker(GameModeSND@ metagame) {
@@ -371,6 +372,11 @@ class BombTracker : Tracker {
 				bombPosUpdateTimer = BOMB_POS_UPDATE_TIME;
 			}
 			if (bombIsArmed) {
+				int bombTimerAsInt = int(floor(bombTimer));
+				if (bombTimerAsInt % 5 == 0 && lastBeepTime > bombTimerAsInt && bombTimerAsInt > 4) {
+					playSoundAtLocation(m_metagame, "bomb_timer_beep1.wav", -1, stringToVector3(bombPosition));
+					lastBeepTime = bombTimerAsInt;
+				}
 				bombTimer -= time;
 			}
 			if (bombTimer <= 0.0) {
