@@ -71,6 +71,7 @@ class VIPTracker : Tracker {
 			playSound(m_metagame, "vip.wav", 0);
 			markVIPPosition(pos.toString());
 			inPlay = true;
+			m_metagame.setMatchEndOverride(); // cannot win a VIP mission if the VIP is alive or has not escaped!
 			_log("** SND: VIP has spawned near player " + charId + " at position: " + playerPos, 1);
 		}
 	}
@@ -244,6 +245,8 @@ class VIPTracker : Tracker {
 
 	// --------------------------------------------
 	protected void winRound(uint faction, uint consecutive = 1) {
+		// only get here after a win condition has been met. Ok to remove match end override.
+		m_metagame.setMatchEndOverride(false);
 		inPlay = false;
 		string winLoseCmd = "";
 		array<Faction@> allFactions = m_metagame.getFactions();

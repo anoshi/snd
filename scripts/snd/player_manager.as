@@ -412,7 +412,6 @@ class PlayerTracker : Tracker {
 
 		const XmlElement@ deadPlayer = event.getFirstElementByTagName("target");
 
-		// use profile_hash stored in playerHashes array to id which char died
 		int playerCharId = deadPlayer.getIntAttribute("character_id");
 		string key = deadPlayer.getStringAttribute("sid");
 
@@ -572,7 +571,7 @@ class PlayerTracker : Tracker {
 				// we're not. Bail.
 				return;
 			}
-			// next, check if the current match type has issued a match end override condition (e.g. bomb planted and must be defused or detonate)
+			// next, check if the current match type has issued a match end override condition (e.g. bomb planted or VIP still alive)
 			if (m_metagame.getMatchEndOverride()) {
 				// it has, no attrition ending allowed for this round, bail.
 				return;
