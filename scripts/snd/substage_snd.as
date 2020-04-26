@@ -69,7 +69,8 @@ abstract class SubStage : Tracker {
 			m_metagame.getComms().send(command);
 		}
 
-		m_metagame.preBeginMatch();
+		m_metagame.preBeginMatch(); // clears trackers, tasks, etc.
+
 		m_match.start();
 
 		// substage itself is a tracker, add it

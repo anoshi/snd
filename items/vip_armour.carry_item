@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <carry_items>
     <carry_item key="vip_armour.carry_item" name="VIP Armour" slot="1" transform_on_consume="vip_armour_7" time_to_live_out_in_the_open="0.0">
-        <hud_icon filename="hud_vip_armour.png" />
+        <hud_icon filename="hud_ai_armour.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="5" price="0" />
         <commonness value="0.1" in_stock="0" can_respawn_with="0" />
@@ -17,7 +17,7 @@
     </carry_item>
 
     <carry_item key="vip_armour_7" name="VIP Armour, 7/8" slot="1" transform_on_consume="vip_armour_6" time_to_live_out_in_the_open="0.0">
-        <hud_icon filename="hud_vip_armour.png" />
+        <hud_icon filename="hud_ai_armour.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="5" price="0" />
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
@@ -33,7 +33,7 @@
     </carry_item>
 
     <carry_item key="vip_armour_6" name="VIP Armour, 6/8" slot="1" transform_on_consume="vip_armour_5" time_to_live_out_in_the_open="0.0">
-        <hud_icon filename="hud_vip_armour.png" />
+        <hud_icon filename="hud_ai_armour.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="5" price="0" />
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
@@ -49,7 +49,7 @@
     </carry_item>
 
     <carry_item key="vip_armour_5" name="VIP Armour, 5/8" slot="1" transform_on_consume="vip_armour_4" time_to_live_out_in_the_open="0.0">
-        <hud_icon filename="hud_vip_armour.png" />
+        <hud_icon filename="hud_ai_armour.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="5" price="0" />
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
@@ -65,7 +65,7 @@
     </carry_item>
 
     <carry_item key="vip_armour_4" name="VIP Armour, 4/8" slot="1" transform_on_consume="vip_armour_3" time_to_live_out_in_the_open="0.0">
-        <hud_icon filename="hud_vip_armour.png" />
+        <hud_icon filename="hud_ai_armour.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="5" price="0" />
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
@@ -81,7 +81,7 @@
     </carry_item>
 
     <carry_item key="vip_armour_3" name="VIP Armour, 3/8" slot="1" transform_on_consume="vip_armour_2" time_to_live_out_in_the_open="0.0">
-        <hud_icon filename="hud_vip_armour.png" />
+        <hud_icon filename="hud_ai_armour.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="5" price="0" />
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
@@ -96,7 +96,7 @@
     </carry_item>
 
     <carry_item key="vip_armour_2" name="VIP Armour, 2/8" slot="1" transform_on_consume="vip_armour_1" time_to_live_out_in_the_open="0.0">
-        <hud_icon filename="hud_vip_armour.png" />
+        <hud_icon filename="hud_ai_armour.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="5" price="0" />
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
@@ -111,7 +111,7 @@
     </carry_item>
 
     <carry_item key="vip_armour_1" name="VIP Armour, 1/8" slot="1" time_to_live_out_in_the_open="0.0">
-        <hud_icon filename="hud_vip_armour.png" />
+        <hud_icon filename="hud_ai_armour.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="5" price="0" />
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />

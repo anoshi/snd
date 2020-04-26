@@ -78,7 +78,7 @@ class GameModeSND : Metagame {
 	}
 
 	// --------------------------------------------
-	// MapRotator calls here when a battle has started
+	// substage_snd.as calls here when a battle has started
 	void postBeginMatch() {
 		Metagame::postBeginMatch();
 		// add tracker for match end to switch to next
@@ -281,13 +281,13 @@ class GameModeSND : Metagame {
 
 	// -----------------------------
 	void setPlayerInventory(int characterId, bool newPlayer=true, string pri="", string sec="", string gren="", int grenNum=0, string arm="") {
-		// container_type_ids (slot=[0-5])
+		// container_type_ids (3+ do not match with slot=[0-5])
 		// 0 : primary weapon (cannot add directly, put in backpack instead)
-		// 1 : secondary weapon
+		// 1 : secondary weapon (cannot add directly, put in backpack)
 		// 2 : equipped grenade / accessory
-		// 3 : backpack accessory
+		// 3 : ?
 		// 4 : equipped armour
-		// 5 :  armour
+		// 5 : ?
 
 		const XmlElement@ thisChar = getCharacterInfo(this, characterId);
 		if (thisChar.getIntAttribute("id") != characterId) {
@@ -325,25 +325,24 @@ class GameModeSND : Metagame {
 				string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon') + "' /></command>";
 				getComms().send(addSec);
 			}
-			// grenades - direct equip
+			// grenades - equips into backpack even when container_type_id is used.
 			for (int gn = 0; gn < grenNum; ++gn) {
 				string addGren = "<command class='update_inventory' character_id='" + characterId + "' container_type_id='2'><item class='grenade' key='" + gren + "' /></command>";
 				getComms().send(addGren);
 			}
-			// armour - direct equip
-			if (arm != '') {
-				// apply full health armour when equipping
-				if (startsWith(arm, "kevlar_plus_")) {
-					arm = "kevlar_plus_helmet.carry_item";
-				} else if (startsWith(arm, "kevlar_")) {
-					arm = "kevlar.carry_item";
-				} else {
-					arm = "std_armour.carry_item";
+			// armour - direct equip and apply undamaged armour type
+			if (startsWith(arm, 'kevlar_plus_')) {
+				_log("** SND: Equipping Kevlar + Helmet", 1);
+				arm = "kevlar_plus_helmet.carry_item";
+			} else if (startsWith(arm, 'kevlar_')) {
+				_log("** SND: Equipping Kevlar", 1);
+				arm = "kevlar.carry_item";
+			} else {
+				arm = "std_armour";
+				_log("** SND: Equipping Standard 'Health' armour", 1);
 				}
-				string addArm = "<command class='update_inventory' character_id='" + characterId + "' container_type_id='4'><item class='carry_item' key='" + arm + "' /></command>";
-				getComms().send(addArm);
-			}
-
+			string addArm = "<command class='update_inventory' character_id='" + characterId + "' container_type_id='4'><item class='carry_item' key='" + arm + "' /></command>";
+			getComms().send(addArm);
 		}
 
 		// always get medi_shots at start of round

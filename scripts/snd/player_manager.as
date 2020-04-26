@@ -185,6 +185,13 @@ class PlayerTracker : Tracker {
 						// sanity check the known player's RP and XP
 						_log("\t RP: " + aPlayer.m_rp, 1);
 						_log("\t XP: " + aPlayer.m_xp, 1);
+						_log("\t Pri: " + aPlayer.m_primary, 1);
+						_log("\t Sec: " + aPlayer.m_secondary, 1);
+						if (aPlayer.m_grenNum > 0) {
+							_log("\t Gre: " + aPlayer.m_gren, 1);
+							_log("\t Num: " + aPlayer.m_grenNum, 1);
+						}
+						_log("\t Arm: " + aPlayer.m_armour, 1);
 						aPlayer.m_username = connName;
 						aPlayer.m_ip = connIp;
 						aPlayer.m_playerId = connId;
@@ -275,6 +282,7 @@ class PlayerTracker : Tracker {
 					m_metagame.getComms().send(setCharRP);
 					string setCharXP = "<command class='xp_reward' character_id='" + playerCharId + "' reward='" + (spawnedPlayer.m_xp - settings.m_initialXp) + "'></command>";
 					m_metagame.getComms().send(setCharXP);
+					defaultKit = false;
 
 				} else {
 					_log("** SND: First round of rotation. Assigning Defaults", 1);
@@ -627,7 +635,7 @@ class PlayerTracker : Tracker {
 					string ip = loadPlayer.getStringAttribute("ip");
 					string primary = loadPlayer.getStringAttribute("primary");
 					string secondary = loadPlayer.getStringAttribute("secondary");
-					string gren = loadPlayer.getStringAttribute("gren_1");
+					string gren = loadPlayer.getStringAttribute("gren");
 					int grenNum = loadPlayer.getIntAttribute("gren_num");
 					string armour = loadPlayer.getStringAttribute("armour");
 
