@@ -346,6 +346,13 @@ class GameModeSND : Metagame {
 	}
 
 	// ----------------------------------------------------
+	void setFactionPlayerCount(uint faction, uint num) {
+		// initialised at the start of each stage (stage_snd.as)
+		_log("** SND: Faction " + faction + " player count set to " + num, 1);
+		factionPlayers[faction] = num;
+	}
+
+	// ----------------------------------------------------
 	uint getFactionPlayerCount(uint faction) {
 		return factionPlayers[faction];
 	}
@@ -361,6 +368,10 @@ class GameModeSND : Metagame {
 				// we're not. Bail.
 				return;
 			}
+
+			// if we got this far, the faction has run out of live players
+			factionPlayers[faction] = 0; // required for polls from substages that need to end if only AI units remain alive
+
 			// next, check if the current match type has issued a match end override condition (e.g. bomb planted or VIP still alive)
 			if (getMatchEndOverride()) {
 				// it has, no attrition ending allowed for this round, bail.
@@ -394,12 +405,6 @@ class GameModeSND : Metagame {
 					}
 				}
 				getComms().send(winLoseCmd);
-				// // sound byte to advise which team won
-				// if (faction == 0) {
-				// 	playSound(this, "terwin.wav", f);
-				// } else if (faction == 1) {
-				// 	playSound(this, "ctwin.wav", f);
-				// }
 			}
 		}
 	}
