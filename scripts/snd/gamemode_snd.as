@@ -332,6 +332,14 @@ class GameModeSND : Metagame {
 			}
 			// armour - direct equip
 			if (arm != '') {
+				// apply full health armour when equipping
+				if (startsWith(arm, "kevlar_plus_")) {
+					arm = "kevlar_plus_helmet.carry_item";
+				} else if (startsWith(arm, "kevlar_")) {
+					arm = "kevlar.carry_item";
+				} else {
+					arm = "std_armour.carry_item";
+				}
 				string addArm = "<command class='update_inventory' character_id='" + characterId + "' container_type_id='4'><item class='carry_item' key='" + arm + "' /></command>";
 				getComms().send(addArm);
 			}
