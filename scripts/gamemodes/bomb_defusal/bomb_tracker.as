@@ -367,13 +367,13 @@ class BombTracker : Tracker {
 			}
 			if (bombIsArmed) {
 				int bombTimerAsInt = int(floor(bombTimer));
-				// first 35 seconds, 1 beep / second, next 15, 2 beeps / second, last 10, 4 beeps / second
+				// first 35 seconds, 1 beep / second, next 15, 2 beeps / second, last 10, 3 beeps / second
 				if (bombTimerAsInt % 5 == 0 && lastBeepTime > bombTimerAsInt && bombTimerAsInt > 29) {
 					playSoundAtLocation(m_metagame, "bomb_timer_beep1.wav", -1, stringToVector3(bombPosition));
 				} else if (bombTimerAsInt % 5 == 0 && lastBeepTime > bombTimerAsInt && bombTimerAsInt > 14) {
 					playSoundAtLocation(m_metagame, "bomb_timer_beep2.wav", -1, stringToVector3(bombPosition));
-				} else if (bombTimerAsInt % 5 == 0 && lastBeepTime > bombTimerAsInt && bombTimerAsInt > 9) {
-					playSoundAtLocation(m_metagame, "bomb_timer_beep4.wav", -1, stringToVector3(bombPosition));
+				} else if (bombTimerAsInt % 5 == 0 && lastBeepTime > bombTimerAsInt && bombTimerAsInt > 4) {
+					playSoundAtLocation(m_metagame, "bomb_timer_beep3.wav", -1, stringToVector3(bombPosition));
 				}
 				lastBeepTime = bombTimerAsInt;
 				bombTimer -= time;

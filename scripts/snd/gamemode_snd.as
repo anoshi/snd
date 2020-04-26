@@ -11,16 +11,17 @@ class GameModeSND : Metagame {
 
 	//protected MapInfo@ m_mapInfo; // already exists in Metagame class
 	protected array<Faction@> m_factions;
-	protected dictionary pendingRPRewards = {}; // queue to store RP rewards to grant to players
+	protected array<uint> factionPlayers = {0, 0}; 	// stores the number of active, alive players per faction
+	protected dictionary pendingRPRewards = {}; 	// queue to store RP rewards to grant to players
 
-	protected array<Vector3> targetLocations;	// locations where bombs may be placed or hostages may start
-	protected array<Vector3> extractionPoints;	// locations that units must reach in order to escape
-	protected array<int> trackedCharIds;		// Ids of characters being tracked against collisions with hitboxes
-	protected int numExtracted = 0;				// the number of hostages safely rescued
+	protected array<Vector3> targetLocations;		// locations where bombs may be placed or hostages may start
+	protected array<Vector3> extractionPoints;		// locations that units must reach in order to escape
+	protected array<int> trackedCharIds;			// Ids of characters being tracked against collisions with hitboxes
+	protected int numExtracted = 0;					// the number of hostages safely rescued
 
-	protected bool isFirstSubStage = false;		// player inventories, XP, and RP are reset to defaults on first stage of rotation
+	protected bool isFirstSubStage = false;			// player inventories, XP, and RP are reset to defaults on first stage of rotation
 	protected bool trackPlayerDeaths = true;
-	protected bool matchEndOverride = false; // used to stop 'set_match_status' commands from being issued (if they query the bool to observe the override...)
+	protected bool matchEndOverride = false; 		// used to stop 'set_match_status' commands from being issued (if they query the bool to observe the override...)
 
 	protected string m_tournamentName = "";
 
@@ -341,6 +342,65 @@ class GameModeSND : Metagame {
 		for (int bn = 0; bn < m_userSettings.m_initialMediShots; ++bn) {
 			string addBand = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='medi_shot_free.weapon' /></command>";
 			getComms().send(addBand);
+		}
+	}
+
+	// ----------------------------------------------------
+	uint getFactionPlayerCount(uint faction) {
+		return factionPlayers[faction];
+	}
+
+	// ----------------------------------------------------
+	void updateFactionPlayerCount(uint faction, int num) {
+		if (factionPlayers[faction] + num > 0) {
+			factionPlayers[faction] += num;
+			_log("** SND: faction " + faction + " has " + factionPlayers[faction] + " players alive", 1);
+		} else {
+			// first check we're still tracking character deaths
+			if (!getTrackPlayerDeaths()) {
+				// we're not. Bail.
+				return;
+			}
+			// next, check if the current match type has issued a match end override condition (e.g. bomb planted or VIP still alive)
+			if (getMatchEndOverride()) {
+				// it has, no attrition ending allowed for this round, bail.
+				return;
+			}
+
+			// otherwise, we have come to a win/lose event.
+			// stop tracking further player deaths
+			setTrackPlayerDeaths(false);
+
+			_log("** SND: faction " + faction + " has run out of live players. Lose round!", 1);
+			string winLoseCmd = "";
+			array<Faction@> allFactions = getFactions();
+			for (uint f = 0; f < allFactions.length(); ++f) {
+				// in this case, the faction sent to this method is the losing faction (no living players remain)
+				if (f == faction) {
+					winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' lose='1'></command>";
+					array<int> losingTeamCharIds = getFactionPlayerCharacterIds(f);
+					for (uint i = 0; i < losingTeamCharIds.length() ; ++i) {
+						string rewardLosingTeamChar = "<command class='rp_reward' character_id='" + losingTeamCharIds[i] + "' reward='900'></command>"; // " + (900 + (consecutive * 500)) + " // up to a max of 3400 / round
+						getComms().send(rewardLosingTeamChar);
+						addRP(losingTeamCharIds[i], 900);
+					}
+				} else {
+					winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' win='1'></command>";
+					array<int> winningTeamCharIds = getFactionPlayerCharacterIds(f);
+					for (uint i = 0; i < winningTeamCharIds.length() ; ++i) {
+						string rewardWinningTeamChar = "<command class='rp_reward' character_id='" + winningTeamCharIds[i] + "' reward='3250'></command>";
+						getComms().send(rewardWinningTeamChar);
+						addRP(winningTeamCharIds[i], 3250);
+					}
+				}
+				getComms().send(winLoseCmd);
+				// // sound byte to advise which team won
+				// if (faction == 0) {
+				// 	playSound(this, "terwin.wav", f);
+				// } else if (faction == 1) {
+				// 	playSound(this, "ctwin.wav", f);
+				// }
+			}
 		}
 	}
 

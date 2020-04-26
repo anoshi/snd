@@ -11,8 +11,11 @@ class VIPTracker : Tracker {
 	protected bool vipKilled = false;	// used to differentiate between the VIP being assassinated or dying in another manner
 	protected int theVIPId;				// the characterId of the VIP.
 
-	protected float VIP_POS_UPDATE_TIME = 5.0;	// how often the position of the VIP is checked
-	protected float vipPosUpdateTimer = 10.0;	// the time remaining until the next update
+	protected float VIP_POS_UPDATE_TIME = 5.0;		// how often the position of the VIP is checked
+	protected float vipPosUpdateTimer = 10.0;		// the time remaining until the next update
+	protected float VIP_ALONE_UPDATE_TIME = 20.0; 	// how often to check if the VIP is the only surviving CT
+	protected float vipAloneCheckTimer = 60.0;		// the time remaining until checking if the VIP is the only remaining CT
+													// if VIP is alone, mark his location to all factions to prevent hiding
 
 	// --------------------------------------------
 	VIPTracker(GameModeSND@ metagame) {
@@ -243,6 +246,14 @@ class VIPTracker : Tracker {
 		winRound(0);
 	}
 
+	// -------------------------------------------
+	protected bool isCTPlayerAlive() {
+		if (m_metagame.getFactionPlayerCount(0) > 0) {
+			return true;
+		}
+		return false;
+	}
+
 	// --------------------------------------------
 	protected void winRound(uint faction, uint consecutive = 1) {
 		// only get here after a win condition has been met. Ok to remove match end override.
@@ -284,13 +295,20 @@ class VIPTracker : Tracker {
 	void update(float time) {
 		if (inPlay) {
 			vipPosUpdateTimer -= time;
+			vipAloneCheckTimer -= time;
 			if (vipPosUpdateTimer < 0.0) {
 				if (m_metagame.getNumExtracted() > 0) {
 					vipEscaped();
 				} else {
-				markVIPPosition(getVIPPosition());
-				vipPosUpdateTimer = VIP_POS_UPDATE_TIME;
+					markVIPPosition(getVIPPosition());
+					vipPosUpdateTimer = VIP_POS_UPDATE_TIME;
 				}
+			}
+			if (vipAloneCheckTimer < 0.0) {
+				if (!isCTPlayerAlive()) {
+					markVIPPosition(getVIPPosition(), 1, true);
+				}
+				vipAloneCheckTimer = VIP_ALONE_UPDATE_TIME;
 			}
 		}
 	}

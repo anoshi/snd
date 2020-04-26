@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <carry_items>
-    <carry_item key="kevlar.carry_item" name="Kevlar" slot="1" transform_on_consume="kevlar_3" time_to_live_out_in_the_open="60.0">
+    <carry_item key="kevlar.carry_item" name="Kevlar" slot="1" transform_on_consume="kevlar_3" time_to_live_out_in_the_open="60.0" draggable="1">
         <hud_icon filename="hud_kevlar.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="4" price="800" />
@@ -16,7 +16,7 @@
         <modifier class="speed" value="-0.05" />
     </carry_item>
 
-    <carry_item key="kevlar_3" name="Kevlar, 80%" slot="1" transform_on_consume="kevlar_2" time_to_live_out_in_the_open="60.0">
+    <carry_item key="kevlar_3" name="Kevlar, 80%" slot="1" transform_on_consume="kevlar_2" time_to_live_out_in_the_open="60.0" draggable="0">
         <hud_icon filename="hud_kevlar_80.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="4" price="800" />
@@ -32,7 +32,7 @@
         <modifier class="speed" value="-0.05" />
     </carry_item>
 
-    <carry_item key="kevlar_2" name="Kevlar, 60%" slot="1" transform_on_consume="kevlar_1" time_to_live_out_in_the_open="60.0">
+    <carry_item key="kevlar_2" name="Kevlar, 60%" slot="1" transform_on_consume="kevlar_1" time_to_live_out_in_the_open="60.0" draggable="0">
         <hud_icon filename="hud_kevlar_60.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="4" price="2" />
@@ -48,7 +48,7 @@
         <modifier class="speed" value="-0.05" />
     </carry_item>
 
-    <carry_item key="kevlar_1" name="Kevlar, 40%" slot="1" transform_on_consume="kevlar_0" time_to_live_out_in_the_open="60.0">
+    <carry_item key="kevlar_1" name="Kevlar, 40%" slot="1" transform_on_consume="kevlar_0" time_to_live_out_in_the_open="60.0" draggable="0">
         <hud_icon filename="hud_kevlar_40.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="4" price="2" />
@@ -64,7 +64,7 @@
         <modifier class="speed" value="-0.05" />
     </carry_item>
 
-    <carry_item key="kevlar_0" name="Kevlar, 20%" slot="1" transform_on_consume="kev_health" time_to_live_out_in_the_open="60.0">
+    <carry_item key="kevlar_0" name="Kevlar, 20%" slot="1" transform_on_consume="kev_health" time_to_live_out_in_the_open="60.0" draggable="0">
         <hud_icon filename="hud_kevlar_20.png" />
         <capacity value="1" source="rank" source_value="0.0" />
         <inventory encumbrance="4" price="0" />

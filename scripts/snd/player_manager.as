@@ -129,7 +129,6 @@ class SNDPlayerStore {
 class PlayerTracker : Tracker {
 	protected GameModeSND@ m_metagame;
 
-	protected array<uint> factionPlayers = {0, 0}; 	// stores the number of active, alive players per faction
 	protected dictionary cidTosid = {};				// maps player character_ids to SIDs
 
 	protected string FILENAME = "snd_players.xml";	// file name to store player data in
@@ -291,7 +290,7 @@ class PlayerTracker : Tracker {
 			}
 
 			// increment live player count for faction
-			updateFactionPlayerCounts(player.getIntAttribute("faction_id"), 1);
+			m_metagame.updateFactionPlayerCount(player.getIntAttribute("faction_id"), 1);
 		}
 	}
 
@@ -308,7 +307,7 @@ class PlayerTracker : Tracker {
 		// which faction were they playing as?
 		int dcPlayerFaction = disconn.getIntAttribute("faction_id");
 		// decrement live player count for faction
-		updateFactionPlayerCounts(disconn.getIntAttribute("faction_id"), -1);
+		m_metagame.updateFactionPlayerCount(disconn.getIntAttribute("faction_id"), -1);
 	}
 
 	// ----------------------------------------------------
@@ -426,7 +425,7 @@ class PlayerTracker : Tracker {
 			deadPlayerObj.m_armour = "";
 		}
 
-		updateFactionPlayerCounts(deadPlayer.getIntAttribute("faction_id"), -1);
+		m_metagame.updateFactionPlayerCount(deadPlayer.getIntAttribute("faction_id"), -1);
 	}
 
 	// ----------------------------------------------------
@@ -555,60 +554,6 @@ class PlayerTracker : Tracker {
 						default:
 							_log("** SND: WARNING! untracked slot " + k + "!", 1);
 					}
-				}
-			}
-		}
-	}
-
-	// ----------------------------------------------------
-	protected void updateFactionPlayerCounts(uint faction, int num) {
-		if (factionPlayers[faction] + num > 0) {
-			factionPlayers[faction] += num;
-			_log("** SND: faction " + faction + " has " + factionPlayers[faction] + " players alive", 1);
-		} else {
-			// first check we're still tracking character deaths
-			if (!m_metagame.getTrackPlayerDeaths()) {
-				// we're not. Bail.
-				return;
-			}
-			// next, check if the current match type has issued a match end override condition (e.g. bomb planted or VIP still alive)
-			if (m_metagame.getMatchEndOverride()) {
-				// it has, no attrition ending allowed for this round, bail.
-				return;
-			}
-
-			// otherwise, we have come to a win/lose event.
-			// stop tracking further player deaths
-			m_metagame.setTrackPlayerDeaths(false);
-
-			_log("** SND: faction " + faction + " has run out of live players. Lose round!", 1);
-			string winLoseCmd = "";
-			array<Faction@> allFactions = m_metagame.getFactions();
-			for (uint f = 0; f < allFactions.length(); ++f) {
-				// in this case, the faction sent to this method is the losing faction (no living players remain)
-				if (f == faction) {
-					winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' lose='1'></command>";
-					array<int> losingTeamCharIds = m_metagame.getFactionPlayerCharacterIds(f);
-					for (uint i = 0; i < losingTeamCharIds.length() ; ++i) {
-						string rewardLosingTeamChar = "<command class='rp_reward' character_id='" + losingTeamCharIds[i] + "' reward='900'></command>"; // " + (900 + (consecutive * 500)) + " // up to a max of 3400 / round
-						m_metagame.getComms().send(rewardLosingTeamChar);
-						m_metagame.addRP(losingTeamCharIds[i], 900);
-					}
-				} else {
-					winLoseCmd = "<command class='set_match_status' faction_id='" + f + "' win='1'></command>";
-					array<int> winningTeamCharIds = m_metagame.getFactionPlayerCharacterIds(f);
-					for (uint i = 0; i < winningTeamCharIds.length() ; ++i) {
-						string rewardWinningTeamChar = "<command class='rp_reward' character_id='" + winningTeamCharIds[i] + "' reward='3250'></command>";
-						m_metagame.getComms().send(rewardWinningTeamChar);
-						m_metagame.addRP(winningTeamCharIds[i], 3250);
-					}
-				}
-				m_metagame.getComms().send(winLoseCmd);
-				// sound byte to advise which team won
-				if (faction == 0) {
-					playSound(m_metagame, "terwin.wav", f);
-				} else if (faction == 1) {
-					playSound(m_metagame, "ctwin.wav", f);
 				}
 			}
 		}
