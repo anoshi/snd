@@ -58,11 +58,11 @@ class WarmupSubStage : SubStage {
 		// get player count
 		int players = getPlayerCount(m_metagame);
 		if (players >= m_minimumPlayers) {
-			announce(players + " players in, warm up is over, about to begin");
+			announce(players + " player" + (players == 1 ? "" : "s") + " in, warm up is over, about to begin");
 			end();
 		} else {
 			int diff = m_minimumPlayers - players;
-			announce(players + " players in, " + diff + " needed to begin");
+			announce(players + " player" + (players == 1 ? "" : "s") + " in, " + diff + " needed to begin");
 		}
 	}
 

@@ -247,8 +247,8 @@ class VIPTracker : Tracker {
 	}
 
 	// -------------------------------------------
-	protected bool isCTPlayerAlive() {
-		if (m_metagame.getFactionPlayerCount(0) > 0) {
+	protected bool isFactionPlayerAlive(uint faction) {
+		if (m_metagame.getFactionPlayerCount(faction) > 0) {
 			return true;
 		}
 		return false;
@@ -305,8 +305,13 @@ class VIPTracker : Tracker {
 				}
 			}
 			if (vipAloneCheckTimer < 0.0) {
-				if (!isCTPlayerAlive()) {
+				if (!isFactionPlayerAlive(0)) {
+					_log("** SND: Only VIP alive on CT team, mark location to all players", 1);
 					markVIPPosition(getVIPPosition(), 1, true);
+				}
+				if ((!isFactionPlayerAlive(0)) && (!isFactionPlayerAlive(1))) {
+					_log("** SND: Only VIP left alive in the round, allow CT win but no escape bonus", 1);
+					winRound(0);
 				}
 				vipAloneCheckTimer = VIP_ALONE_UPDATE_TIME;
 			}
