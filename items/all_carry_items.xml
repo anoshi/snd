@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <carry_items>
 	<!-- Common Items -->
+	<carry_item file="std_armour.carry_item" />
 	<carry_item file="kevlar.carry_item" />
 	<carry_item file="kevlar_plus_helmet.carry_item" />
+	<carry_item file="hostage_armour.carry_item" />
 	<carry_item file="vip_armour.carry_item" />
 </carry_items>

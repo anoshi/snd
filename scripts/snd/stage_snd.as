@@ -105,7 +105,9 @@ class Stage {
 		_log("Stage::start");
 
 		m_metagame.setMapInfo(m_mapInfo);
-
+		for (uint i = 0; i < m_factionConfigs.length(); ++i) {
+			m_metagame.setFactionPlayerCount(i, 0);
+		}
 		SubStage@ substage = getCurrentSubStage();
 
 		// call substage to start the match
@@ -153,6 +155,9 @@ class Stage {
 			m_mapRotator.stageEnded();
 		} else {
 			_log("next substage: " + m_currentSubStageIndex);
+			// if index is 1, reset all player's XP and RP to starting values
+			bool isFirstSubStage = m_currentSubStageIndex == 1;
+			m_metagame.setIsFirstSubStage(isFirstSubStage);
 			start();
 		}
 	}

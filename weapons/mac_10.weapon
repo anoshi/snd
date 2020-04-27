@@ -43,7 +43,7 @@
     <hud_icon filename="hud_mac10.png" />
 
     <projectile file="bullet.projectile">
-        <result class="hit" kill_probability="0.45" kill_decay_start_time="0.28" kill_decay_end_time="0.40" />
+        <result class="hit" kill_probability="2.9" kill_decay_start_time="0.28" kill_decay_end_time="0.40" />
     </projectile>
 
     <stance state_key="running" accuracy="0.45" />

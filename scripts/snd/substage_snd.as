@@ -69,7 +69,8 @@ abstract class SubStage : Tracker {
 			m_metagame.getComms().send(command);
 		}
 
-		m_metagame.preBeginMatch();
+		m_metagame.preBeginMatch(); // clears trackers, tasks, etc.
+
 		m_match.start();
 
 		// substage itself is a tracker, add it
@@ -95,6 +96,7 @@ abstract class SubStage : Tracker {
 
 	// --------------------------------------------
    	protected void setWinner(int winner) {
+		// (as|de|hr)_substage.as files pass winner to this method
 		m_winner = winner;
 	}
 
@@ -116,14 +118,21 @@ abstract class SubStage : Tracker {
 			sendFactionMessage(m_metagame, -1, "round winner " + faction.m_config.m_name + "!");
 		} else {
 			sendFactionMessage(m_metagame, -1, "the round is drawn");
-			// sound bytes for ct / terrorist wins are fired via (bomb|hostage|vip)_tracker.as
-			for (uint f = 0; f < m_match.m_factions.length(); ++f) {
-				playSound(m_metagame, "rounddraw.wav", f);
-			}
 		}
 
-		// finalise round scoring (RP rewards etc) and save out stats, ready to load for persistence into next subStage
-		m_metagame.save();
+		string winWav = "";
+		switch (m_winner) {
+			case 0:
+				winWav = "ctwin.wav";
+				break;
+			case 1:
+				winWav = "terwin.wav";
+				break;
+			default:
+				winWav = "rounddraw.wav";
+		}
+		playSound(m_metagame, winWav, -1);
+
 		// remove trackers added by this substage in order to make after-game events not register as game events
 		for (uint i = 0; i < m_trackers.length(); ++i) {
 			m_metagame.removeTracker(m_trackers[i]);

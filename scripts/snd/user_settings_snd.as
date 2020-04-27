@@ -19,9 +19,11 @@ class UserSettings {
     float m_rpFactor = 1.0;
     bool m_fov = true;
 
-	float m_initialXp = 0.0;	// XP is only used to allow CTs to add hostages and VIP to team
-	int m_initialRp = 0;		// PlayerTracker assigns RP to each player on spawn
-	int m_maxRp = 16000;		// hard limit on RP, as per CS
+	float m_initialXp = 0.2000;				// XP is only used to allow CTs to add hostages and VIP to team
+	int m_initialRp = 800;					// PlayerTracker assigns RP to each player on spawn
+	int m_maxRp = 16000;					// hard limit on RP, as per CS
+	int m_initialMediShots = 3;				// players start each round with this many medi_shots
+	string m_initialArmour = "std_armour"; 	// pvp healh system based on multi-layer vest as standard
 
     array<string> m_overlayPaths;
 

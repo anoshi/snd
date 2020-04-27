@@ -85,7 +85,6 @@ class Assassination : SubStage {
 
 		setWinner(winner);
 		m_playerTracker.save();
-		m_metagame.save();
 		end();
 	}
 

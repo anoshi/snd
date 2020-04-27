@@ -84,7 +84,7 @@
   <parameter class="night_reaction_time_to_fight_min" value="59.0" />
   <parameter class="night_reaction_time_to_fight_max" value="60.0" />
   <parameter class="willingness_to_guard" value="1.0" />
-  <parameter class="guarding_comment_before_proceed_time" value="0.0" />
+  <parameter class="guarding_comment_before_proceed_time" value="1.0" />
   <parameter class="shielding_min_distance_to_move" value="4.0" />
   <parameter class="shielding_max_distance_to_move" value="7.0" />
   <parameter class="shielding_min_distance_to_sidestep" value="1.0" />

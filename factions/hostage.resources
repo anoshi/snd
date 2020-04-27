@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hostage-specific equipment -->
+<resources clear_weapons="1" clear_vehicles="1" clear_calls="1">
+	<!-- Armour -->
+	<carry_item key="hostage_armour.carry_item" enabled="1" />
+</resources>

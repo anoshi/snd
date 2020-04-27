@@ -38,7 +38,6 @@
 
     <hud_icon filename="hud_snd_snips.png" />
     <commonness value="0.0" can_respawn_with="0" in_stock="1" />
-    <inventory encumbrance="10.0" price="0.0" />
 
     <modifier class="speed" value="+0.00" />
 </weapon>
