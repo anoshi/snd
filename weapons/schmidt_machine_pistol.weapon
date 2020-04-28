@@ -30,7 +30,7 @@
     <hud_icon filename="hud_tmp.png" />
 
     <projectile file="bullet.projectile">
-      <result class="hit" kill_probability="2.4" kill_decay_start_time="0.24" kill_decay_end_time="0.36" />
+      <result class="hit" kill_probability="2.6" kill_decay_start_time="0.24" kill_decay_end_time="0.36" />
     </projectile>
     <modifier class="speed" value="+0.0" />
 </weapon>
