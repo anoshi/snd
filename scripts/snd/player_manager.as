@@ -308,21 +308,23 @@ class PlayerTracker : Tracker {
 		const XmlElement@ disconn = event.getFirstElementByTagName("player");
 		if (disconn !is null) {
 			string key = disconn.getStringAttribute("sid");
-			if (key != "ID0") {
-				handlePlayerDisconnect(key);
+			// decrement live player count for faction (if dc'd player was not dead)
+			const XmlElement@ dcCharId = getCharacterInfo(m_metagame, disconn.getIntAttribute("character_id"));
+			if (dcCharId.getIntAttribute("dead") != 1) {
+				int dcPlayerFaction = disconn.getIntAttribute("faction_id");
+				m_metagame.updateFactionPlayerCount(disconn.getIntAttribute("faction_id"), -1);
 			}
+			handlePlayerDisconnect(key);
 		}
-		// which faction were they playing as?
-		int dcPlayerFaction = disconn.getIntAttribute("faction_id");
-		// decrement live player count for faction
-		m_metagame.updateFactionPlayerCount(disconn.getIntAttribute("faction_id"), -1);
 	}
 
 	// ----------------------------------------------------
 	protected void handlePlayerDisconnect(string key) {
 		if (m_trackedPlayers.exists(key)) {
 			SNDPlayer@ p = m_trackedPlayers.get(key);
-			_log("** SND: PlayerTracker tracked player disconnected, player=" + p.m_username);
+			_log("** SND: Tracked player " +  p.m_username + " disconnected", 1);
+			flushPendingDropEvents();
+			flushPendingRewards();
 			m_savedPlayers.add(p);
 			m_trackedPlayers.remove(p);
 
