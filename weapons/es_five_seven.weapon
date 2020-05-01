@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<weapon file="base_secondary_sidearm.weapon" key="es_five_seven.weapon">
+<weapon file="base_pistol.weapon" key="es_five_seven.weapon">
     <tag name="pistol" />
     <specification
         retrigger_time="0.30"
@@ -49,15 +49,5 @@
 		kill_decay_start_time="0.32"
 		kill_decay_end_time="0.38" />
     </projectile>
-
-    <stance state_key="running" accuracy="0.4" />
-    <stance state_key="walking" accuracy="0.5" />
-    <stance state_key="crouch_moving" accuracy="0.6" />
-    <stance state_key="prone_moving" accuracy="0.6" />
-
-    <stance state_key="standing" accuracy="0.85" />
-    <stance state_key="crouching" accuracy="0.95" />
-    <stance state_key="prone" accuracy="0.95" />
-    <modifier class="speed" value="+0.0" />
 
 </weapon>

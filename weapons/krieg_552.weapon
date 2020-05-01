@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<weapon file="base_primary.weapon" key="krieg_552.weapon">
+<weapon file="base_assault.weapon" key="krieg_552.weapon">
   <tag name="assault" />
   <specification
     retrigger_time="0.090"
@@ -34,7 +34,8 @@
 
     <weak_hand_hold offset="0.0" />
     <projectile file="bullet.projectile">
-        <result class="hit"  kill_probability="3.23" kill_decay_start_time="0.33" kill_decay_end_time="0.68" />
+      <result class="hit"  kill_probability="3.23" kill_decay_start_time="0.33" kill_decay_end_time="0.68" />
     </projectile>
+
     <modifier class="speed" value="-0.00" />
 </weapon>
