@@ -180,7 +180,7 @@ class PlayerTracker : Tracker {
 				// we want to allow "ID0" (local player) to join for local testing but not if the game is being run online
 				// "ID0" is also a player who hasn't logged into steam. Ignore connects from "ID0" if anyone is already in the server
 				if (key == "ID0") {
-					_log("** SND: Local or non-steam player connected", 1);
+					_log("** SND: WARNING: Local or non-steam player connected", 1);
 					if (m_trackedPlayers.size() > 0) {
 						_log("** SND: Online server active, must be connected to steam to play! Connection attempt rejected!", 1);
 						kickPlayer(m_metagame, connId);
