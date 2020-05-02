@@ -1,5 +1,7 @@
 # SEARCH AND DESTROY
 
+[SnD](https://steamcommunity.com/sharedfiles/filedetails/?id=1869880394) is a mod for the PC/Mac/Linux game [Running With Rifles](https://store.steampowered.com/app/270150/RUNNING_WITH_RIFLES/)
+
 This campaign-only game mode is based on Counter Strike's Bomb Defusal, Hostage Rescue, and Assassination missions.
 
 **Demolition** stages see Terrorists planting a bomb in one of two target areas. The Counter Terrorists must find and disarm it before it detonates.
