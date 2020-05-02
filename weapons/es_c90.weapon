@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<weapon file="base_primary.weapon" key="es_c90.weapon">
+<weapon file="base_smg.weapon" key="es_c90.weapon">
     <tag name="smg" />
     <specification
         retrigger_time="0.07"

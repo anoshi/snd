@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<weapon file="base_primary.weapon" key="maverick_m4a1_carbine.weapon">
+<weapon file="base_assault.weapon" key="maverick_m4a1_carbine.weapon">
   <tag name="assault" />
   <specification
     retrigger_time="0.09"
@@ -38,15 +38,6 @@
     <projectile file="bullet.projectile">
       <result class="hit" kill_probability="3.5" kill_decay_start_time="0.34" kill_decay_end_time="0.67" />
     </projectile>
-
-    <stance state_key="running" accuracy="0.3" />
-    <stance state_key="walking" accuracy="0.675" />
-    <stance state_key="crouch_moving" accuracy="0.75" />
-    <stance state_key="prone_moving" accuracy="0.3" />
-
-    <stance state_key="standing" accuracy="0.85" />
-    <stance state_key="crouching" accuracy="0.9" />
-    <stance state_key="prone" accuracy="0.93" />
 
     <modifier class="speed" value="-0.036" />
 </weapon>

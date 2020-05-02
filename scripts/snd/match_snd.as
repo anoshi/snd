@@ -45,6 +45,7 @@ class Match {
 		command.setBoolAttribute("clear_profiles_at_start", true);
 		command.setBoolAttribute("fov", true);
         command.setBoolAttribute("ensure_alive_local_player_for_save", false);
+		command.setBoolAttribute("allow_spawn_point_selection", false);
 
 		if (m_defenseWinTime >= 0) {
 			command.setFloatAttribute("defense_win_time", m_defenseWinTime);

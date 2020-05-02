@@ -177,34 +177,42 @@ class PlayerTracker : Tracker {
 			if (int(m_trackedPlayers.size()) < m_metagame.getUserSettings().m_maxPlayers) {
 				_log("** SND: Player " + connName + " has joined. " + (m_metagame.getUserSettings().m_maxPlayers - int(m_trackedPlayers.size() + 1)) + " seats left in server", 1);
 
-				// if (key != "ID0") { // local player receives ID0
-					if (m_savedPlayers.exists(key)) {
-						SNDPlayer@ aPlayer;
-						@aPlayer = m_savedPlayers.get(key);
-						_log("** SND: known player " + aPlayer.m_username + " rejoining server", 1);
-						// sanity check the known player's RP and XP
-						_log("\t RP: " + aPlayer.m_rp, 1);
-						_log("\t XP: " + aPlayer.m_xp, 1);
-						_log("\t Pri: " + aPlayer.m_primary, 1);
-						_log("\t Sec: " + aPlayer.m_secondary, 1);
-						if (aPlayer.m_grenNum > 0) {
-							_log("\t Gre: " + aPlayer.m_gren, 1);
-							_log("\t Num: " + aPlayer.m_grenNum, 1);
-						}
-						_log("\t Arm: " + aPlayer.m_armour, 1);
-						aPlayer.m_username = connName;
-						aPlayer.m_ip = connIp;
-						aPlayer.m_playerId = connId;
-						m_trackedPlayers.add(aPlayer);
-						m_savedPlayers.remove(aPlayer);
-					} else {
-						// assign stock starter kit
-						SNDPlayer@ aPlayer = SNDPlayer(connName, connHash, key, connIp, connId);
-						_log("** SND: Unknown/new player " + aPlayer.m_username + " joining server", 1);
-						// set RP and XP for new players
-						assignDefaults(aPlayer);
-						m_trackedPlayers.add(aPlayer);
+				// we want to allow "ID0" (local player) to join for local testing but not if the game is being run online
+				// "ID0" is also a player who hasn't logged into steam. Ignore connects from "ID0" if anyone is already in the server
+				if (key == "ID0") {
+					_log("** SND: WARNING: Local or non-steam player connected", 1);
+					if (m_trackedPlayers.size() > 0) {
+						_log("** SND: Online server active, must be connected to steam to play! Connection attempt rejected!", 1);
+						kickPlayer(m_metagame, connId);
 					}
+				}
+				if (m_savedPlayers.exists(key)) {
+					SNDPlayer@ aPlayer;
+					@aPlayer = m_savedPlayers.get(key);
+					_log("** SND: known player " + aPlayer.m_username + " rejoining server", 1);
+					// sanity check the known player's RP and XP
+					_log("\t RP: " + aPlayer.m_rp, 1);
+					_log("\t XP: " + aPlayer.m_xp, 1);
+					_log("\t Pri: " + aPlayer.m_primary, 1);
+					_log("\t Sec: " + aPlayer.m_secondary, 1);
+					if (aPlayer.m_grenNum > 0) {
+						_log("\t Gre: " + aPlayer.m_gren, 1);
+						_log("\t Num: " + aPlayer.m_grenNum, 1);
+					}
+					_log("\t Arm: " + aPlayer.m_armour, 1);
+					aPlayer.m_username = connName;
+					aPlayer.m_ip = connIp;
+					aPlayer.m_playerId = connId;
+					m_trackedPlayers.add(aPlayer);
+					m_savedPlayers.remove(aPlayer);
+				} else {
+					// assign stock starter kit
+					SNDPlayer@ aPlayer = SNDPlayer(connName, connHash, key, connIp, connId);
+					_log("** SND: Unknown/new player " + aPlayer.m_username + " joining server", 1);
+					// set RP and XP for new players
+					assignDefaults(aPlayer);
+					m_trackedPlayers.add(aPlayer);
+				}
 				// } else {
 				// 	_log("** SND: player with ID0 connected. Will not be tracked", 1);
 				// }
@@ -308,21 +316,23 @@ class PlayerTracker : Tracker {
 		const XmlElement@ disconn = event.getFirstElementByTagName("player");
 		if (disconn !is null) {
 			string key = disconn.getStringAttribute("sid");
-			if (key != "ID0") {
-				handlePlayerDisconnect(key);
+			// decrement live player count for faction (if dc'd player was not dead)
+			const XmlElement@ dcCharId = getCharacterInfo(m_metagame, disconn.getIntAttribute("character_id"));
+			if (dcCharId.getIntAttribute("dead") != 1) {
+				int dcPlayerFaction = disconn.getIntAttribute("faction_id");
+				m_metagame.updateFactionPlayerCount(disconn.getIntAttribute("faction_id"), -1);
 			}
+			handlePlayerDisconnect(key);
 		}
-		// which faction were they playing as?
-		int dcPlayerFaction = disconn.getIntAttribute("faction_id");
-		// decrement live player count for faction
-		m_metagame.updateFactionPlayerCount(disconn.getIntAttribute("faction_id"), -1);
 	}
 
 	// ----------------------------------------------------
 	protected void handlePlayerDisconnect(string key) {
 		if (m_trackedPlayers.exists(key)) {
 			SNDPlayer@ p = m_trackedPlayers.get(key);
-			_log("** SND: PlayerTracker tracked player disconnected, player=" + p.m_username);
+			_log("** SND: Tracked player " +  p.m_username + " disconnected", 1);
+			flushPendingDropEvents();
+			flushPendingRewards();
 			m_savedPlayers.add(p);
 			m_trackedPlayers.remove(p);
 
