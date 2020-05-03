@@ -3907,7 +3907,7 @@
       <position x="6.702471" y="0.575158" z="0.994268" />
     </frame>
   </animation>
-  <animation loop="0" end="1.000000" speed="0.500000" comment="stunned">
+  <animation loop="0" end="1.000000" speed="0.400000" comment="stunned">
     <frame time="0.000000">
       <position x="0.503854" y="54.817398" z="3.532193" />
       <position x="0.475347" y="48.167961" z="1.344918" />
