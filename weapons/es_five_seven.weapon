@@ -13,7 +13,7 @@
         name="ES Five-seven"
         class="4"
         reload_one_at_a_time="0"
-        sight_range_modifier="1.0"
+        sight_range_modifier="0.81"
         projectile_speed="160.0"
         projectiles_per_shot="1"
         burst_shots="1"
@@ -44,8 +44,8 @@
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.1" />
     <projectile file="bullet.projectile">
-        <result class="hit"
-		kill_probability="2.60"
+      <result class="hit"
+		kill_probability="3.20"
 		kill_decay_start_time="0.32"
 		kill_decay_end_time="0.38" />
     </projectile>
