@@ -18,6 +18,4 @@
 		player_damage_modifier="0" />
 	<server_options
 		show_available_factions="1" />
-	<match_options
-		disable_fov_when_dead="1" />
 </package>
