@@ -25,6 +25,7 @@ class VIPTracker : Tracker {
 	// --------------------------------------------
 	void start() {
 		_log("** SND: starting VIPTracker tracker", 1);
+		m_metagame.setMatchEndOverride(); // cannot win a VIP mission if the VIP is alive or has not escaped!
 		string trackCharSpawn = "<command class='set_metagame_event' name='character_spawn' enabled='1' />";
 		m_metagame.getComms().send(trackCharSpawn);
 		string trackCharKill = "<command class='set_metagame_event' name='character_kill' enabled='1' />";
@@ -74,7 +75,6 @@ class VIPTracker : Tracker {
 			playSound(m_metagame, "vip.wav", 0);
 			markVIPPosition(pos.toString());
 			inPlay = true;
-			m_metagame.setMatchEndOverride(); // cannot win a VIP mission if the VIP is alive or has not escaped!
 			_log("** SND: VIP has spawned near player " + charId + " at position: " + playerPos, 1);
 		}
 	}
