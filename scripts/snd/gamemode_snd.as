@@ -334,7 +334,7 @@ class GameModeSND : Metagame {
 			if (startsWith(arm, 'kevlar_plus_')) {
 				_log("** SND: Equipping Kevlar + Helmet", 1);
 				arm = "kevlar_plus_helmet.carry_item";
-			} else if (startsWith(arm, 'kevlar_')) {
+			} else if (startsWith(arm, 'kevlar.') || startsWith(arm, 'kevlar_')) {
 				_log("** SND: Equipping Kevlar", 1);
 				arm = "kevlar.carry_item";
 			} else {
