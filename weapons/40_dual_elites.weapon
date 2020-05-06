@@ -3,7 +3,7 @@
     <tag name="pistol" />
 	<specification
         retrigger_time="0.145"
-        accuracy_factor="0.55"
+        accuracy_factor="0.65"
         sustained_fire_grow_step="0.6"
         sustained_fire_diminish_rate="1.2"
         magazine_size="30"
@@ -13,7 +13,7 @@
         name=".40 Dual Elites"
         class="0"
         reload_one_at_a_time="0"
-        sight_range_modifier="1.0"
+        sight_range_modifier="0.8"
         projectile_speed="118.0"
         projectiles_per_shot="2"
         barrel_offset="0.48"
@@ -52,7 +52,7 @@
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.1" />
     <projectile file="bullet.projectile">
-        <result class="hit"
+      <result class="hit"
 		kill_probability="3.8"
 		kill_decay_start_time="0.26"
 		kill_decay_end_time="0.35" />

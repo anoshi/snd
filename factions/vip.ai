@@ -28,7 +28,7 @@
   <parameter class="defending_authority_offset_to_join_squad" value="0.2" />
   <parameter class="value_increase_required_to_join_defend_squad" value="0.1" />
   <parameter class="favor_joining_player_squad_value_increase" value="0.9" />
-  <parameter class="favor_staying_in_current_player_squad_value_increase" value="0.5" />
+  <parameter class="favor_staying_in_current_player_squad_value_increase" value="1.0" />
   <parameter class="authority_margin" value="0.07" />
 
   <parameter class="monitor_enemies_max_dot_range" value="1.8" />

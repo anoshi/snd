@@ -30,7 +30,8 @@
     <hud_icon filename="hud_p90.png" />
 
     <projectile file="bullet.projectile">
-        <result class="hit" kill_probability="2.6"
+      <result class="hit"
+        kill_probability="2.7"
         kill_decay_start_time="0.32"
         kill_decay_end_time="0.44" />
     </projectile>

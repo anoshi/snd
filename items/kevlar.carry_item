@@ -3,7 +3,7 @@
     <carry_item key="kevlar.carry_item" name="Kevlar" slot="1" transform_on_consume="kevlar_3" time_to_live_out_in_the_open="60.0" draggable="1">
         <hud_icon filename="hud_kevlar.png" />
         <capacity value="1" source="rank" source_value="0.0" />
-        <inventory encumbrance="4" price="800" />
+        <inventory encumbrance="4" buy_price="800" sell_price="0.0" />
         <commonness value="0.0" in_stock="1" can_respawn_with="1" />
 	    <!-- blast or hit -> no effect -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="none" />
@@ -19,7 +19,7 @@
     <carry_item key="kevlar_3" name="Kevlar, 80%" slot="1" transform_on_consume="kevlar_2" time_to_live_out_in_the_open="60.0" draggable="0">
         <hud_icon filename="hud_kevlar_80.png" />
         <capacity value="1" source="rank" source_value="0.0" />
-        <inventory encumbrance="4" price="800" />
+        <inventory encumbrance="4" buy_price="800" sell_price="0.0" />
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
         <!-- blast or hit -> no effect -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="none" />
@@ -35,7 +35,7 @@
     <carry_item key="kevlar_2" name="Kevlar, 60%" slot="1" transform_on_consume="kevlar_1" time_to_live_out_in_the_open="60.0" draggable="0">
         <hud_icon filename="hud_kevlar_60.png" />
         <capacity value="1" source="rank" source_value="0.0" />
-        <inventory encumbrance="4" price="2" />
+        <inventory encumbrance="4" buy_price="2" sell_price="0.0" />
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
 	    <!-- blast -> stun, hit -> none -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="stun" />
@@ -51,7 +51,7 @@
     <carry_item key="kevlar_1" name="Kevlar, 40%" slot="1" transform_on_consume="kevlar_0" time_to_live_out_in_the_open="60.0" draggable="0">
         <hud_icon filename="hud_kevlar_40.png" />
         <capacity value="1" source="rank" source_value="0.0" />
-        <inventory encumbrance="4" price="2" />
+        <inventory encumbrance="4" buy_price="2" sell_price="0.0" />
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
 	    <!-- blast or melee -> stun, hit -> none -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="stun" />
@@ -67,7 +67,7 @@
     <carry_item key="kevlar_0" name="Kevlar, 20%" slot="1" transform_on_consume="kevlar_health" time_to_live_out_in_the_open="60.0" draggable="0">
         <hud_icon filename="hud_kevlar_20.png" />
         <capacity value="1" source="rank" source_value="0.0" />
-        <inventory encumbrance="4" price="0" />
+        <inventory encumbrance="4" buy_price="0" sell_price="0.0" />
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
 	    <!-- blast or melee -> stun, hit -> none -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="stun" />
@@ -80,7 +80,7 @@
     <carry_item key="kevlar_health" name="100% Health" slot="1" transform_on_consume="kevlar_health_3" time_to_live_out_in_the_open="0.0" draggable="0">
         <hud_icon filename="hud_health_100.png" />
         <capacity value="1" source="rank" source_value="0.0" />
-        <inventory encumbrance="0" price="0" />
+        <inventory encumbrance="0" buy_price="0" sell_price="0.0" />
         <commonness value="0.0" in_stock="0" can_respawn_with="1" />
         <!-- blast -> stun, hit -> none -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="stun" />
@@ -94,7 +94,7 @@
     <carry_item key="kevlar_health_3" name="80% Health" slot="1" transform_on_consume="kevlar_health_2" time_to_live_out_in_the_open="0.0" draggable="0">
         <hud_icon filename="hud_health_80.png" />
         <capacity value="1" source="rank" source_value="0.0" />
-        <inventory encumbrance="0" price="0" />
+        <inventory encumbrance="0" buy_price="0" sell_price="0.0" />
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
         <!-- blast -> stun, hit -> none -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="stun" />
@@ -108,7 +108,7 @@
     <carry_item key="kevlar_health_2" name="60% Health" slot="1" transform_on_consume="kevlar_health_1" time_to_live_out_in_the_open="0.0" draggable="0">
         <hud_icon filename="hud_health_60.png" />
         <capacity value="1" source="rank" source_value="0.0" />
-        <inventory encumbrance="0" price="0" />
+        <inventory encumbrance="0" buy_price="0" sell_price="0.0" />
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
         <!-- blast -> stun, hit -> none -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="stun" />
@@ -122,7 +122,7 @@
     <carry_item key="kevlar_health_1" name="40% Health" slot="1" transform_on_consume="kevlar_health_0" time_to_live_out_in_the_open="0.0" draggable="0">
         <hud_icon filename="hud_health_40.png" />
         <capacity value="1" source="rank" source_value="0.0" />
-        <inventory encumbrance="0" price="0" />
+        <inventory encumbrance="0" buy_price="0" sell_price="0.0" />
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
         <!-- blast -> stun, hit -> none -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="stun" />
@@ -136,7 +136,7 @@
     <carry_item key="kevlar_health_0" name="20% Health" slot="1" time_to_live_out_in_the_open="0.0" draggable="0">
         <hud_icon filename="hud_health_20.png" />
         <capacity value="1" source="rank" source_value="0.0" />
-        <inventory encumbrance="0" price="0" />
+        <inventory encumbrance="0" buy_price="0" sell_price="0.0" />
         <commonness value="0.0" in_stock="0" can_respawn_with="0" />
         <!-- blast or hit -> stun -->
         <modifier class="projectile_blast_result" input_character_state="death" output_character_state="stun" />

@@ -360,6 +360,10 @@ class PlayerTracker : Tracker {
 		// profile_hash=ID<10_numbers>				// profile_hash=ID<10_numbers>
 		// sid=ID0									// sid=ID0
 
+		if (!m_metagame.getTrackPlayerDeaths()) {
+			return;
+		}
+
 		const XmlElement@ playerKiller = event.getFirstElementByTagName("killer");
 		const XmlElement@ playerTarget = event.getFirstElementByTagName("target");
 

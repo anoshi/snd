@@ -13,8 +13,8 @@
         name="KM .45 TACTICAL"
         class="4"
         reload_one_at_a_time="0"
-        sight_range_modifier="1.0"
-        projectile_speed="93.0"
+        sight_range_modifier="0.79"
+        projectile_speed="111.0"
         projectiles_per_shot="1"
         burst_shots="1"
         slot="1"
@@ -46,10 +46,10 @@
     <projectiles_per_shot value="1" />
     <weak_hand_hold offset="0.1" />
     <projectile file="bullet.projectile">
-        <result class="hit"
-		kill_probability="3.0"
+      <result class="hit"
+		kill_probability="3.5"
 		kill_decay_start_time="0.3"
-		kill_decay_end_time="0.4"  />
+		kill_decay_end_time="0.4" />
     </projectile>
 
     <modifier class="speed" value="+0.0" />

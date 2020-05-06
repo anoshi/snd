@@ -115,9 +115,16 @@ class BombTracker : Tracker {
 					return bombPosition;
 				}
 			}
-			// We know who has the bomb, provide that character's position
+			// We know who has the bomb, make sure they are alive
 			const XmlElement@ bomberLoc = getCharacterInfo(m_metagame, bombCarrier);
 			string position = bomberLoc.getStringAttribute("position");
+			// Need to cover off case where bomb carrier was Team-killed and will not have dropped the bomb.
+			if (bomberLoc.getIntAttribute("dead") == 1) {
+				_log("** SND: Bomb carrier died but did not drop the bomb. Probably TKd. Creating a new bomb at location.", 1);
+				string newBombComm = "<command class='create_instance' faction_id='" + bombFaction + "' instance_class='grenade' instance_key='bomb.weapon' position='" + position + "' />";
+				m_metagame.getComms().send(newBombComm);
+				bombCarrier = -1;
+			}
 			bombPosition = position;
 			return bombPosition;
 		} else {
