@@ -104,6 +104,8 @@ class Stage {
 	void start() {
 		_log("Stage::start");
 
+		m_metagame.getComms().clearQueue();
+
 		m_metagame.setMapInfo(m_mapInfo);
 		for (uint i = 0; i < m_factionConfigs.length(); ++i) {
 			m_metagame.setFactionPlayerCount(i, 0);

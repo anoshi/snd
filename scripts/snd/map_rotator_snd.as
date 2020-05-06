@@ -186,9 +186,6 @@ class MapRotatorSND : MapRotator {
 			m_metagame.getComms().send(changeMapCommand);
 		}
 
-		// 0.12.5 clear previous map/stage's queue. Whatever happened there that may not have been dealt with is not relevant in this stage
-		m_metagame.getComms().clearQueue();
-
 		// note, get_start_game_command doesn't make sense in this rotator, and isn't used
 		stage.start();
 	}
