@@ -18,7 +18,7 @@ void main(dictionary@ inputData) {
 	settings.m_startServerCommand = """
 	 <command class='start_server'
 	 	server_name='Search and Destroy'
-	 	server_port='1666'
+	 	server_port='1234'
 	 	comment='PvP'
 	 	url=''
 	 	register_in_serverlist='1'
