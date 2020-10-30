@@ -273,7 +273,7 @@ class GameModeSND : Metagame {
 		// xp=0
 
 		// TagName=item amount=1 index=17 key=steyr_aug.weapon slot=0
-		// TagName=item amount=0 index=3 key=9x19mm_sidearm.weapon slot=1
+		// TagName=item amount=0 index=3 key=9x19mm_sidearm_burst.weapon slot=1
 		// TagName=item amount=1 index=3 key=hand_grenade.projectile slot=2
 		// TagName=item amount=0 index=-1 key= slot=4
 		// TagName=item amount=1 index=3 key=kevlar_plus_helmet.carry_item slot=5
@@ -301,7 +301,7 @@ class GameModeSND : Metagame {
 		if (newPlayer) {
 			// give the character appropriate starting kit for their faction
 			_log("** SND: Equipping player (id: " + characterId + ") with " + (faction == 0 ? 'Counter Terrorist' : 'Terrorist') + " starting gear", 1);
-			string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon') + "' /></command>";
+			string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + (faction == 0 ? 'km_45_tactical_silenced_free.weapon' : '9x19mm_sidearm_burst_free.weapon') + "' /></command>";
 			getComms().send(addSec);
 			string addArm = "<command class='update_inventory' character_id='" + characterId + "' container_type_id='4'><item class='carry_item' key='std_armour' /></command>";
 			getComms().send(addArm);
@@ -321,8 +321,8 @@ class GameModeSND : Metagame {
 				// player has a sidearm. no action required
 			} else {
 				// you always get a pistol if you aren't carrying one
-				_log("** SND: Character " + characterId + " has no sidearm. Granting a free " + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon'), 1);
-				string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + (faction == 0 ? 'km_45_tactical_free.weapon' : '9x19mm_sidearm_free.weapon') + "' /></command>";
+				_log("** SND: Character " + characterId + " has no sidearm. Granting a free " + (faction == 0 ? 'km_45_tactical_silenced_free.weapon' : '9x19mm_sidearm_burst_free.weapon'), 1);
+				string addSec = "<command class='update_inventory' character_id='" + characterId + "' container_type_class='backpack'><item class='weapon' key='" + (faction == 0 ? 'km_45_tactical_silenced_free.weapon' : '9x19mm_sidearm_burst_free.weapon') + "' /></command>";
 				getComms().send(addSec);
 			}
 			// grenades - equips into backpack even when container_type_id is used.
