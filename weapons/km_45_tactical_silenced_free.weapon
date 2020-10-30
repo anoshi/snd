@@ -22,6 +22,13 @@
 
     <next_in_chain key="km_45_tactical_free.weapon" share_ammo="1" />
 
+    <animation state_key="next_in_chain_out" animation_key="silencer change" />
+    <sound key="effect" fileref="usp_silencer_screw1.wav" pitch_variety="0.05" />
+    <sound key="effect" fileref="usp_silencer_screw2.wav" pitch_variety="0.05" />
+    <sound key="effect" fileref="usp_silencer_screw3.wav" pitch_variety="0.05" />
+    <sound key="effect" fileref="usp_silencer_screw4.wav" pitch_variety="0.05" />
+    <sound key="effect" fileref="usp_silencer_screw5.wav" pitch_variety="0.05" />
+
 	<animation state_key="recoil"	animation_key="recoil, pistol" />
     <animation state_key="reload"	animation_key="reloading, pistol" />
 	<animation state_key="hold"	animation_key="hold, pistol" />

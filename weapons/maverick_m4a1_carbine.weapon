@@ -17,6 +17,13 @@
 
     <next_in_chain key="maverick_m4a1_carbine_silenced.weapon" share_ammo="1" />
 
+    <animation state_key="next_in_chain_out" animation_key="silencer change" />
+    <sound key="effect" fileref="m4a1_silencer_screw1.wav" pitch_variety="0.05" />
+    <sound key="effect" fileref="m4a1_silencer_screw2.wav" pitch_variety="0.05" />
+    <sound key="effect" fileref="m4a1_silencer_screw3.wav" pitch_variety="0.05" />
+    <sound key="effect" fileref="m4a1_silencer_screw4.wav" pitch_variety="0.05" />
+    <sound key="effect" fileref="m4a1_silencer_screw5.wav" pitch_variety="0.05" />
+
     <animation key="recoil" ref="12" />
     <animation key="recoil" ref="13" />
     <animation key="recoil" ref="14" />
