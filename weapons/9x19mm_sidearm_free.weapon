@@ -16,9 +16,11 @@
         sight_range_modifier="0.79"
         projectile_speed="108.0"
         projectiles_per_shot="1"
-        burst_shots="3"
+        burst_shots="1"
         slot="1"
     />
+
+    <next_in_chain key="9x19mm_sidearm_burst_free.weapon" share_ammo="1" />
 
 	<animation state_key="recoil"	animation_key="recoil, pistol" />
     <animation state_key="reload"	animation_key="reloading, pistol" />

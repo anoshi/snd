@@ -27,7 +27,17 @@
 		<capacity value="1" source="rank" source_value="0.0" />
 		<inventory encumbrance="4.50" buy_price="0.0" sell_price="0.0" />
 	</weapon>
+	<weapon file="9x19mm_sidearm_burst_free.weapon">
+		<commonness value="0.0" can_respawn_with="0" in_stock="0" />
+		<capacity value="1" source="rank" source_value="0.0" />
+		<inventory encumbrance="4.50" buy_price="0.0" sell_price="0.0" />
+	</weapon>
 	<weapon file="km_45_tactical_free.weapon">
+		<commonness value="0.0" can_respawn_with="0" in_stock="0" />
+		<capacity value="1" source="rank" source_value="0.0" />
+		<inventory encumbrance="5.00" buy_price="0.0" sell_price="0.0" />
+	</weapon>
+	<weapon file="km_45_tactical_silenced_free.weapon">
 		<commonness value="0.0" can_respawn_with="0" in_stock="0" />
 		<capacity value="1" source="rank" source_value="0.0" />
 		<inventory encumbrance="5.00" buy_price="0.0" sell_price="0.0" />
@@ -42,11 +52,21 @@
 
 	<!-- Pistols -->
 	<weapon file="9x19mm_sidearm.weapon">
+		<commonness value="1.0" can_respawn_with="1" in_stock="0" />
+		<capacity value="1" source="rank" source_value="0.0" />
+		<inventory encumbrance="4.50" buy_price="400.0" sell_price="0.0" />
+	</weapon>
+	<weapon file="9x19mm_sidearm_burst.weapon">
 		<commonness value="1.0" can_respawn_with="1" in_stock="1" />
 		<capacity value="1" source="rank" source_value="0.0" />
 		<inventory encumbrance="4.50" buy_price="400.0" sell_price="0.0" />
 	</weapon>
 	<weapon file="km_45_tactical.weapon">
+		<commonness value="1.0" can_respawn_with="1" in_stock="0" />
+		<capacity value="1" source="rank" source_value="0.0" />
+		<inventory encumbrance="5.00" buy_price="500.0" sell_price="0.0" />
+	</weapon>
+	<weapon file="km_45_tactical_silenced.weapon">
 		<commonness value="1.0" can_respawn_with="1" in_stock="1" />
 		<capacity value="1" source="rank" source_value="0.0" />
 		<inventory encumbrance="5.00" buy_price="500.0" sell_price="0.0" />
@@ -73,7 +93,7 @@
 	</weapon>
 
 	<!-- VIP Only -->
-	<weapon file="km_45_tactical_pri.weapon">
+	<weapon file="km_45_tactical_silenced_pri.weapon">
 		<commonness value="1.0" can_respawn_with="0" in_stock="0" />
 		<capacity value="1" source="rank" source_value="0.0" />
 		<inventory encumbrance="5.00" buy_price="0.0" sell_price="0.0" />
@@ -130,6 +150,11 @@
 		<capacity value="1" source="rank" source_value="0.0" />
 		<inventory encumbrance="17.00" buy_price="2250.0" sell_price="0.0" />
 	</weapon>
+	<weapon file="clarion_556_burst.weapon">
+		<commonness value="0.0" can_respawn_with="1" in_stock="0" />
+		<capacity value="1" source="rank" source_value="0.0" />
+		<inventory encumbrance="17.00" buy_price="2250.0" sell_price="0.0" />
+	</weapon>
 	<weapon file="cv_47.weapon">
 		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
 		<capacity value="1" source="rank" source_value="0.0" />
@@ -137,6 +162,11 @@
 	</weapon>
 	<weapon file="maverick_m4a1_carbine.weapon">
 		<commonness value="0.0" can_respawn_with="1" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+		<inventory encumbrance="16.10" buy_price="3100.0" sell_price="0.0" />
+	</weapon>
+	<weapon file="maverick_m4a1_carbine_silenced.weapon" >
+		<commonness value="0.0" can_respawn_with="1" in_stock="0" />
 		<capacity value="1" source="rank" source_value="0.0" />
 		<inventory encumbrance="16.10" buy_price="3100.0" sell_price="0.0" />
 	</weapon>

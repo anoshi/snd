@@ -11,7 +11,9 @@
 
 	<!-- Pistols -->
 	<weapon key="9x19mm_sidearm.weapon" />
+	<weapon key="9x19mm_sidearm_burst.weapon" />
 	<weapon key="km_45_tactical.weapon" />
+	<weapon key="km_45_tactical_silenced.weapon" />
 	<weapon key="228_compact.weapon" />
 	<weapon key="night_hawk_50c.weapon" />
 

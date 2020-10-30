@@ -4,7 +4,7 @@
 	<!-- faction-specific vehicles (not listed in common.resources) -->
 
 	<!-- faction-specific STARTING weapon (see common.resources and all_weapons.xml for available weapons) -->
-	<weapon key="9x19mm_sidearm_free.weapon" />
+	<weapon key="9x19mm_sidearm_burst_free.weapon" />
 
 	<!-- faction-specific weapons (not listed in common.resources) -->
 	<!-- Pistols -->

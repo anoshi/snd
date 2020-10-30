@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<weapon file="base_pistol.weapon" key="9x19mm_sidearm.weapon" drop_count_factor_on_death="1.0">
+<weapon file="base_pistol.weapon" key="9x19mm_sidearm_burst_free.weapon" drop_count_factor_on_death="1.0">
     <tag name="pistol" />
     <specification
         retrigger_time="0.05"
@@ -16,11 +16,11 @@
         sight_range_modifier="0.79"
         projectile_speed="108.0"
         projectiles_per_shot="1"
-        burst_shots="1"
+        burst_shots="3"
         slot="1"
     />
 
-    <next_in_chain key="9x19mm_sidearm_burst.weapon" share_ammo="1" />
+    <next_in_chain key="9x19mm_sidearm_free.weapon" share_ammo="1" />
 
 	<animation state_key="recoil"	animation_key="recoil, pistol" />
     <animation state_key="reload"	animation_key="reloading, pistol" />

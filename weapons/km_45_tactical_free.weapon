@@ -9,7 +9,7 @@
         magazine_size="12"
         can_shoot_standing="1"
         carry_in_two_hands="0"
-        suppressed="1"
+        suppressed="0"
         name="KM .45 TACTICAL"
         class="4"
         reload_one_at_a_time="0"
@@ -19,6 +19,8 @@
         burst_shots="1"
         slot="1"
     />
+
+    <next_in_chain key="km_45_tactical_silenced_free.weapon" share_ammo="1" />
 
 	<animation state_key="recoil"	animation_key="recoil, pistol" />
     <animation state_key="reload"	animation_key="reloading, pistol" />
