@@ -1,4 +1,4 @@
-<vehicle name="" key="bomb_planted.vehicle" map_view_atlas_index="0" time_to_live="0.0" usable_for_cover="0" >
+<vehicle name="" key="bomb_planted.vehicle" map_view_atlas_index="-1" time_to_live="0.0" usable_for_cover="0" >
 	<!--
         a dummy vehicle that is created when a bomb is placed (via bomb.weapon).
 		Has a 0 TTL. On destroy, spawns a bomb_armed.vehicle in its place and
