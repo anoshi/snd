@@ -28,15 +28,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.9999999"
-     inkscape:cx="1021.7159"
-     inkscape:cy="879.01069"
+     inkscape:zoom="3.9999998"
+     inkscape:cx="1100.3484"
+     inkscape:cy="944.77566"
      inkscape:document-units="px"
-     inkscape:current-layer="layer30"
+     inkscape:current-layer="layer37"
      showgrid="true"
      inkscape:window-width="1680"
      inkscape:window-height="951"
-     inkscape:window-x="1060"
+     inkscape:window-x="1101"
      inkscape:window-y="335"
      inkscape:window-maximized="0"
      inkscape:snap-bbox="false"
@@ -8259,8 +8259,7 @@
        id="rect9344-6-8"
        style="display:inline;fill:#656565;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;enable-background:new">
       <desc
-         id="desc9346-4-7">type = tree; name = TreeBirch; 
-#detail_texture = birch.png;</desc>
+         id="desc9346-4-7">type = tree; name = TreeBirch; detail_texture = birch.png;</desc>
     </rect>
     <flowRoot
        transform="translate(533.35345,-13.442302)"
@@ -18453,11 +18452,11 @@ climbable = 0;</desc>
            inkscape:label="#path7943_platform"
            sodipodi:nodetypes="cccc">
           <desc
-             id="desc7945-4-0-2-6-8-7-8-0-8-3-5">type = deck_end; 
-height = 4.0; 
-wall_height = 0.6; 
-wall_template = StoneWallCastle1; 
-top_material = terrain; 
+             id="desc7945-4-0-2-6-8-7-8-0-8-3-5">type = deck_end;
+height = 4.0;
+wall_height = 0.6;
+wall_template = StoneWallCastle1;
+top_material = terrain;
 separator_height = 0.4;
 climbable = 0;
 </desc>
@@ -19587,7 +19586,7 @@ see_through = 0;</desc>
         <desc
            id="desc11945">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = asphalt.png; 
+texture0 = asphalt.png;
 offset = 0 -2.0 0;
 </desc>
         <title
@@ -19605,7 +19604,7 @@ offset = 0 -2.0 0;
         <desc
            id="desc11945-3">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = beton.png; 
+texture0 = beton.png;
 offset = 0 -1.40 0;
 </desc>
         <title
@@ -19623,7 +19622,7 @@ offset = 0 -1.40 0;
         <desc
            id="desc11945-3-8">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = beton.png; 
+texture0 = beton.png;
 offset = 0 -1.40 0;
 </desc>
         <title
@@ -19641,7 +19640,7 @@ offset = 0 -1.40 0;
         <desc
            id="desc11945-3-8-6">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = beton.png; 
+texture0 = beton.png;
 offset = 0 -1.40 0;
 </desc>
         <title
@@ -19659,7 +19658,7 @@ offset = 0 -1.40 0;
         <desc
            id="desc11945-3-8-6-2">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = beton.png; 
+texture0 = beton.png;
 offset = 0 -1.40 0;
 </desc>
         <title
@@ -19691,7 +19690,7 @@ offset = 0 -1.40 0;
         <desc
            id="desc11945-7">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = asphalt.png; 
+texture0 = asphalt.png;
 offset = 0 -2.60 0;</desc>
         <title
            id="title11947-88">stairs1</title>
@@ -19708,7 +19707,7 @@ offset = 0 -2.60 0;</desc>
         <desc
            id="desc11945-7-8">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = asphalt.png; 
+texture0 = asphalt.png;
 offset = 0 -2.60 0;
 </desc>
         <title
@@ -19899,7 +19898,7 @@ offset = 0 -2.00 0;
            id="desc11945-3-8-6-0-0">name = stairs1;
 mesh_name = stairs1.mesh;
 offset = 0 -1.8 0;
-texture0 = asphalt.png; 
+texture0 = asphalt.png;
 </desc>
         <title
            id="title11947-8-0-0-5-3">stairs1</title>
@@ -19916,7 +19915,7 @@ texture0 = asphalt.png;
         <desc
            id="desc11945-3-8-6-2-2-8">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = asphalt.png; 
+texture0 = asphalt.png;
 offset = 0 -1.8 0;
 </desc>
         <title
@@ -19934,7 +19933,7 @@ offset = 0 -1.8 0;
         <desc
            id="desc11945-3-8-6-2-9-7-7">name = stairs1;
 mesh_name = stairs1.mesh;
-texture0 = asphalt.png; 
+texture0 = asphalt.png;
 offset = 0 -1.80 0;
 </desc>
         <title
