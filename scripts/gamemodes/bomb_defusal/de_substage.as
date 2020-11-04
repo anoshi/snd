@@ -63,7 +63,7 @@ class BombDefusal : SubStage {
 		@m_targetLocations = TargetLocations(m_metagame, "de", positions);
 		addTracker(m_targetLocations);
 
-		// track the bomb
+		// add and track the bomb
 		@m_bombTracker = BombTracker(m_metagame);
 		addTracker(m_bombTracker);
 
@@ -104,7 +104,6 @@ class BombDefusal : SubStage {
 
 		setWinner(winner);
 		m_playerTracker.save();
-		m_metagame.save();
 		end();
 	}
 

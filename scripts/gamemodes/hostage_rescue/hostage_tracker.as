@@ -96,33 +96,19 @@ class HostageTracker : Tracker {
 		// key=9x19mm_sidearm.weapon
 		// method_hint=hit
 
-		// TagName=killer
-		// block=10 15
-		// dead=0
-		// faction_id=0
-		// id=3
-		// leader=1
-		// name=CT: 40
-		// player_id=0
-		// position=354.895 7.42591 530.407
-		// rp=800
-		// soldier_group_name=default
-		// wounded=0
-		// xp=0
-
-		// TagName=target
-		// block=9 15
-		// dead=0
-		// faction_id=0
-		// id=4
-		// leader=1
-		// name=CT: 83
-		// player_id=-1
-		// position=336.959 6.21743 533.692
-		// rp=0
-		// soldier_group_name=hostage
-		// wounded=0
-		// xp=0
+		// TagName=killer                         // TagName=target
+		// block=10 15                            // block=9 15
+		// dead=0                                 // dead=0
+		// faction_id=0                           // faction_id=0
+		// id=3                                   // id=4
+		// leader=1                               // leader=1
+		// name=CT: 40                            // name=CT: 83
+		// player_id=0                            // player_id=-1
+		// position=354.895 7.42591 530.407       // position=336.959 6.21743 533.692
+		// rp=800                                 // rp=0
+		// soldier_group_name=default             // soldier_group_name=hostage
+		// wounded=0                              // wounded=0
+		// xp=0                                   // xp=0
 
 		const XmlElement@ target = event.getFirstElementByTagName("target");
 		// only concerned with killed hostages
@@ -287,9 +273,13 @@ class HostageTracker : Tracker {
 
 	// --------------------------------------------
 	protected void winRound(uint faction, uint consecutive = 1) {
-
 		// Winning by Team Elimination 3250 RP
 		// Winning by Time Win (Hostage Rescue, T) 3000 RP
+
+		// sanity - can't win if tracker isn't running
+		if (!hasStarted()) {
+			return;
+		}
 
 		string winLoseCmd = "";
 		array<Faction@> allFactions = m_metagame.getFactions();
@@ -306,27 +296,21 @@ class HostageTracker : Tracker {
 				}
 			}
 			m_metagame.getComms().send(winLoseCmd);
-			// sound byte to advise which team won
-			if (faction == 0) {
-				playSound(m_metagame, "ctwin.wav", f);
-			} else if (faction == 1) {
-				playSound(m_metagame, "terwin.wav", f);
-			}
 		}
 		m_metagame.setTrackPlayerDeaths(false);
+		m_started = false;
 		m_metagame.setNumExtracted(0);
 	}
 
 	// --------------------------------------------
 	bool hasEnded() const {
-			// always on
-			return false;
+		// always on
+		return false;
 	}
 
 	// --------------------------------------------
 	bool hasStarted() const {
-			// always on
-			return m_started;
+		return m_started;
 	}
 
 	// --------------------------------------------

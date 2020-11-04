@@ -14,6 +14,32 @@ class MapRotatorSNDAll : MapRotatorSND {
 	}
 	// ------------------------------------------------------------------------------------------------
 	protected void setupStages() {
+
+		// array<uint> stages = {0, 1, 2};
+		// uint stageType;
+		// // random seed isn't initialised yet so this always generates the same order
+		// while (stages.length() > 0) {
+		// 	stageType = rand(0, stages.length() -1);
+		// 	switch (stages[stageType]) {
+		// 		case 0:
+		// 			setupPlaylist1();
+		// 			_log("** SND: loaded Assassination stages", 1);
+		// 			break;
+		// 		case 1:
+		// 			setupPlaylist2();
+		// 			_log("** SND: loaded Demolition stages", 1);
+		// 			break;
+		// 		case 2:
+		// 			setupPlaylist3();
+		// 			_log("** SND: loaded Hostage Rescue stages", 1);
+		// 			break;
+		// 		default:
+		// 			_log("** SND: stageType " + stageType + " does not exist, break.", 1);
+		// 			break;
+		// 	}
+		// 	stages.removeAt(stageType);
+		// }
+
 		setupPlaylist1();
 		setupPlaylist2();
 	}
@@ -52,7 +78,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_maxSoldiers = maxSoldiers;
 				match.m_soldierCapacityModel = "constant";
 				match.m_playerAiCompensation = 0;
-        		match.m_playerAiReduction = 2;
+				match.m_playerAiReduction = 2;
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
@@ -88,7 +114,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_maxSoldiers = maxSoldiers;
 				match.m_soldierCapacityModel = "constant";
 				match.m_playerAiCompensation = 0;
-        		match.m_playerAiReduction = 2;
+				match.m_playerAiReduction = 2;
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
@@ -121,7 +147,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_maxSoldiers = maxSoldiers;
 				match.m_soldierCapacityModel = "constant";
 				match.m_playerAiCompensation = 0;
-        		match.m_playerAiReduction = 2;
+				match.m_playerAiReduction = 2;
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
@@ -154,7 +180,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_maxSoldiers = maxSoldiers;
 				match.m_soldierCapacityModel = "constant";
 				match.m_playerAiCompensation = 0;
-        		match.m_playerAiReduction = 2;
+				match.m_playerAiReduction = 2;
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
@@ -187,7 +213,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_maxSoldiers = maxSoldiers;
 				match.m_soldierCapacityModel = "constant";
 				match.m_playerAiCompensation = 0;
-        		match.m_playerAiReduction = 2;
+				match.m_playerAiReduction = 2;
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
@@ -220,7 +246,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_maxSoldiers = maxSoldiers;
 				match.m_soldierCapacityModel = "constant";
 				match.m_playerAiCompensation = 0;
-        		match.m_playerAiReduction = 2;
+				match.m_playerAiReduction = 2;
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
@@ -315,7 +341,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_maxSoldiers = maxSoldiers;
 				match.m_soldierCapacityModel = "constant";
 				match.m_playerAiCompensation = 0;
-        		match.m_playerAiReduction = 2;
+				match.m_playerAiReduction = 2;
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
@@ -385,7 +411,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_maxSoldiers = maxSoldiers;
 				match.m_soldierCapacityModel = "constant";
 				match.m_playerAiCompensation = 0;
-        		match.m_playerAiReduction = 2;
+				match.m_playerAiReduction = 2;
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
@@ -418,7 +444,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_maxSoldiers = maxSoldiers;
 				match.m_soldierCapacityModel = "constant";
 				match.m_playerAiCompensation = 0;
-        		match.m_playerAiReduction = 2;
+				match.m_playerAiReduction = 2;
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
@@ -451,7 +477,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_maxSoldiers = maxSoldiers;
 				match.m_soldierCapacityModel = "constant";
 				match.m_playerAiCompensation = 0;
-        		match.m_playerAiReduction = 2;
+				match.m_playerAiReduction = 2;
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
@@ -484,7 +510,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_maxSoldiers = maxSoldiers;
 				match.m_soldierCapacityModel = "constant";
 				match.m_playerAiCompensation = 0;
-        		match.m_playerAiReduction = 2;
+				match.m_playerAiReduction = 2;
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);
@@ -518,7 +544,7 @@ class MapRotatorSNDAll : MapRotatorSND {
 				match.m_maxSoldiers = maxSoldiers;
 				match.m_soldierCapacityModel = "constant";
 				match.m_playerAiCompensation = 0;
-        		match.m_playerAiReduction = 2;
+				match.m_playerAiReduction = 2;
 				match.m_baseCaptureSystem = "none";
 				{
 					Faction@ faction = Faction(m_factionConfigs[0]);

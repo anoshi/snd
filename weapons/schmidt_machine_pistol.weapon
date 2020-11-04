@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<weapon file="base_primary.weapon" key="schmidt_machine_pistol.weapon">
+<weapon file="base_smg.weapon" key="schmidt_machine_pistol.weapon">
   <tag name="stealth" />
   <specification
     retrigger_time="0.0705"
     accuracy_factor="1.0"
     sustained_fire_grow_step="0.68"
-    sustained_fire_diminish_rate="2.0"
+    sustained_fire_diminish_rate="1.4"
     magazine_size="30"
     can_shoot_standing="1"
     suppressed="1"
@@ -30,7 +30,10 @@
     <hud_icon filename="hud_tmp.png" />
 
     <projectile file="bullet.projectile">
-      <result class="hit" kill_probability="0.36" kill_decay_start_time="0.24" kill_decay_end_time="0.36" />
+      <result class="hit"
+        kill_probability="2.7"
+        kill_decay_start_time="0.24"
+        kill_decay_end_time="0.36" />
     </projectile>
     <modifier class="speed" value="+0.0" />
 </weapon>

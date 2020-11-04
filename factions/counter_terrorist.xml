@@ -7,13 +7,6 @@
 	<!--chat_icon_commander_filename="counter_terrorist_chat_icon_commander.png"-->
 	<!--campaign_completion_icon_filename="counter_terrorist_campaign_win.png">-->
 
-	<!--
-	<campaign_completion>
-		<state key="default" icon_filename="counter_terrorist_campaign_win.png" />
-		<state key="lose" icon_filename="counter_terrorist_campaign_lose.png" />
-	</campaign_completion>
-	-->
-
 	<rank xp="0.0" name="">
 		<hud_icon filename="hud_rank0.png" />
 	</rank>
@@ -74,13 +67,13 @@
 		<character filename="hostage.character" />
 		<ai filename="hostage.ai" />
 		<model filename="soldier_hostage.xml" />
-		<resources clear_weapons="1" clear_vehicles="1" clear_calls="1" />
+		<resources filename="hostage.resources" />
 
 		<item_class_existence_config>
 			<!-- secondaries -->
 			<item_class_existence class="weapon" slot="1" probability="0.0" />
 			<!-- armour -->
-			<item_class_existence class="carry_item" slot="1" probability="0.0" />
+			<item_class_existence class="carry_item" slot="1" probability="1.0" />
 			<!-- backpack -->
 			<item_class_existence class="carry_item" slot="0" probability="0.0" />
 		</item_class_existence_config>

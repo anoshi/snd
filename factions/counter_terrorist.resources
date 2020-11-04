@@ -4,10 +4,11 @@
 	<!-- faction-specific vehicles (not listed in common.resources) -->
 
 	<!-- faction-specific STARTING weapon (see common.resources and all_weapons.xml for available weapons) -->
-	<weapon key="km_45_tactical_free.weapon" />
+	<weapon key="km_45_tactical_silenced_free.weapon" />
 
 	<!-- faction-specific weapons (not listed in common.resources) -->
 	<!-- Pistols -->
+	<weapon key="km_45_tactical_free.weapon" />
 	<weapon key="es_five_seven.weapon" />
 
 	<!-- Sub Machine Guns -->
@@ -17,8 +18,10 @@
 
 	<!-- Assault Rifles-->
 	<weapon key="maverick_m4a1_carbine.weapon" />
+	<weapon key="maverick_m4a1_carbine_silenced.weapon" />
 	<weapon key="bullpup.weapon" />
 	<weapon key="clarion_556.weapon" />
+	<weapon key="clarion_556_burst.weapon" />
 
 	<!-- Sniper Rifles -->
 	<weapon key="krieg_550_commando.weapon" />

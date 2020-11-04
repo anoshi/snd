@@ -6,10 +6,14 @@
 	<weapon key="bomb.weapon" />
 	<weapon key="wire_cutters.weapon" />
 	<weapon key="defusal_kit.weapon" />
+	<weapon key="medi_shot.weapon" />
+	<weapon key="medi_shot_free.weapon" />
 
 	<!-- Pistols -->
 	<weapon key="9x19mm_sidearm.weapon" />
+	<weapon key="9x19mm_sidearm_burst.weapon" />
 	<weapon key="km_45_tactical.weapon" />
+	<weapon key="km_45_tactical_silenced.weapon" />
 	<weapon key="228_compact.weapon" />
 	<weapon key="night_hawk_50c.weapon" />
 
@@ -33,6 +37,7 @@
 	<weapon key="m249.weapon" />
 
 	<!-- ALL CARRY ITEMS -->
+	<carry_item key="std_armour" enabled="1" />
 	<carry_item key="kevlar.carry_item" enabled="1" />
 	<carry_item key="kevlar_plus_helmet.carry_item" enabled="1" />
 	<carry_item key="vip_armour.carry_item" enabled="0" />

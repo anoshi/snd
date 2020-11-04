@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<weapon file="base_primary_shotgun.weapon" key="leone_12_gauge_super.weapon">
+<weapon file="base_shotgun.weapon" key="leone_12_gauge_super.weapon">
   <tag name="shotgun" />
   <specification
     retrigger_time="-1.0"
-    accuracy_factor="0.68"
+    accuracy_factor="0.8"
     sustained_fire_grow_step="2.0"
     sustained_fire_diminish_rate="0.6"
     magazine_size="8"
@@ -34,7 +34,10 @@
 
     <weak_hand_hold offset="0.2" />
     <projectile file="bullet.projectile">
-      <result class="hit" kill_probability="0.62" kill_decay_start_time="0.24" kill_decay_end_time="0.29" />
+      <result class="hit"
+        kill_probability="3.2"
+        kill_decay_start_time="0.24"
+        kill_decay_end_time="0.29" />
     </projectile>
 
     <modifier class="speed" value="-0.02" />

@@ -11,8 +11,11 @@ class VIPTracker : Tracker {
 	protected bool vipKilled = false;	// used to differentiate between the VIP being assassinated or dying in another manner
 	protected int theVIPId;				// the characterId of the VIP.
 
-	protected float VIP_POS_UPDATE_TIME = 5.0;	// how often the position of the VIP is checked
-	protected float vipPosUpdateTimer = 10.0;	// the time remaining until the next update
+	protected float VIP_POS_UPDATE_TIME = 5.0;		// how often the position of the VIP is checked
+	protected float vipPosUpdateTimer = 10.0;		// the time remaining until the next update
+	protected float VIP_ALONE_UPDATE_TIME = 20.0; 	// how often to check if the VIP is the only surviving CT
+	protected float vipAloneCheckTimer = 60.0;		// the time remaining until checking if the VIP is the only remaining CT
+													// if VIP is alone, mark his location to all factions to prevent hiding
 
 	// --------------------------------------------
 	VIPTracker(GameModeSND@ metagame) {
@@ -22,6 +25,7 @@ class VIPTracker : Tracker {
 	// --------------------------------------------
 	void start() {
 		_log("** SND: starting VIPTracker tracker", 1);
+		m_metagame.setMatchEndOverride(); // cannot win a VIP mission if the VIP is alive or has not escaped!
 		string trackCharSpawn = "<command class='set_metagame_event' name='character_spawn' enabled='1' />";
 		m_metagame.getComms().send(trackCharSpawn);
 		string trackCharKill = "<command class='set_metagame_event' name='character_kill' enabled='1' />";
@@ -242,8 +246,18 @@ class VIPTracker : Tracker {
 		winRound(0);
 	}
 
+	// -------------------------------------------
+	protected bool isFactionPlayerAlive(uint faction) {
+		if (m_metagame.getFactionPlayerCount(faction) > 0) {
+			return true;
+		}
+		return false;
+	}
+
 	// --------------------------------------------
 	protected void winRound(uint faction, uint consecutive = 1) {
+		// only get here after a win condition has been met. Ok to remove match end override.
+		m_metagame.setMatchEndOverride(false);
 		inPlay = false;
 		string winLoseCmd = "";
 		array<Faction@> allFactions = m_metagame.getFactions();
@@ -260,12 +274,6 @@ class VIPTracker : Tracker {
 				}
 			}
 			m_metagame.getComms().send(winLoseCmd);
-			// sound byte to advise which team won
-			if (faction == 0) {
-				playSound(m_metagame, "ctwin.wav", f);
-			} else if (faction == 1) {
-				playSound(m_metagame, "terwin.wav", f);
-			}
 		}
 		m_metagame.setTrackPlayerDeaths(false);
 		m_metagame.setNumExtracted(0);
@@ -287,13 +295,25 @@ class VIPTracker : Tracker {
 	void update(float time) {
 		if (inPlay) {
 			vipPosUpdateTimer -= time;
+			vipAloneCheckTimer -= time;
 			if (vipPosUpdateTimer < 0.0) {
 				if (m_metagame.getNumExtracted() > 0) {
 					vipEscaped();
 				} else {
-				markVIPPosition(getVIPPosition());
-				vipPosUpdateTimer = VIP_POS_UPDATE_TIME;
+					markVIPPosition(getVIPPosition());
+					vipPosUpdateTimer = VIP_POS_UPDATE_TIME;
 				}
+			}
+			if (vipAloneCheckTimer < 0.0) {
+				if (!isFactionPlayerAlive(0)) {
+					_log("** SND: Only VIP alive on CT team, mark location to all players", 1);
+					markVIPPosition(getVIPPosition(), 1, true);
+				}
+				if ((!isFactionPlayerAlive(0)) && (!isFactionPlayerAlive(1))) {
+					_log("** SND: Only VIP left alive in the round, allow CT win but no escape bonus", 1);
+					winRound(0);
+				}
+				vipAloneCheckTimer = VIP_ALONE_UPDATE_TIME;
 			}
 		}
 	}

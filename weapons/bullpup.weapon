@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<weapon file="base_primary.weapon" key="bullpup.weapon">
+<weapon file="base_assault.weapon" key="bullpup.weapon">
     <tag name="assault" />
     <specification
       retrigger_time="0.09"
@@ -32,7 +32,10 @@
     <hud_icon filename="hud_aug.png" />
 
     <projectile file="bullet.projectile">
-      <result class="hit" kill_probability="0.70" kill_decay_start_time="0.45" kill_decay_end_time="0.75" />
+      <result class="hit"
+        kill_probability="2.80"
+        kill_decay_start_time="0.45"
+        kill_decay_end_time="0.75" />
     </projectile>
 	<modifier class="speed" value="-0.04" />
 </weapon>

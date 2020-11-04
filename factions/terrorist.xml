@@ -7,13 +7,6 @@
 	<!--chat_icon_commander_filename="terrorist_chat_icon_commander.png"-->
 	<!--campaign_completion_icon_filename="terrorist_campaign_win.png">-->
 
-	<!--
-	<campaign_completion>
-		<state key="default" icon_filename="terrorist_campaign_win.png" />
-		<state key="lose" icon_filename="terrorist_campaign_lose.png" />
-	</campaign_completion>
-	-->
-
 	<rank xp="0.0" name="">
 		<hud_icon filename="hud_rank0.png" />
 	</rank>
