@@ -2,7 +2,6 @@
 #include "log.as"
 #include "helpers.as"
 #include "query_helpers.as"
-
 #include "snd_helpers.as"
 
 // --------------------------------------------
@@ -32,6 +31,7 @@ class BombTracker : Tracker {
 	void start() {
 		_log("** SND: starting BombTracker tracker", 1);
 		addBomb();
+		displayStageTypeHelp(m_metagame, "de");
 		m_metagame.setTrackPlayerDeaths(true);
 		m_started = true;
 	}

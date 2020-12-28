@@ -62,7 +62,7 @@ class WarmupSubStage : SubStage {
 			end();
 		} else {
 			int diff = m_minimumPlayers - players;
-			announce(players + " player" + (players == 1 ? "" : "s") + " in, " + diff + " needed to begin");
+			announce(players + " player" + (players == 1 ? "" : "s") + " in, " + diff + " more needed to begin (or type '/start' to play solo)");
 		}
 	}
 
