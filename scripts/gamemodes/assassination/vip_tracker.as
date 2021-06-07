@@ -2,6 +2,7 @@
 #include "log.as"
 #include "helpers.as"
 #include "query_helpers.as"
+#include "snd_helpers.as"
 
 // --------------------------------------------
 class VIPTracker : Tracker {
@@ -36,6 +37,7 @@ class VIPTracker : Tracker {
 		m_metagame.disableCommanderAI();
 		m_metagame.setNumExtracted(0);
 		addVIP(); // inPlay = true
+		displayStageTypeHelp(m_metagame, "as");
 		m_metagame.setTrackPlayerDeaths(true);
 		m_started = true;
 	}

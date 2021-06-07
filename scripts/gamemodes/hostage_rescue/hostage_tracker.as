@@ -38,6 +38,7 @@ class HostageTracker : Tracker {
 		m_metagame.setNumExtracted(0);
 		knownExtracted = m_metagame.getNumExtracted();
 		addHostages();
+		displayStageTypeHelp(m_metagame, "hr");
 		m_metagame.setTrackPlayerDeaths(true);
 		m_started = true;
 	}

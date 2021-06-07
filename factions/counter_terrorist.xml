@@ -32,9 +32,7 @@
 	<soldier name="default" spawn_score="0.0">
 		<character filename="common_male.character" />
 		<ai filename="default.ai" />
-
-    	<models file="counter_terrorist.models" />
-
+		<models file="counter_terrorist.models" />
 		<resources file="common.resources" />
 		<resources file="counter_terrorist.resources" />
 
