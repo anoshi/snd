@@ -3,6 +3,7 @@
 	<vehicle file="bomb_planted.vehicle" />
 	<vehicle file="bomb_armed.vehicle" protectors="0" soldier_capacity_offset="0" allow_ai_to_use="0" />
 	<vehicle file="bomb_defused.vehicle" />
+	<vehicle file="smoke_grenade_spawner.vehicle" />
 
 <!-- RWR vehicles -->
 	<vehicle file="humvee.vehicle" soldier_capacity_offset="0" />

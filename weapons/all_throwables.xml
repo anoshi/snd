@@ -3,6 +3,7 @@
 	<!-- Search and Destroy -->
 	<projectile file="bomb_armed.projectile" />
 	<projectile file="bomb.projectile" />
+	<projectile file="smoke_grenade_effect.projectile" /> <!-- provides the smoke grenade's effect only -->
 
 	<!-- Grenades -->
 	<projectile file="flashbang.projectile">
@@ -11,6 +12,11 @@
 		<inventory encumbrance="2.50" buy_price="200.0" sell_price="0.0" />
 	</projectile>
 	<projectile file="he_grenade.projectile">
+		<commonness value="0.0" can_respawn_with="0" in_stock="1" />
+		<capacity value="1" source="rank" source_value="0.0" />
+		<inventory encumbrance="2.50" buy_price="300.0" sell_price="0.0" />
+	</projectile>
+	<projectile file="smoke_grenade.projectile">
 		<commonness value="0.0" can_respawn_with="0" in_stock="1" />
 		<capacity value="1" source="rank" source_value="0.0" />
 		<inventory encumbrance="2.50" buy_price="300.0" sell_price="0.0" />
