@@ -1,6 +1,8 @@
 <vehicle name="" key="bomb_defused.vehicle" map_view_atlas_index="-1" time_to_live="0.0" usable_for_cover="0" >
-	<!-- a dummy vehicle that is created when a bomb is defused (via wire_cutters.weapon).
-		Has a 0 TTL. On destroy, triggers the handleVehicleDestroyEvent method (see trackers/bomb_tracker.as) -->
+	<!--
+		a dummy vehicle that is created when a bomb is defused (via wire_cutters.weapon).
+		Has a 0 TTL. On destroy, triggers the handleVehicleDestroyEvent method (see trackers/bomb_tracker.as)
+	-->
 	<tag name="dummy" />
 
 	<tire_set offset="0.85 0.0 1.54" radius="0.4" />
